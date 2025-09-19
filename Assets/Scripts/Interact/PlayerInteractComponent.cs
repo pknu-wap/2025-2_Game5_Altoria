@@ -25,10 +25,7 @@ public class PlayerInteractComponent : MonoBehaviour
         hitBuffer = new Collider[interactCount]; 
     }
 
-    void Update()
-    {
-        CheckInteract();
-    }
+    void Update() { CheckInteract(); }
 
     void CheckInteract()
     {

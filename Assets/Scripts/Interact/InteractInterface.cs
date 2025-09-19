@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Interact
@@ -8,5 +9,7 @@ namespace Interact
         void EnterInteract();
         void ExitInteract();
     }
-
+    public interface WorldUIShoawable{  void ShowWorldUI(Transform actor);}
+    public interface IInteractEnable { }
+    public interface IInteractEnable<T> { Action<T> EndInvoke { get; } }
 }
