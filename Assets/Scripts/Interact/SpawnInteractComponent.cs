@@ -1,8 +1,8 @@
-using GmaeInteract;
+using GameInteract;
 using System;
 using UnityEngine;
 
-namespace GmaeInteract
+namespace GameInteract
 {
     public class SpawnInteractComponent : InteractBaseComponent, ITimer,IDisposable
     {

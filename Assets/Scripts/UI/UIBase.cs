@@ -78,7 +78,7 @@ namespace GameUI
         }
 
     }
-    public class UIPopUp : UIBase,IDestroyable
+    public class UIPopUp : UIBase,IUIDestroyable
     {
         public override bool Init()
         {

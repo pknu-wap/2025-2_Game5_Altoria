@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GmaeInteract
+namespace GameInteract
 {
     public class TestInteractComponent : InteractBaseComponent
     {

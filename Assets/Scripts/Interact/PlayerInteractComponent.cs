@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
-using GmaeInteract;
+using GameInteract;
 
 public class PlayerInteractComponent : MonoBehaviour
 {
     [Header("RayCast ±¸ Å©±â")]
     [Range(0, 10)]
-    [SerializeField] float interactRadius = 3f;
+    [SerializeField] float interactRadius;
 
     [SerializeField] LayerMask interactableLayer;
 

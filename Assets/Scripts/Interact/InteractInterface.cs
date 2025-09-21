@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-namespace GmaeInteract
+namespace GameInteract
 {
     public interface IInteractable
     {
