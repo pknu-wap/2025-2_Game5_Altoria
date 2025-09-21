@@ -14,18 +14,21 @@ public class PlayerInteractComponent : MonoBehaviour
     [SerializeField] int interactCount;
 
     Transform origin;
-    InteractBaseComponent currentTarget;
-    InteractBaseComponent prevTarget;
+    IInteractable currentTarget;
+    IInteractable prevTarget;
 
     Collider[] hitBuffer;
 
     private void Awake()
     {
         origin = transform;
-        hitBuffer = new Collider[interactCount]; 
+        hitBuffer = new Collider[interactCount];
     }
 
-    void Update() { CheckInteract(); }
+    private void Update()
+    {
+        CheckInteract();
+    }
 
     void CheckInteract()
     {
@@ -40,14 +43,14 @@ public class PlayerInteractComponent : MonoBehaviour
             }
             currentTarget.EnterInteract();
         }
-        else if (prevTarget != null) 
+        else if (prevTarget != null)
         {
             prevTarget.ExitInteract();
             prevTarget = null;
         }
     }
 
-    InteractBaseComponent FindClosestInteractable()
+    IInteractable FindClosestInteractable()
     {
         int hitCount = Physics.OverlapSphereNonAlloc(
             origin.position,
@@ -57,11 +60,11 @@ public class PlayerInteractComponent : MonoBehaviour
         );
 
         float closestDistSqr = float.MaxValue;
-        InteractBaseComponent closest = null;
+        IInteractable closest = null;
 
         for (int i = 0; i < hitCount; i++)
         {
-            var interactable = hitBuffer[i].GetComponent<InteractBaseComponent>();
+            var interactable = hitBuffer[i].GetComponent<IInteractable>();
             if (interactable != null)
             {
                 float distSqr = (origin.position - hitBuffer[i].transform.position).sqrMagnitude;
@@ -83,11 +86,11 @@ public class PlayerInteractComponent : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(origin.position, interactRadius);
 
-        if (currentTarget != null)
+        if (currentTarget != null && currentTarget is MonoBehaviour mb)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(origin.position, currentTarget.transform.position);
-            Gizmos.DrawSphere(currentTarget.transform.position, 0.1f);
+            Gizmos.DrawLine(origin.position, mb.transform.position);
+            Gizmos.DrawSphere(mb.transform.position, 0.1f);
         }
     }
 }
