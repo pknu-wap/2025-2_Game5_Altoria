@@ -12,14 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Magical Neverland SDF
   m_EditorClassIdentifier: 
-  hashCode: -252210192
-  material: {fileID: 5297644960594369381}
-  materialHashCode: -1108487088
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 4ff9d5cdefa54ec4c8fbe003ba0073df
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4ff9d5cdefa54ec4c8fbe003ba0073df, type: 3}
-  m_SourceFontFile: {fileID: 12800000, guid: 4ff9d5cdefa54ec4c8fbe003ba0073df, type: 3}
-  m_AtlasPopulationMode: 1
   m_FaceInfo:
     m_FaceIndex: 0
     m_FamilyName: Magical Neverland
@@ -42,6 +35,31 @@ MonoBehaviour:
     m_StrikethroughOffset: 26.4
     m_StrikethroughThickness: 4.5
     m_TabWidth: 27
+  m_Material: {fileID: 5297644960594369381}
+  m_SourceFontFileGUID: 4ff9d5cdefa54ec4c8fbe003ba0073df
+  m_CreationSettings:
+    sourceFontFileName: 
+    sourceFontFileGUID: 4ff9d5cdefa54ec4c8fbe003ba0073df
+    faceIndex: 0
+    pointSizeSamplingMode: 0
+    pointSize: 90
+    padding: 9
+    paddingMode: 0
+    packingMode: 0
+    atlasWidth: 1024
+    atlasHeight: 1024
+    characterSetSelectionMode: 7
+    characterSequence: 
+    referencedFontAssetGUID: 
+    referencedTextAssetGUID: 
+    fontStyle: 0
+    fontStyleModifier: 0
+    renderMode: 4165
+    includeFontFeatures: 0
+  m_SourceFontFile: {fileID: 12800000, guid: 4ff9d5cdefa54ec4c8fbe003ba0073df, type: 3}
+  m_SourceFontFilePath: 
+  m_AtlasPopulationMode: 1
+  InternalDynamicOS: 0
   m_GlyphTable:
   - m_Index: 3
     m_Metrics:
@@ -175,6 +193,21 @@ MonoBehaviour:
       m_Y: 10
       m_Width: 30
       m_Height: 70
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 12
+    m_Metrics:
+      m_Width: 28.796875
+      m_Height: 62.1875
+      m_HorizontalBearingX: 1.265625
+      m_HorizontalBearingY: 64.796875
+      m_HorizontalAdvance: 31.234375
+    m_GlyphRect:
+      m_X: 728
+      m_Y: 345
+      m_Width: 30
+      m_Height: 63
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
@@ -928,6 +961,36 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 89
+    m_Metrics:
+      m_Width: 19.796875
+      m_Height: 6.390625
+      m_HorizontalBearingX: 1.265625
+      m_HorizontalBearingY: 35.015625
+      m_HorizontalAdvance: 22.3125
+    m_GlyphRect:
+      m_X: 991
+      m_Y: 109
+      m_Width: 21
+      m_Height: 8
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 90
+    m_Metrics:
+      m_Width: 35.453125
+      m_Height: 41.390625
+      m_HorizontalBearingX: 1.265625
+      m_HorizontalBearingY: 55.796875
+      m_HorizontalAdvance: 37.890625
+    m_GlyphRect:
+      m_X: 600
+      m_Y: 328
+      m_Width: 36
+      m_Height: 42
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   - m_Index: 91
     m_Metrics:
       m_Width: 27
@@ -1063,51 +1126,6 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-  - m_Index: 90
-    m_Metrics:
-      m_Width: 35.453125
-      m_Height: 41.390625
-      m_HorizontalBearingX: 1.265625
-      m_HorizontalBearingY: 55.796875
-      m_HorizontalAdvance: 37.890625
-    m_GlyphRect:
-      m_X: 600
-      m_Y: 328
-      m_Width: 36
-      m_Height: 42
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-  - m_Index: 89
-    m_Metrics:
-      m_Width: 19.796875
-      m_Height: 6.390625
-      m_HorizontalBearingX: 1.265625
-      m_HorizontalBearingY: 35.015625
-      m_HorizontalAdvance: 22.3125
-    m_GlyphRect:
-      m_X: 991
-      m_Y: 109
-      m_Width: 21
-      m_Height: 8
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-  - m_Index: 12
-    m_Metrics:
-      m_Width: 28.796875
-      m_Height: 62.1875
-      m_HorizontalBearingX: 1.265625
-      m_HorizontalBearingY: 64.796875
-      m_HorizontalAdvance: 31.234375
-    m_GlyphRect:
-      m_X: 728
-      m_Y: 345
-      m_Width: 30
-      m_Height: 63
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1126,8 +1144,16 @@ MonoBehaviour:
     m_GlyphIndex: 91
     m_Scale: 1
   - m_ElementType: 1
+    m_Unicode: 43
+    m_GlyphIndex: 90
+    m_Scale: 1
+  - m_ElementType: 1
     m_Unicode: 44
     m_GlyphIndex: 88
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 45
+    m_GlyphIndex: 89
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 46
@@ -1216,6 +1242,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 73
     m_GlyphIndex: 11
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 74
+    m_GlyphIndex: 12
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 75
@@ -1381,23 +1411,16 @@ MonoBehaviour:
     m_Unicode: 8230
     m_GlyphIndex: 114
     m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 43
-    m_GlyphIndex: 90
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 45
-    m_GlyphIndex: 89
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 74
-    m_GlyphIndex: 12
-    m_Scale: 1
   m_AtlasTextures:
   - {fileID: 550809713357569842}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
+  m_GetFontFeatures: 1
   m_ClearDynamicDataOnBuild: 0
+  m_AtlasWidth: 1024
+  m_AtlasHeight: 1024
+  m_AtlasPadding: 9
+  m_AtlasRenderMode: 4165
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
@@ -1948,57 +1971,14 @@ MonoBehaviour:
     m_Y: 361
     m_Width: 73
     m_Height: 662
-  m_fontInfo:
-    Name: 
-    PointSize: 0
-    Scale: 0
-    CharacterCount: 0
-    LineHeight: 0
-    Baseline: 0
-    Ascender: 0
-    CapHeight: 0
-    Descender: 0
-    CenterLine: 0
-    SuperscriptOffset: 0
-    SubscriptOffset: 0
-    SubSize: 0
-    Underline: 0
-    UnderlineThickness: 0
-    strikethrough: 0
-    strikethroughThickness: 0
-    TabWidth: 0
-    Padding: 0
-    AtlasWidth: 0
-    AtlasHeight: 0
-  atlas: {fileID: 0}
-  m_AtlasWidth: 1024
-  m_AtlasHeight: 1024
-  m_AtlasPadding: 9
-  m_AtlasRenderMode: 4165
-  m_glyphInfoList: []
-  m_KerningTable:
-    kerningPairs: []
   m_FontFeatureTable:
+    m_MultipleSubstitutionRecords: []
+    m_LigatureSubstitutionRecords: []
     m_GlyphPairAdjustmentRecords: []
-  fallbackFontAssets: []
+    m_MarkToBaseAdjustmentRecords: []
+    m_MarkToMarkAdjustmentRecords: []
+  m_ShouldReimportFontFeatures: 0
   m_FallbackFontAssetTable: []
-  m_CreationSettings:
-    sourceFontFileName: 
-    sourceFontFileGUID: 4ff9d5cdefa54ec4c8fbe003ba0073df
-    pointSizeSamplingMode: 0
-    pointSize: 90
-    padding: 9
-    packingMode: 0
-    atlasWidth: 1024
-    atlasHeight: 1024
-    characterSetSelectionMode: 7
-    characterSequence: 
-    referencedFontAssetGUID: 
-    referencedTextAssetGUID: 
-    fontStyle: 0
-    fontStyleModifier: 0
-    renderMode: 4165
-    includeFontFeatures: 0
   m_FontWeightTable:
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
@@ -2027,6 +2007,33 @@ MonoBehaviour:
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10
+  m_fontInfo:
+    Name: 
+    PointSize: 0
+    Scale: 0
+    CharacterCount: 0
+    LineHeight: 0
+    Baseline: 0
+    Ascender: 0
+    CapHeight: 0
+    Descender: 0
+    CenterLine: 0
+    SuperscriptOffset: 0
+    SubscriptOffset: 0
+    SubSize: 0
+    Underline: 0
+    UnderlineThickness: 0
+    strikethrough: 0
+    strikethroughThickness: 0
+    TabWidth: 0
+    Padding: 0
+    AtlasWidth: 0
+    AtlasHeight: 0
+  m_glyphInfoList: []
+  m_KerningTable:
+    kerningPairs: []
+  fallbackFontAssets: []
+  atlas: {fileID: 0}
 --- !u!28 &550809713357569842
 Texture2D:
   m_ObjectHideFlags: 0
@@ -2037,10 +2044,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 4
   m_Width: 1024
   m_Height: 1024
   m_CompleteImageSize: 1048576
@@ -2086,7 +2091,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2164,8 +2170,8 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: 0
+    - _UnderlayOffsetX: 1
+    - _UnderlayOffsetY: -0.86
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -2181,5 +2187,6 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0.06124607, g: 0.012286487, b: 0.008023192, a: 0.78039217}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
