@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using Interact;
+using GmaeInteract;
 
 public class PlayerInteractComponent : MonoBehaviour
 {
