@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 674aeb0b3f0797b49b7e4c66103be3a0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Animations/Dropdown/DropdownStretchIn.anim
+  uploadId: 740277

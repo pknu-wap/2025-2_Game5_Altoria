@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec6247eb18008254f85a9115ab0ba009
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Animations/Shop/SoldOutObj.controller
+  uploadId: 740277

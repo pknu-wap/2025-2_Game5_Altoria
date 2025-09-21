@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 305e1029ab09aaf459131d612c8d2776
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/UI/Toggle/Toggle_On.prefab
+  uploadId: 740277

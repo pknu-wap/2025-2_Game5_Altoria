@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6f51a1e911ed92744a72e3c88d08a0cb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Animations/Pause/PauseHover.anim
+  uploadId: 740277

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: de2a0fa0c7b7e964dbfa86dcdff38f3c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/UI/Sliders/SliderStamina.prefab
+  uploadId: 740277

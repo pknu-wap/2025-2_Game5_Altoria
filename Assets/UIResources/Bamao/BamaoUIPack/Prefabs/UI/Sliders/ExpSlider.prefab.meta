@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a0577853be9dfdb4a922dfd8287dd2fa
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/UI/Sliders/ExpSlider.prefab
+  uploadId: 740277

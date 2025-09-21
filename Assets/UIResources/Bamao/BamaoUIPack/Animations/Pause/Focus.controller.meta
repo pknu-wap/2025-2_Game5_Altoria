@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 431ed89441a950f429bbeb9c900b9f2b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Animations/Pause/Focus.controller
+  uploadId: 740277

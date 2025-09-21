@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1674cccfe2aec2c49980ba3825e13adf
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/UI/InputField/InputField_User.prefab
+  uploadId: 740277

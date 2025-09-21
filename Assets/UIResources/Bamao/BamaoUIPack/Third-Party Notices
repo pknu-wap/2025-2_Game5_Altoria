@@ -1,0 +1,44 @@
+Third-Party Notices
+
+This package includes the following third-party components, which are subject to their respective licenses. 
+It is your responsibility to ensure that these licenses are compatible with the Asset Store EULA.
+
+1. **Fonts**
+   - **[Magical Neverland]**
+     - License: [Free For Commercial Use]
+     - License Text:
+       ```
+       This font is free for commercial use. You may use it in personal and commercial projects without any fees. However, you may not redistribute, sell, or include this font in any software or product without permission from the original creator.
+       ```
+
+2. **Audio**
+   - **[Sound/Music/Guitar Gentle]**
+     - License: [Creative Commons CC BY 4.0]
+     - License Text:
+       ```
+        Guitar Gentle by PeriTune | https://peritune.com/
+        Music promoted by https://www.chosic.com/free-music/all/
+        Creative Commons CC BY 4.0
+        https://creativecommons.org/licenses/by/4.0/
+       ```
+
+   - **[Sound/SoundFx/Object/]**
+     - License: [Mixkit Sound Effects Free License]
+     - License Text:
+       ```
+       Items under the Mixkit Sound Effects Free License can be used in your commercial and non-commercial projects for free.
+       You are licensed to use the Item to create an End Product that incorporates the Item as well as other things, so that it is larger in scope and different in nature than the Item. You’re permitted to download, copy, modify, distribute and publicly perform the Sound Effect Items on any web or social media platform, in podcasts and in video games, as well as in films and presentations distributed on CDs, DVDs, via TV or radio broadcast or internet based video on demand services.
+       ```
+
+   - **[Sound/SoundFx/UI/]**
+     - Sources URL: https://freesound.org/
+     - License: [Creative Commons CC0 Public Domain]
+     - License Text:
+       ```
+       You can copy, modify, distribute and perform the sound, even for commercial purposes, all without the need of asking permission to the author. 
+       ```
+
+3. **Image Sprites**
+   - **[BamaoUIPack/Sprites/*]**
+   All of these assets sprites are draw by our own Bamao authors.
+   Free to use and compatible with the Asset Store EULA.

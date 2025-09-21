@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dbe62ab0603a2ea4c914fc9034163a1c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Layout/Quest/QuestPrefab.prefab
+  uploadId: 740277
