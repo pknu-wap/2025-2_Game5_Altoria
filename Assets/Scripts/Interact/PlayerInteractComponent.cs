@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using GameInteract;
+using UnityEngine.InputSystem;
 
 public class PlayerInteractComponent : MonoBehaviour
 {
@@ -19,17 +20,22 @@ public class PlayerInteractComponent : MonoBehaviour
 
     Collider[] hitBuffer;
 
-    private void Awake()
+    void Awake()
     {
         origin = transform;
         hitBuffer = new Collider[interactCount];
     }
 
-    private void Update()
+    void Update()
     {
         CheckInteract();
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            Debug.Log("E 키 눌림 → Interact 실행");
+            TryInteract();
+        }
     }
-
+    public void TryInteract() { currentTarget?.Interact(); }
     void CheckInteract()
     {
         currentTarget = FindClosestInteractable();
@@ -82,15 +88,15 @@ public class PlayerInteractComponent : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (origin == null) return;
-
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(origin.position, interactRadius);
 
-        if (currentTarget != null && currentTarget is MonoBehaviour mb)
+        if (currentTarget is MonoBehaviour mb && mb != null)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(origin.position, mb.transform.position);
             Gizmos.DrawSphere(mb.transform.position, 0.1f);
         }
     }
+
 }

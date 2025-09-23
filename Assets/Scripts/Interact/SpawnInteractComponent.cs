@@ -1,22 +1,39 @@
-using GameInteract;
 using System;
 using UnityEngine;
 
 namespace GameInteract
 {
-    public class SpawnInteractComponent : InteractBaseComponent, ITimer,IDisposable
+    public class SpawnInteractComponent : InteractBaseComponent, IDisposable, ISpawnable
     {
-        [SerializeField] float time;
-        public float Timer => time;
-        public Action<ITimer> TimeEndInvoke { get; private set; }
-        //TODO : 스폰시킬 객체  
-          
-        public void Dispose()
+        [SerializeField] float respawnTime;
+        [SerializeField] GameObject spawnableObject;
+
+        RespawnTimer timer;
+
+        public override void Interact()
         {
-           //해당객체 비활성화 시키기 
+            if (spawnableObject != null)
+                spawnableObject.SetActive(false);
+
+            timer = new RespawnTimer(respawnTime);
+            timer.OnFinished += OnRespawn;
         }
 
-        public override void Interact() { }
-        public void StartTimer() { }
+        void OnRespawn(ITimer timer)
+        {
+            spawnableObject.SetActive(true);
+
+            this.timer.OnFinished -= OnRespawn;
+            this.timer = null;
+        }
+
+        public void Dispose()
+        {
+            if (timer != null)
+            {
+                timer.OnFinished -= OnRespawn;
+                timer = null;
+            }
+        }
     }
 }
