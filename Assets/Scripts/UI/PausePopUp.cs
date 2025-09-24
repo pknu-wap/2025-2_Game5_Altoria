@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseUI : UIPopUp
+public class PausePopUp : UIPopUp
 {
     [SerializeField] private GameObject pauseUI;
 
@@ -38,7 +38,6 @@ public class PauseUI : UIPopUp
     // Update is called once per frame
     void Update()
     {
-        ui.ClosePopup();
     }
     public override bool Init()
     {
@@ -48,19 +47,19 @@ public class PauseUI : UIPopUp
 
     public void OnClickResume()
     {
-        pauseUI.SetActive(false);
+        ui.ClosePopup();
         Debug.Log("Resume Game");
     }
 
     public void OnClickOption()
     {
-        //ui.ShowPopup<SettingUI>();
-        popups[0].SetActive(true);
+        ui.ShowPopup<SettingPopUp>();
         Debug.Log("Open Option Menu");
     }
 
     public void OnClickQuit()
     {
+        ui.ShowPopup<ExitPopUp>();
         Debug.Log("Quit Game");
     }
 }

@@ -1,15 +1,25 @@
 using GameUI;
 using UnityEngine;
 
-public class ExitUI : UIPopUp
+public class ExitPopUp : UIPopUp
 {
     [SerializeField]
     private GameObject exitUI;
 
+    UIController ui;
+
+    private void Awake()
+    {
+        ui = UIController.Instance;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ui.ClosePopup();
+        }
     }
 
     // Update is called once per frame
@@ -35,6 +45,6 @@ public class ExitUI : UIPopUp
 
     public void OnClickNo()
     {
-        exitUI.SetActive(false);
+        ui.ClosePopup();
     }
 }

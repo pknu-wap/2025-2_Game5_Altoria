@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using GameUI;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class SettingUI : UIPopUp
+public class SettingPopUp : UIPopUp
 {
     [SerializeField] private GameObject settingUI;
 
