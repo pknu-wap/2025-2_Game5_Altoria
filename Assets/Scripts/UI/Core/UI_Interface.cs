@@ -6,7 +6,7 @@ namespace GameUI
 {
     public interface IShowable { void Show(); }
     public interface IHideable { void Hide(); }
-    public interface IDestroyable { void DestroyUI(); }
+    public interface IUIDestroyable { void DestroyUI(); }
     public interface IStatusBar { void UpdateStatusBar(float value); }
     public interface IButton { void BindButtonEvents(); }
 
