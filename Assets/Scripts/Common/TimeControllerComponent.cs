@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class TimeControllerComponent : MonoBehaviour
 {
-    void Update()
-    {
-        TimeController.Instance.Tick(Time.deltaTime);
-    }
+    TimeController time;
+    void Awake() { this.time = TimeController.Instance; }
+    void Update() { this.time.Tick(Time.deltaTime); }
 }
