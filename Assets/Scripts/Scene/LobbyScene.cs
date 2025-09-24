@@ -1,3 +1,4 @@
+using GameUI;
 using UnityEngine;
 
 public class LobbyScene : BaseScene
@@ -7,5 +8,6 @@ public class LobbyScene : BaseScene
         base.Init();
 
         SceneType = Define.SceneType.LobbyScene;
+        UIController.Instance.ShowHUD<UI_LobbyScene>();
     }
 }
