@@ -5,17 +5,13 @@ namespace GameUI
 {
     public class UI_LobbyButtons : UIWidget
     {
-        Button startBtn;
-        Button settingBtn;
-        Button eixtBtn;
+        [SerializeField] Button startBtn;
+        [SerializeField] Button settingBtn;
+        [SerializeField] Button eixtBtn;
 
         public override bool Init()
         {
             if (!base.Init()) return false;
-
-            startBtn = Utils.FindChild<Button>(gameObject, "Start");
-            settingBtn = Utils.FindChild<Button>(gameObject, "Setting");
-            eixtBtn = Utils.FindChild<Button>(gameObject, "Exit");
 
             startBtn.onClick.AddListener(OnClickStartButton);
             settingBtn.onClick.AddListener(OnClickSettingButton);

@@ -177,9 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20d71075d591a847baf5b3e22ecb119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBtn: {fileID: 0}
-  settingBtn: {fileID: 0}
-  eixtBtn: {fileID: 0}
+  startBtn: {fileID: 5753511039250621903}
+  settingBtn: {fileID: 7064976069523268294}
+  eixtBtn: {fileID: 7993470727538508857}
 --- !u!1 &3468023912697426734
 GameObject:
   m_ObjectHideFlags: 0
