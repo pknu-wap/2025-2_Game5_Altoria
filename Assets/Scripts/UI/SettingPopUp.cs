@@ -3,6 +3,8 @@ using System.ComponentModel;
 using GameUI;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SettingPopUp : UIPopUp
 {
@@ -12,6 +14,9 @@ public class SettingPopUp : UIPopUp
     [SerializeField] private List<GameObject> tabs;
 
     UIController ui;
+
+    [SerializeField] private Slider BGMslider;
+    [SerializeField] private Slider SFXslider;
 
     private void Awake()
     {
@@ -41,19 +46,19 @@ public class SettingPopUp : UIPopUp
     public void OnClickAudioTab()
     {
         ShowTab(0);
-        Debug.Log("오디오 설정창");
+        Debug.Log("[SettingPopUp] : 오디오 설정창");
     }
 
     public void OnClickVideoTab()
     {
         ShowTab(1);
-        Debug.Log("비디오 설정창");
+        Debug.Log("[SettingPopUp] : 비디오 설정창");
     }
 
     public void OnClickControlsTab()
     {
         ShowTab(2);
-        Debug.Log("컨트롤 설정창");
+        Debug.Log("[SettingPopUp] : 컨트롤 설정창");
     }
 
     public void ShowTab(int index)
@@ -63,5 +68,16 @@ public class SettingPopUp : UIPopUp
             tabs[i].SetActive(false);
         }
         tabs[index].SetActive(true);
+    }
+
+    // 오디오 슬라이더
+    public void SetBGMSlider(float value)
+    {
+        SoundManager.Instance.SetBGMVolume(value);
+    }
+
+    public void SetSFXSlider(float value)
+    {
+        SoundManager.Instance.SetSFXVolume(value);
     }
 }

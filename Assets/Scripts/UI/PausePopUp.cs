@@ -39,6 +39,7 @@ public class PausePopUp : UIPopUp
     void Update()
     {
     }
+
     public override bool Init()
     {
         if (!base.Init()) return false;
@@ -48,18 +49,18 @@ public class PausePopUp : UIPopUp
     public void OnClickResume()
     {
         ui.ClosePopup();
-        Debug.Log("Resume Game");
+        Debug.Log("[PausePopUp] : 게임 재개");
     }
 
     public void OnClickOption()
     {
         ui.ShowPopup<SettingPopUp>();
-        Debug.Log("Open Option Menu");
+        Debug.Log("[PausePopUp] : 설정창");
     }
 
     public void OnClickQuit()
     {
         ui.ShowPopup<ExitPopUp>();
-        Debug.Log("Quit Game");
+        Debug.Log("[PausePopUp] : 게임 종료확인창");
     }
 }
