@@ -1,8 +1,11 @@
 using UnityEngine;
-using GameUI;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class UI_LobbyScene : UIHUD
+namespace GameUI
 {
-    
+    public class UI_LobbyScene : UIHUD
+    {
+    }
 }
+
