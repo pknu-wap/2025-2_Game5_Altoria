@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameInteract
 {
-    public class SpawnInteractComponent : InteractBaseComponent, IDisposable, ISpawnable
+    public class SpawnInteractComponent : InteractBaseComponent, IDisposable, IInteractSpawnable
     {
         [SerializeField] float respawnTime;
         [SerializeField] GameObject spawnableObject;

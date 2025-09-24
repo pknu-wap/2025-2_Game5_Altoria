@@ -17,7 +17,7 @@ namespace GameInteract
     public interface WorldUIShoawable{  void ShowWorldUI(IEntity entity);}
     public interface IInteractEnable { }
     public interface IInteractEnable<T> { Action<T> EndInvoke { get; } }
-    public interface ISpawnable { }
+    public interface IInteractSpawnable { }
 
     public interface ITimer
     {
