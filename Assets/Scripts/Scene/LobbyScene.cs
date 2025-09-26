@@ -7,7 +7,7 @@ public class LobbyScene : BaseScene
     {
         base.Init();
 
-        SceneType = Define.SceneType.LobbyScene;
-        UIController.Instance.ShowHUD<UI_LobbyScene>();
+        SceneType = Define.SceneType.Lobby;
+        Manager.UI.ShowHUD<UI_LobbyScene>();
     }
 }

@@ -11,21 +11,6 @@ public enum TimeMode
 
 public class TimeController : MonoBehaviour
 {
-     static TimeController instance;    
-     public static TimeController Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                var go = new GameObject(nameof(TimeController));
-                instance = go.AddComponent<TimeController>();
-                DontDestroyOnLoad(go);
-            }
-            return instance;
-        }
-    }
-
     List<ITimer> timers = new List<ITimer>();
 
     void Update()
