@@ -27,7 +27,7 @@ namespace GameUI
             Debug.Log($"{GetType()}설정 창 열기");
 
             // 팝업 UI 생성 및 표시
-            UIController.Instance.ShowPopup<TestSettingPopUp>();
+            Manager.UI.ShowPopup<TestSettingPopUp>();
         }
         public void OnClickExitButton()
         {
