@@ -5,7 +5,7 @@ public class Define
     public enum SceneType
     {
         None,
-        LobbyScene,
+        Lobby,
         GameScene,
     };
 

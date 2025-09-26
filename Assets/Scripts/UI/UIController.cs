@@ -5,19 +5,7 @@ namespace GameUI
 {
     public class UIController
     {
-        #region Static
-        static UIController _instance;
-        public static UIController Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new UIController();
-                return _instance;
-            }
-        }
         //public static WorldUI WorldUI => Instance.worldUI;
-        #endregion
 
         public UIHUD MainHUD { get; private set; }
         public GameObject UIRoot => uiHelper.GetOrAddUIRoot();

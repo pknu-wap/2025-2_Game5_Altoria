@@ -11,9 +11,6 @@ public enum TimeMode
 
 public class TimeController
 {
-    static TimeController instance;
-    public static TimeController Instance => instance ??= new TimeController();
-
     List<ITimer> timers = new List<ITimer>();
 
     private TimeController() { }

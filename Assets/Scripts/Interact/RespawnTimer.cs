@@ -17,7 +17,7 @@ namespace GameInteract
             Elapsed = 0f;
 
             if (autoRegister)
-                TimeController.Instance.RegisterTimer(this);
+                Manager.Time.RegisterTimer(this);
         }
 
         public void Tick(float deltaTime)
