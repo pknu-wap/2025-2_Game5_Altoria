@@ -18,7 +18,7 @@ namespace GameUI
        
         
 
-        UIController() {  uiHelper.FindOrAddEventSystem(UI_PATH_PREFIX);}
+        public UIController() {  uiHelper.FindOrAddEventSystem(UI_PATH_PREFIX);}
        
         void LoadUI<T>(string name, System.Action<T> onLoaded, Transform parent = null, bool sort = true) where T : UIBase
         {

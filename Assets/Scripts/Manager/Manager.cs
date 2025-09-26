@@ -1,4 +1,5 @@
 using GameUI;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
@@ -10,9 +11,9 @@ public class Manager : MonoBehaviour
     public static TimeController Time { get { return Instance.time; } }
     public static SceneLoader SceneLoader { get { return Instance.scene; } }
 
-    private UIController ui;
-    private TimeController time;
-    private SceneLoader scene;
+    UIController ui;
+    TimeController time;
+    SceneLoader scene;
 
     private void Awake()
     {
@@ -28,10 +29,14 @@ public class Manager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        Time.Tick(UnityEngine.Time.deltaTime);  
+    }
     private void InitManagers()
     {
-        ui = new UIController();
-        time = Utils.GetOrAddComponent<TimeController>(gameObject);
+        ui = new();
+        time = new();
         scene = Utils.GetOrAddComponent<SceneLoader>(gameObject);
     }
 }

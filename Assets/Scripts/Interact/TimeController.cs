@@ -13,7 +13,8 @@ public class TimeController
 {
     List<ITimer> timers = new List<ITimer>();
 
-    private TimeController() { }
+    public TimeController() { }
+    
 
     public void Tick(float deltaTime)
     {
