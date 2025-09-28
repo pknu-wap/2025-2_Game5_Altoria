@@ -1,3 +1,4 @@
+
 using System;
 using UnityEngine;
 using GameInteract;
@@ -7,18 +8,16 @@ public class PlayerInteractComponent : MonoBehaviour
 {
     [Header("RayCast 구 크기")]
     [Range(0, 10)]
-    [SerializeField] float interactRadius;
+    [SerializeField] float interactRadius = 3f;
 
     [SerializeField] LayerMask interactableLayer;
-
     [Header("상호작용 오브젝트 제한")]
-    [SerializeField] int interactCount;
+    [SerializeField] int interactCount = 5;
 
     Transform origin;
-    IInteractable currentTarget;
-    IInteractable prevTarget;
-
+    InteractionSystem interactSystem = new();
     Collider[] hitBuffer;
+    IInteractable currentTarget;
 
     void Awake()
     {
@@ -28,31 +27,13 @@ public class PlayerInteractComponent : MonoBehaviour
 
     void Update()
     {
-        CheckInteract();
+
+        currentTarget = FindClosestInteractable();
+        interactSystem.UpdateTarget(currentTarget);
+
         if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            Debug.Log("E 키 눌림 → Interact 실행");
-            TryInteract();
-        }
-    }
-    public void TryInteract() { currentTarget?.Interact(); }
-    void CheckInteract()
-    {
-        currentTarget = FindClosestInteractable();
-
-        if (currentTarget != null)
-        {
-            if (currentTarget != prevTarget)
-            {
-                prevTarget?.ExitInteract();
-                prevTarget = currentTarget;
-            }
-            currentTarget.EnterInteract();
-        }
-        else if (prevTarget != null)
-        {
-            prevTarget.ExitInteract();
-            prevTarget = null;
+            interactSystem.TryInteract();
         }
     }
 
@@ -85,18 +66,37 @@ public class PlayerInteractComponent : MonoBehaviour
         return closest;
     }
 
+
+#if UNITY_EDITOR
+    [SerializeField] bool drawGizmo = true;
     private void OnDrawGizmos()
     {
-        if (origin == null) return;
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(origin.position, interactRadius);
+        if (!drawGizmo) return;
 
-        if (currentTarget is MonoBehaviour mb && mb != null)
+        Vector3 originPos = transform.position;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(originPos, interactRadius);
+
+        if (Application.isPlaying && currentTarget is MonoBehaviour mb)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(origin.position, mb.transform.position);
+            Gizmos.DrawLine(originPos, mb.transform.position);
             Gizmos.DrawSphere(mb.transform.position, 0.1f);
         }
+        else
+        {
+            Collider[] buffer = new Collider[Math.Max(1, interactCount)];
+            int hits = Physics.OverlapSphereNonAlloc(originPos, interactRadius, buffer, interactableLayer);
+            Gizmos.color = new Color(1f, 0.5f, 0f, 0.5f);
+            for (int i = 0; i < hits; i++)
+            {
+                Transform t = buffer[i].transform;
+                Gizmos.DrawLine(originPos, t.position);
+                Gizmos.DrawSphere(t.position, 0.05f);
+            }
+        }
     }
+#endif
 
 }

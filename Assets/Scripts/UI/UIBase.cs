@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,8 +79,10 @@ namespace GameUI
         }
 
     }
-    public class UIPopUp : UIBase,IUIDestroyable
+    public class UIPopUp : UIBase,IUIPopUp
     {
+        public event Action OnClosed;
+
         public override bool Init()
         {
             if (!base.Init()) return false;
@@ -87,8 +90,9 @@ namespace GameUI
             return true;
         }
 
-        public void DestroyUI()
+        public void Close()
         {
+            OnClosed?.Invoke();
             Destroy(gameObject);    
         }
     }

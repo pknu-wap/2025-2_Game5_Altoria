@@ -1,4 +1,5 @@
 using GameInteract;
+using System;
 using UnityEngine;
 
 namespace GameInteract
@@ -6,8 +7,11 @@ namespace GameInteract
     public abstract class InteractBaseComponent : BaseEntityComponent, IInteractable
     {
         public bool CanInteract { get; private set; }
-        public void EnterInteract() { CanInteract = true; }
-        public void ExitInteract() { CanInteract = false; }
+
+        public event Action<IInteractable> OnInteractionCompleted;
+
+        public virtual void EnterInteract() => CanInteract = true;
+        public virtual void ExitInteract() => CanInteract = false;
         public abstract void Interact();
         
     }
