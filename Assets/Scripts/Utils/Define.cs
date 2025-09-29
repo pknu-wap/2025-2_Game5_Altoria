@@ -8,5 +8,14 @@ public class Define
         Lobby,
         GameScene,
     };
+    public enum ItemType
+    {
+        None,
+        Weapon,
+        Tool,
+        Consume,
+        Additive,// ±‚≈∏ 
+
+    }
 
 }

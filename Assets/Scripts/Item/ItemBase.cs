@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameItem
 {
-    public abstract class Item:MonoBehaviour
+    public abstract class Item
     {
 
     }
