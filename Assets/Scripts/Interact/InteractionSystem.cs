@@ -45,6 +45,12 @@ public class InteractionSystem
         {
             CurrentTarget.Interact();
             CurrentState = InteractionState.Interacting;
+            void HandleInteractionEnded()
+            {
+                CurrentTarget.OnInteractionEnded -= HandleInteractionEnded;
+                EndInteract();
+            }
+
         }
     }
 
@@ -56,8 +62,13 @@ public class InteractionSystem
             CurrentState = InteractionState.Holding;
         }
     }
+    void HandleInteractionEnded()
+    {
+        CurrentTarget.OnInteractionEnded -= HandleInteractionEnded;
+        EndInteract();
+    }
 
-    public void ForceExit()
+    public void EndInteract()
     {
         if (CurrentTarget != null)
         {

@@ -11,9 +11,9 @@ namespace GameInteract
         void ExitInteract();
         void Interact();
 
-        event Action<IInteractable> OnInteractionCompleted;
+        event Action OnInteractionEnded;
     }
-   
+  
     public  interface IInteractStay { void HoldInteract(); }
     public interface IInteractDelay { float Delay { get; } }
     public interface WorldUIShoawable{  void ShowWorldUI(IEntity entity);}

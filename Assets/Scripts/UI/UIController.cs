@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace GameUI
@@ -84,8 +85,21 @@ namespace GameUI
 
             return result;
         }
+        public UIPopUp ShowPopup(Type popupType, Action onClosed = null)
+        {
+            if (popupType == null || !typeof(UIPopUp).IsAssignableFrom(popupType))
+            {
+                Debug.LogError($"[UIController] {popupType} is not a valid UIPopUp type");
+                return null;
+            }
 
-     
+
+            var method = typeof(UIController).GetMethod(nameof(ShowPopup), BindingFlags.Public | BindingFlags.Instance);
+            var generic = method.MakeGenericMethod(popupType);
+            var result = generic.Invoke(this, new object[] { onClosed }) as UIPopUp;
+            return result;
+        }
+
         public void ClosePopup()
         {
             if (popUpStack.Count == 0) return;
