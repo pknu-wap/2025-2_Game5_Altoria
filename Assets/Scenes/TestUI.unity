@@ -1129,6 +1129,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!1 &2038981488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3507545326022980924, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
+  m_PrefabInstance: {fileID: 5939330108058133329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &71798530488627558 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5950285496176153143, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
@@ -2327,7 +2332,7 @@ PrefabInstance:
       objectReference: {fileID: 4027272974305780007}
     - target: {fileID: 4450725838668491668, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
       propertyPath: tabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4450725838668491668, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
       propertyPath: 'tabs.Array.data[0]'
@@ -2341,6 +2346,10 @@ PrefabInstance:
       propertyPath: 'tabs.Array.data[2]'
       value: 
       objectReference: {fileID: 71798530488627558}
+    - target: {fileID: 4450725838668491668, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
+      propertyPath: 'tabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2038981488}
     - target: {fileID: 4833228924208672175, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2808,6 +2817,14 @@ PrefabInstance:
     - target: {fileID: 9141328586249234206, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207517228781256376, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickEtcTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207517228781256376, guid: b9f4675b25c2fd44f83dc11c785ce3fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingPopUp, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

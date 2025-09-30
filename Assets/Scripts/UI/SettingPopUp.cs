@@ -63,6 +63,12 @@ public class SettingPopUp : MonoBehaviour
         Debug.Log("[SettingPopUp] : 컨트롤 설정창");
     }
 
+    public void OnClickEtcTab()
+    {
+        ShowTab(3);
+        Debug.Log("[SettingPopUp] : 고급 설정창");
+    }
+
     public void ShowTab(int index)
     {
         for(int i = 0; i < tabs.Count; i++)
