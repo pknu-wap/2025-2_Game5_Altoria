@@ -86,6 +86,10 @@ public class SoundManager : MonoBehaviour
     {
         audioBgm.volume = value;   
     }
+    public float GetBGMVolume()
+    {
+        return audioBgm.volume;
+    }
 
     public void PlaySFX(SFX type)
     {
@@ -103,10 +107,16 @@ public class SoundManager : MonoBehaviour
     {
         audioBgm.Stop();
     }
-    
 
     public void SetSFXVolume(float value)
     {
         audioSfx.volume = value;   
     }
+
+    public float GetSFXVolume()
+    {
+        return audioSfx.volume;
+    }
+
+
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SettingPopUp : UIPopUp
+public class SettingPopUp : MonoBehaviour
 {
     [SerializeField] private GameObject settingUI;
 
@@ -20,27 +20,29 @@ public class SettingPopUp : UIPopUp
 
     private void Awake()
     {
-        ui = UIController.Instance;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ShowTab(0);
+
+        BGMslider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
+        SFXslider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
+
+        // 오디오 슬라이더 조절 
+        BGMslider.value = SoundManager.Instance.GetBGMVolume();
+        SFXslider.value = SoundManager.Instance.GetSFXVolume();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        /*
+        if(settingUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
-            ui.ClosePopup();
+            settingUI.SetActive(false);
         }
-    }
-
-    public override bool Init()
-    {
-        if(!base.Init()) return false;
-        return true;
+        */
     }
 
     public void OnClickAudioTab()
@@ -70,7 +72,12 @@ public class SettingPopUp : UIPopUp
         tabs[index].SetActive(true);
     }
 
-    // 오디오 슬라이더
+    public void 창끄기()
+    {
+        settingUI.SetActive(false);
+    }
+
+    // 오디오 설정
     public void SetBGMSlider(float value)
     {
         SoundManager.Instance.SetBGMVolume(value);
