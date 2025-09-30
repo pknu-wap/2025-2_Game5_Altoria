@@ -24,6 +24,7 @@ namespace GameInteract
     public interface ITimer
     {
         event Action<ITimer> OnFinished;
+        void SetTimer(float duration, bool autoRegister = true);
         float Elapsed { get; }
         float Duration { get; }
         bool IsFinished { get; }

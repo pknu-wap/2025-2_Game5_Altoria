@@ -93,10 +93,18 @@ namespace GameUI
                 return null;
             }
 
+            string popupPath = popupType.Name;
+            UIPopUp result = null;
 
-            var method = typeof(UIController).GetMethod(nameof(ShowPopup), BindingFlags.Public | BindingFlags.Instance);
-            var generic = method.MakeGenericMethod(popupType);
-            var result = generic.Invoke(this, new object[] { onClosed }) as UIPopUp;
+            LoadUI<UIPopUp>(popupPath, popup =>
+            {
+                popUpStack.Push(popup);
+                result = popup;
+
+                if (onClosed != null)
+                    popup.OnClosed += onClosed;
+            });
+
             return result;
         }
 

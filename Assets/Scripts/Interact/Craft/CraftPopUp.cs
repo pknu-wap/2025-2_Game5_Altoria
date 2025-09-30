@@ -4,8 +4,9 @@ using GameUI;
 
 namespace GameInteract
 {
-    public class CraftPopUp : UIPopUp
-    {
-        
+    
+    public class CraftPopUp : UIPopUp 
+    { 
+
     }
 }

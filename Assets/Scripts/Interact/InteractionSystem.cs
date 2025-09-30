@@ -1,6 +1,7 @@
 // InteractionSystem.cs
 using GameInteract;
 using System;
+using System.Diagnostics;
 
 public enum InteractionState
 {
@@ -18,6 +19,8 @@ public class InteractionSystem
 
     public void UpdateTarget(IInteractable newTarget)
     {
+        if(newTarget==null)return;      
+
         if (newTarget != CurrentTarget)
         {
             if (CurrentTarget != null)
@@ -27,30 +30,34 @@ public class InteractionSystem
             }
 
             CurrentTarget = newTarget;
+
             if (CurrentTarget != null)
             {
                 CurrentTarget.EnterInteract();
                 CurrentState = InteractionState.Entered;
             }
-            else
+            else CurrentState = InteractionState.None;
+        }
+        else
+        {
+            if (CurrentTarget == null) return;
+            if(!CurrentTarget.CanInteract)
             {
-                CurrentState = InteractionState.None;
+                CurrentTarget.EnterInteract();
+                CurrentState = InteractionState.Entered;
             }
         }
+       
     }
 
     public void TryInteract()
     {
         if (CurrentState == InteractionState.Entered && CurrentTarget != null)
         {
+            UnityEngine.Debug.Log("[InteractionSystem]: Interact");
             CurrentTarget.Interact();
             CurrentState = InteractionState.Interacting;
-            void HandleInteractionEnded()
-            {
-                CurrentTarget.OnInteractionEnded -= HandleInteractionEnded;
-                EndInteract();
-            }
-
+            CurrentTarget.OnInteractionEnded += HandleInteractionEnded;
         }
     }
 
@@ -70,11 +77,7 @@ public class InteractionSystem
 
     public void EndInteract()
     {
-        if (CurrentTarget != null)
-        {
-            CurrentTarget.ExitInteract();
-            CurrentTarget = null;
-        }
+        if (CurrentTarget != null) CurrentTarget.ExitInteract();
         CurrentState = InteractionState.None;
     }
 }

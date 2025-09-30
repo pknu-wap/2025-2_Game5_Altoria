@@ -10,12 +10,12 @@ public class Manager : MonoBehaviour
     public static UIController UI { get { return Instance.ui; } }
     public static TimeController Time { get { return Instance.time; } }
     public static SceneLoader SceneLoader { get { return Instance.scene; } }
-    public static InteractionSystem Interact { get { return Instance.interact; } }
+
 
     UIController ui;
     TimeController time;
     SceneLoader scene;
-    InteractionSystem interact;
+
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class Manager : MonoBehaviour
     {
         ui = new();
         time = new();
-        interact = new();
+        
         scene = Utils.GetOrAddComponent<SceneLoader>(gameObject);
     }
 }
