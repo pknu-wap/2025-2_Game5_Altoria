@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameInteract
 {
-    enum CraftingType
+    public enum CraftingType
     {
         Metal,
         Wood,
@@ -17,7 +17,7 @@ namespace GameInteract
         public override void Interact() => OpenInteractWindow();
         void OpenInteractWindow()
         {
-            Manager.UI.ShowPopup<CraftPopUp>(() =>
+            Manager.UI.ShowPopup<CraftProcessPopUp>(() =>
             {
                 EndInteract();
             });

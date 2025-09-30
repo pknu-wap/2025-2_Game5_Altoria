@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PagePopUpSO
   rows:
   - ID: 0
+    popupScript: {fileID: 11500000, guid: f2f69eb178ee1d24db2a3a8e8191aa62, type: 3}
+  - ID: 1
     popupScript: {fileID: 11500000, guid: 070976a65095dc740ade9adfb1fe8aff, type: 3}

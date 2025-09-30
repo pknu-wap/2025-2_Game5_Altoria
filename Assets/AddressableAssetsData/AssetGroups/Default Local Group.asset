@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bbe4ef319f47c742a643ef3ddbe9ed6
+    m_Address: CraftItemSlot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a28448a815ded8e458b13eb20a6943fe
     m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_F.prefab
     m_ReadOnly: 0

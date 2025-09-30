@@ -21,6 +21,8 @@ namespace GameInteract
     public interface IInteractEnable<T> { Action<T> EndInvoke { get; } }
     public interface IInteractSpawnable { }
 
+    public interface IProgress { }
+    public interface IProgress<T>:IProgress { Action<T> OnProgress { get; } }
     public interface ITimer
     {
         event Action<ITimer> OnFinished;

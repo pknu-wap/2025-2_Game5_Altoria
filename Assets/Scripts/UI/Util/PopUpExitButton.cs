@@ -8,7 +8,7 @@ public class PopUpExitButton : MonoBehaviour
     Button button;
     UIPopUp popup;
 
-    private void Awake()
+    void Awake()
     {
         button = GetComponent<Button>();
         popup = GetComponentInParent<UIPopUp>(); 
