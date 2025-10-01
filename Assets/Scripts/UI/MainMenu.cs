@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject pauseUI;
 
     [Header("Pages")]
+    [SerializeField] private GameObject mainMenuPopUpUI;
     [SerializeField] private GameObject SettingUI; 
     [SerializeField] private GameObject ExitUI;
 
@@ -38,13 +39,18 @@ public class MainMenu : MonoBehaviour
     {
     }
 
+    public void OnClickMainMenuPopUp()
+    {
+        mainMenuPopUpUI.SetActive(true);
+        Debug.Log("[PausePopUp] : 메인메뉴패널창");
+    }
     public void OnClickResume()
     {
         pauseUI.SetActive(false);
         Debug.Log("[PausePopUp] : 게임 재개");
     }
 
-    public void OnClickOption()
+    public void OnClickOption() //OnClickSetting
     {
         SettingUI.SetActive(true);
         Debug.Log("[PausePopUp] : 설정창");

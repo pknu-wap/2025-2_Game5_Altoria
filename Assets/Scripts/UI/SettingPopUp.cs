@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingPopUp : MonoBehaviour
 {
@@ -15,8 +16,12 @@ public class SettingPopUp : MonoBehaviour
 
     UIController ui;
 
-    [SerializeField] private Slider BGMslider;
-    [SerializeField] private Slider SFXslider;
+    [Header("Audio Settings")]
+    [SerializeField] private SliderInput BGMtext;  
+    [SerializeField] private SliderInput SFXtext;   
+
+    [Header("Control Settings")]
+    [SerializeField] private SliderInput CameraSensitivity;
 
     private void Awake()
     {
@@ -26,12 +31,17 @@ public class SettingPopUp : MonoBehaviour
     {
         ShowTab(0);
 
-        BGMslider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
-        SFXslider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
+        // 오디오 초기화
+        BGMtext.Value = SoundManager.Instance.GetBGMVolume();
+        SFXtext.Value = SoundManager.Instance.GetSFXVolume();
 
-        // 오디오 슬라이더 조절 
-        BGMslider.value = SoundManager.Instance.GetBGMVolume();
-        SFXslider.value = SoundManager.Instance.GetSFXVolume();
+        // 슬라이더 값 변경 시 사운드 매니저에 반영
+        BGMtext.GetComponent<Slider>().onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
+        SFXtext.GetComponent<Slider>().onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
+
+        // 카메라 감도 초기화
+        CameraSensitivity.Value = 60f;
+
     }
 
     // Update is called once per frame
@@ -92,5 +102,11 @@ public class SettingPopUp : MonoBehaviour
     public void SetSFXSlider(float value)
     {
         SoundManager.Instance.SetSFXVolume(value);
+    }
+
+    // 그래픽 설정
+    public void SetCameraSensitivitySlider()
+    {
+        //감도 조절 부분 
     }
 }
