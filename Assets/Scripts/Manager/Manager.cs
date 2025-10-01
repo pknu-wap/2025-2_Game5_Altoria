@@ -1,3 +1,4 @@
+using GameInteract;
 using GameUI;
 using UnityEngine;
 
@@ -9,10 +10,12 @@ public class Manager : MonoBehaviour
     public static UIController UI { get { return Instance.ui; } }
     public static TimeController Time { get { return Instance.time; } }
     public static SceneLoader SceneLoader { get { return Instance.scene; } }
+    public static CollectDropHellper Collect { get { return Instance.collectDropHellper;  } }
 
     private UIController ui;
     private TimeController time;
     private SceneLoader scene;
+    private CollectDropHellper collectDropHellper;
 
     private void Awake()
     {
@@ -33,5 +36,6 @@ public class Manager : MonoBehaviour
         ui = new UIController();
         time = Utils.GetOrAddComponent<TimeController>(gameObject);
         scene = Utils.GetOrAddComponent<SceneLoader>(gameObject);
+        collectDropHellper = new();
     }
 }
