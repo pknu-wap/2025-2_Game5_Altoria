@@ -11,11 +11,12 @@ public class Manager : MonoBehaviour
     public static TimeController Time { get { return Instance.time; } }
     public static SceneLoader SceneLoader { get { return Instance.scene; } }
 
+    public static ResourceManager Resource { get { return Instance.resource; } }
 
     UIController ui;
     TimeController time;
     SceneLoader scene;
-
+    ResourceManager resource;
 
     private void Awake()
     {
@@ -39,7 +40,7 @@ public class Manager : MonoBehaviour
     {
         ui = new();
         time = new();
-        
+        resource = new();
         scene = Utils.GetOrAddComponent<SceneLoader>(gameObject);
     }
 }

@@ -8,14 +8,13 @@ namespace GameInteract
     public class CraftProcessPopUp : UIPopUp 
     {
         IDisposable disposable;
-        void OnEnable()
-        {
-            
-        }
+        
 
-        void OnDisable()
+        public void OnClickPopUp(int type)
         {
             
+            var popUp = Manager.UI.ShowPopup<CraftPopUp>();
+            popUp.SetData((CraftingType)type);
         }
     }
 }

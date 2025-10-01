@@ -14,16 +14,20 @@ namespace GameInteract
         [SerializeField] Image titleImage;
 
         CraftingType type = CraftingType.None;
-   
+        
+        public override bool Init()
+        {
+            if (base.Init() == false) return false;
+
+            return true;
+        }
         public void SetData(CraftingType type)
         {
             this.type = type;
-            
-        }
-        void OnEnable()
-        {
+              
             SubScribe();
         }
+      
         void OnDisable()
         {
             UnSubscribe();

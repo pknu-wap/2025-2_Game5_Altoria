@@ -33,7 +33,7 @@ public class SODataTableEditor : EditorWindow
     }
 
     #region Target Selection
-     void DrawTargetSelector()
+    void DrawTargetSelector()
     {
         var newSO = (ScriptableObject)EditorGUILayout.ObjectField("Target SO", targetSO, typeof(ScriptableObject), false);
 
@@ -49,7 +49,7 @@ public class SODataTableEditor : EditorWindow
         }
     }
 
-     void FindRowsField()
+    void FindRowsField()
     {
         rowsField = targetSO.GetType().GetField("rows", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
@@ -66,7 +66,7 @@ public class SODataTableEditor : EditorWindow
         }
     }
 
-     void InitializeRowsList()
+    void InitializeRowsList()
     {
         if (rowsField == null) return;
 
@@ -79,7 +79,7 @@ public class SODataTableEditor : EditorWindow
         }
     }
 
-     void DetermineRowType()
+    void DetermineRowType()
     {
         if (rowsList == null) return;
 
@@ -98,7 +98,6 @@ public class SODataTableEditor : EditorWindow
     #endregion
 
     #region Toolbar
-    //버튼 제작 
     void DrawToolbar()
     {
         EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
@@ -123,14 +122,14 @@ public class SODataTableEditor : EditorWindow
 
         EditorGUILayout.EndHorizontal();
     }
-     void LoadJson()
+
+    void LoadJson()
     {
         string path = EditorUtility.OpenFilePanel("Load JSON", Application.dataPath, "json");
         if (string.IsNullOrEmpty(path)) return;
 
         string json = File.ReadAllText(path);
 
-      
         var wrapperType = typeof(ListWrapper<>).MakeGenericType(rowType);
         var wrapper = JsonUtility.FromJson(json, wrapperType);
 
@@ -146,7 +145,7 @@ public class SODataTableEditor : EditorWindow
     {
         string path = EditorUtility.SaveFilePanel(
          "Save JSON",
-         Application.dataPath,                
+         Application.dataPath,
          targetSO.name + ".json",
          "json"
          );
@@ -162,9 +161,7 @@ public class SODataTableEditor : EditorWindow
         File.WriteAllText(path, json);
     }
 
- 
-   
-     void LoadCsv()
+    void LoadCsv()
     {
         string path = EditorUtility.OpenFilePanel("Load CSV", Application.dataPath, "csv");
         if (string.IsNullOrEmpty(path)) return;
@@ -177,12 +174,25 @@ public class SODataTableEditor : EditorWindow
             rowsList.Add(item);
     }
 
-     void SaveCsv()
+    void SaveCsv()
     {
-        string path = EditorUtility.SaveFilePanel("Save CSV", 
+        foreach (var f in rowType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+        {
+            if (f.FieldType.IsGenericType && f.FieldType.GetGenericTypeDefinition() == typeof(List<>))
+            {
+                EditorUtility.DisplayDialog("CSV Save Error",
+                    $"Field {f.Name} uses a List, which is not supported in CSV export.",
+                    "OK");
+                return;
+            }
+        }
+
+        string path = EditorUtility.SaveFilePanel(
+            "Save CSV",
             Application.dataPath,
-            targetSO.name + ".csv", 
-            "csv");
+            targetSO.name + ".csv",
+            "csv"
+        );
         if (string.IsNullOrEmpty(path)) return;
 
         var method = typeof(CsvLoader).GetMethod("SaveCsv").MakeGenericMethod(rowType);
@@ -190,7 +200,7 @@ public class SODataTableEditor : EditorWindow
     }
 
     void AddRow() { rowsList.Add(Activator.CreateInstance(rowType)); }
-     void SaveSO()
+    void SaveSO()
     {
         EditorUtility.SetDirty(targetSO);
         AssetDatabase.SaveAssets();
@@ -198,7 +208,7 @@ public class SODataTableEditor : EditorWindow
     #endregion
 
     #region Table
-     void DrawTable()
+    void DrawTable()
     {
         if (rowsList == null || rowType == null) return;
 
@@ -274,12 +284,33 @@ public class SODataTableEditor : EditorWindow
         if (typeof(UnityEngine.Object).IsAssignableFrom(type))
             return EditorGUILayout.ObjectField((UnityEngine.Object)value, type, false, GUILayout.Width(width));
 
-      
+        if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>))
+            return DrawListReferenceButton(value, type, width);
+
         if (!type.IsPrimitive && !type.IsEnum && !typeof(UnityEngine.Object).IsAssignableFrom(type))
             return DrawNestedObject(value, type, width);
 
         GUILayout.Label($"(Unsupported)", GUILayout.Width(width));
         return value;
+    }
+
+    private object DrawListReferenceButton(object value, Type listType, float width)
+    {
+        if (value == null)
+            value = Activator.CreateInstance(listType);
+
+        var list = value as IList;
+        var elementType = listType.GetGenericArguments()[0];
+
+
+        if (GUILayout.Button("List Window", GUILayout.Width(150)))
+        {
+            SOListEditorWindow.Open(list, elementType);
+        }
+
+
+
+        return list;
     }
 
     object DrawNestedObject(object value, Type type, float width)
@@ -302,10 +333,13 @@ public class SODataTableEditor : EditorWindow
         EditorGUILayout.EndVertical();
         return value;
     }
+    #endregion
+
     [Serializable]
-     class ListWrapper<T>
+    class ListWrapper<T>
     {
         public List<T> items;
     }
-    #endregion
 }
+
+

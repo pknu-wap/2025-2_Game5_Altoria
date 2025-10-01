@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,17 +14,10 @@ public class ItemData
     public int SellCost;
     [TextArea] public string Description;
 }
-[System.Serializable]   
-public class CraftingRecipe
-{
-    public ItemData ResultItem;
-    public float Time;
-    public ItemData[] RequiredItems;
-}
 [System.Serializable]
 public class CraftingData
 {
     public string ID;
     public int Count;
-    public List<string> Ingredients;
+    public List<Ingredient> Ingredients;
 }

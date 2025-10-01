@@ -307,9 +307,9 @@ RectTransform:
   - {fileID: 6941303878135904691}
   m_Father: {fileID: 222811605437186059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3147881739114613659
@@ -393,7 +393,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4283152360871291140}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2961092446624067475}
+        m_TargetAssemblyTypeName: GameInteract.CraftProcessPopUp, Assembly-CSharp
+        m_MethodName: OnClickPopUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1038797237059083822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,9 +1193,9 @@ RectTransform:
   - {fileID: 8110832714819427456}
   m_Father: {fileID: 222811605437186059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 630, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5295597669712891624
@@ -1267,7 +1279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4512587658805430456}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2961092446624067475}
+        m_TargetAssemblyTypeName: GameInteract.CraftProcessPopUp, Assembly-CSharp
+        m_MethodName: OnClickPopUp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2278964897667848375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,14 +1553,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1186671421329888959}
-        m_TargetAssemblyTypeName: PopUpHandler, Assembly-CSharp
-        m_MethodName: OnClickPopUpButton
+      - m_Target: {fileID: 2961092446624067475}
+        m_TargetAssemblyTypeName: GameInteract.CraftProcessPopUp, Assembly-CSharp
+        m_MethodName: OnClickPopUp
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1750,7 +1774,6 @@ GameObject:
   - component: {fileID: 1553995343154340749}
   - component: {fileID: 3614699677914185751}
   - component: {fileID: 971978964519255198}
-  - component: {fileID: 1186671421329888959}
   - component: {fileID: 2961092446624067475}
   m_Layer: 5
   m_Name: CraftProcessPopUp
@@ -1857,19 +1880,6 @@ MonoBehaviour:
   pages:
   - {fileID: 6466871505804506868}
   - {fileID: 2091247541153768427}
---- !u!114 &1186671421329888959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2504324005448661678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 179c175f1d711634499a5c160a639bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popUpData: {fileID: 11400000, guid: a1c1cc46d21b1da4caef82ca7f8cb6c4, type: 2}
 --- !u!114 &2961092446624067475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,7 +2062,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 830, y: 100}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160812425216400233
 MonoBehaviour:
@@ -3433,14 +3443,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2961092446624067475}
+        m_TargetAssemblyTypeName: GameInteract.CraftProcessPopUp, Assembly-CSharp
+        m_MethodName: OnClickPopUp
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3704,14 +3714,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2961092446624067475}
+        m_TargetAssemblyTypeName: GameInteract.CraftProcessPopUp, Assembly-CSharp
+        m_MethodName: OnClickPopUp
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4243,7 +4253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1157716131613544808, guid: c0a9a6d6ba5ea1f42a19e075c2d65a63, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6079495010757098980, guid: c0a9a6d6ba5ea1f42a19e075c2d65a63, type: 3}
       propertyPath: m_Pivot.x
