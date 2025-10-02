@@ -1,3 +1,4 @@
+using GameUI;
 using UnityEngine;
 
 public class GameScene : BaseScene
@@ -7,5 +8,6 @@ public class GameScene : BaseScene
         base.Init();
 
         SceneType = Define.SceneType.GameScene;
+        Manager.UI.ShowHUD<UI_GameScene>();
     }
 }
