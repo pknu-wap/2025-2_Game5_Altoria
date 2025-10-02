@@ -3,19 +3,21 @@ using System;
 
 namespace GameInteract
 {
-    public class ProgressSlots : MonoBehaviour
+    public class ProgressSlots : GameUI.UIBase
     {
         [SerializeField] CraftingProgress[] slots;
 
         public event Action<int> OnSlotClicked;
 
-        void Awake()
+        public override bool Init()
         {
+            if (base.Init() == false) return false;
             for (int i = 0; i < slots.Length; i++)
             {
                 slots[i].Init(i);
                 slots[i].OnClicked += HandleSlotClicked;
             }
+            return true;
         }
         void OnDisable()
         {
