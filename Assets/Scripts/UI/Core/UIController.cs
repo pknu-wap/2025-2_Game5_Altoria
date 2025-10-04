@@ -5,19 +5,7 @@ namespace GameUI
 {
     public class UIController
     {
-        #region Static
-        static UIController _instance;
-        public static UIController Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new UIController();
-                return _instance;
-            }
-        }
         //public static WorldUI WorldUI => Instance.worldUI;
-        #endregion
 
         public UIHUD MainHUD { get; private set; }
         public GameObject UIRoot => uiHelper.GetOrAddUIRoot();
@@ -30,7 +18,7 @@ namespace GameUI
        
         
 
-        UIController() {  uiHelper.FindOrAddGameObject(UI_PATH_PREFIX);}
+        public UIController() {  uiHelper.FindOrAddGameObject(UI_PATH_PREFIX);}
        
         void LoadUI<T>(string name, System.Action<T> onLoaded, Transform parent = null, bool sort = true) where T : UIBase
         {
