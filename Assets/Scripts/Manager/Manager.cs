@@ -11,11 +11,13 @@ public class Manager : MonoBehaviour
     public static TimeController Time { get { return Instance.time; } }
     public static SceneLoader SceneLoader { get { return Instance.scene; } }
     public static CollectDropHellper Collect { get { return Instance.collectDropHellper;  } }
+    public static LifeStatsManager Life { get { return Instance.lifeStatsManager; } }
 
     private UIController ui;
     private TimeController time;
     private SceneLoader scene;
     private CollectDropHellper collectDropHellper;
+    private LifeStatsManager lifeStatsManager;
 
     private void Awake()
     {
@@ -35,7 +37,8 @@ public class Manager : MonoBehaviour
     {
         ui = new UIController();
         time = Utils.GetOrAddComponent<TimeController>(gameObject);
-        scene = Utils.GetOrAddComponent<SceneLoader>(gameObject);
+        scene = new();
         collectDropHellper = new();
+        lifeStatsManager = new ();
     }
 }

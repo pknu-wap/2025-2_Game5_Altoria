@@ -8,7 +8,9 @@ namespace GameInteract
     public class CollectInteractComponent : InteractBaseComponent
     {
         [SerializeField] protected CollectType collectType = CollectType.None;
+        [Header("지역&콘텐츠에 따른 SO")]
         [SerializeField] protected CollectInteractSO dropTable;
+        [Header("플레이어가 사용하는 도구(추후 인스펙터에서 설정X)")]
         [SerializeField] protected CollectToolSO currentTool;
 
         private bool doing = false;
@@ -21,10 +23,7 @@ namespace GameInteract
         protected virtual void Interacting()
         {
             if (doing) 
-            { 
-                Debug.Log($"{GetType()} : 이미 진행중"); 
-                return; 
-            }
+                return;
             doing = true;
 
             CollectTimer timer = new(2);
@@ -43,7 +42,10 @@ namespace GameInteract
             FuncForEndCollect();
         }
 
-        protected virtual void FuncForEndCollect() {}
+        protected virtual void FuncForEndCollect() 
+        {
+
+        }
     }
 
 }
