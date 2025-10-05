@@ -34,4 +34,5 @@ namespace GameInteract
         void Reset();
     }
 
+    public interface IDropHellper { }
 }
