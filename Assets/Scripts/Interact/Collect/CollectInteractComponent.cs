@@ -31,7 +31,7 @@ namespace GameInteract
             Debug.Log($"{GetType()} : {collectType.ToString()} Á¾·á.");
 
             doing = false;
-            var item = Manager.Collect.GetRandomItem(dropTable, currentTool);
+            var item = Manager.Random.GetCollectItem(dropTable, currentTool);
             Debug.Log($"°á°ú: {item} È¹µæ!");
 
             FuncForEndCollect();

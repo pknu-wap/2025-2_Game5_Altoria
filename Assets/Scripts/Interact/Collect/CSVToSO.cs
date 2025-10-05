@@ -14,7 +14,7 @@ public class CSVToSO
         string path = Path.Combine(Application.dataPath, "CSV/collect_test.csv");
         string[] csvText = File.ReadAllLines(path);
 
-        Dictionary<int, List<CollectItem>> sos = new ();
+        Dictionary<string, List<CollectItem>> sos = new ();
 
         for (var i = 1; i < csvText.Length; i++)
         {
@@ -22,8 +22,8 @@ public class CSVToSO
 
             CollectItem item = new();
 
-            item.areaID = Convert.ToInt32(datas[0]);
-            item.itemID = Convert.ToInt32(datas[1]);
+            item.areaID = datas[0].ToString();
+            item.itemID = datas[1].ToString();
             item.baseProbability = Convert.ToInt32(datas[2]);
 
             if (!sos.ContainsKey(item.areaID))
@@ -34,8 +34,8 @@ public class CSVToSO
         for (int id = 1; id <= sos.Count; id++)
         {
             CollectInteractSO so = ScriptableObject.CreateInstance<CollectInteractSO>();
-            so.areaID = id;
-            so.drops = sos[id];
+            so.areaID = id.ToString();
+            so.drops = sos[id.ToString()];
             so.collectType = Define.CollectType.Fish;
             AssetDatabase.CreateAsset(so, $"{COLLECT_SO_PATH}/Collect{id}.asset");
             AssetDatabase.SaveAssets();

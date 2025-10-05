@@ -28,6 +28,4 @@ namespace GameInteract
         void Tick(float deltaTime);
         void Reset();
     }
-
-    public interface IDropHellper { }
 }

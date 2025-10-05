@@ -5,8 +5,8 @@ using static Define;
 [System.Serializable]
 public class CollectItem
 {
-    public int areaID;
-    public int itemID;           // 아이템 고유 ID
+    public string areaID;
+    public string itemID;           // 아이템 고유 ID
     public float baseProbability;   // 드랍 확률
 }
 
@@ -14,6 +14,6 @@ public class CollectItem
 public class CollectInteractSO : ScriptableObject
 {
     public CollectType collectType;   // 낚시, 채광, 농사 등
-    public int areaID;           // 지역 ID (A, B, ...)
+    public string areaID;           // 지역 ID (A, B, ...)
     public List<CollectItem> drops;
 }
