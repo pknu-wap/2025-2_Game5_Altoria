@@ -17,12 +17,7 @@ namespace GameInteract
 
         public override void Interact()
         {
-            Interacting();
-        }
-
-        protected virtual void Interacting()
-        {
-            if (doing) 
+            if (doing)
                 return;
             doing = true;
 
@@ -46,6 +41,7 @@ namespace GameInteract
         {
 
         }
+
     }
 
 }
