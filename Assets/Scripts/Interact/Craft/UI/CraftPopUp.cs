@@ -79,6 +79,7 @@ namespace GameInteract
         {
             if (packet.Type != this.type) return;
 
+
         }
         void UpdateProgress(CraftingProgressEvent packet)
         {

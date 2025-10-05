@@ -22,7 +22,7 @@ namespace GameInteract
     public interface IInteractSpawnable { }
 
     public interface IProgress { }
-    public interface IProgress<T>:IProgress { Action<T> OnProgress { get; } }
+    public interface IProgress<T>:IProgress { event Action<T> OnProgress; }
     public interface ITimer
     {
         event Action<ITimer> OnFinished;

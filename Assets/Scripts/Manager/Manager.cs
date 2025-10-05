@@ -1,5 +1,7 @@
+using GameData;
 using GameInteract;
 using GameUI;
+using System.Threading;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -14,13 +16,14 @@ public class Manager : MonoBehaviour
     public static CollectDropHellper Collect { get { return Instance.collectDropHellper;  } }
     public static LifeStatsManager Life { get { return Instance.lifeStatsManager; } }
 
-    private UIController ui;
-    private TimeController time;
-    private SceneLoader scene;
-    private CollectDropHellper collectDropHellper;
-    private LifeStatsManager lifeStatsManager;
-
-    private void Awake()
+    public static ResourceManager Resource { get { return Instance.resource; } }    
+    UIController ui;
+    TimeController time;
+    SceneLoader scene;
+    CollectDropHellper collectDropHellper;
+    LifeStatsManager lifeStatsManager;
+    ResourceManager resource;
+    void Awake()
     {
         if (instance == null)
         {
@@ -34,15 +37,18 @@ public class Manager : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
+        if(Time!=null)
         Time.Tick(UnityEngine.Time.deltaTime);  
     }
-    private void InitManagers()
+    async void InitManagers()
     {
-        ui = new UIController();
-        time = Utils.GetOrAddComponent<TimeController>(gameObject);
+        await GameDB.LoadAll();
+        ui = new ();
+        time = new();
         scene = new();
+        resource=new();
         collectDropHellper = new();
         lifeStatsManager = new ();
     }

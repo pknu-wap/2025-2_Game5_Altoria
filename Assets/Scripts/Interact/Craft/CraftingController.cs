@@ -1,32 +1,40 @@
- using GameInteract;
+using GameInteract;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CraftingSlot
 {
     public CraftingRecipe Recipe { get; private set; }
-    public float Elapsed { get; private set; }
-    public bool IsCrafting { get; private set; }
+    CraftingSlotData data;
+    CraftingTimer timer = new();
 
+    public Action<CraftingSlotData> OnCraftFinished;
+    public CraftingSlot(CraftingSlotData data) { this.data = data; }
+    public bool IsCrafting { get; private set; }
     public void StartCraft(CraftingRecipe recipe)
     {
         Recipe = recipe;
-        Elapsed = 0;
+        timer.OnProgress += UpdateProgress;
+        timer.OnFinished += HandleSlotFinished;
         IsCrafting = true;
     }
 
-    public void Tick(float deltaTime)
-    {
-        if (!IsCrafting) return;
-        Elapsed += deltaTime;
+    private void UpdateProgress(float value)
+        => GlobalEvents.Instance.Publish<CraftingProgressEvent>
+        (
+            new CraftingProgressEvent(data.Type, data.SlotIndex, value)
+        );
 
-        if (Elapsed >= Recipe.Time)
-        {
-            IsCrafting = false;
-        }
+    void HandleSlotFinished(ITimer timer)
+    {
+        
+
     }
+    public void Reset() => Recipe = null;
 }
+
 public class CraftingController
 {
     private Dictionary<CraftingType, List<CraftingSlot>> slots;
@@ -34,12 +42,22 @@ public class CraftingController
     public CraftingController()
     {
         slots = new Dictionary<CraftingType, List<CraftingSlot>>();
-        foreach (CraftingType type in Enum.GetValues(typeof(CraftingType)))
-        {
-            slots[type] = new List<CraftingSlot> { new CraftingSlot(), new CraftingSlot() };
-        }
-    }
 
+        Array types = Enum.GetValues(typeof(CraftingType));
+        for (int i = 0; i < types.Length; i++)
+        {
+            CraftingType type = (CraftingType)types.GetValue(i);
+            var slotList = new List<CraftingSlot>
+            {
+                new CraftingSlot(new CraftingSlotData(type, 0)),
+                new CraftingSlot(new CraftingSlotData(type, 1))
+            };
+
+            slots[type] = slotList;
+        }
+       
+    }
+    
     public void StartCraft(CraftingType type, int slotIndex, CraftingRecipe recipe)
     {
         if (slots.TryGetValue(type, out var slotList) && slotIndex < slotList.Count)
@@ -48,5 +66,8 @@ public class CraftingController
         }
     }
 
-    
+    public bool CanCrafting(string ID)
+    {
+        return true;
+    }
 }

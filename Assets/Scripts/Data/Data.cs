@@ -23,3 +23,15 @@ public class CraftingData
     public int Count;
     public List<Ingredient> Ingredients;
 }
+[System.Serializable]
+public class CraftingSlotData
+{
+    public CraftingType Type;
+    public int SlotIndex;
+
+    public CraftingSlotData(CraftingType type, int slotIndex)
+    {
+        Type = type;
+        SlotIndex = slotIndex;
+    }
+}

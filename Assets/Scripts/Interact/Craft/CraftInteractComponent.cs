@@ -5,7 +5,7 @@ namespace GameInteract
 {
     public enum CraftingType
     {
-        None,
+        None=0,
         Metal,
         Wood,
         Extra,

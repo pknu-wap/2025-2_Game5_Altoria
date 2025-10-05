@@ -7,7 +7,8 @@ namespace GameInteract
    
     public class CraftingTimer : ITimer,IProgress<float>
     {
-        public Action<float> OnProgress { get; private set; }
+        public event Action<float> OnProgress;
+
         public event Action<ITimer> OnFinished;
         public bool IsRunning { get; private set; }
         public float Elapsed {  get; private set; } 
@@ -31,14 +32,13 @@ namespace GameInteract
             if (!IsRunning) return;
 
             Elapsed += deltaTime;
-            OnProgress?.Invoke(Elapsed / Elapsed);
 
-            if (Elapsed >= Elapsed)
-            {
-                IsRunning = false;
-                OnFinished?.Invoke(this);
-                return;
-            }
+            float progress = Mathf.Clamp01(Elapsed / Duration);
+
+            OnProgress?.Invoke(progress);
+
+            if (Elapsed >= Duration)
+                Reset();
         }
 
         public void Reset()
