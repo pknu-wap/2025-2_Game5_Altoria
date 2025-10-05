@@ -3,7 +3,7 @@ using static Define;
 
 public class BaseScene : MonoBehaviour
 {
-    protected SceneType SceneType = SceneType.None;
+    protected SceneType sceneType = SceneType.None;
 
     private void Awake()
     {

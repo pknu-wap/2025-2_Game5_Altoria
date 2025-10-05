@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameInteract
 {
-    public class CollectDropHellper : IDropHellper
+    public class CollectDropHellper
     {
         public int? GetRandomItem(CollectInteractSO data, CollectToolSO tool)
         {
