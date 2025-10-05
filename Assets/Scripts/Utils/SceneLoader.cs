@@ -7,7 +7,7 @@ using static Define;
 /// timeScale을 사용하지 않는다면 삭제하겠습니다.
 /// </summary>
 /// 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader
 {
     public void LoadScene(SceneType sceneType)
     {

@@ -9,4 +9,15 @@ public class Define
         GameScene,
     };
 
+    public enum CollectType
+    {
+        None,
+        Farm,
+        Fish,
+        Fell, // ¹ú¸ñ
+        Animal,
+        Mining,
+        Plant,
+        COUNT,
+    }
 }
