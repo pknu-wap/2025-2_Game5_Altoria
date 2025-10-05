@@ -48,12 +48,5 @@ public class CraftingController
         }
     }
 
-    public void Update(float deltaTime)
-    {
-        foreach (var slotList in slots.Values)
-        {
-            foreach (var slot in slotList)
-                slot.Tick(deltaTime);
-        }
-    }
+    
 }

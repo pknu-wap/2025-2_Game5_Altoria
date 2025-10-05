@@ -1,3 +1,4 @@
+using GameInteract;
 using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ public class ItemData
 [System.Serializable]
 public class CraftingData
 {
+    public CraftingType Type;
     public string ID;
     public int Count;
     public List<Ingredient> Ingredients;

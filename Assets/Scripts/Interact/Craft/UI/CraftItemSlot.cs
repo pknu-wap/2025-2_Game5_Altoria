@@ -13,10 +13,10 @@ namespace GameInteract
 
         int slotIndex;
         public Action<int> onClick;
-        public void SetSlot(int slotIndex, Sprite sprite ,int count)
+        public void SetSlot(int slotIndex, string sprite ,int count)
         {
             this.slotIndex = slotIndex;
-            itemImage.sprite = sprite;
+            countText.text = count.ToString();
         }
         public void OnClickSlot() => onClick?.Invoke(slotIndex);
 

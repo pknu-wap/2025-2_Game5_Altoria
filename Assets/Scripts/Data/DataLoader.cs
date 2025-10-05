@@ -1,16 +1,17 @@
+using GameData;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine;
-using System.Threading.Tasks;
 
 
-public static class JsonLoader<T> where T : new()
+public class JsonLoader<T> : ILoadStrategy<T> where T : new()
 {
     [System.Serializable]
-    class Wrapper { public List<T> rows; }
+    private class Wrapper { public List<T> rows; }
 
-    public static async System.Threading.Tasks.Task<List<T>> LoadAsync(string address)
+    public async Task<IList<T>> LoadAsync(string address)
     {
         var handle = Addressables.LoadAssetAsync<TextAsset>(address);
         await handle.Task;
@@ -23,12 +24,8 @@ public static class JsonLoader<T> where T : new()
 
         string json = handle.Result.text;
         var wrapper = JsonUtility.FromJson<Wrapper>(json);
-        return wrapper != null ? wrapper.rows : new List<T>();
-    }
 
-    public static void Save(string path, IList<T> data)
-    {
-        Debug.LogWarning("Saving Addressable JSON at runtime is not supported. Use editor pipeline.");
+        return wrapper?.rows ?? new List<T>();
     }
 }
 public static class SoLoader<T> where T : ScriptableObject

@@ -6,15 +6,18 @@ using System.Collections;
 
 public class SOListEditorWindow : EditorWindow
 {
-     IList targetList;
-     Type elementType;
-     Vector2 scroll;
+    IList targetList;
+    Type elementType;
+    Vector2 scroll;
 
-    public static void Open(IList list, Type elementType)
+    ScriptableObject owner; 
+
+    public static void Open(IList list, Type elementType, ScriptableObject owner)
     {
         var window = CreateInstance<SOListEditorWindow>();
         window.targetList = list;
         window.elementType = elementType;
+        window.owner = owner; 
         window.titleContent = new GUIContent($"List<{elementType.Name}>");
         window.ShowUtility();
     }
@@ -27,19 +30,16 @@ public class SOListEditorWindow : EditorWindow
             return;
         }
 
-
         EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
         GUILayout.Label("Index", GUILayout.Width(40));
         foreach (var f in elementType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
         {
             if (!f.IsPublic && f.GetCustomAttribute<SerializeField>() == null)
                 continue;
-
             GUILayout.Label(f.Name, GUILayout.Width(150));
         }
         GUILayout.Label("Delete", GUILayout.Width(40));
         EditorGUILayout.EndHorizontal();
-     
 
         scroll = EditorGUILayout.BeginScrollView(scroll);
 
@@ -57,13 +57,18 @@ public class SOListEditorWindow : EditorWindow
 
                 object value = f.GetValue(element);
                 object newValue = DrawFieldCell(value, f.FieldType, 150);
+
                 if (!Equals(value, newValue))
+                {
                     f.SetValue(element, newValue);
+                    EditorUtility.SetDirty(owner); 
+                }
             }
 
             if (GUILayout.Button("X", GUILayout.Width(40)))
             {
                 targetList.RemoveAt(i);
+                EditorUtility.SetDirty(owner); 
                 break;
             }
 
@@ -75,6 +80,7 @@ public class SOListEditorWindow : EditorWindow
         if (GUILayout.Button("+ Add Element"))
         {
             targetList.Add(Activator.CreateInstance(elementType));
+            EditorUtility.SetDirty(owner);
         }
     }
 
@@ -100,7 +106,7 @@ public class SOListEditorWindow : EditorWindow
         return value;
     }
 
-     object DrawNestedObject(object value, Type type, float width)
+    object DrawNestedObject(object value, Type type, float width)
     {
         if (value == null)
             value = Activator.CreateInstance(type);
@@ -115,7 +121,10 @@ public class SOListEditorWindow : EditorWindow
             object nestedValue = nf.GetValue(value);
             object newNestedValue = DrawFieldCell(nestedValue, nf.FieldType, width - 10);
             if (!Equals(nestedValue, newNestedValue))
+            {
                 nf.SetValue(value, newNestedValue);
+                EditorUtility.SetDirty(owner); 
+            }
         }
         EditorGUILayout.EndVertical();
         return value;

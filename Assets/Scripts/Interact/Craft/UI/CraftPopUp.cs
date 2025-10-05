@@ -1,5 +1,7 @@
+using GameData;
 using GameUI;
 using System;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,10 +26,36 @@ namespace GameInteract
         public void SetData(CraftingType type)
         {
             this.type = type;
-              
+
+            var craftingList = GameDB.GetCraftTypeData(type);
+            if (craftingList != null)
+            {
+                var datalist = craftingList.Value.ToList();
+
+                for (int i = 0; i < datalist.Count; i++)
+                {
+                    int index = i;
+                    var craftData = datalist[index]; 
+
+                    var itemData = GameDB.GetItemData(craftData.Key);
+
+                    Manager.Resource.Instantiate(
+                        nameof(CraftItemSlot),
+                        new InstantiateOptions { Parent = listRoot },
+                        obj =>
+                        {
+                            if (obj.TryGetComponent<CraftItemSlot>(out var slot))
+                            {
+                                slot.SetSlot(index, itemData.SpriteAddress, craftData.Value.Count);
+                            }
+                        });
+                }
+            }
+
             SubScribe();
         }
-      
+
+
         void OnDisable()
         {
             UnSubscribe();

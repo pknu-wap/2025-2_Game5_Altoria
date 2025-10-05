@@ -7,7 +7,7 @@ public struct StringPair
     public string V2;
 }
 [System.Serializable]
-public struct Ingredient
+public class Ingredient
 {
     public string ID;
     public int Count;

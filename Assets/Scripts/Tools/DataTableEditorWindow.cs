@@ -157,7 +157,7 @@ public class SODataTableEditor : EditorWindow
         var dataField = wrapperType.GetField("items");
         dataField.SetValue(wrapper, rowsList);
 
-        string json = JsonUtility.ToJson(wrapper, true);
+        string json = JsonUtility.ToJson(wrapper, false);
         File.WriteAllText(path, json);
     }
 
@@ -305,7 +305,7 @@ public class SODataTableEditor : EditorWindow
 
         if (GUILayout.Button("List Window", GUILayout.Width(150)))
         {
-            SOListEditorWindow.Open(list, elementType);
+            SOListEditorWindow.Open(list, elementType, targetSO);
         }
 
 
