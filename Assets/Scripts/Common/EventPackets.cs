@@ -6,12 +6,12 @@ public struct CraftingStartedEvent
 {
     public CraftingType Type;
     public int SlotIndex;
-    public ItemData Item;
-    public CraftingStartedEvent(CraftingType type, int slotIndex=0, ItemData item =null)
+    public CraftingRecipe Recipe;
+    public CraftingStartedEvent(CraftingType type, int slotIndex=0, CraftingRecipe recipe =null)
     {
-        this.Type = type;
-        this.SlotIndex = slotIndex;
-        this.Item = item;
+        Type = type;
+        SlotIndex = slotIndex;
+        Recipe= recipe;
     }
 }
 [System.Serializable]

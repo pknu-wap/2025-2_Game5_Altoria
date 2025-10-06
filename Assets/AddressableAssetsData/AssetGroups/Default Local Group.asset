@@ -25,11 +25,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7bbe4ef319f47c742a643ef3ddbe9ed6
-    m_Address: CraftItemSlot
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f41866f78a349b4fbaf2beca6a250d6
     m_Address: CraftDatabase
     m_ReadOnly: 0

@@ -21,6 +21,7 @@ public class CraftingData
     public CraftingType Type;
     public string ID;
     public int Count;
+    public float Time;
     public List<Ingredient> Ingredients;
 }
 [System.Serializable]

@@ -4,7 +4,7 @@ using GameUI;
 using System.Threading;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-
+using Common;
 public class Manager : MonoBehaviour
 {
     private static Manager instance;

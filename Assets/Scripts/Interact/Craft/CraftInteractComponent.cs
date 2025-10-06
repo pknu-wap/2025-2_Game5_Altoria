@@ -18,10 +18,7 @@ namespace GameInteract
         public override void Interact() => OpenInteractWindow();
         void OpenInteractWindow()
         {
-            Manager.UI.ShowPopup<CraftProcessPopUp>(() =>
-            {
-                EndInteract();
-            });
+            Manager.UI.ShowPopup<CraftProcessPopUp>(() => {EndInteract();});
         }
 
     }
