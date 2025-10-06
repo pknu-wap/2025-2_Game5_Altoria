@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnableController : MonoBehaviour
 {
-    List<ISpawnable> spawns;
+    List<IInteractSpawnable> spawns;
 
     void Spawn()
     {

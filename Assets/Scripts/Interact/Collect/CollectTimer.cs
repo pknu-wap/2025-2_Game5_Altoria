@@ -30,6 +30,11 @@ namespace GameInteract
 
             if (IsFinished) OnFinished?.Invoke(this);
         }
+
+        public void SetTimer(float duration, bool autoRegister = true)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

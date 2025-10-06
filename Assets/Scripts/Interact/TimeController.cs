@@ -9,20 +9,18 @@ public enum TimeMode
     Night
 }
 
-public class TimeController : MonoBehaviour
+public class TimeController
 {
     List<ITimer> timers = new List<ITimer>();
 
-    void Update()
-    {
-        Tick();
-    }
+    public TimeController() { }
+    
 
-    void Tick()
+    public void Tick(float deltaTime)
     {
         for (int i = timers.Count - 1; i >= 0; i--)
         {
-            timers[i].Tick(Time.deltaTime);
+            timers[i].Tick(deltaTime);
         }
     }
 
