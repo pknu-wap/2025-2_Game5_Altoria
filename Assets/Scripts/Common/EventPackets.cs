@@ -7,6 +7,12 @@ public struct CraftingStartedEvent
     public CraftingType Type;
     public int SlotIndex;
     public ItemData Item;
+    public CraftingStartedEvent(CraftingType type, int slotIndex=0, ItemData item =null)
+    {
+        this.Type = type;
+        this.SlotIndex = slotIndex;
+        this.Item = item;
+    }
 }
 [System.Serializable]
 public struct CraftingProgressEvent
@@ -16,9 +22,9 @@ public struct CraftingProgressEvent
     public float Progress;   
     public CraftingProgressEvent(CraftingType type, int slotIndex = 0, float progress = 0f)
     {
-        Type = type;
-        SlotIndex = slotIndex;
-        Progress = progress;
+        this.Type = type;
+        this.SlotIndex = slotIndex;
+        this.Progress = progress;
     }
    
 }
@@ -28,6 +34,12 @@ public struct CraftingCompletedEvent
     public CraftingType Type;
     public int SlotIndex;
     public ItemData Item;
+    public CraftingCompletedEvent(CraftingType type, int  slotIndex= 0, ItemData item=null)
+    {
+        this.Type = type;
+        this.SlotIndex = slotIndex;
+        this.Item = item;
+    }
 }
 
 [System.Serializable]
