@@ -6,19 +6,12 @@ namespace GameInteract
     public class RespawnTimer : ITimer
     {
         public float Elapsed { get; private set; }
-        public float Duration { get; }
+        public float Duration { get; private set; }
         public bool IsFinished => Elapsed >= Duration;
 
         public event Action<ITimer> OnFinished;
 
-        public RespawnTimer(float duration, bool autoRegister = true)
-        {
-            Duration = duration;
-            Elapsed = 0f;
-
-            if (autoRegister)
-                Manager.Time.RegisterTimer(this);
-        }
+      
 
         public void Tick(float deltaTime)
         {
@@ -31,5 +24,14 @@ namespace GameInteract
         }
 
         public void Reset() => Elapsed = 0f;
+
+        public void SetTimer(float duration, bool autoRegister = true)
+        {
+            Duration = duration;
+            Elapsed = 0f;
+
+            if (autoRegister)
+                Manager.Time.RegisterTimer(this);
+        }
     }
 }

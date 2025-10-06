@@ -35,6 +35,7 @@ namespace GameInteract
             Debug.Log($"°á°ú: {item} È¹µæ!");
 
             FuncForEndCollect();
+        
         }
 
         protected virtual void FuncForEndCollect() 

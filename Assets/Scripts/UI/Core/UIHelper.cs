@@ -23,7 +23,7 @@ namespace GameUI
             return uiRoot;
         }
 
-        public  GameObject FindOrAddGameObject(string path)
+        public  GameObject FindOrAddEventSystem(string path)
         {
             if (eventSystem != null) return eventSystem;
 
