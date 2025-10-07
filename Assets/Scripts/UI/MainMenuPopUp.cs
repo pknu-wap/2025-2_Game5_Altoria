@@ -18,7 +18,7 @@ public class MainMenuPopUp : UIPopUp
 
     private void Awake()
     {
-        ui = UIController.Instance; 
+        //ui = UIController.Instance; 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
