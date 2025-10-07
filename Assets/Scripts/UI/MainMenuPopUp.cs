@@ -8,7 +8,7 @@ public class MainMenuPopUp : UIPopUp
     [SerializeField] private GameObject mainMenuPopUp;
     [SerializeField] private GameObject settingPopUp;
 
-    // ÃßÈÄ ÀÌ¸§ º¯°æ
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private Slider stat1;   [SerializeField] private TextMeshProUGUI stat1Text;
     [SerializeField] private Slider stat2;   [SerializeField] private TextMeshProUGUI stat2Text;
     [SerializeField] private Slider stat3;   [SerializeField] private TextMeshProUGUI stat3Text;
@@ -18,7 +18,7 @@ public class MainMenuPopUp : UIPopUp
 
     private void Awake()
     {
-        //ui = UIController.Instance; 
+        ui = Manager.UI; 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,10 +50,10 @@ public class MainMenuPopUp : UIPopUp
 
     public void updateStats()
     {
-        // ½ºÅÈ Ç¥½Ã~
-        // stat1.onValueChanged.AddListener( ÇÔ¼ö Ãß°¡ ); 
+        // ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½~
+        // stat1.onValueChanged.AddListener( ï¿½Ô¼ï¿½ ï¿½ß°ï¿½ ); 
 
-        stat1Text.text = stat1.value.ToString() + " / 250";  //ÃßÈÄ ÀÌ¸§ º¯°æ  ¸®½ºÆ®·Î ¹Ù²ÙµçÁö 
+        stat1Text.text = stat1.value.ToString() + " / 250";  //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù²Ùµï¿½ï¿½ï¿½ 
         stat2Text.text = stat2.value.ToString() + " / 250";
         stat3Text.text = stat3.value.ToString() + " / 250";
         stat4Text.text = stat4.value.ToString() + " / 250";
@@ -73,7 +73,7 @@ public class MainMenuPopUp : UIPopUp
     {
         //ui.ShowPopup<SettingPopUp>();
         settingPopUp.SetActive(true);
-        Debug.Log("[MainMenuPopUp] : ¼³Á¤Ã¢");
+        Debug.Log("[MainMenuPopUp] : ï¿½ï¿½ï¿½ï¿½Ã¢");
     }
     public void closePopUp()
     {

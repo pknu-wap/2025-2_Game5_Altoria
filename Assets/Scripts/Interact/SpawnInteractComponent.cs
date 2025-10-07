@@ -3,19 +3,19 @@ using UnityEngine;
 
 namespace GameInteract
 {
-    public class SpawnInteractComponent : InteractBaseComponent, IDisposable, ISpawnable
+    public class SpawnInteractComponent : InteractBaseComponent, IDisposable, IInteractSpawnable
     {
         [SerializeField] float respawnTime;
         [SerializeField] GameObject spawnableObject;
 
-        RespawnTimer timer;
+        RespawnTimer timer = new();
 
         public override void Interact()
         {
             if (spawnableObject != null)
                 spawnableObject.SetActive(false);
 
-            timer = new RespawnTimer(respawnTime);
+            timer.SetTimer(respawnTime);
             timer.OnFinished += OnRespawn;
         }
 
