@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c0a9a6d6ba5ea1f42a19e075c2d65a63
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Frame/PopupFrame.prefab
+  uploadId: 740277
