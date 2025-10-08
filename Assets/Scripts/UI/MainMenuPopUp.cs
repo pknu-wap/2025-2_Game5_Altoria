@@ -3,22 +3,25 @@ using UnityEngine.UI;
 using GameUI;
 using TMPro;
 
+[System.Serializable]
+public class Stat
+{
+    public Slider slider;
+    public TextMeshProUGUI statText;
+}
+
 public class MainMenuPopUp : UIPopUp
 {
     [SerializeField] private GameObject mainMenuPopUp;
     [SerializeField] private GameObject settingPopUp;
 
-    // ���� �̸� ����
-    [SerializeField] private Slider stat1;   [SerializeField] private TextMeshProUGUI stat1Text;
-    [SerializeField] private Slider stat2;   [SerializeField] private TextMeshProUGUI stat2Text;
-    [SerializeField] private Slider stat3;   [SerializeField] private TextMeshProUGUI stat3Text;
-    [SerializeField] private Slider stat4;   [SerializeField] private TextMeshProUGUI stat4Text;
+    [SerializeField] private Stat[] stats = new Stat[4];
 
-    private UIController ui;
+    private Manager ui;
 
     private void Awake()
     {
-        ui = Manager.UI; 
+        //ui = Manager.UI; 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,13 +53,17 @@ public class MainMenuPopUp : UIPopUp
 
     public void updateStats()
     {
-        // ���� ǥ��~
         // stat1.onValueChanged.AddListener( �Լ� �߰� ); 
+        for (int i = 0; i < stats.Length; i++)
+        {
+            int index = i;
 
-        stat1Text.text = stat1.value.ToString() + " / 250";  //���� �̸� ����  ����Ʈ�� �ٲٵ��� 
-        stat2Text.text = stat2.value.ToString() + " / 250";
-        stat3Text.text = stat3.value.ToString() + " / 250";
-        stat4Text.text = stat4.value.ToString() + " / 250";
+            stats[i].slider.onValueChanged.AddListener((value) =>
+            {
+                stats[index].statText.text = value.ToString("F0") + " / 250";
+            });
+            stats[i].statText.text = stats[i].slider.value.ToString("F0") + " / 250";
+        }
     }
     public void OnClickInventory()
     {
@@ -73,8 +80,9 @@ public class MainMenuPopUp : UIPopUp
     {
         //ui.ShowPopup<SettingPopUp>();
         settingPopUp.SetActive(true);
-        Debug.Log("[MainMenuPopUp] : ����â");
+        Debug.Log("[MainMenuPopUp] : 설정창");
     }
+
     public void closePopUp()
     {
         //ui.ClosePopup();
