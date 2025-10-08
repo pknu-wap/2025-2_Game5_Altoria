@@ -23,6 +23,8 @@ public class InventoryUI : MonoBehaviour
 
     [Header("Top Tabs")]
     [SerializeField] TopButtonSet[] topButtons;
+    private Define.ItemType currentType = Define.ItemType.None;
+
 
     [Header("Sort Dropdown")]
     [SerializeField] TMP_Dropdown sortDropdown;
@@ -32,6 +34,9 @@ public class InventoryUI : MonoBehaviour
         { SortType.GradeLowToHigh, "등급 낮은 순" }
     };
 
+    [Header("유저에게 보여지는 리스트")]
+    private List<ItemData> displayList;
+    //private List<ItemData> displayList = 아이템 데이터 테이블에서 가져오기
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -80,6 +85,8 @@ public class InventoryUI : MonoBehaviour
                         topButtons[j].page.SetActive(false);
                     }
                 }
+                //currentType = (Define.ItemType)index;     -----> 인벤토리 상위 버튼 순서와 ItemType에 있는 분류 순서가 달라서 지금 못함 
+                RefreshInventory();
                 SoundManager.Instance.PlaySFX(SFX.ButtonClick);
             });
         }
@@ -108,7 +115,7 @@ public class InventoryUI : MonoBehaviour
     {
         SortType selectedSort = (SortType)index;
 
-        //ItemSorter.SortItems(아이템데이터, selectedSort);
+        //displayList = ItemSorter.SortItems(아이템데이터, selectedSort);
 
         RefreshInventory();
         Debug.Log($"[InventoryUI] : 정렬 방식 변경됨 - {sortLabels[selectedSort]}");
@@ -119,6 +126,9 @@ public class InventoryUI : MonoBehaviour
     public void RefreshInventory()
     {
         //////////// 인벤토리 최신화 로직 구현
+        //////////// 원본 리스트가 아닌 displayList를 사용하여 UI 갱신
+        //////////// page에 따라 리스트 필터링 
+        
         Debug.Log("[InventoryUI] : 인벤토리 최신화됨");
     }
 
