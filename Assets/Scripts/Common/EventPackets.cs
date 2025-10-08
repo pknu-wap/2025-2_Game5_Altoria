@@ -45,7 +45,7 @@ public struct CraftingCompletedEvent
 [System.Serializable]
 public class CraftingRecipe
 {
-    public ItemData ResultItem;
+    public ItemEntry ResultItem;
     public float Time;
-    public ItemData[] RequiredItems;
+    public ItemEntry[] RequiredItems;
 }

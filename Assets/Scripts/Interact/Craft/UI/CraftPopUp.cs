@@ -19,8 +19,8 @@ namespace GameInteract
         public override bool Init()
         {
             if (base.Init() == false) return false;
-            RefreshProgressSlots();
 
+          
 
             return true;
         }
@@ -29,6 +29,7 @@ namespace GameInteract
         {
             this.type = type;
             handler = new CraftingHandler(type);
+            RefreshProgressSlots();
             CreateSlots();
             Subscribe();
         }
@@ -75,31 +76,58 @@ namespace GameInteract
         void RefreshProgressSlots()
         {
             List<CraftingSlot> craftingSlots = Manager.System.GetCurrentCraftingSlots(type);
-
             for (int index = 0; index < craftingSlots.Count; index++)
             {
-                var slot = craftingSlots[index];
+                int currentIndex = index;
+                var slot = craftingSlots[currentIndex];
 
-                if (slot.State!=CraftingState.None)
-                    progressSlots.SetItemIcon(index); 
-                else
-                    progressSlots.ClearSlot(index);
+                Action action = slot.State switch
+                {
+                    CraftingState.Crafting => () => progressSlots.SetItemIcon(currentIndex),
+
+                    CraftingState.Completed => () =>
+                    {
+                        progressSlots.SetItemIcon(currentIndex);
+                        progressSlots.OnCompleteProgress(currentIndex);
+                    },
+                    _ => () => progressSlots.ClearSlot(currentIndex)
+                };
+
+                action?.Invoke(); 
             }
         }
 
+        void OpenProgressPopUp(CraftingState state,CraftingSlot slot,int slotIndex)
+        {
+            ItemEntry entry = slot.Recipe.ResultItem;
+            CraftProgressPopUp popUp =  Manager.UI.ShowPopup<CraftProgressPopUp>();
+            popUp.InitEntry(state, entry.Item.SpriteAddress, entry.Value);
+            if (popUp is IActionButton button)
+            {
+                button.OnClicked += () =>
+                {
+                    handler.GetCompletedItem(slotIndex);
+                    Manager.UI.ClosePopup();
+                    RefreshProgressSlots();
+                };
+            };
+            
+        }
+                   
+        
+        bool CheckEmptySlot() => handler.HaveEmptySlot();
+
+
+        #region Progress
         void OnClickProgressSlot(int slotIndex)
         {
             CraftingSlot slot = handler.GetCraftingSlot(slotIndex);
 
-            Action action = slot.State switch
-            {
-                CraftingState.Crafting => () => Debug.Log("Crafting"),
-                CraftingState.Completed => () => Debug.Log("Complete"),
-                _ => () => Debug.Log("None")
-            };
+            if (slot.State == CraftingState.None) return;
+
+            OpenProgressPopUp(slot.State, slot,slotIndex);
         }
-       
-        void  OnProgressStart(int slotIndex)
+        void OnProgressStart(int slotIndex)
         {
             handler.StartCrafting(slotIndex);
             RefreshProgressSlots();
@@ -117,7 +145,7 @@ namespace GameInteract
             if (packet.Type != type) return;
             progressSlots.OnCompleteProgress(packet.SlotIndex);
         }
-        bool CheckEmptySlot() => handler.HaveEmptySlot();
+        #endregion
 
         #region Event Binding
         void Subscribe()

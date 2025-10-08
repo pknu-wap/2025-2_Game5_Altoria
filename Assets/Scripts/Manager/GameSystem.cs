@@ -7,12 +7,13 @@ namespace Common
 {
     public class GameSystem
     {
-        CraftingController craft = new();
+        public readonly CraftingController Crafting = new();
 
+    
+        public List<CraftingSlot> GetCurrentCraftingSlots(CraftingType type) => Crafting.GetCurrentCraftingSlots(type);
+        public bool HaveEmptySlot(CraftingType type) => Crafting.HaveEmptySlot(type);    
+        public CraftingSlot GetCraftingSlot(CraftingType type, int slotIndex) => Crafting.GetCraftingSlot(type, slotIndex);  
 
-        public List<CraftingSlot> GetCurrentCraftingSlots(CraftingType type) => craft.GetCurrentCraftingSlots(type);
-        public bool HaveEmptySlot(CraftingType type)=>craft.HaveEmptySlot(type);    
-
-        public CraftingSlot GetCraftingSlot(CraftingType type, int slotIndex)=>craft.GetCraftingSlot(type, slotIndex);  
+        public ItemData GetCompletedItem(CraftingType type, int slotIndex) => Crafting.GetCompletedItem(type, slotIndex);
     }
 }

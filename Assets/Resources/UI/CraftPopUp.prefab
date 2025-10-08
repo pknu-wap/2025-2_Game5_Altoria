@@ -54,6 +54,7 @@ MonoBehaviour:
   - {fileID: 7377991851603890154}
   - {fileID: 8122312572377584748}
   testSprite: {fileID: 21300008, guid: be58d75910f124ede9f517d31b5ea78f, type: 3}
+  emptySprite: {fileID: 21300066, guid: 8a6abc2d357c9ec49a20e27b8907de9a, type: 3}
 --- !u!1 &1946303591350703127
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum CraftingState
@@ -55,13 +56,14 @@ public class CraftingSlot
     }
 }
 
-public class CraftingController
+public class CraftingController 
 {
     readonly Dictionary<CraftingType, List<CraftingSlot>> slots;
     readonly Dictionary<CraftingType, Dictionary<int, ItemData>> completedByType = new();
 
     public CraftingController()
     {
+
         slots = new Dictionary<CraftingType, List<CraftingSlot>>();
         Array types = Enum.GetValues(typeof(CraftingType));
         for (int i = 0; i < types.Length; i++)
@@ -74,19 +76,18 @@ public class CraftingController
             };
         }
         GlobalEvents.Instance.Subscribe<CraftingStartedEvent>(StartCraft);
-        
+
     }
-
-
+  
 
     public void StartCraft(CraftingStartedEvent packet)
     {
-       
         if (!slots.TryGetValue(packet.Type, out var list))
             return;
+        Debug.Log($"[StartCraft] 호출 / Controller 해시: {GetHashCode()} / Type={packet.Type}");
 
         CraftingSlot emptySlot = list.FirstOrDefault(s => s.State == CraftingState.None);
-       
+
         emptySlot.OnCraftFinished += HandleCraftFinished;
         emptySlot.StartCraft(packet.Recipe);
     }
@@ -99,12 +100,13 @@ public class CraftingController
             completedByType[data.Type] = dict;
         }
 
-        dict[data.SlotIndex] = recipe.ResultItem;
+        ItemData resultItem = recipe.ResultItem.Item;
+        dict[data.SlotIndex] = resultItem;
 
         GlobalEvents.Instance.Publish(new CraftingCompletedEvent(
             data.Type,
             data.SlotIndex,
-            recipe.ResultItem
+            resultItem
         ));
 
         if (TryGetSlot(data.Type, data.SlotIndex, out var slot))
@@ -119,11 +121,11 @@ public class CraftingController
 
         if (!dict.TryGetValue(slotIndex, out var item))
             return null;
-
+        //TODO : 인벤과 연결 
         dict[slotIndex] = null;
 
         if (dict.Count == 0)
-            completedByType.Remove(type); 
+            completedByType.Remove(type);
 
         slots[type][slotIndex].Reset();
         return item;
@@ -145,7 +147,8 @@ public class CraftingController
         CraftingSlot emptySlot = list.FirstOrDefault(s => s.State == CraftingState.None);
         return emptySlot != null;
     }
-    public CraftingSlot GetCraftingSlot(CraftingType type ,int slotIndex)=>slots[type][slotIndex];
-    public List<CraftingSlot> GetCurrentCraftingSlots(CraftingType type)
-        => slots.TryGetValue(type, out var list) ? list : new List<CraftingSlot>();
+    public CraftingSlot GetCraftingSlot(CraftingType type, int slotIndex) => slots[type][slotIndex];
+    public List<CraftingSlot> GetCurrentCraftingSlots(CraftingType type) => slots[type];
+
+    
 }

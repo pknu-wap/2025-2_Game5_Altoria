@@ -14,6 +14,11 @@ namespace GameUI
     public interface IStatusBar { void UpdateStatusBar(float value); }
     public interface IButton { void BindButtonEvents(); }
 
+    public interface IActionButton
+    {
+        event Action OnClicked;
+        public void OnClickButton();
+    }
     public interface IPage { }
     public interface ISetValue { }
     public interface ISetValue<T>:ISetValue { void SetValue(T value); }

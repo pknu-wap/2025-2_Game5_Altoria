@@ -7,6 +7,7 @@ namespace GameInteract
     {
         [SerializeField] CraftingProgress[] slots;
         [SerializeField] Sprite testSprite;
+        [SerializeField] Sprite emptySprite;
         public event Action<int> OnSlotClicked;
 
         public override bool Init()
@@ -32,12 +33,10 @@ namespace GameInteract
             Debug.Log($"[ProgressSlots] Click {index}");
             OnSlotClicked?.Invoke(index);
         }
+      
+        public void SetItemIcon(int index, Sprite icon=null)=> slots[index].SetIcon(testSprite);
 
-        public void SetItemIcon(int index, Sprite icon=null)
-            => slots[index].SetIcon(testSprite);
-
-        public void UpdateProgress(int index, float progress)
-            => slots[index].FillProgress(progress);
+        public void UpdateProgress(int index, float progress)=> slots[index].FillProgress(progress);
 
         public void OnCompleteProgress(int index)
         {
@@ -45,9 +44,10 @@ namespace GameInteract
             Debug.Log($"[ProgressSlots] Slot {index} completed");
         }
 
-        public void ClearSlot(int i)
+        public void ClearSlot(int index)
         {
-            Debug.Log("clear");
+            slots[index].SetIcon(emptySprite);
+            slots[index].FillProgress(0);
         }
     }
 }

@@ -14,7 +14,6 @@ namespace GameInteract
     }
     public class CraftInteractComponent : InteractBaseComponent
     {
-        
         public override void Interact() => OpenInteractWindow();
         void OpenInteractWindow()
         {

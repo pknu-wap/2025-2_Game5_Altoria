@@ -46,6 +46,7 @@ namespace GameInteract
                 return null;
             return craftingList[index];
         }
+      
        
         public ItemData GetResultItem(int index)
         {
@@ -105,6 +106,10 @@ namespace GameInteract
                 SlotIndex = index,
                 Recipe = recipe
             });
+        }
+        public void GetCompletedItem(int index)
+        {
+            Manager.System.GetCompletedItem(type, index);
         }
         #region Facade 
         public bool HaveEmptySlot() => Manager.System.HaveEmptySlot(type);

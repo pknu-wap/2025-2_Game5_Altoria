@@ -1,4 +1,5 @@
 using GameData;
+using System.Collections.Generic;
 
 public static class DataConverter
 {
@@ -7,16 +8,23 @@ public static class DataConverter
         if (data == null)
             return null;
 
-        var requiredItems = new ItemData[data.Ingredients.Count];
+        var requiredItems = new ItemEntry[data.Ingredients.Count];
         for (int i = 0; i < data.Ingredients.Count; i++)
         {
             string itemId = data.Ingredients[i].ID;
-            requiredItems[i] = GameDB.GetItemData(itemId);
+            int itemCount = data.Ingredients[i].Count;
+
+            ItemData itemData = GameDB.GetItemData(itemId);
+            requiredItems[i] = new ItemEntry(itemData, itemCount);
         }
+
+        ItemData resultItemData = GameDB.GetItemData(data.ID);
+        var resultEntry = new ItemEntry(resultItemData, data.Count);
+
 
         return new CraftingRecipe
         {
-            ResultItem = GameDB.GetItemData(data.ID), 
+            ResultItem = resultEntry,
             Time = data.Time,
             RequiredItems = requiredItems
         };

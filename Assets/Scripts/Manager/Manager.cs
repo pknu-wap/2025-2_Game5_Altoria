@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour
     public static ResourceManager Resource { get { return Instance.resource; } }    
 
     public static GameSystem System { get { return Instance.system; } }   
+
     UIController ui;
     TimeController time;
     SceneLoader scene;
@@ -25,6 +26,7 @@ public class Manager : MonoBehaviour
     LifeStatsManager lifeStatsManager;
     ResourceManager resource;
     GameSystem system;
+
     void Awake()
     {
         if (instance == null)
