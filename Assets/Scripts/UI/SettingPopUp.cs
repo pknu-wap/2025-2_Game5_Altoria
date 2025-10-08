@@ -9,21 +9,21 @@ using TMPro;
 
 public class SettingPopUp : MonoBehaviour
 {
-    [SerializeField] private GameObject settingUI;
+    [SerializeField] GameObject settingUI;
 
     [Header("Setting Tabs")]
-    [SerializeField] private List<GameObject> tabs;
+    [SerializeField] List<GameObject> tabs;
 
     UIController ui;
 
     [Header("Audio Settings")]
-    [SerializeField] private SliderInput BGMtext;  
-    [SerializeField] private SliderInput SFXtext;   
+    [SerializeField] SliderInput BGMtext;  
+    [SerializeField] SliderInput SFXtext;   
 
     [Header("Control Settings")]
-    [SerializeField] private SliderInput CameraSensitivity;
+    [SerializeField] SliderInput CameraSensitivity;
 
-    private void Awake()
+    void Awake()
     {
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

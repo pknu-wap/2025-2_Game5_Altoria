@@ -18,7 +18,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InitCategoryButtons();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class InventoryUI : MonoBehaviour
       
     }
 
-    public void SetButton()
+    public void InitCategoryButtons()
     {
         for (int i = 0; i < topButtons.Length; i++)
         {

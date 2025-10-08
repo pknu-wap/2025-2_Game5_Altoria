@@ -12,10 +12,10 @@ public class Stat
 
 public class MainMenuPopUp : UIPopUp
 {
-    [SerializeField] private GameObject mainMenuPopUp;
-    [SerializeField] private GameObject settingPopUp;
+    [SerializeField] GameObject mainMenuPopUp;
+    [SerializeField] GameObject settingPopUp;
 
-    [SerializeField] private Stat[] stats = new Stat[4];
+    [SerializeField] Stat[] stats = new Stat[4];
 
     private Manager ui;
 
