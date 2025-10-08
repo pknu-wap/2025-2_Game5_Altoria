@@ -19,23 +19,19 @@ namespace BamaoUIPack.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            
-            Source.clip = HoverSound;
-            Source.Play();
+            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             FocusObj.SetActive(false);
-            Source.clip = ExitSound;
-            Source.Play();
+            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             FocusObj.SetActive(true);
-            Source.clip = ClickSound;
-            Source.Play();
+            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
     }
 }

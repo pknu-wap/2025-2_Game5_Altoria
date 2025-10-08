@@ -26,20 +26,16 @@ namespace BamaoUIPack.Scripts
         [Range(0, 1)] 
         public float MouseClickSoundVolume = 1.0f;
 
-        private AudioSource AudioSource;
         private Animator animator;
 
         private void Start()
         {
-            AudioSource = GetComponent<AudioSource>();
             animator = GetComponent<Animator>();
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            AudioSource.clip = MouseClickClip;
-            AudioSource.volume = MouseClickSoundVolume;
-            AudioSource.Play();
+            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -52,10 +48,8 @@ namespace BamaoUIPack.Scripts
                     return;
                 }
             }
-            
-            AudioSource.clip = MouseEnterClip;
-            AudioSource.volume = MouseEnterSoundVolume;
-            AudioSource.Play();
+
+            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -69,9 +63,6 @@ namespace BamaoUIPack.Scripts
                 }
             }
 
-            AudioSource.clip = MouseExitClip;
-            AudioSource.volume = MouseExitSoundVolume;
-            AudioSource.Play();
         }
     }
 }

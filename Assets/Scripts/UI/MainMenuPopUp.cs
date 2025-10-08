@@ -53,7 +53,6 @@ public class MainMenuPopUp : UIPopUp
 
     public void updateStats()
     {
-        // stat1.onValueChanged.AddListener( �Լ� �߰� ); 
         for (int i = 0; i < stats.Length; i++)
         {
             int index = i;
