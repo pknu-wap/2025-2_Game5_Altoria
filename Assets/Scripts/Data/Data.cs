@@ -13,6 +13,7 @@ public class ItemData
     public string SpriteAddress;
     public ItemType Type;
     public int SellCost;
+    public int ItemGrade;
     [TextArea] public string Description;
 }
 [System.Serializable]

@@ -41,7 +41,7 @@ public class MainMenuPopUp : UIPopUp
         /*
        if(settingUI.activeSelf && Input.GetKeyDown(KeyCode.I))
        {
-
+            창 닫기  
        }
        */
     }

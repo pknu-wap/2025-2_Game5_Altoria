@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace BamaoUIPack.Scripts
 {
-    public class EquipmentItemPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class ItemSlotAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public List<Sprite> qualitySprites;
 
@@ -68,7 +68,7 @@ namespace BamaoUIPack.Scripts
         {
             if (TooltipObj != null)
             {
-                TooltipObj.SetActive(false); // 隱藏 Tooltip
+                TooltipObj.SetActive(false); // Tooltip
             }
         }
 

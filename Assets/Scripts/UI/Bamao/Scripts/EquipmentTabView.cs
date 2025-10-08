@@ -11,7 +11,7 @@ namespace BamaoUIPack.Scripts
         public List<float> TabGapPos;
         public RectTransform TabLineObj;
         public int CurrentTabIndex;
-        public List<EquipmentItemPrefab> equipmentItemPrefabs;
+        public List<ItemSlotAnimation> equipmentItemPrefabs;
         public List<EquipmentSlotPrefab> equipmentSlotPrefabs;
         public Dictionary<int, int> equipmentStatusDic = new Dictionary<int, int>();
 

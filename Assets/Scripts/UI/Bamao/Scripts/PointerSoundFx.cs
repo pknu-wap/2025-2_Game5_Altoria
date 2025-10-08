@@ -11,18 +11,15 @@ namespace BamaoUIPack.Scripts
     {
         [Header("Enter Status")]
         public bool AvoidEnterSelectedStatus = true;
-        public AudioClip MouseEnterClip;
         [Range(0, 1)] 
         public float MouseEnterSoundVolume = 1.0f;
 
         [Header("Exit Status")]
         public bool AvoidExitSelectedStatus = true;
-        public AudioClip MouseExitClip;
         [Range(0, 1)] 
         public float MouseExitSoundVolume = 1.0f;
 
         [Header("Click Status")]
-        public AudioClip MouseClickClip;
         [Range(0, 1)] 
         public float MouseClickSoundVolume = 1.0f;
 
