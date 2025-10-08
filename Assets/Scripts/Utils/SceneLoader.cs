@@ -7,27 +7,32 @@ using static Define;
 /// timeScale을 사용하지 않는다면 삭제하겠습니다.
 /// </summary>
 /// 
-public class SceneLoader
+namespace SceneLoader
 {
-    public void LoadScene(SceneType sceneType)
+
+
+    public class SceneLoader
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(sceneType.ToString());
-    }
+        public void LoadScene(SceneType sceneType)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(sceneType.ToString());
+        }
 
-    public void ReLoadScene()
-    {
-        Debug.Log($"[{GetType()}] '{SceneManager.GetActiveScene().name}' scene loading");
+        public void ReLoadScene()
+        {
+            Debug.Log($"[{GetType()}] '{SceneManager.GetActiveScene().name}' scene loading");
 
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
-    public AsyncOperation LoadSceneAsync(SceneType sceneType)
-    {
-        Debug.Log($"[{GetType()}] '{sceneType}' scene async loading");
+        public AsyncOperation LoadSceneAsync(SceneType sceneType)
+        {
+            Debug.Log($"[{GetType()}] '{sceneType}' scene async loading");
 
-        Time.timeScale = 1f;
-        return SceneManager.LoadSceneAsync(sceneType.ToString());
+            Time.timeScale = 1f;
+            return SceneManager.LoadSceneAsync(sceneType.ToString());
+        }
     }
 }

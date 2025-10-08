@@ -336,7 +336,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4176979615793590988}
         m_TargetAssemblyTypeName: GameInteract.CraftItemSlot, Assembly-CSharp
-        m_MethodName: OnClickSlotButton
+        m_MethodName: OnClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -359,4 +359,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 7118354172317532216}
-  countText: {fileID: 5413941617804774285}
+  itemCount: {fileID: 5413941617804774285}

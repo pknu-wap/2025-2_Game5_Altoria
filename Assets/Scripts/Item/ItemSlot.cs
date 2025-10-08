@@ -4,9 +4,8 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    [SerializeField] Image itemImage;
-    [SerializeField] TextMeshProUGUI itemCount;
-
+    [SerializeField] protected Image itemImage;
+    [SerializeField] protected TextMeshProUGUI itemCount;
 
     public void SetSlot(string item, int count)
     {
