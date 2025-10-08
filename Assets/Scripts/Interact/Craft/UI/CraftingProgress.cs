@@ -18,11 +18,6 @@ public class CraftingProgress : MonoBehaviour, IPointerClickHandler
     public void SetIcon(Sprite sprite) => itemIcon.sprite = sprite;
     public void FillProgress(float value) => progress.fillAmount = Mathf.Clamp01(value);
 
-    public void CompleteProgress()
-    {
-
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         OnClicked?.Invoke(SlotIndex);

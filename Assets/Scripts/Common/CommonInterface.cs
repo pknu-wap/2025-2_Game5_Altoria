@@ -12,3 +12,4 @@ public interface IEnemy { }
 public interface IAnimal { }
 
 public interface INPC { }
+

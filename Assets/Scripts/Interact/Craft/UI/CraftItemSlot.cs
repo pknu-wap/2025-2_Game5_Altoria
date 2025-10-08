@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -12,13 +13,12 @@ namespace GameInteract
         [SerializeField] TextMeshProUGUI countText;
 
         int slotIndex;
-        public Action<int> onClick;
-        public void SetSlot(int slotIndex, string sprite ,int count)
+        public Action<int> OnSlotClick;
+        public void SetSlot(int slotIndex, string spriteAddress ,int count)
         {
             this.slotIndex = slotIndex;
             countText.text = count.ToString();
         }
-        public void OnClickSlot() => onClick?.Invoke(slotIndex);
-
+        public void OnClickSlotButton()=>OnSlotClick?.Invoke(slotIndex);
     }
 }

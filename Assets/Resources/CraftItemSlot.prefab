@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 2313758624871065369}
   - component: {fileID: 4974308131205157936}
   - component: {fileID: 3132072981312730832}
+  - component: {fileID: 4176979615793590988}
   m_Layer: 5
   m_Name: CraftItemSlot
   m_TagString: Untagged
@@ -332,4 +333,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4974308131205157936}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4176979615793590988}
+        m_TargetAssemblyTypeName: GameInteract.CraftItemSlot, Assembly-CSharp
+        m_MethodName: OnClickSlotButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4176979615793590988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907797517482394803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8d8d093b90d9a46a290eb1b445ee65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 7118354172317532216}
+  countText: {fileID: 5413941617804774285}
