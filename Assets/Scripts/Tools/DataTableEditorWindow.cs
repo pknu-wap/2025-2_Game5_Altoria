@@ -134,7 +134,7 @@ public class SODataTableEditor : EditorWindow
         var wrapperType = typeof(ListWrapper<>).MakeGenericType(rowType);
         var wrapper = JsonUtility.FromJson(json, wrapperType);
 
-        var dataField = wrapperType.GetField("items");
+        var dataField = wrapperType.GetField("rows");
         var loadedList = dataField.GetValue(wrapper) as IList;
 
         rowsList.Clear();
@@ -155,7 +155,7 @@ public class SODataTableEditor : EditorWindow
         var wrapperType = typeof(ListWrapper<>).MakeGenericType(rowType);
         var wrapper = Activator.CreateInstance(wrapperType);
 
-        var dataField = wrapperType.GetField("items");
+        var dataField = wrapperType.GetField("rows");
         dataField.SetValue(wrapper, rowsList);
 
         string json = JsonUtility.ToJson(wrapper, false);
@@ -339,7 +339,7 @@ public class SODataTableEditor : EditorWindow
     [Serializable]
     class ListWrapper<T>
     {
-        public List<T> items;
+        public List<T> rows;
     }
 }
 

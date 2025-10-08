@@ -14,7 +14,7 @@ namespace GameInteract
         {
             
             var popUp = Manager.UI.ShowPopup<CraftPopUp>();
-            popUp.SetData((CraftingType)type);
+            popUp.SetTypeAndGetData((CraftingType)type);
         }
     }
 }

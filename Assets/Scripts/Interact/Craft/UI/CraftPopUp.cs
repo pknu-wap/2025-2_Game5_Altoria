@@ -1,14 +1,12 @@
 using GameData;
 using GameUI;
 using System;
-using System.Linq;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace GameInteract
 {
-    
     public class CraftPopUp : UIPopUp
     {
         [SerializeField] Transform listRoot;
@@ -16,93 +14,153 @@ namespace GameInteract
         [SerializeField] Image titleImage;
 
         CraftingType type = CraftingType.None;
-        
+        CraftingHandler handler;
+
         public override bool Init()
         {
             if (base.Init() == false) return false;
 
+          
+
             return true;
         }
-        public void SetData(CraftingType type)
+
+        public void SetTypeAndGetData(CraftingType type)
         {
             this.type = type;
+            handler = new CraftingHandler(type);
+            RefreshProgressSlots();
+            CreateSlots();
+            Subscribe();
+        }
 
-            var craftingList = GameDB.GetCraftTypeData(type);
-            if (craftingList != null)
+        void OnDisable() => Unsubscribe();
+
+        void CreateSlots()
+        {
+            List<CraftSlotInfo> infos = handler.GetSlotInfos();
+            if (infos == null || infos.Count == 0) return;
+            GameObject prefab = Resources.Load<GameObject>(nameof(CraftItemSlot));
+
+            for (int i = 0; i < infos.Count; i++)
             {
-                var datalist = craftingList.Value.ToList();
+                CraftSlotInfo info = infos[i];
 
-                for (int i = 0; i < datalist.Count; i++)
+                GameObject obj = UnityEngine.Object.Instantiate(prefab, listRoot);
+                if (obj.TryGetComponent<CraftItemSlot>(out var slot))
                 {
-                    int index = i;
-                    var craftData = datalist[index]; 
-
-                    var itemData = GameDB.GetItemData(craftData.Key);
-
-                    Manager.Resource.Instantiate(
-                        nameof(CraftItemSlot),
-                        new InstantiateOptions { Parent = listRoot },
-                        obj =>
-                        {
-                            if (obj.TryGetComponent<CraftItemSlot>(out var slot))
-                            {
-                                slot.SetSlot(index, itemData.SpriteAddress, craftData.Value.Count);
-                            }
-                        });
+                    slot.SetSlot(info.Index, info.SpriteAddress, info.Count);
+                    slot.OnSlotClick += OnClickItemSlot;
                 }
             }
-
-            SubScribe();
         }
 
+        void OnClickItemSlot(int slotIndex)
+        {
+            ItemData resultItem = handler.GetResultItem(slotIndex);
+            List<ItemEntry> ingredients = handler.GetIngredients(slotIndex);
 
-        void OnDisable()
-        {
-            UnSubscribe();
-        }
-        void StartProgress(int slotIndex, ItemData data)
-        {
-            var packet = new CraftingStartedEvent
+            CraftRecipePopUp  popUp= Manager.UI.ShowPopup<CraftRecipePopUp>();
+            popUp.SetRecipe(resultItem, ingredients,10);
+            popUp.OnCraftButtonClicked += () =>
             {
-                Type =type,
-                SlotIndex = slotIndex,
-                Item = data
+                if(CheckEmptySlot())
+                OnProgressStart(slotIndex);
+                else
+                {
+                    //todo : 현재 칸이 부족하다는 알림창 
+                }
             };
-
-            GlobalEvents.Instance.Publish(packet);
         }
-        void OnClickProgress(int slotIndex)
+        
+        void RefreshProgressSlots()
         {
-            Debug.Log($"[CraftPopUp]:{slotIndex}");
+            List<CraftingSlot> craftingSlots = Manager.System.GetCurrentCraftingSlots(type);
+            for (int index = 0; index < craftingSlots.Count; index++)
+            {
+                int currentIndex = index;
+                var slot = craftingSlots[currentIndex];
+
+                Action action = slot.State switch
+                {
+                    CraftingState.Crafting => () => progressSlots.SetItemIcon(currentIndex),
+
+                    CraftingState.Completed => () =>
+                    {
+                        progressSlots.SetItemIcon(currentIndex);
+                        progressSlots.OnCompleteProgress(currentIndex);
+                    },
+                    _ => () => progressSlots.ClearSlot(currentIndex)
+                };
+
+                action?.Invoke(); 
+            }
         }
-        void OnCompleteProgress(CraftingCompletedEvent packet)
+
+        void OpenProgressPopUp(CraftingState state,CraftingSlot slot,int slotIndex)
         {
-            if (packet.Type != this.type) return;
+            ItemEntry entry = slot.Recipe.ResultItem;
+            CraftProgressPopUp popUp =  Manager.UI.ShowPopup<CraftProgressPopUp>();
+            popUp.InitEntry(state, entry.Item.SpriteAddress, entry.Value);
+            if (popUp is IActionButton button)
+            {
+                button.OnClicked += () =>
+                {
+                    handler.GetCompletedItem(slotIndex);
+                    Manager.UI.ClosePopup();
+                    RefreshProgressSlots();
+                };
+            };
+            
+        }
+                   
+        
+        bool CheckEmptySlot() => handler.HaveEmptySlot();
 
 
-        }
-        void UpdateProgress(CraftingProgressEvent packet)
+        #region Progress
+        void OnClickProgressSlot(int slotIndex)
         {
-            if (packet.Type != this.type) return;
-            progressSlots.UpdateProgress(packet.SlotIndex, packet.Progress);    
+            CraftingSlot slot = handler.GetCraftingSlot(slotIndex);
+
+            if (slot.State == CraftingState.None) return;
+
+            OpenProgressPopUp(slot.State, slot,slotIndex);
+        }
+        void OnProgressStart(int slotIndex)
+        {
+            handler.StartCrafting(slotIndex);
+            RefreshProgressSlots();
+
+            Manager.UI.ClosePopup();
+        }
+        void OnProgressUpdate(CraftingProgressEvent packet)
+        {
+            if (packet.Type != type) return;
+            progressSlots.UpdateProgress(packet.SlotIndex, packet.Progress);
         }
 
-        #region Events
-        void SubScribe()
+        void OnProgressComplete(CraftingCompletedEvent packet)
         {
-            progressSlots.OnSlotClicked += OnClickProgress;
-            GlobalEvents.Instance.Subscribe<CraftingProgressEvent>(UpdateProgress);
-            GlobalEvents.Instance.Subscribe<CraftingCompletedEvent>(OnCompleteProgress);
-        }
-
-      
-        void UnSubscribe()
-        {
-            progressSlots.OnSlotClicked -= OnClickProgress;
-            GlobalEvents.Instance.Unsubscribe<CraftingProgressEvent>(UpdateProgress);
-            GlobalEvents.Instance.Unsubscribe<CraftingCompletedEvent>(OnCompleteProgress);
+            if (packet.Type != type) return;
+            progressSlots.OnCompleteProgress(packet.SlotIndex);
         }
         #endregion
 
+        #region Event Binding
+        void Subscribe()
+        {
+            progressSlots.OnSlotClicked += OnClickProgressSlot;
+            GlobalEvents.Instance.Subscribe<CraftingProgressEvent>(OnProgressUpdate);
+            GlobalEvents.Instance.Subscribe<CraftingCompletedEvent>(OnProgressComplete);
+        }
+
+        void Unsubscribe()
+        {
+            progressSlots.OnSlotClicked -= OnClickProgressSlot;
+            GlobalEvents.Instance.Unsubscribe<CraftingProgressEvent>(OnProgressUpdate);
+            GlobalEvents.Instance.Unsubscribe<CraftingCompletedEvent>(OnProgressComplete);
+        }
+        #endregion
     }
 }
