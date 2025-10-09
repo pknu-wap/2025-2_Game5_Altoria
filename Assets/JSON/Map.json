@@ -1,0 +1,180 @@
+{
+    "Items": [
+        {
+            "ID": 0,
+            "parentID": -1,
+            "PrefabAddress": "Directional Light",
+            "Position": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.4082178771495819,
+                "y": -0.23456968367099763,
+                "z": 0.10938163101673126,
+                "w": 0.8754261136054993
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 1,
+            "parentID": -1,
+            "PrefabAddress": "Plane",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 2
+        },
+        {
+            "ID": 2,
+            "parentID": -1,
+            "PrefabAddress": "Cylinder",
+            "Position": {
+                "x": -0.6399999856948853,
+                "y": 0.75,
+                "z": -1.840000033378601
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 3
+        },
+        {
+            "ID": 3,
+            "parentID": -1,
+            "PrefabAddress": "Sphere",
+            "Position": {
+                "x": 0.17000000178813935,
+                "y": 2.3499999046325685,
+                "z": 1.0692100524902344
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 4
+        },
+        {
+            "ID": 4,
+            "parentID": -1,
+            "PrefabAddress": "MushRoom",
+            "Position": {
+                "x": -1.3899999856948853,
+                "y": 0.6000000238418579,
+                "z": 1.7400000095367432
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 5
+        },
+        {
+            "ID": 5,
+            "parentID": -1,
+            "PrefabAddress": "EventSystem",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 7
+        },
+        {
+            "ID": 6,
+            "parentID": -1,
+            "PrefabAddress": "GameObject",
+            "Position": {
+                "x": 0.0,
+                "y": 0.668179988861084,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 11
+        },
+        {
+            "ID": 7,
+            "parentID": -1,
+            "PrefabAddress": "GameObject (1)",
+            "Position": {
+                "x": 0.6926100254058838,
+                "y": 1.997059941291809,
+                "z": 1.2722699642181397
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 12
+        }
+    ]
+}
