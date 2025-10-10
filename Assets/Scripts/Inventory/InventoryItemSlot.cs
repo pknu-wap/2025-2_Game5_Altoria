@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class InventoryItemSlot : ItemSlot
@@ -8,10 +9,14 @@ public class InventoryItemSlot : ItemSlot
         // SetSlot(tag, 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ClearSlot()
     {
-        
+
     }
 
+    public void OnClick()
+    {
+
+        // 설명 표시
+    }
 }

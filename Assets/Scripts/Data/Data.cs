@@ -37,3 +37,9 @@ public class CraftingSlotData
         SlotIndex = slotIndex;
     }
 }
+public class InventoryData
+{
+    public string ID;
+    public int Count;
+    public string Description;
+}

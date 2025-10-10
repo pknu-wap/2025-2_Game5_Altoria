@@ -17,11 +17,11 @@ public class MainMenuPopUp : UIPopUp
 
     [SerializeField] Stat[] stats = new Stat[4];
 
-    private Manager ui;
+    private UIController ui;
 
     private void Awake()
     {
-        //ui = Manager.UI; 
+        ui = Manager.UI; 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
