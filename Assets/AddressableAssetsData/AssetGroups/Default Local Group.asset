@@ -25,39 +25,14 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7bbe4ef319f47c742a643ef3ddbe9ed6
-    m_Address: CraftItemSlot
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f41866f78a349b4fbaf2beca6a250d6
     m_Address: CraftDatabase
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a28448a815ded8e458b13eb20a6943fe
-    m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_F.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a4868ae2d09ee9d48b587c9bb55d8936
-    m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_A.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db20bf16e12a9654f9754fb2996139eb
     m_Address: ItemDatabase
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e01aca851b43ce242a64d94330a0c53c
-    m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_G.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f6f29766e26bc8a408696de615527d83
-    m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_B.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

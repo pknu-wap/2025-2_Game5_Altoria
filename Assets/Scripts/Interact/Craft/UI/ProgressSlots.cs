@@ -6,42 +6,48 @@ namespace GameInteract
     public class ProgressSlots : GameUI.UIBase
     {
         [SerializeField] CraftingProgress[] slots;
-
+        [SerializeField] Sprite testSprite;
+        [SerializeField] Sprite emptySprite;
         public event Action<int> OnSlotClicked;
 
         public override bool Init()
         {
-            if (base.Init() == false) return false;
+            if (!base.Init()) return false;
+
             for (int i = 0; i < slots.Length; i++)
             {
                 slots[i].Init(i);
-                slots[i].OnClicked += HandleSlotClicked;
+                slots[i].OnClicked += HandleClick;
             }
             return true;
         }
+
         void OnDisable()
         {
-            for(int i=0; i<slots.Length; i++)
-            {
-                slots[i].OnClicked -= HandleSlotClicked;    
-            }
+            for (int i = 0; i < slots.Length; i++)
+                slots[i].OnClicked -= HandleClick;
         }
 
-        void HandleSlotClicked(int slotIndex)
+        void HandleClick(int index)
         {
-            Debug.Log(slotIndex);
-            OnSlotClicked?.Invoke(slotIndex);
+            Debug.Log($"[ProgressSlots] Click {index}");
+            OnSlotClicked?.Invoke(index);
         }
       
-        public void StartProgress(int slotIndex, Sprite icon)
-            => slots[slotIndex].SetIcon(icon);
+        public void SetItemIcon(int index, Sprite icon=null)=> slots[index].SetIcon(testSprite);
 
-        public void UpdateProgress(int slotIndex, float progress)
-            => slots[slotIndex].FillProgress(progress);
+        public void UpdateProgress(int index, float progress)=> slots[index].FillProgress(progress);
 
-        public void OnCompleteProgress(int slotIndex)
+        public void OnCompleteProgress(int index)
         {
+            slots[index].FillProgress(1f);
+            Debug.Log($"[ProgressSlots] Slot {index} completed");
+        }
 
+        public void ClearSlot(int index)
+        {
+            slots[index].SetIcon(emptySprite);
+            slots[index].FillProgress(0);
         }
     }
 }

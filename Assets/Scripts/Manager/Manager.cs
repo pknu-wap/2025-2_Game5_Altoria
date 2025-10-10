@@ -4,7 +4,7 @@ using GameUI;
 using System.Threading;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-
+using Common;
 public class Manager : MonoBehaviour
 {
     private static Manager instance;
@@ -15,14 +15,18 @@ public class Manager : MonoBehaviour
     public static SceneLoader SceneLoader { get { return Instance.scene; } }
     public static RandomHellper Random { get { return Instance.randomHellper;  } }
     public static LifeStatsManager Life { get { return Instance.lifeStatsManager; } }
-
     public static ResourceManager Resource { get { return Instance.resource; } }    
+
+    public static GameSystem System { get { return Instance.system; } }   
+
     UIController ui;
     TimeController time;
     SceneLoader scene;
     CollectDropHellper collectDropHellper;
     LifeStatsManager lifeStatsManager;
     ResourceManager resource;
+    GameSystem system;
+
     void Awake()
     {
         if (instance == null)
@@ -45,6 +49,7 @@ public class Manager : MonoBehaviour
     async void InitManagers()
     {
         await GameDB.LoadAll();
+        system = new();
         ui = new ();
         time = new();
         scene = new();
