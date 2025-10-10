@@ -1,12 +1,27 @@
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class InventoryItemSlot : ItemSlot
+
+public class InventoryItemSlot : ItemSlot, IPointerEnterHandler, IPointerExitHandler
 {
+    private string itemID;
+    private int itemCount;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // SetSlot(tag, 1);
+       
+    }
+
+    public void Initialize(string id, int count)
+    {
+        itemID = id;
+        itemCount = count;
+
+        SetSlot(id, count);
+
+        //추가 커스터마이징
     }
 
     public void ClearSlot()
@@ -14,9 +29,14 @@ public class InventoryItemSlot : ItemSlot
 
     }
 
-    public void OnClick()
+    // 마우스 hover -> 버리기 버튼 표시 
+    public void OnPointerEnter(PointerEventData eventData)
     {
+        
+    }
 
-        // 설명 표시
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        
     }
 }

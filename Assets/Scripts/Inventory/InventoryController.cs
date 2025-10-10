@@ -8,7 +8,7 @@ public class InventoryController : MonoBehaviour
 
     private void Start()
     {
-        inventoryUI.RefreshInventory(inventorySize); 
+        inventoryUI.RefreshInventory(); 
     }
 
     void Update()

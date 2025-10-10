@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class TopButtonSet
@@ -45,6 +46,7 @@ public class InventoryUI : MonoBehaviour
     {
         InitSortDropdown();
         InitCategoryButtons();
+        RefreshInventory();
     }
 
     void OnEnable()
@@ -115,26 +117,38 @@ public class InventoryUI : MonoBehaviour
     }
 
     // 인벤토리 최신화
-    public void RefreshInventory(int inventorySize)
+    public void RefreshInventory()
     {
-        //////////// 인벤토리 최신화 로직 구현
-        //////////// 원본 리스트가 아닌 displayList를 사용하여 UI 갱신
-        //////////// page에 따라 리스트 필터링 
-        for(int i = 0; i < inventorySize; i++) 
+        foreach (var slot in displayList)
+            Destroy(slot.gameObject);
+        displayList.Clear();
+
+        // 현재 인벤토리 데이터 가져오기
+        List<InventoryData> items = InventoryManager.Instance.GetAllItems();
+
+        // 슬롯 생성 및 세팅
+        foreach (var data in items)
         {
-            InventoryItemSlot uiItem = Instantiate(itemPrefab, slotsParent);
-            displayList.Add(uiItem);
+            InventoryItemSlot slot = Instantiate(itemPrefab, slotsParent);
+            displayList.Add(slot);
+
+            // itemID로 아이템 상세정보 가져오기
+            ItemData itemInfo = InventoryManager.Instance.GetItemData(data.ID);
+
+            Sprite icon = null;
+            if (itemInfo != null && !string.IsNullOrEmpty(itemInfo.SpriteAddress))
+                icon = Resources.Load<Sprite>(itemInfo.SpriteAddress);
+
+            slot.SetSlot(itemInfo?.Name ?? data.ID, data.Count);
         }
         Debug.Log("[InventoryUI] : 인벤토리 최신화됨");
     }
 
-    // 인벤토리에 아이템 슬롯 추가
-    public void AddItemToInventory(int itemID, int count)
-    {
-        //////////// 아이템 추가 로직 구현
-        Debug.Log($"[InventoryUI] : 아이템 추가됨 ID: {itemID}, Count: {count}");
-    }
 
+    public void OnClickItemDelete()
+    {
+        ItemDeleteUI.SetActive(true);   //UIController 이용하여 수정 
+    }
     //창 닫기
     public void Hide()
     {

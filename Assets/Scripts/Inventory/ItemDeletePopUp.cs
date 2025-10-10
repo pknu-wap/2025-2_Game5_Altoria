@@ -15,7 +15,7 @@ public class ItemDeletePopUp : UIPopUp
     [SerializeField] TMP_InputField CountInput;
 
     int currentCount = 1;
-    int maxCount = 1;  // 갖고있는 아이템 개수
+    int maxCount = 133;  // 갖고있는 아이템 개수
     string itemID;
 
     private void Awake()
@@ -28,7 +28,7 @@ public class ItemDeletePopUp : UIPopUp
     void Start()
     {
         CountInput.text = "1";
-        ui = Manager.UI;
+        //ui = Manager.UI;     오류
     }
 
     // Update is called once per frame
@@ -80,8 +80,13 @@ public class ItemDeletePopUp : UIPopUp
             CountInput.text = currentCount.ToString();
         }
     }
+
     public void DeleteItem()
     {
+        if (int.TryParse(CountInput.text, out int val))
+            currentCount = Mathf.Clamp(val, 1, maxCount);
+        else
+            currentCount = 1;
         // 아이템 버리기 로직 구현
         Debug.Log("[ItemDiscardPopUp] : {} 아이템 {}개 삭제");
         OnClose();

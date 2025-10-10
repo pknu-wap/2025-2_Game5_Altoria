@@ -40,6 +40,7 @@ public class CraftingSlotData
 public class InventoryData
 {
     public string ID;
+    public string SpriteAddress;
     public int Count;
     public string Description;
 }
