@@ -3,11 +3,55 @@
         {
             "ID": 0,
             "parentID": -1,
-            "PrefabAddress": "Cube",
+            "PrefabAddress": "Lighting",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 1,
+            "parentID": -1,
+            "PrefabAddress": "Vegetation 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 1
+        },
+        {
+            "ID": 2,
+            "parentID": -1,
+            "PrefabAddress": "Stones&Rocks 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -23,13 +67,13 @@
             "SiblingIndex": 2
         },
         {
-            "ID": 1,
+            "ID": 3,
             "parentID": -1,
-            "PrefabAddress": "Cube (1)",
+            "PrefabAddress": "Crystals&Ores&Veins 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -45,13 +89,13 @@
             "SiblingIndex": 3
         },
         {
-            "ID": 2,
+            "ID": 4,
             "parentID": -1,
-            "PrefabAddress": "Cube (2)",
+            "PrefabAddress": "Coins 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -67,13 +111,13 @@
             "SiblingIndex": 4
         },
         {
-            "ID": 3,
+            "ID": 5,
             "parentID": -1,
-            "PrefabAddress": "Cube (3)",
+            "PrefabAddress": "Props 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -89,13 +133,13 @@
             "SiblingIndex": 5
         },
         {
-            "ID": 4,
+            "ID": 6,
             "parentID": -1,
-            "PrefabAddress": "Cube (4)",
+            "PrefabAddress": "Mushrooms 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -111,13 +155,13 @@
             "SiblingIndex": 6
         },
         {
-            "ID": 5,
+            "ID": 7,
             "parentID": -1,
-            "PrefabAddress": "Cube (5)",
+            "PrefabAddress": "Cave Props 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -133,13 +177,13 @@
             "SiblingIndex": 7
         },
         {
-            "ID": 6,
+            "ID": 8,
             "parentID": -1,
-            "PrefabAddress": "Cube (6)",
+            "PrefabAddress": "Cave 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -155,13 +199,13 @@
             "SiblingIndex": 8
         },
         {
-            "ID": 7,
+            "ID": 9,
             "parentID": -1,
-            "PrefabAddress": "Cube (7)",
+            "PrefabAddress": "Rails&Mine Carts 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -177,13 +221,13 @@
             "SiblingIndex": 9
         },
         {
-            "ID": 8,
+            "ID": 10,
             "parentID": -1,
-            "PrefabAddress": "Cube (8)",
+            "PrefabAddress": "Runes 1",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -197,6 +241,182 @@
                 "z": 1.0
             },
             "SiblingIndex": 10
+        },
+        {
+            "ID": 11,
+            "parentID": -1,
+            "PrefabAddress": "Blacksmithing House 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 11
+        },
+        {
+            "ID": 12,
+            "parentID": -1,
+            "PrefabAddress": "Bridges 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 12
+        },
+        {
+            "ID": 13,
+            "parentID": -1,
+            "PrefabAddress": "Stalactite&Stalagmite&Stalagnate 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 13
+        },
+        {
+            "ID": 14,
+            "parentID": -1,
+            "PrefabAddress": "Terrain_Stone 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 14
+        },
+        {
+            "ID": 15,
+            "parentID": -1,
+            "PrefabAddress": "Terrain 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 15
+        },
+        {
+            "ID": 16,
+            "parentID": -1,
+            "PrefabAddress": "Weapons 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 16
+        },
+        {
+            "ID": 17,
+            "parentID": -1,
+            "PrefabAddress": "Tools 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 17
+        },
+        {
+            "ID": 18,
+            "parentID": -1,
+            "PrefabAddress": "FX 1",
+            "Position": {
+                "x": 168.62184143066407,
+                "y": -2.9132018089294435,
+                "z": -34.59600067138672
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "SiblingIndex": 18
         }
     ]
 }

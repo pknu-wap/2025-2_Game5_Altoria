@@ -2,29 +2,29 @@ using SceneLoad;
 using UnityEngine;
 
 
-    public class JsonSceneLoaderComponent : MonoBehaviour
+    public class JsonMapLoaderComponent : MonoBehaviour
     {
-        JsonSceneLoader loader;
+        JsonMapLoader loader;
 
 
-        private void OnEnable()
+        void OnEnable()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.playModeStateChanged += OnPlayModeChanged;
 #endif
         }
-        private void OnDisable()
+         void OnDisable()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.playModeStateChanged -= OnPlayModeChanged;
 #endif
         }
-        public void SetLoader(JsonSceneLoader loader)
+        public void SetLoader(JsonMapLoader loader)
         {
             this.loader = loader;
         }
 #if UNITY_EDITOR
-        private void OnPlayModeChanged(UnityEditor.PlayModeStateChange state)
+        void OnPlayModeChanged(UnityEditor.PlayModeStateChange state)
         {
             if (state == UnityEditor.PlayModeStateChange.ExitingPlayMode)
             {

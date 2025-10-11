@@ -35,8 +35,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e2068bc798403343bc7579037e13f79
+    m_Address: Crystals&Ores&Veins
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1338d5cb091eae64d97b3dc3e5a76c6a
     m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_D.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1343ee47590785644ba9d244ce0b6b09
+    m_Address: Terrain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 188b5f6f3104ecb428e7e12e8062982e
+    m_Address: Cave
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1dbcb872592e02648b7170a27ae56e97
+    m_Address: TestMap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23b77594a8f584c49a8a3a3820c890f7
+    m_Address: Coins 1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,13 +70,103 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24dc5eca52bbf5b4da49bf3bb62d4fd0
+    m_Address: Cave 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ccda875855b71744b8a23ce34978533
+    m_Address: Lighting
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e06ea3d3e08ff340835c171faa37438
+    m_Address: FX 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31ffb392fb4398e44a8d950c58a87e85
+    m_Address: Terrain_Stone 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3587448153272ff4e99338653a33cc76
+    m_Address: Lighting
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35beb43cb4da74f4db0e472a8faa5010
     m_Address: Cube (1)
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3837760ce035c014aa0f02c21372c987
+    m_Address: GameObject (1)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38d20c18d755b7e42ae6be092cf2177f
+    m_Address: FX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3afdfcc17ff3aff4fbc543ed274eb510
+    m_Address: Stones&Rocks 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3eb8b8431acde634889546e476502372
+    m_Address: Mushrooms 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b094fb7f9ceb444aae9b6fc37cbccbd
+    m_Address: Terrain_Stone
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bf1bd3149e06a148a6d2fc6441d7a22
+    m_Address: Bridges 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5458e17a8005a644cadcb263ed89d43f
+    m_Address: Rails&Mine Carts 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e4ec836e7ca81546b8a1fdf0556a803
+    m_Address: Stalactite&Stalagmite&Stalagnate
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67b30c1f1afb35e40ad6a1dffecc9cf5
     m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68ba6ff28efb4594f997693fbc63c7bf
+    m_Address: Cave Props 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 695af4657217c6b41b9252a977ac7137
+    m_Address: Stalactite&Stalagmite&Stalagnate 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 731d492bcf280bf43ab3e9f74e43e6a8
+    m_Address: Stones&Rocks
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 736128a18823b8f4d85f01a89525e460
+    m_Address: Tools 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7807635b1bf6a5042b298fa2cbe32494
+    m_Address: Weapons 1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -61,8 +176,38 @@ MonoBehaviour:
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80932bd63d8f1284f99a71d6612f1ddc
+    m_Address: Props 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8298ab92218ce4d47abf5f29eda68be3
+    m_Address: Mushrooms
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 856e717f629463247856b60b5c810d29
+    m_Address: Bridges
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 871658db36ab799468b74b44f2939e81
+    m_Address: Cave Props
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89583dd45f1df5f498e2e5a5914eb3b8
     m_Address: Cube (5)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a070210d65d16547aa9d60b480be36a
+    m_Address: Runes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c1fe3227a234224abae6c53f2567c4f
+    m_Address: Terrain 1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -71,13 +216,78 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ca394611db2f7a448a32b6141a0ef56
+    m_Address: Crystals&Ores&Veins 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a0a5121e6eca3af47b2c8a6d1cf956f3
     m_Address: Cube (2)
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a324e5f8e50f74a4e804747d1f11882a
+    m_Address: GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa6dad5b29a3f064cad0750828394eb7
+    m_Address: Vegetation 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae0d29492630e6c44ad800d7ef142c19
+    m_Address: Vegetation
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aed05d650fdc1f1498b011b2a338a2d1
+    m_Address: Blacksmithing House
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1139ee661f271a4e87c395d54a20f24
+    m_Address: Rails&Mine Carts
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8331013363030341b5408954f7e72ba
+    m_Address: Runes 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca7ef2d649939cc48ba84e5145e71bfc
+    m_Address: Blacksmithing House 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db20bf16e12a9654f9754fb2996139eb
     m_Address: ItemDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec75909d941f6dd4686107f069dbe68d
+    m_Address: Tools
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eef8464366570b34d93c04d69d669b98
+    m_Address: Props
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5ab06074b9d607449a87d4a7401f21b
+    m_Address: Coins
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f84401e5cf5377f4eb3a593dd7b72903
+    m_Address: Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe0ab53e669454b4094f68fc2c229914
+    m_Address: Weapons
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

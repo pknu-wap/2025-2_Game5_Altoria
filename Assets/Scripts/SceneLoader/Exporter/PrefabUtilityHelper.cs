@@ -82,13 +82,12 @@ namespace SceneLoader
 
         private static GameObject GetOrCreatePrefab(GameObject obj, SceneExportSettings settings, string fallbackPath)
         {
-          
+
             GameObject prefab = PrefabUtility.GetCorrespondingObjectFromSource(obj);
             if (prefab != null && (settings == null || !settings.ForcePrefabize))
                 return prefab;
 
             var newPrefab = PrefabAddressableHandler.ConvertToPrefabOnly(obj, fallbackPath);
-        
 
             return newPrefab;
         }
@@ -99,7 +98,9 @@ namespace SceneLoader
 
             if (settings != null && settings.MakeAddressable)
             {
-                address = prefab.name;
+                address = (settings.UseCustomAddress && !string.IsNullOrEmpty(settings.CustomAddress))
+                    ? settings.CustomAddress
+                    : prefab.name;
 
                 if (!PrefabAddressableHandler.TryGetAddress(prefab, out _))
                 {

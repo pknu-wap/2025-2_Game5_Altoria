@@ -24,12 +24,12 @@
         },
         {
             "ID": 1,
-            "parentID": -1,
+            "parentID": 0,
             "PrefabAddress": "Cube (1)",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -42,16 +42,16 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 3
+            "SiblingIndex": 0
         },
         {
             "ID": 2,
-            "parentID": -1,
+            "parentID": 0,
             "PrefabAddress": "Cube (2)",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -64,16 +64,16 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 4
+            "SiblingIndex": 1
         },
         {
             "ID": 3,
-            "parentID": -1,
+            "parentID": 0,
             "PrefabAddress": "Cube (3)",
             "Position": {
-                "x": 7.020830154418945,
-                "y": -21.03923988342285,
-                "z": 27.145849227905275
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -86,7 +86,7 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 5
+            "SiblingIndex": 2
         },
         {
             "ID": 4,
@@ -108,7 +108,7 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 6
+            "SiblingIndex": 3
         },
         {
             "ID": 5,
@@ -130,7 +130,7 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 7
+            "SiblingIndex": 4
         },
         {
             "ID": 6,
@@ -152,7 +152,7 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 8
+            "SiblingIndex": 5
         },
         {
             "ID": 7,
@@ -174,7 +174,7 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 9
+            "SiblingIndex": 6
         },
         {
             "ID": 8,
@@ -196,7 +196,7 @@
                 "y": 1.0,
                 "z": 1.0
             },
-            "SiblingIndex": 10
+            "SiblingIndex": 7
         }
     ]
 }

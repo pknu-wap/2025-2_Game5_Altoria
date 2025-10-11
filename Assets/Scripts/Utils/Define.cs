@@ -14,6 +14,7 @@ public class Define
         Weapon,
         Tool,
         Consume,
+        Material,
         Additive,// ±‚≈∏ 
 
     }
