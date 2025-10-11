@@ -1,24 +1,31 @@
-﻿// SceneExportWindow.cs
-// MARKER 제거 + BLOCKER 기반 + 외부 SceneExportSettings 기반 구조
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.AddressableAssets;
 using System.Linq;
-using JetBrains.Annotations;
-
-
 
 namespace SceneLoader
 {
     public class SceneExportWindow : EditorWindow
     {
-        private Vector2 _scroll;
-        private List<SceneExportSettings> _settingsList = new();
-        private string _exportPath = "";
-        private string _commonPrefabPath = "";
+        Vector2 scroll;
+        readonly List<SceneExportSettings> settingsList = new();
+        readonly Dictionary<GameObject, CachedSettingState> cacheStates = new();
+        string exportPath = "";
+        string commonPrefabPath = "";
+        double lastRefreshTime;
+        bool needRefresh;
+        bool isExporting;  
+
+        const float ItemHeight = 70f;
+
+        class CachedSettingState
+        {
+            public bool IsOutermost;
+            public bool HasPrefab;
+            public bool HasAddress;
+        }
 
         [MenuItem("Tools/Scene Export/Export Scene")]
         public static void ShowWindow()
@@ -29,39 +36,95 @@ namespace SceneLoader
             window.RefreshExportSettings();
         }
 
-        private void OnGUI()
+        void OnInspectorUpdate()
+        {
+            if (needRefresh && EditorApplication.timeSinceStartup - lastRefreshTime > 0.3)
+            {
+                needRefresh = false;
+                RefreshExportSettings();
+                Repaint();
+            }
+        }
+
+        void OnGUI()
         {
             EditorGUILayout.Space();
+
+   
+         
             if (GUILayout.Button("Refresh Export List"))
+            {
                 RefreshExportSettings();
+                GUI.FocusControl(null);
+            }
+            GUI.enabled = true;
 
             EditorGUILayout.Space(10);
-            _scroll = EditorGUILayout.BeginScrollView(_scroll);
-            foreach (var settings in _settingsList)
-                DrawSettingsUI(settings);
+
+          
+            if (isExporting)
+            {
+                EditorGUILayout.HelpBox("Exporting scene data... Please wait.", MessageType.Info);
+            }
+
+            scroll = EditorGUILayout.BeginScrollView(scroll);
+
+            int count = settingsList.Count;
+            float totalHeight = count * ItemHeight;
+
+            Rect visible = new Rect(0, scroll.y, position.width, position.height);
+            int firstVisible = Mathf.Max(0, Mathf.FloorToInt(visible.y / ItemHeight) - 2);
+            int lastVisible = Mathf.Min(count, Mathf.CeilToInt((visible.y + visible.height) / ItemHeight) + 2);
+
+            GUILayout.Space(firstVisible * ItemHeight);
+
+            for (int i = firstVisible; i < lastVisible; i++)
+            {
+                if (i < 0 || i >= count) continue;
+                DrawCachedSettingUI(settingsList[i]);
+                GUILayout.Space(2);
+            }
+
+            float remainingSpace = Mathf.Max(0, totalHeight - lastVisible * ItemHeight);
+            GUILayout.Space(remainingSpace);
+
             EditorGUILayout.EndScrollView();
 
             EditorGUILayout.Space(10);
-            EditorGUILayout.LabelField($"Total Targets: {_settingsList.Count}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Total Targets: {settingsList.Count}", EditorStyles.boldLabel);
             DrawExportPathSelection();
 
-            bool anyNeedsPrefab = _settingsList.Exists(s => s.IncludeExport && PrefabUtilityHelper.NeedsPrefabCreation(s.Target, s));
+            bool anyNeedsPrefab = settingsList.Any(s => s.IncludeExport && PrefabUtilityHelper.NeedsPrefabCreation(s.Target, s));
             if (anyNeedsPrefab)
                 DrawCommonPrefabPath();
 
-            GUI.enabled = !string.IsNullOrEmpty(_exportPath);
+  
+            GUI.enabled = !isExporting && !string.IsNullOrEmpty(exportPath);
             if (GUILayout.Button("Export"))
-                ExportToFile();
+                StartExport();
             GUI.enabled = true;
         }
 
-        private void DrawSettingsUI(SceneExportSettings s)
+        void DrawCachedSettingUI(SceneExportSettings s)
         {
-            if (s.Target == null) return;
+            if (s.Target == null)
+                return;
+
+            if (!cacheStates.TryGetValue(s.Target, out var cache))
+            {
+                cache = new CachedSettingState
+                {
+                    IsOutermost = PrefabUtilityHelper.IsOutermostPrefabInstanceRoot(s.Target),
+                    HasPrefab = PrefabUtilityHelper.HasSourcePrefab(s.Target),
+                    HasAddress = PrefabUtilityHelper.TryGetAddressFromSource(s.Target, out _)
+                };
+                cacheStates[s.Target] = cache;
+            }
 
             EditorGUILayout.BeginVertical("box");
             EditorGUILayout.BeginHorizontal();
             s.IncludeExport = EditorGUILayout.Toggle(s.IncludeExport, GUILayout.Width(20));
+
             if (GUILayout.Button(s.Target.name, EditorStyles.label))
             {
                 Selection.activeGameObject = s.Target;
@@ -70,113 +133,71 @@ namespace SceneLoader
             EditorGUILayout.EndHorizontal();
 
             EditorGUI.indentLevel++;
-            DrawAddressableOptions(s);
-            DrawPrefabizeOptions(s);
+            DrawCachedAddressableOptions(s, cache);
+            DrawCachedPrefabizeOptions(s, cache);
             EditorGUI.indentLevel--;
             EditorGUILayout.EndVertical();
         }
 
-        private void DrawAddressableOptions(SceneExportSettings setting)
+        void DrawCachedAddressableOptions(SceneExportSettings setting, CachedSettingState cache)
         {
-            bool disabled =
-                PrefabUtilityHelper.IsOutermostPrefabInstanceRoot(setting.Target) && PrefabUtilityHelper.TryGetAddressFromSource(setting.Target, out _);
-            if (disabled)
-            {
-                setting.MakeAddressable = false;
-                setting.UseCustomAddress = false;
-                setting.CustomAddress = string.Empty;
-            }
+            bool disabled = cache.IsOutermost && cache.HasAddress;
+            if (disabled) setting.MakeAddressable = false;
 
             EditorGUI.BeginDisabledGroup(disabled);
             setting.MakeAddressable = EditorGUILayout.Toggle("Make Addressable", setting.MakeAddressable);
-            if (setting.MakeAddressable)
-            {
-                setting.UseCustomAddress = EditorGUILayout.Toggle("Use Custom Address", setting.UseCustomAddress);
-                if (setting.UseCustomAddress)
-                {
-                    setting.CustomAddress = EditorGUILayout.TextField("Custom Address", setting.CustomAddress);
-                    if (!string.IsNullOrEmpty(setting.CustomAddress) && PrefabAddressableHandler.IsAddressAlreadyUsed(setting.CustomAddress))
-                        EditorGUILayout.HelpBox("This address is already used.", MessageType.Warning);
-                }
-            }
             EditorGUI.EndDisabledGroup();
         }
 
-        private void DrawPrefabizeOptions(SceneExportSettings setting)
+        void DrawCachedPrefabizeOptions(SceneExportSettings setting, CachedSettingState cache)
         {
-            bool disabled = PrefabUtilityHelper.HasSourcePrefab(setting.Target);
-            if (disabled)
-            {
-                setting.ForcePrefabize = false;
-                setting.UseCustomPath = false;
-                setting.CustomSavePath = string.Empty;
-            }
+            bool disabled = cache.HasPrefab;
+            if (disabled) setting.ForcePrefabize = false;
 
             EditorGUI.BeginDisabledGroup(disabled);
             setting.ForcePrefabize = EditorGUILayout.Toggle("Force Prefabize", setting.ForcePrefabize);
-            if (setting.ForcePrefabize)
-            {
-                setting.UseCustomPath = EditorGUILayout.Toggle("Use Custom Path", setting.UseCustomPath);
-                if (setting.UseCustomPath)
-                    DrawCustomSavePath(setting);
-            }
             EditorGUI.EndDisabledGroup();
         }
 
-        private void DrawCustomSavePath(SceneExportSettings s)
-        {
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PrefixLabel("Custom Path");
-            if (GUILayout.Button("Browse", GUILayout.Width(70)))
-            {
-                string selected = EditorUtility.OpenFolderPanel("Select Folder", "Assets", "");
-                if (!string.IsNullOrEmpty(selected) && selected.StartsWith(Application.dataPath))
-                    s.CustomSavePath = "Assets" + selected.Substring(Application.dataPath.Length);
-            }
-            EditorGUILayout.TextField(s.CustomSavePath);
-            EditorGUILayout.EndHorizontal();
-        }
-
-        private void DrawCommonPrefabPath()
+        void DrawCommonPrefabPath()
         {
             EditorGUILayout.LabelField("Common Prefab Save Path", EditorStyles.boldLabel);
             EditorGUILayout.BeginHorizontal();
-            _commonPrefabPath = EditorGUILayout.TextField(_commonPrefabPath);
+            commonPrefabPath = EditorGUILayout.TextField(commonPrefabPath);
             if (GUILayout.Button("Browse", GUILayout.Width(70)))
             {
                 string selected = EditorUtility.OpenFolderPanel("Select Prefab Folder", "Assets", "");
                 if (PrefabAddressableHandler.TryGetAssetRelativePath(selected, out var assetPath))
-                    _commonPrefabPath = assetPath;
+                    commonPrefabPath = assetPath;
             }
             EditorGUILayout.EndHorizontal();
         }
 
-        private void DrawExportPathSelection()
+        void DrawExportPathSelection()
         {
             EditorGUILayout.LabelField("Export Path", EditorStyles.boldLabel);
             EditorGUILayout.BeginHorizontal();
-            _exportPath = EditorGUILayout.TextField(_exportPath);
+            exportPath = EditorGUILayout.TextField(exportPath);
             if (GUILayout.Button("Browse", GUILayout.Width(70)))
             {
                 string sceneName = SceneManager.GetActiveScene().name;
-                _exportPath = EditorUtility.SaveFilePanel("Export Scene", "", sceneName + ".json", "json");
+                exportPath = EditorUtility.SaveFilePanel("Export Scene", "", sceneName + ".json", "json");
             }
             EditorGUILayout.EndHorizontal();
         }
 
-        private void RefreshExportSettings()
+        void RefreshExportSettings()
         {
-            _settingsList.Clear();
+            lastRefreshTime = EditorApplication.timeSinceStartup;
+            settingsList.Clear();
+            cacheStates.Clear();
 
             var roots = SceneManager.GetActiveScene().GetRootGameObjects();
-
             foreach (var root in roots)
-            {
                 CollectExportSettingsRecursive(root.transform, false);
-            }
         }
 
-        private void CollectExportSettingsRecursive(Transform t, bool parentExported)
+        void CollectExportSettingsRecursive(Transform t, bool parentExported)
         {
             if (t.GetComponent<SceneExportBlocker>() != null)
                 return;
@@ -190,79 +211,88 @@ namespace SceneLoader
                 return;
 
             if (exportTarget)
-                _settingsList.Add(new SceneExportSettings(obj));
+                settingsList.Add(new SceneExportSettings(obj));
 
             for (int i = 0; i < t.childCount; i++)
-            {
                 CollectExportSettingsRecursive(t.GetChild(i), exportTarget);
+        }
+
+
+        void StartExport()
+        {
+            if (isExporting) return;
+            isExporting = true;
+            try
+            {
+                ExportToFile();
+            }
+            finally
+            {
+                isExporting = false;
+                Repaint();
             }
         }
-        private void ExportToFile()
+
+        void ExportToFile()
         {
-            var dataList = new List<SceneObjectData>();
+            var dataList = new List<SceneObjectData>(4096);
             int nextId = 0;
-
-            HandleExportWithUndo(dataList, ref nextId);
+            HandleExport(dataList, ref nextId);
             WriteExportedDataToJsonFile(dataList);
+            RefreshExportSettings();
+            Repaint();
         }
-        private void HandleExportWithUndo(List<SceneObjectData> dataList, ref int nextId)
+
+        void HandleExport(List<SceneObjectData> dataList, ref int nextId)
         {
-            const int MaxObjectPerUndoGroup = 10;
+            var exportedRoots = new HashSet<Transform>(128);
+            var settingLookup = new Dictionary<GameObject, SceneExportSettings>(settingsList.Count);
 
-            int undoCounter = 0;
-            int groupNumber = 1;
-            int group = Undo.GetCurrentGroup();
+            for (int i = 0; i < settingsList.Count; i++)
+                settingLookup[settingsList[i].Target] = settingsList[i];
 
-            Undo.IncrementCurrentGroup();
-            Undo.SetCurrentGroupName("Scene Export");
-
-            HashSet<Transform> exportedRoots = new();
-
-            foreach (var setting in _settingsList)
+            foreach (var setting in settingsList)
             {
                 if (!setting.IncludeExport) continue;
-                if (exportedRoots.Any(r => setting.Target.transform.IsChildOf(r)))
-                    continue;
 
-                if (undoCounter % MaxObjectPerUndoGroup == 0)
+                var tr = setting.Target.transform;
+                bool skip = false;
+                foreach (var r in exportedRoots)
                 {
-                    Undo.CollapseUndoOperations(group);
-                    group = Undo.GetCurrentGroup();
-                    Undo.IncrementCurrentGroup();
-                    Undo.SetCurrentGroupName($"Export Group {groupNumber}");
-                    Debug.LogError(groupNumber);
-
+                    if (tr.IsChildOf(r))
+                    {
+                        skip = true;
+                        break;
+                    }
                 }
+                if (skip) continue;
 
-                Undo.RegisterCompleteObjectUndo(setting.Target, "Export Root");
-                ExportTransformRecursive(setting.Target.transform, -1, ref nextId, dataList, false, setting);
-                exportedRoots.Add(setting.Target.transform);
-                undoCounter++;
+                ExportTransformRecursive(tr, -1, ref nextId, dataList, false, setting, settingLookup);
+                exportedRoots.Add(tr);
             }
-
-            Undo.CollapseUndoOperations(group);
         }
-        private void WriteExportedDataToJsonFile(List<SceneObjectData> dataList)
+
+        void WriteExportedDataToJsonFile(List<SceneObjectData> dataList)
         {
             var wrapper = new SerializationWrapper<SceneObjectData>(dataList);
             string json = JsonUtility.ToJson(wrapper, true);
 
-            if (File.Exists(_exportPath))
-                File.Copy(_exportPath, _exportPath + ".bak", overwrite: true);
+            if (File.Exists(exportPath))
+                File.Copy(exportPath, exportPath + ".bak", true);
 
-            File.WriteAllText(_exportPath, json);
-            Debug.Log($"[SceneExportWindow] Exported to: {_exportPath}");
-
+            File.WriteAllText(exportPath, json);
+            Debug.Log($"[SceneExportWindow] Exported {dataList.Count} objects to: {exportPath}");
             AssetDatabase.Refresh();
         }
 
-
-        private void ExportTransformRecursive(Transform t,
+        void ExportTransformRecursive(
+            Transform t,
             int parentId,
             ref int nextId,
-            List<SceneObjectData> resultList
-            , bool parentExported,
-            SceneExportSettings setting)
+            List<SceneObjectData> resultList,
+            bool parentExported,
+            SceneExportSettings setting,
+            Dictionary<GameObject, SceneExportSettings> settingLookup)
         {
             GameObject obj = t.gameObject;
             bool isOutermost = PrefabUtilityHelper.IsOutermostPrefabInstanceRoot(obj);
@@ -273,24 +303,19 @@ namespace SceneLoader
                 return;
 
             int currentId = nextId++;
-            SceneObjectData data = exportTarget && (isOutermost || (setting != null && setting.ForcePrefabize))
-                ? PrefabUtilityHelper.CreatePrefabSceneObjectData(t, currentId, parentId, setting, _commonPrefabPath)
+            SceneObjectData data = (exportTarget && (isOutermost || (setting != null && setting.ForcePrefabize)))
+                ? PrefabUtilityHelper.CreatePrefabSceneObjectData(t, currentId, parentId, setting, commonPrefabPath)
                 : PrefabUtilityHelper.CreateContainerSceneObjectData(t, currentId, parentId);
 
             resultList.Add(data);
 
-            int newParentId = currentId;
-
             for (int i = 0; i < t.childCount; i++)
             {
                 Transform child = t.GetChild(i);
-                SceneExportSettings childSetting = null;
-                if (PrefabUtilityHelper.IsExportTarget(child.gameObject, exportTarget))
-                {
-                    childSetting = _settingsList.FirstOrDefault(s => s.Target == child.gameObject);
-                }
+                if (!settingLookup.TryGetValue(child.gameObject, out var childSetting))
+                    childSetting = null;
 
-                ExportTransformRecursive(child, newParentId, ref nextId, resultList, exportTarget, childSetting);
+                ExportTransformRecursive(child, currentId, ref nextId, resultList, exportTarget, childSetting, settingLookup);
             }
         }
     }

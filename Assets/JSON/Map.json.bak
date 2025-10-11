@@ -3,7 +3,7 @@
         {
             "ID": 0,
             "parentID": -1,
-            "PrefabAddress": "GameObject 11",
+            "PrefabAddress": "GameObject 10",
             "Position": {
                 "x": 6.649799823760986,
                 "y": -20.53923988342285,
@@ -69,7 +69,7 @@
         {
             "ID": 3,
             "parentID": -1,
-            "PrefabAddress": "Cube (5) 12",
+            "PrefabAddress": "Cube (5) 11",
             "Position": {
                 "x": 7.020830154418945,
                 "y": -21.03923988342285,

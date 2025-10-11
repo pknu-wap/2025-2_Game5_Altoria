@@ -15,8 +15,38 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: bb2e533ae8266f94897ec107f1ed880c
   m_SerializeEntries:
+  - m_GUID: 00566b84d850af940b191db1ee2d669c
+    m_Address: Cube
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0516ea374d44b2942b2f21295473c51e
+    m_Address: Cube (4)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c3cdb8df5f42da4f8aba971deb8e5f3
+    m_Address: Cube (3)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d3f047f76577dc488ee34686aa1b05c
+    m_Address: Cube (8)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1338d5cb091eae64d97b3dc3e5a76c6a
     m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_D.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 246bb72ca78cf0b4b9cfc26d442a33fe
+    m_Address: Cube (6)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35beb43cb4da74f4db0e472a8faa5010
+    m_Address: Cube (1)
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -30,6 +60,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89583dd45f1df5f498e2e5a5914eb3b8
+    m_Address: Cube (5)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9165433607213f34fbae17525f61c428
+    m_Address: Cube (7)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0a5121e6eca3af47b2c8a6d1cf956f3
+    m_Address: Cube (2)
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db20bf16e12a9654f9754fb2996139eb
     m_Address: ItemDatabase

@@ -36,3 +36,10 @@ public class CraftingSlotData
         SlotIndex = slotIndex;
     }
 }
+
+[System.Serializable]
+public  class InventoryData
+{
+    public ItemData Item;
+    public int Count;
+}

@@ -25,14 +25,8 @@ public class SceneExportSettings
 {
     public GameObject Target;
     public bool IncludeExport = true;
-
     public bool MakeAddressable = true;
-    public bool UseCustomAddress = false;
-    public string CustomAddress = "";
-
     public bool ForcePrefabize = true;
-    public bool UseCustomPath = false;
-    public string CustomSavePath = "";
 
     public SceneExportSettings(GameObject go)
     {
