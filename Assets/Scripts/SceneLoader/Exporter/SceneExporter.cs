@@ -109,22 +109,12 @@ namespace SceneLoader
             if (disabled)
             {
                 setting.MakeAddressable = false;
-                setting.UseCustomAddress = false;
-                setting.CustomAddress = string.Empty;
             }
+              
 
             EditorGUI.BeginDisabledGroup(disabled);
             setting.MakeAddressable = EditorGUILayout.Toggle("Make Addressable", setting.MakeAddressable);
-            if (setting.MakeAddressable)
-            {
-                setting.UseCustomAddress = EditorGUILayout.Toggle("Use Custom Address", setting.UseCustomAddress);
-                if (setting.UseCustomAddress)
-                {
-                    setting.CustomAddress = EditorGUILayout.TextField("Custom Address", setting.CustomAddress);
-                    if (!string.IsNullOrEmpty(setting.CustomAddress) && PrefabAddressableHandler.IsAddressAlreadyUsed(setting.CustomAddress))
-                        EditorGUILayout.HelpBox("This address is already used.", MessageType.Warning);
-                }
-            }
+            
             EditorGUI.EndDisabledGroup();
         }
 
@@ -134,34 +124,15 @@ namespace SceneLoader
             if (disabled)
             {
                 setting.ForcePrefabize = false;
-                setting.UseCustomPath = false;
-                setting.CustomSavePath = string.Empty;
             }
 
             EditorGUI.BeginDisabledGroup(disabled);
             setting.ForcePrefabize = EditorGUILayout.Toggle("Force Prefabize", setting.ForcePrefabize);
-            if (setting.ForcePrefabize)
-            {
-                setting.UseCustomPath = EditorGUILayout.Toggle("Use Custom Path", setting.UseCustomPath);
-                if (setting.UseCustomPath)
-                    DrawCustomSavePath(setting);
-            }
+           
             EditorGUI.EndDisabledGroup();
         }
 
-        private void DrawCustomSavePath(SceneExportSettings s)
-        {
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PrefixLabel("Custom Path");
-            if (GUILayout.Button("Browse", GUILayout.Width(70)))
-            {
-                string selected = EditorUtility.OpenFolderPanel("Select Folder", "Assets", "");
-                if (!string.IsNullOrEmpty(selected) && selected.StartsWith(Application.dataPath))
-                    s.CustomSavePath = "Assets" + selected.Substring(Application.dataPath.Length);
-            }
-            EditorGUILayout.TextField(s.CustomSavePath);
-            EditorGUILayout.EndHorizontal();
-        }
+       
 
         private void DrawCommonPrefabPath()
         {
