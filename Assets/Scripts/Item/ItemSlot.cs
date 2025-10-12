@@ -12,7 +12,7 @@ public class ItemSlot : MonoBehaviour
     public void SetSlot(string item, int count)
     {
         //itemImage.sprite = item;
-        //itemBorder.sprite = border; ¾ÆÀÌÅÛ µî±ÞÀ» °¡Á®¿È
+        //itemBorder.sprite = border; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         itemCount.text = count.ToString();  
     }
 

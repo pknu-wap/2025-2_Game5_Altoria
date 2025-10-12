@@ -37,7 +37,7 @@ namespace GameData
     public abstract class GameDatabase<TKey, TValue>
     {
         protected readonly Dictionary<TKey, TValue> values = new();
-        private readonly ILoadStrategy<TValue> loader;
+        readonly ILoadStrategy<TValue> loader;
 
         protected GameDatabase(ILoadStrategy<TValue> loader)
         {
@@ -57,7 +57,7 @@ namespace GameData
 
     public class CraftDatabase : GameDatabase<CraftingType, CustomDictionary<CraftingData>>
     {
-        private readonly ILoadStrategy<CraftingData> innerLoader;
+         readonly ILoadStrategy<CraftingData> innerLoader;
 
         public CraftDatabase(ILoadStrategy<CraftingData> loader) : base(null!)
         {

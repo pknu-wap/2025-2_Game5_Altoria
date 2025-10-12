@@ -16,14 +16,7 @@ namespace GameInteract
         CraftingType type = CraftingType.None;
         CraftingHandler handler;
 
-        public override bool Init()
-        {
-            if (base.Init() == false) return false;
 
-          
-
-            return true;
-        }
 
         public void SetTypeAndGetData(CraftingType type)
         {
@@ -50,7 +43,7 @@ namespace GameInteract
                 if (obj.TryGetComponent<CraftItemSlot>(out var slot))
                 {
                     slot.SetSlot(info.Index, info.SpriteAddress, info.Count);
-                    slot.OnSlotClick += OnClickItemSlot;
+                    slot.OnClicked += OnClickItemSlot;
                 }
             }
         }
@@ -102,7 +95,7 @@ namespace GameInteract
             ItemEntry entry = slot.Recipe.ResultItem;
             CraftProgressPopUp popUp =  Manager.UI.ShowPopup<CraftProgressPopUp>();
             popUp.InitEntry(state, entry.Item.SpriteAddress, entry.Value);
-            if (popUp is IActionButton button)
+            if (popUp is IActionClickable button)
             {
                 button.OnClicked += () =>
                 {

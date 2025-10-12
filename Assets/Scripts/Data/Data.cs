@@ -37,10 +37,10 @@ public class CraftingSlotData
         SlotIndex = slotIndex;
     }
 }
+[System.Serializable]
 public class InventoryData
 {
     public string ID;
-    public string SpriteAddress;
+    public bool IsEquipped;
     public int Count;
-    public string Description;
-}
+} 

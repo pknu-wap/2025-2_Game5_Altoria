@@ -39,7 +39,7 @@ public class CraftingSlot
 
      void UpdateProgress(float value) => GlobalEvents.Instance.Publish(new CraftingProgressEvent(data.Type, data.SlotIndex, value));
 
-    private void HandleSlotFinished(ITimer t)
+    void HandleSlotFinished(ITimer t)
     {
         state = CraftingState.Completed;
 

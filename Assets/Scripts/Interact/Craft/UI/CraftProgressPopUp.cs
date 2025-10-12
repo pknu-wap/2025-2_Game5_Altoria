@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace GameInteract
 {
-    public class CraftProgressPopUp : UIPopUp,IActionButton
+    public class CraftProgressPopUp : UIPopUp,IClickButton,IActionClickable
     {
         public event Action OnClicked;
 
