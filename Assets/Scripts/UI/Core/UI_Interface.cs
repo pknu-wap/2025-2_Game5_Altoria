@@ -12,13 +12,13 @@ namespace GameUI
         void Close();
     }
     public interface IStatusBar { void UpdateStatusBar(float value); }
-    public interface IButton { void BindButtonEvents(); }
-
-    public interface IActionButton
+   
+    public interface IActionClickable { public event Action OnClicked; }
+    public interface IClickButton
     {
-        event Action OnClicked;
-        public void OnClickButton();
+        void OnClickButton(); 
     }
+    
     public interface IPage { }
     public interface ISetValue { }
     public interface ISetValue<T>:ISetValue { void SetValue(T value); }

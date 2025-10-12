@@ -1,3 +1,4 @@
+using GameUI;
 using System;
 using TMPro;
 using UnityEngine;
@@ -7,18 +8,21 @@ using UnityEngine.UI;
 
 namespace GameInteract
 {
-    public class CraftItemSlot : MonoBehaviour
+    public class CraftItemSlot : ItemSlot, IClickButton
     {
-        [SerializeField] Image itemImage;
-        [SerializeField] TextMeshProUGUI countText;
-
         int slotIndex;
-        public Action<int> OnSlotClick;
-        public void SetSlot(int slotIndex, string spriteAddress ,int count)
+       
+        public event Action<int> OnClicked;
+
+
+        public void OnClickButton() => OnClicked?.Invoke(slotIndex);
+
+        public void SetSlot(int index, string spriteAddress, int count)
         {
-            this.slotIndex = slotIndex;
-            countText.text = count.ToString();
+            SetSlot(spriteAddress, count);
+            slotIndex = index;
         }
-        public void OnClickSlotButton()=>OnSlotClick?.Invoke(slotIndex);
     }
+
+
 }
