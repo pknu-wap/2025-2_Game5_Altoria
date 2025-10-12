@@ -51,11 +51,12 @@ public class Manager : MonoBehaviour
     {
         await GameDB.LoadAll();
         system = new();
-        ui = new ();
         time = new();
         scene = new();
         resource=new();
         collectDropHellper = new();
-        lifeStatsManager = new ();
+        lifeStatsManager = new();
+
+        ui = new ();
     }
 }
