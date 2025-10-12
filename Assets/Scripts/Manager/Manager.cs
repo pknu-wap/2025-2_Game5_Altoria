@@ -5,6 +5,7 @@ using System.Threading;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using Common;
+using SceneLoader;
 public class Manager : MonoBehaviour
 {
     private static Manager instance;
@@ -21,7 +22,7 @@ public class Manager : MonoBehaviour
 
     UIController ui;
     TimeController time;
-    SceneLoader scene;
+    SceneLoader.SceneLoader scene;
     CollectDropHellper collectDropHellper;
     LifeStatsManager lifeStatsManager;
     ResourceManager resource;
