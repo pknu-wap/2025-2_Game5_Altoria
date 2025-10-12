@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class ItemDeletePopUp : UIPopUp
 {
+    public static ItemDeletePopUp Instance;
+   
     UIController ui;
 
     [Header("UI 요소")]
     [SerializeField] InventoryItemSlot itemIcon;
-    [SerializeField] TMP_Text itemNameText;
+    [SerializeField] TextMeshProUGUI itemNameText;
     [SerializeField] Button plusButton;
     [SerializeField] Button minusButton;
     [SerializeField] TMP_InputField CountInput;
@@ -20,6 +22,8 @@ public class ItemDeletePopUp : UIPopUp
 
     private void Awake()
     {
+        Instance = this;   //인스턴스 초기화
+
         CountInput.onValueChanged.AddListener(OnInputChanged);
         plusButton.onClick.AddListener(OnPlus);
         minusButton.onClick.AddListener(OnMinus);
@@ -90,6 +94,10 @@ public class ItemDeletePopUp : UIPopUp
         // 아이템 버리기 로직 구현
         Debug.Log("[ItemDiscardPopUp] : {} 아이템 {}개 삭제");
         OnClose();
+    }
+    public void OnOpen()
+    {
+        gameObject.SetActive(true);
     }
 
     public void OnClose()

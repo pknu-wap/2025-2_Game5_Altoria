@@ -41,6 +41,7 @@ public class CraftingSlotData
 public class InventoryData
 {
     public string ID;
+    public string Name;
     public bool IsEquipped;
     public int Count;
 } 

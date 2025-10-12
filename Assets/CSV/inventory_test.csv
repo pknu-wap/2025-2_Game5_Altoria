@@ -1,0 +1,4 @@
+ID,Name,SpriteAddress,ItemGrade,Count,IsEquipped
+12211000,나무 낫,aaa,Normal,1,1
+12212000,철 낫,bbb,Uncommon,1,0
+12213000,금 낫,ccc,Rare,5,0

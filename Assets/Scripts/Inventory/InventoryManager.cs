@@ -88,4 +88,5 @@ public class InventoryManager : MonoBehaviour
         // 실제 인벤토리 SO 참조하지 않고 복제본으로 참조하는 것 검토중 (데이터 영구손실 방지)
         return inventoryData.rows;
     }
+
 }

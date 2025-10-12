@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f3f9b37e8d3554abb8791fbb883c41, type: 3}
   m_Name: InventoryData
   m_EditorClassIdentifier: 
+  rows:
+  - ID: 12211000
+    Name: "\uBD80\uC154\uC9C4 \uB3C4\uB07C"
+    IsEquipped: 1
+    Count: 2
+  - ID: 12212000
+    Name: "\uD3C9\uBC94\uD55C \uB3C4\uB07C"
+    IsEquipped: 0
+    Count: 3
+  - ID: 12213000
+    Name: "\uAC1C\uC624\uC9C0\uB294 \uB3C4\uB07C "
+    IsEquipped: 0
+    Count: 4
   maxSlotCount: 30
