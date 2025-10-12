@@ -10,9 +10,18 @@ namespace SceneLoader
         {
             EnsureFolderExists(customSavePath);
 
+            
+            if (PrefabUtility.IsPartOfPrefabInstance(obj))
+            {
+                PrefabUtility.UnpackPrefabInstance(obj, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+                Debug.Log($"[PrefabAddressableHandler] Unpacked prefab instance: {obj.name}");
+            }
+
             string path = AssetDatabase.GenerateUniqueAssetPath($"{customSavePath}/{obj.name}.prefab");
+
             GameObject prefab = PrefabUtility.SaveAsPrefabAssetAndConnect(obj, path, InteractionMode.AutomatedAction);
             Debug.Log($"[PrefabAddressableHandler] Prefab created at: {path}");
+
             return prefab;
         }
         public static bool TryGetAssetRelativePath(string fullPath, out string assetPath)

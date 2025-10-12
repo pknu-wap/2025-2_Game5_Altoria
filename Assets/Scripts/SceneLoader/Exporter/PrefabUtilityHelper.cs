@@ -82,16 +82,38 @@ namespace SceneLoader
 
         private static GameObject GetOrCreatePrefab(GameObject obj, SceneExportSettings settings, string fallbackPath)
         {
-            GameObject prefab = PrefabUtility.GetCorrespondingObjectFromSource(obj);
+            bool hasSource = HasSourcePrefab(obj);
             bool hasOverride = PrefabUtility.HasPrefabInstanceAnyOverrides(obj, false);
             bool forcePrefabize = settings != null && settings.ForcePrefabize;
 
-            if (prefab != null && !forcePrefabize)
-                return prefab;
+            Debug.LogWarning($"[PrefabCheck] {obj.name} - HasSource:{hasSource}, HasOverride:{hasOverride}, Force:{forcePrefabize}");
 
-        
-            return PrefabAddressableHandler.ConvertToPrefabOnly(obj, fallbackPath);
+         
+            if (hasSource)
+            {
+                if (hasOverride)
+                {
+                    Debug.LogWarning($"[PrefabCheck] {obj.name} is prefab instance with override ? keeping existing prefab link.");
+                }
+                return PrefabUtility.GetCorrespondingObjectFromSource(obj);
+            }
+
+            if (!hasSource && forcePrefabize)
+            {
+                Debug.LogWarning($"[PrefabCheck] {obj.name} has no prefab source and ForcePrefabize enabled ? creating prefab.");
+                return PrefabAddressableHandler.ConvertToPrefabOnly(obj, fallbackPath);
+            }
+
+            if (!hasSource)
+            {
+                Debug.LogWarning($"[PrefabCheck] {obj.name} has no prefab and Force=false ? skipping prefab creation.");
+                return obj;
+            }
+
+           
+            return PrefabUtility.GetCorrespondingObjectFromSource(obj);
         }
+
 
         private static string ResolveAddress(GameObject prefab, SceneExportSettings settings)
         {

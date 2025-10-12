@@ -6,6 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
 using System.Linq;
 using System.Threading;
+using UnityEditor.ShaderGraph.Legacy;
 
 namespace SceneLoad
 {
@@ -20,9 +21,10 @@ namespace SceneLoad
         readonly List<SceneObjectData> failedList = new();
 
         const int MaxRetryCount = 2;
-
-        public JsonMapLoader(string name)
+        int maxTask = 5;
+        public JsonMapLoader(string name,int task=5)
         {
+            maxTask = task;
             SettingLocator(name);
 #if UNITY_EDITOR
             AttachEditorSafeHelper();
@@ -100,7 +102,7 @@ namespace SceneLoad
                 InvokeOnProgress((float)(i + 1) / dataList.Count);
 
             
-                if (i % 5 == 0)
+                if (i % maxTask == 0)
                     await Task.Yield();
             }
         }
