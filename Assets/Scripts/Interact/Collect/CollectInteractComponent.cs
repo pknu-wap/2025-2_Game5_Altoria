@@ -1,4 +1,6 @@
 using GameInteract;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static Define;
@@ -31,9 +33,17 @@ namespace GameInteract
             Debug.Log($"{GetType()} : {collectType.ToString()} Á¾·á.");
 
             doing = false;
-            var item = Manager.Random.GetCollectItem(dropTable, currentTool);
-            Debug.Log($"°á°ú: {item} È¹µæ!");
+            
+            List<(CollectItem, float)> probList= new List<(CollectItem, float)> ();
+            for (int i = 0; i < dropTable.drops.Count; i++)
+            {
+                probList.Add((dropTable.drops[i], dropTable.drops[i].baseProbability));
+            }
+            var item = Manager.Random.Pick(probList);
 
+            Debug.Log($"°á°ú: {item.itemID} È¹µæ!");
+
+            EndInteract();
             FuncForEndCollect();
         
         }

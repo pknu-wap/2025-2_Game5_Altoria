@@ -13,26 +13,28 @@ namespace GameData
     {
         public static readonly CraftDatabase CraftingDB;
         public static readonly ItemDatabase ItemDB;
+        public static readonly GradeDatabase GradeDB;
 
         static GameDB()
         {
             ItemDB = new ItemDatabase(new CsvLoader<ItemData>());
             CraftingDB = new CraftDatabase(new JsonLoader<CraftingData>());
-
+            GradeDB = new GradeDatabase(new CsvLoader<GradeData>());
         }
 
         public static async Task LoadAll()
         {
             await CraftingDB.LoadAsync(nameof(CraftDatabase));
             await ItemDB.LoadAsync(nameof(ItemDatabase));
-
-
+            await GradeDB.LoadAsync(nameof(GradeDatabase));
         }
 
         public static CustomDictionary<CraftingData>? GetCraftTypeData(CraftingType type)
             => CraftingDB.TryGetValue(type, out var dict) ? dict : null;
         public static ItemData? GetItemData(string itemId)
             => ItemDB.TryGetValue(itemId, out var data) ? data : null;
+        public static GradeData? GetGradeData(int currentGrade)
+            => GradeDB.TryGetValue(currentGrade, out var data) ? data : null;
     }
     public abstract class GameDatabase<TKey, TValue>
     {
@@ -114,6 +116,20 @@ namespace GameData
             for (int i = 0; i < assets.Count; i++)
             {
                 values[assets[i].ID] = assets[i];
+            }
+        }
+    }
+
+    public class GradeDatabase : GameDatabase<int, GradeData>
+    {
+        public GradeDatabase(ILoadStrategy<GradeData> loader) : base(loader) { }
+
+        protected override void OnLoaded(IList<GradeData> assets)
+        {
+            values.Clear();
+            for (int i = 0; i < assets.Count; i++)
+            {
+                values[assets[i].CurrentGrade] = assets[i];
             }
         }
     }

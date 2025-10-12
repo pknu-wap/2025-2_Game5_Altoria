@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e710edbd523cac240a50690f6c2f3159, type: 3}
-  m_Name: Collect1
+  m_Name: CollectDropTableTest1
   m_EditorClassIdentifier: 
   collectType: 2
   areaID: 1

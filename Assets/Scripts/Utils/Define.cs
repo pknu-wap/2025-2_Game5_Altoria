@@ -18,6 +18,15 @@ public class Define
         Additive,// 기타 
 
     }
+    public enum ItemGrade
+    {
+        None,
+        일반,
+        에픽,
+        고급,
+        희귀,
+        신화
+    }
 
     public enum CollectType
     {

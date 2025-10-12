@@ -590,11 +590,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1338d5cb091eae64d97b3dc3e5a76c6a
-    m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_D.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1343ee47590785644ba9d244ce0b6b09
     m_Address: Terrain
     m_ReadOnly: 0
@@ -3007,11 +3002,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67a239510a4b630449a89885efdbf3a3
     m_Address: PP_Stones_Crystals_01_Iron
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 67b30c1f1afb35e40ad6a1dffecc9cf5
-    m_Address: Assets/@Resources/3D Medieval Pack/Prefabs/BlacksmithTool_C.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

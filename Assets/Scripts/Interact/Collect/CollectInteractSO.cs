@@ -5,8 +5,9 @@ using static Define;
 [System.Serializable]
 public class CollectItem
 {
-    public string areaID;
     public string itemID;           // 아이템 고유 ID
+    public string content;
+    public string areaID;
     public float baseProbability;   // 드랍 확률
 }
 

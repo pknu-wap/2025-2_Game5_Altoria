@@ -13,7 +13,7 @@ public class Manager : MonoBehaviour
 
     public static UIController UI { get { return Instance.ui; } }
     public static TimeController Time { get { return Instance.time; } }
-    public static SceneLoader SceneLoader { get { return Instance.scene; } }
+    public static SceneLoader.SceneLoader SceneLoader { get { return Instance.scene; } }
     public static RandomHellper Random { get { return Instance.randomHellper;  } }
     public static LifeStatsManager Life { get { return Instance.lifeStatsManager; } }
     public static ResourceManager Resource { get { return Instance.resource; } }    
@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
     UIController ui;
     TimeController time;
     SceneLoader.SceneLoader scene;
-    CollectDropHellper collectDropHellper;
+    RandomHellper randomHellper;
     LifeStatsManager lifeStatsManager;
     ResourceManager resource;
     GameSystem system;
@@ -55,7 +55,7 @@ public class Manager : MonoBehaviour
         time = new();
         scene = new();
         resource=new();
-        collectDropHellper = new();
+        randomHellper = new();
         lifeStatsManager = new ();
     }
 }
