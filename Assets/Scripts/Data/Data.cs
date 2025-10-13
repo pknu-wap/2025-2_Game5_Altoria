@@ -12,11 +12,14 @@ public class ItemData
     public string ID;
     public string Name;
     public string SpriteAddress;
+    public Content content;
     public ItemGrade Grade;
     public ItemType Type;
-    public int SellCost;
     [TextArea] public string Description;
     public ItemData() { }
+
+    // 임시 아이템을 생성하기 위해 생성자를 추가했습니다.
+    // 추후 인벤토리가 완성되어 인벤토리에서 아이템을 추출할 때 삭제하겠습니다.
     public ItemData(string id, ItemGrade grade)
     {
         ID = id;
@@ -50,6 +53,11 @@ public class InventoryData
     public ItemData Item;
     public int Count;
 }
+[System.Serializable]
+public class UpgradeData
+{
+
+}
 
 [System.Serializable]
 public class GradeData
@@ -60,4 +68,11 @@ public class GradeData
     public int Destroy;
     public int bous;
     public int Durability;
+}
+[System.Serializable]
+public class CollectData
+{
+    public string ID;
+    public string Area;
+    public int Probability;
 }

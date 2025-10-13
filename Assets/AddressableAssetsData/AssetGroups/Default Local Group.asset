@@ -3633,8 +3633,7 @@ MonoBehaviour:
   - m_GUID: 7f41866f78a349b4fbaf2beca6a250d6
     m_Address: CraftDatabase
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f59fdd5feb776e499aa26829d0e479a
     m_Address: PP_Rock_Veins_02_Silver
@@ -6346,11 +6345,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: db20bf16e12a9654f9754fb2996139eb
-    m_Address: ItemDatabase
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db393ad7ef105e44ba1b6910d14c7f22
     m_Address: PP_Crystal_Single_06_Silver
     m_ReadOnly: 0
@@ -7128,6 +7122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f530c64cf760e1444a8b5d5fd168b2fe
     m_Address: PP_Crystal_Column_04_Blue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f546d854122c5934295cc3b3f21b1f0d
+    m_Address: ItemDatabase
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

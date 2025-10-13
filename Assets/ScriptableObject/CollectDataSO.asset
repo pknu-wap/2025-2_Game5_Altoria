@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2105cbdfff6a2c04183f3908a38d7381, type: 3}
+  m_Name: CollectDataSO
+  m_EditorClassIdentifier: 
+  rows:
+  - ID: 10011001
+    Area: 1
+    Probability: 90
+  - ID: 10014002
+    Area: 2
+    Probability: 100
+  - ID: 10051003
+    Area: 1
+    Probability: 90
+  - ID: 10051004
+    Area: 2
+    Probability: 90
+  - ID: 10051005
+    Area: 3
+    Probability: 90
+  - ID: 10052007
+    Area: 4
+    Probability: 90
+  - ID: 10052008
+    Area: 5
+    Probability: 90
+  - ID: 10053009
+    Area: 2
+    Probability: 90
+  - ID: 10053010
+    Area: 3
+    Probability: 90
+  - ID: 10053011
+    Area: 4
+    Probability: 90
+  - ID: 10054012
+    Area: 5
+    Probability: 90
+  - ID: 10054013
+    Area: 3
+    Probability: 100
+  - ID: 10055014
+    Area: 5
+    Probability: 100
+  - ID: 10061015
+    Area: 1
+    Probability: 90
+  - ID: 10061017
+    Area: 1
+    Probability: 90
+  - ID: 10061019
+    Area: 1
+    Probability: 90
+  - ID: 10064020
+    Area: 1
+    Probability: 100
+  - ID: 10031033
+    Area: 1
+    Probability: 90
+  - ID: 10031035
+    Area: 1
+    Probability: 90
+  - ID: 10031036
+    Area: 1
+    Probability: 90
+  - ID: 10031037
+    Area: 1
+    Probability: 90
+  - ID: 10031038
+    Area: 1
+    Probability: 90
+  - ID: 10031039
+    Area: 1
+    Probability: 90
+  - ID: 10031040
+    Area: 1
+    Probability: 90
+  - ID: 10031041
+    Area: 1
+    Probability: 90
+  - ID: 10031042
+    Area: 1
+    Probability: 90
+  - ID: 10033044
+    Area: 1
+    Probability: 90
+  - ID: 10033045
+    Area: 1
+    Probability: 90
+  - ID: 10031043
+    Area: 1
+    Probability: 90
+  - ID: 10034046
+    Area: 1
+    Probability: 100
+  - ID: 10041047
+    Area: 1
+    Probability: 90
+  - ID: 10041048
+    Area: 2
+    Probability: 90
+  - ID: 10041049
+    Area: 3
+    Probability: 90
+  - ID: 10042050
+    Area: 4
+    Probability: 90
+  - ID: 10043051
+    Area: 5
+    Probability: 90
+  - ID: 10044052
+    Area: 4
+    Probability: 100
+  - ID: 10045053
+    Area: 5
+    Probability: 100

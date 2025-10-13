@@ -1,0 +1,96 @@
+ID,Content,Name,Grade,SpriteAddress,Description,Type
+12211000,Plant,나무 낫,Nomal,,,Tool
+12212000,Plant,철 낫,Uncommon,,,Tool
+12213000,Plant,금 낫,Rare,,,Tool
+12214000,Plant,전문가 낫,Epic,,,Tool
+12215000,Plant,신기한 낫,Legendary,,,Tool
+12221000,Fish,나무 낚시대,Nomal,,,Tool
+12222000,Fish,철 낚시대,Uncommon,,,Tool
+12223000,Fish,금 낚시대,Rare,,,Tool
+12224000,Fish,전문가 낚시대,Epic,,,Tool
+12225000,Fish,신기한 낚시대,Legendary,,,Tool
+12231000,Farm,나무 호미,Nomal,,,Tool
+12232000,Farm,철 호미,Uncommon,,,Tool
+12233000,Farm,금 호미,Rare,,,Tool
+12234000,Farm,전문가 호미,Epic,,,Tool
+12235000,Farm,신비한 호미,Legendary,,,Tool
+12241000,Fell,나무 도끼,Nomal,,,Tool
+12242000,Fell,철 도끼,Uncommon,,,Tool
+12243000,Fell,금 도끼,Rare,,,Tool
+12244000,Fell,전문가 도끼,Epic,,,Tool
+12245000,Fell,신비한 도끼,Legendary,,,Tool
+12251000,Mining,나무 곡괭이,Nomal,,,Tool
+12252000,Mining,철 곡괭이,Uncommon,,,Tool
+12253000,Mining,금 곡괭이,Rare,,,Tool
+12254000,Mining,전문가 곡괭이,Epic,,,Tool
+12255000,Mining,신기한 곡괭이,Legendary,,,Tool
+12261000,Animal,나무 브러시,Nomal,,,Tool
+12262000,Animal,철 브러쉬,Uncommon,,,Tool
+12263000,Animal,금 브러쉬,Rare,,,Tool
+12264000,Animal,전문가 브러쉬,Epic,,,Tool
+12265000,Animal,신비한 브러쉬,Legendary,,,Tool
+10011001,Plant,들꽃,Nomal,,,Additive
+10014002,Plant,만년설초,Epic,,,Additive
+10051003,Mining,구리,Nomal,,,Material
+10051004,Mining,석탄,Nomal,,,Material
+10051005,Mining,철,Nomal,,,Material
+10071006,Creat,철괴,Nomal,,,Material
+10052007,Mining,은,Uncommon,,,Material
+10052008,Mining,금,Uncommon,,,Material
+10053009,Mining,다이아몬드,Rare,,,Material
+10053010,Mining,석영,Rare,,,Material
+10053011,Mining,에메랄드,Rare,,,Material
+10054012,Mining,마나석,Epic,,,Material
+10054013,Mining,운석 조각,Epic,,,Material
+10055014,Mining,신비한 크리스탈,Legendary,,,Material
+10061015,Animal,우유,Nomal,,,Material
+10071016,Creat,치즈,Nomal,,,Material
+10061017,Animal,양털,Nomal,,,Material
+10071018,Creat,실타래,Nomal,,,Material
+10061019,Animal,달걀,Nomal,,,Material
+10064020,Animal,황금 달걀,Epic,,,Material
+10021021,Fish,잉어,Nomal,,민물고기,Additive
+10021022,Fish,송어,Nomal,,민물고기,Additive
+10022023,Fish,메기,Uncommon,,민물고기,Additive
+10023024,Fish,장어,Rare,,민물고기,Additive
+10021025,Fish,고등어,Nomal,,바다고기,Additive
+10021026,Fish,가오리,Nomal,,바다고기,Additive
+10022027,Fish,참치,Uncommon,,바다고기,Additive
+10023028,Fish,연어,Rare,,바다고기,Additive
+10024029,Fish,블루길,Epic,,외래종,Additive
+10024030,Fish,개복치,Epic,,희귀 어류,Additive
+10025031,Fish,황금 잉어,Legendary,,희귀 어류,Additive
+10025032,Fish,빛나는 해파리,Legendary,,희귀 어류,Additive
+10031033,Farm,밀,Nomal,,곡물,Material
+10071034,Creat,밀가루,Nomal,,,Material
+10031035,Farm,보리,Nomal,,곡물,Material
+10031036,Farm,쌀,Nomal,,곡물,Material
+10031037,Farm,사탕수수,Nomal,,곡물,Material
+10031038,Farm,당근,Nomal,,채소,Material
+10031039,Farm,양파,Nomal,,채소,Material
+10031040,Farm,감자,Nomal,,채소,Material
+10031041,Farm,토마토,Nomal,,채소,Material
+10031042,Farm,사과,Nomal,,과일,Material
+10031043,Farm,포토,Nomal,,과일,Material
+10033044,Farm,블루베리,Rare,,과일,Material
+10033045,Farm,딸기,Rare,,과일,Material
+10034046,Farm,황금 사과,Epic,,희귀 작물,Material
+10041047,Fell,참나무,Nomal,,일반 목재,Material
+10041048,Fell,소나무,Nomal,,일반 목재,Material
+10041049,Fell,자작나무,Nomal,,일반 목재,Material
+10042050,Fell,단풍나무,Uncommon,,고급 목재,Material
+10043051,Fell,벚꽃나무,Rare,,고급 목재,Material
+10044052,Fell,달빛나무,Epic,,희귀 목재,Material
+10045053,Fell,세계수 가지,Legendary,,희귀 목재,Material
+10072054,Creat,은괴,Uncommon,,,Material
+10072055,Creat,금괴,Uncommon,,,Material
+10073056,Creat,다이아몬드 결정,Rare,,,Material
+10074057,Creat,마나 결정,Epic,,,Material
+10071058,Creat,빵,Nomal,,,Consume
+10074059,Creat,황금 빵,Epic,,,Consume
+10074060,Creat,빛나는 수정,Epic,,,Material
+10075061,Creat,세계수 목재,Legendary,,,Material
+10071062,Creat,보리빵,Nomal,,,Consume
+10072063,Creat,사과 파이,Uncommon,,,Consume
+10073064,Creat,블루베리 잼,Rare,,,Consume
+10071065,Creat,설탕,Nomal,,,Material

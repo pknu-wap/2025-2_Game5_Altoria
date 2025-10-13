@@ -21,14 +21,14 @@ public class Define
     public enum ItemGrade
     {
         None,
-        ¿œπ›,
-        ø°«»,
-        ∞Ì±ﬁ,
-        »Ò±Õ,
-        Ω≈»≠
+        Nomal,
+        Uncommon,
+        Rare,
+        Epic,
+        Legendary
     }
 
-    public enum CollectType
+    public enum Content
     {
         None,
         Farm,

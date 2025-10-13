@@ -9,9 +9,9 @@ namespace GameInteract
 {
     public class CollectInteractComponent : InteractBaseComponent
     {
-        [SerializeField] protected CollectType collectType = CollectType.None;
+        [SerializeField] protected Content collectType = Content.None;
         [Header("지역&콘텐츠에 따른 SO")]
-        [SerializeField] protected CollectInteractSO dropTable;
+        [SerializeField] protected CollectDataSO dropTable;
         [Header("플레이어가 사용하는 도구(추후 인스펙터에서 설정X)")]
         [SerializeField] protected CollectToolSO currentTool;
 
@@ -34,14 +34,12 @@ namespace GameInteract
 
             doing = false;
             
-            List<(CollectItem, float)> probList= new List<(CollectItem, float)> ();
-            for (int i = 0; i < dropTable.drops.Count; i++)
+            List<(CollectData, float)> probList= new List<(CollectData, float)> ();
+            for (int i = 0; i < dropTable.rows.Count; i++)
             {
-                probList.Add((dropTable.drops[i], dropTable.drops[i].baseProbability));
+                probList.Add((dropTable.rows[i], dropTable.rows[i].Probability));
             }
             var item = Manager.Random.Pick(probList);
-
-            Debug.Log($"결과: {item.itemID} 획득!");
 
             EndInteract();
             FuncForEndCollect();
