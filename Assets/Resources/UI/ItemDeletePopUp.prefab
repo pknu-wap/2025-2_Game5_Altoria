@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 666099973869135406}
   - component: {fileID: 6217548601856794851}
   m_Layer: 5
-  m_Name: BtnClose (1)
+  m_Name: BtnClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1287,6 +1287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 4869587944324377665, guid: 58f32be69fa3a1e49a1b0a79ccf91cdd, type: 3}
+      propertyPath: deletePopUp
+      value: 
+      objectReference: {fileID: 4149032189788388496}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1549,9 +1553,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7194750774597323411, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194750774597323411, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194750774597323411, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5725814712247776211}
+    - target: {fileID: 7194750774597323411, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194750774597323411, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeleteItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194750774597323411, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ItemDeletePopUp, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194750774597323411, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9122079072712779901, guid: 85ee92067e750334c95036a88e2f6b66, type: 3}
       propertyPath: m_Name
-      value: ButtonClaim_Red
+      value: delete button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

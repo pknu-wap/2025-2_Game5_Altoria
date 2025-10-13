@@ -77,9 +77,9 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public ItemData GetItemData(string itemID)
+    public InventoryData GetItemData(string itemID)
     {
-        return itemDatabase.GetItemById(itemID);
+        return inventoryData.GetItemById(itemID);
     }
 
 

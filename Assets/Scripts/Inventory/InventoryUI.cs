@@ -19,6 +19,13 @@ public enum SortType
 
 public class InventoryUI : MonoBehaviour
 {
+    #region Singleton
+    public static InventoryUI Instance;
+    private void Awake()
+    {
+        Instance = this;   //인스턴스 초기화
+    }
+    #endregion
 
     [Header("Top Tabs")]
     [SerializeField] TopButtonSet[] topButtons;
@@ -38,7 +45,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] Transform slotsParent;
     List<InventoryItemSlot> displayList = new List<InventoryItemSlot>();
 
-    [SerializeField] GameObject ItemDeleteUI;
+    [SerializeField] ItemDeletePopUp deletePopUp;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -123,32 +130,33 @@ public class InventoryUI : MonoBehaviour
             Destroy(slot.gameObject);
         displayList.Clear();
 
-        // 현재 인벤토리 데이터 가져오기
-        List<InventoryData> items = InventoryManager.Instance.GetAllItems();
+        List<InventoryData> inventory = InventoryManager.Instance.GetAllItems();
 
-        // 슬롯 생성 및 세팅
-        foreach (var data in items)
+        foreach (var data in inventory)
         {
             InventoryItemSlot slot = Instantiate(itemPrefab, slotsParent);
             displayList.Add(slot);
+            Debug.Log($"[InventoryUI] : 아이템 슬롯 생성 - ID: {data.ID}, Count: {data.Count}");
 
-            // itemID로 아이템 상세정보 가져오기
-            ItemData itemInfo = InventoryManager.Instance.GetItemData(data.ID);
+            InventoryData itemInfo = InventoryManager.Instance.GetItemData(data.ID);
 
+            /* 이미지 연결 
             Sprite icon = null;
             if (itemInfo != null && !string.IsNullOrEmpty(itemInfo.SpriteAddress))
                 icon = Resources.Load<Sprite>(itemInfo.SpriteAddress);
+            */
 
-            slot.SetSlot(itemInfo?.Name ?? data.ID, data.Count);
+            slot.SetSlot(data.ID, data.Count);  //실제 UI에 표시 
         }
         Debug.Log("[InventoryUI] : 인벤토리 최신화됨");
     }
 
 
-    public void OnClickItemDelete()
+    public void OnClickItemDelete(string id, int count)
     {
-        ItemDeleteUI.SetActive(true);   //UIController 이용하여 수정 
+        deletePopUp.Open(id, count);   //UIController 이용하여 수정 
     }
+
     //창 닫기
     public void Hide()
     {
