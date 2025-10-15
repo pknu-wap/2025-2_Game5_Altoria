@@ -6,3 +6,4 @@ public class CollectDataSO : ScriptableObject
 {
     public List<CollectData> rows;
 }
+

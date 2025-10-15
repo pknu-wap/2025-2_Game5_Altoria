@@ -6,7 +6,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10041047","Count":2}]
+      "Ingredients": [{"ID":"10041031","Count":2}]
     },
     {
       "ID": "12212000",
@@ -14,7 +14,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 30,
-      "Ingredients": [{"ID":"10071006","Count":2},{"ID":"10042050","Count":2}]
+      "Ingredients": [{"ID":"10071062","Count":2},{"ID":"10042034","Count":2}]
     },
     {
       "ID": "12213000",
@@ -22,7 +22,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 60,
-      "Ingredients": [{"ID":"10072055","Count":2},{"ID":"10043051","Count":2}]
+      "Ingredients": [{"ID":"10072051","Count":2},{"ID":"10043035","Count":2}]
     },
     {
       "ID": "12214000",
@@ -30,7 +30,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 120,
-      "Ingredients": [{"ID":"10044052","Count":2},{"ID":"10073056","Count":2}]
+      "Ingredients": [{"ID":"10044036","Count":2},{"ID":"10073052","Count":2}]
     },
     {
       "ID": "12215000",
@@ -38,7 +38,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 180,
-      "Ingredients": [{"ID":"10075061","Count":2},{"ID":"10074057","Count":2}]
+      "Ingredients": [{"ID":"10075057","Count":2},{"ID":"10074053","Count":2}]
     },
     {
       "ID": "12221000",
@@ -46,7 +46,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10041048","Count":3}]
+      "Ingredients": [{"ID":"10041032","Count":3}]
     },
     {
       "ID": "12222000",
@@ -54,7 +54,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 30,
-      "Ingredients": [{"ID":"10071006","Count":2},{"ID":"10042050","Count":3}]
+      "Ingredients": [{"ID":"10071062","Count":2},{"ID":"10042034","Count":3}]
     },
     {
       "ID": "12223000",
@@ -62,7 +62,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 60,
-      "Ingredients": [{"ID":"10072055","Count":2},{"ID":"10043051","Count":3}]
+      "Ingredients": [{"ID":"10072051","Count":2},{"ID":"10043035","Count":3}]
     },
     {
       "ID": "12224000",
@@ -70,7 +70,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 120,
-      "Ingredients": [{"ID":"10044052","Count":3},{"ID":"10073056","Count":3}]
+      "Ingredients": [{"ID":"10044036","Count":3},{"ID":"10073052","Count":3}]
     },
     {
       "ID": "12225000",
@@ -78,7 +78,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 180,
-      "Ingredients": [{"ID":"10075061","Count":3},{"ID":"10074057","Count":3}]
+      "Ingredients": [{"ID":"10075057","Count":3},{"ID":"10074053","Count":3}]
     },
     {
       "ID": "12231000",
@@ -86,7 +86,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10041049","Count":2}]
+      "Ingredients": [{"ID":"10041033","Count":2}]
     },
     {
       "ID": "12232000",
@@ -94,7 +94,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 30,
-      "Ingredients": [{"ID":"10071006","Count":2},{"ID":"10042050","Count":2}]
+      "Ingredients": [{"ID":"10071062","Count":2},{"ID":"10042034","Count":2}]
     },
     {
       "ID": "12233000",
@@ -102,7 +102,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 60,
-      "Ingredients": [{"ID":"10072055","Count":2},{"ID":"10043051","Count":2}]
+      "Ingredients": [{"ID":"10072051","Count":2},{"ID":"10043035","Count":2}]
     },
     {
       "ID": "12234000",
@@ -110,7 +110,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 120,
-      "Ingredients": [{"ID":"10044052","Count":2},{"ID":"10073056","Count":2}]
+      "Ingredients": [{"ID":"10044036","Count":2},{"ID":"10073052","Count":2}]
     },
     {
       "ID": "12235000",
@@ -118,7 +118,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 180,
-      "Ingredients": [{"ID":"10075061","Count":2},{"ID":"10074057","Count":2}]
+      "Ingredients": [{"ID":"10075057","Count":2},{"ID":"10074053","Count":2}]
     },
     {
       "ID": "12241000",
@@ -126,7 +126,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10041047","Count":3}]
+      "Ingredients": [{"ID":"10041031","Count":3}]
     },
     {
       "ID": "12242000",
@@ -134,7 +134,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 30,
-      "Ingredients": [{"ID":"10071006","Count":2},{"ID":"10042050","Count":3}]
+      "Ingredients": [{"ID":"10071062","Count":2},{"ID":"10042034","Count":3}]
     },
     {
       "ID": "12243000",
@@ -142,7 +142,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 60,
-      "Ingredients": [{"ID":"10072055","Count":2},{"ID":"10043051","Count":3}]
+      "Ingredients": [{"ID":"10072051","Count":2},{"ID":"10043035","Count":3}]
     },
     {
       "ID": "12244000",
@@ -150,7 +150,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 120,
-      "Ingredients": [{"ID":"10044052","Count":3},{"ID":"10073056","Count":3}]
+      "Ingredients": [{"ID":"10044036","Count":3},{"ID":"10073052","Count":3}]
     },
     {
       "ID": "12245000",
@@ -158,7 +158,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 180,
-      "Ingredients": [{"ID":"10075061","Count":3},{"ID":"10074057","Count":3}]
+      "Ingredients": [{"ID":"10075057","Count":3},{"ID":"10074053","Count":3}]
     },
     {
       "ID": "12251000",
@@ -166,7 +166,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10041049","Count":3}]
+      "Ingredients": [{"ID":"10041033","Count":3}]
     },
     {
       "ID": "12252000",
@@ -174,7 +174,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 30,
-      "Ingredients": [{"ID":"10071006","Count":3},{"ID":"10042050","Count":3}]
+      "Ingredients": [{"ID":"10071062","Count":3},{"ID":"10042034","Count":3}]
     },
     {
       "ID": "12253000",
@@ -182,7 +182,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 60,
-      "Ingredients": [{"ID":"10072055","Count":3},{"ID":"10043051","Count":3}]
+      "Ingredients": [{"ID":"10072051","Count":3},{"ID":"10043035","Count":3}]
     },
     {
       "ID": "12254000",
@@ -190,7 +190,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 120,
-      "Ingredients": [{"ID":"10044052","Count":3},{"ID":"10073056","Count":3}]
+      "Ingredients": [{"ID":"10044036","Count":3},{"ID":"10073052","Count":3}]
     },
     {
       "ID": "12255000",
@@ -198,7 +198,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 180,
-      "Ingredients": [{"ID":"10075061","Count":3},{"ID":"10074057","Count":3}]
+      "Ingredients": [{"ID":"10075057","Count":3},{"ID":"10074053","Count":3}]
     },
     {
       "ID": "12261000",
@@ -206,7 +206,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10041048","Count":1},{"ID":"10061017","Count":3}]
+      "Ingredients": [{"ID":"10041032","Count":1},{"ID":"10061015","Count":3}]
     },
     {
       "ID": "12262000",
@@ -214,7 +214,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 30,
-      "Ingredients": [{"ID":"10071006","Count":1},{"ID":"10061017","Count":5}]
+      "Ingredients": [{"ID":"10071062","Count":1},{"ID":"10061015","Count":5}]
     },
     {
       "ID": "12263000",
@@ -222,7 +222,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 60,
-      "Ingredients": [{"ID":"10072055","Count":1},{"ID":"10071018","Count":7}]
+      "Ingredients": [{"ID":"10072051","Count":1},{"ID":"10071064","Count":7}]
     },
     {
       "ID": "12264000",
@@ -230,7 +230,7 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 120,
-      "Ingredients": [{"ID":"10044052","Count":2},{"ID":"10073056","Count":2}]
+      "Ingredients": [{"ID":"10044036","Count":2},{"ID":"10073052","Count":2}]
     },
     {
       "ID": "12265000",
@@ -238,148 +238,135 @@
       "Type": "Tool",
       "Count": 1,
       "Time": 180,
-      "Ingredients": [{"ID":"10075061","Count":2},{"ID":"10074057","Count":2}]
+      "Ingredients": [{"ID":"10075057","Count":2},{"ID":"10074053","Count":2}]
     },
     {
-      "ID": "10071006",
+      "ID": "10071062",
       "Name": "철괴",
       "Type": "Metal",
       "Count": 8,
       "Time": 40,
-      "Ingredients": [{"ID":"10051005","Count":8},{"ID":"10051004","Count":1}]
+      "Ingredients": [{"ID":"10051005","Count":1},{"ID":"10051004","Count":1}]
     },
     {
-      "ID": "10072054",
+      "ID": "10072050",
       "Name": "은괴",
       "Type": "Metal",
       "Count": 8,
       "Time": 45,
-      "Ingredients": [{"ID":"10052007","Count":8},{"ID":"10051004","Count":1}]
+      "Ingredients": [{"ID":"10052006","Count":1},{"ID":"10051004","Count":1}]
     },
     {
-      "ID": "10072055",
+      "ID": "10072051",
       "Name": "금괴",
       "Type": "Metal",
       "Count": 8,
       "Time": 60,
-      "Ingredients": [{"ID":"10052008","Count":8},{"ID":"10051004","Count":1}]
+      "Ingredients": [{"ID":"10052007","Count":1},{"ID":"10051004","Count":1}]
     },
     {
-      "ID": "10073056",
+      "ID": "10073052",
       "Name": "다이아몬드 결정",
       "Type": "Metal",
       "Count": 1,
       "Time": 60,
-      "Ingredients": [{"ID":"10053009","Count":1},{"ID":"10053010","Count":1}]
+      "Ingredients": [{"ID":"10053008","Count":1},{"ID":"10053009","Count":1}]
     },
     {
-      "ID": "10074057",
+      "ID": "10074053",
       "Name": "마나 결정",
       "Type": "Metal",
       "Count": 1,
       "Time": 90,
-      "Ingredients": [{"ID":"10054012","Count":2},{"ID":"10053011","Count":1}]
+      "Ingredients": [{"ID":"10054011","Count":2},{"ID":"10053010","Count":1}]
     },
     {
-      "ID": "10071058",
+      "ID": "10071054",
       "Name": "빵",
       "Type": "Item",
       "Count": 3,
       "Time": 20,
-      "Ingredients": [{"ID":"10071034","Count":2},{"ID":"10061015","Count":1},{"ID":"10061019","Count":1}]
+      "Ingredients": [{"ID":"10071065","Count":2},{"ID":"10061014","Count":1},{"ID":"10061016","Count":1}]
     },
     {
-      "ID": "10074059",
+      "ID": "10074055",
       "Name": "황금 빵",
       "Type": "Item",
       "Count": 3,
       "Time": 45,
-      "Ingredients": [{"ID":"10071058","Count":3},{"ID":"10064020","Count":1}]
+      "Ingredients": [{"ID":"10071054","Count":3},{"ID":"10064017","Count":1}]
     },
     {
-      "ID": "10074060",
+      "ID": "10074056",
       "Name": "빛나는 수정",
       "Type": "Extra",
       "Count": 1,
       "Time": 100,
-      "Ingredients": [{"ID":"10054013","Count":1},{"ID":"10053010","Count":2}]
+      "Ingredients": [{"ID":"10054012","Count":1},{"ID":"10053009","Count":2}]
     },
     {
-      "ID": "10075061",
+      "ID": "10075057",
       "Name": "세계수 목재",
       "Type": "Extra",
       "Count": 1,
       "Time": 180,
-      "Ingredients": [{"ID":"10045053","Count":1},{"ID":"10044052","Count":1}]
+      "Ingredients": [{"ID":"10045037","Count":1},{"ID":"10044036","Count":1}]
     },
     {
-      "ID": "10071062",
+      "ID": "10071058",
       "Name": "보리빵",
       "Type": "Item",
       "Count": 3,
       "Time": 30,
-      "Ingredients": [{"ID":"10071034","Count":2},{"ID":"10031035","Count":2},{"ID":"10061019","Count":1}]
+      "Ingredients": [{"ID":"10071065","Count":2},{"ID":"10031019","Count":2},{"ID":"10061016","Count":1}]
     },
     {
-      "ID": "10072063",
+      "ID": "10072059",
       "Name": "사과 파이",
       "Type": "Item",
       "Count": 2,
       "Time": 40,
-      "Ingredients": [
-        {
-          "ID": "10071034",
-          "Count": 2
-        },
-        {
-          "ID": "10031042",
-          "Count": 2
-        },
-        {
-          "ID": "10061015",
-          "Count": 1
-        }
-      ]
+      "Ingredients": [{"ID":"10071065","Count":2},{"ID":"10031026","Count":2},{"ID":"10061014","Count":1}]
     },
     {
-      "ID": "10073064",
+      "ID": "10073060",
       "Name": "블루베리 잼",
       "Type": "Item",
       "Count": 2,
       "Time": 30,
-      "Ingredients": [{"ID":"10033044","Count":3},{"ID":"10071065","Count":1}]
+      "Ingredients": [{"ID":"10033028","Count":3},{"ID":"10071061","Count":1}]
     },
     {
-      "ID": "10071016",
+      "ID": "10071063",
       "Name": "치즈",
       "Type": "Extra",
       "Count": 2,
       "Time": 20,
-      "Ingredients": [{"ID":"10061015","Count":1}]
+      "Ingredients": [{"ID":"10061014","Count":1}]
     },
     {
-      "ID": "10071018",
+      "ID": "10071064",
       "Name": "실타래",
       "Type": "Extra",
       "Count": 3,
       "Time": 15,
-      "Ingredients": [{"ID":"10061017","Count":3}]
+      "Ingredients": [{"ID":"10061015","Count":3}]
     },
     {
-      "ID": "10071034",
+      "ID": "10071065",
       "Name": "밀가루",
       "Type": "Extra",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10031033","Count":2}]
+      "Ingredients": [{"ID":"10031018","Count":2}]
     },
     {
-      "ID": "10071065",
+      "ID": "10071061",
       "Name": "설탕",
       "Type": "Extra",
       "Count": 1,
       "Time": 10,
-      "Ingredients": [{"ID":"10031037","Count":3}]
+      "Ingredients": [{"ID":"10031021","Count":3}]
     }
   ]
 }

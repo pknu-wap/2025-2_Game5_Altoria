@@ -39,4 +39,14 @@ public class Define
         Plant,
         COUNT,
     }
+    public enum AreaType
+    {
+        None,
+        A, 
+        B, 
+        C, 
+        D, 
+        E,
+        COUNT
+    }
 }

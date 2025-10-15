@@ -7020,6 +7020,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0b17c5c494ce174397df6ebb1cdff18
+    m_Address: CollectHandler
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0c7211c71d3681408576d6ea273f257
     m_Address: PP_Metal_Chain_06
     m_ReadOnly: 0
