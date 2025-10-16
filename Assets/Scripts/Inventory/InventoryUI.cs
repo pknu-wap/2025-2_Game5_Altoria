@@ -146,7 +146,7 @@ public class InventoryUI : MonoBehaviour
                 icon = Resources.Load<Sprite>(itemInfo.SpriteAddress);
             */
 
-            slot.SetSlot(data.ID, data.Count);  //실제 UI에 표시 
+            slot.Initialize(data.ID, data.Count);  //실제 UI에 표시 
         }
         Debug.Log("[InventoryUI] : 인벤토리 최신화됨");
     }

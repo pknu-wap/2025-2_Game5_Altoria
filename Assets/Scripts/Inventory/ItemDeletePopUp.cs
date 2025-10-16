@@ -139,12 +139,12 @@ public class ItemDeletePopUp : UIPopUp
         maxCount = Mathf.Max(1, count);  
         currentCount = 1;
 
-        CountInput.onValueChanged.RemoveListener(OnInputChanged);
-        CountInput.text = currentCount.ToString();
-        CountInput.onValueChanged.AddListener(OnInputChanged);
+        
 
         gameObject.SetActive(true);
-
+        CountInput.onValueChanged.RemoveListener(OnInputChanged);  //¿·±Ò ≤˜±‚ 
+        CountInput.text = currentCount.ToString();
+        CountInput.onValueChanged.AddListener(OnInputChanged);
         Debug.Log($"[ItemDeletePopUp] : {itemID} æ∆¿Ã≈€ ªË¡¶√¢ ø¿«¬ / maxCount={maxCount}");
     }
 
