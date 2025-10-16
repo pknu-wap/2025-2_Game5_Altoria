@@ -18,8 +18,8 @@ public class ItemData
     [TextArea] public string Description;
     public ItemData() { }
 
-    // ÀÓ½Ã ¾ÆÀÌÅÛÀ» »ý¼ºÇÏ±â À§ÇØ »ý¼ºÀÚ¸¦ Ãß°¡Çß½À´Ï´Ù.
-    // ÃßÈÄ ÀÎº¥Åä¸®°¡ ¿Ï¼ºµÇ¾î ÀÎº¥Åä¸®¿¡¼­ ¾ÆÀÌÅÛÀ» ÃßÃâÇÒ ¶§ »èÁ¦ÇÏ°Ú½À´Ï´Ù.
+    // ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ß°ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½Ç¾ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ú½ï¿½ï¿½Ï´ï¿½.
     public ItemData(string id, ItemGrade grade)
     {
         ID = id;
@@ -50,7 +50,9 @@ public class CraftingSlotData
 [System.Serializable]
 public class InventoryData
 {
-    public ItemData Item;
+    public string ID;
+    public string Name;
+    public bool IsEquipped;
     public int Count;
 }
 [System.Serializable]
