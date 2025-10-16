@@ -1,23 +1,45 @@
 using GameInteract;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 namespace Common
 {
-    public class GameSystem
+    public class GameSystem : MonoBehaviour
     {
+        private static GameSystem instance;
+
+        TimeController time = new();
+        RandomHellper randomHellper = new();
+        LifeStatsManager lifeStatsManager = new();
+
+        public static GameSystem Instance { get { return instance; } }
+        public static TimeController Time { get { return instance.time; } }
+        public static RandomHellper Random { get { return instance.randomHellper; } }
+        public static LifeStatsManager Life { get { return instance.lifeStatsManager; } }
+
         public readonly CraftingController Crafting = new();
 
         CollectHandler collectHandler;
 
-        public GameSystem()
+        public static void Init()
         {
-            Init();
+            if (instance == null)
+            {
+                GameObject go = GameObject.Find("GameSystem");
+                if (go == null)
+                    go = new GameObject { name = "GameSystem" };
+
+                instance = go.GetOrAddComponent<GameSystem>();
+                DontDestroyOnLoad(go);
+            }
+
+            instance.SetManagers();
         }
 
-        void Init()
+        void SetManagers()
         {
             Manager.Resource.LoadAsync<CollectHandler>("CollectHandler", asset =>
             {
@@ -26,6 +48,16 @@ namespace Common
                 else
                     collectHandler = asset;
             });
+        }
+        public void Update()
+        {
+            if (Time != null)
+                Time.Tick(UnityEngine.Time.deltaTime);
+        }
+
+        public void DestroyObject()
+        {
+            Destroy(this);
         }
 
         public List<CraftingSlot> GetCurrentCraftingSlots(CraftingType type) => Crafting.GetCurrentCraftingSlots(type);

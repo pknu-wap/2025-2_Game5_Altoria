@@ -1,3 +1,4 @@
+using Common;
 using GameData;
 using System.Collections.Generic;
 
@@ -109,11 +110,11 @@ namespace GameInteract
         }
         public void GetCompletedItem(int index)
         {
-            Manager.System.GetCompletedItem(type, index);
+            GameSystem.Instance.GetCompletedItem(type, index);
         }
         #region Facade 
-        public bool HaveEmptySlot() => Manager.System.HaveEmptySlot(type);
-        public CraftingSlot GetCraftingSlot(int slotIndex) => Manager.System.GetCraftingSlot(type, slotIndex);
+        public bool HaveEmptySlot() => GameSystem.Instance.HaveEmptySlot(type);
+        public CraftingSlot GetCraftingSlot(int slotIndex) => GameSystem.Instance.GetCraftingSlot(type, slotIndex);
         #endregion
     }
 }

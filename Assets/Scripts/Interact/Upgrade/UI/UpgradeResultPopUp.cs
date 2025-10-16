@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using NUnit.Framework;
 using System.Collections.Generic;
+using Common;
 
 namespace GameInteract
 {
@@ -21,7 +22,7 @@ namespace GameInteract
             var gradeData = GameDB.GetGradeData((int)data.Grade);
 
             var gradeProb = new List<(string, float)> { ("Success", gradeData.Success), ("Fail", gradeData.Fail), ("Destroy", gradeData.Destroy) };
-            result = Manager.Random.Pick(gradeProb);
+            result = GameSystem.Random.Pick(gradeProb);
             resultText.text = result;
         }
     }

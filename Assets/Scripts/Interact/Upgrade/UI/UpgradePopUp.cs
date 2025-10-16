@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using GameData;
 using UnityEngine;
+using Common;
 
 namespace GameInteract
 {
@@ -75,6 +76,7 @@ namespace GameInteract
             // TODO: 위에서 가져온 강화 재료(meterialsItem)로부터 재료가 있는지 확인고, 재료를 인벤에서 소진시킨다.
             // 재료가 없다면 재료 없다고 popUp창 띄우기
             var popUp = Manager.UI.ShowPopup<UpgradeResultPopUp>();
+            GameSystem.Life.AddExp<UpgradeInteractComponent>(10);
             popUp.SetResult(selectItemData);
         }
 

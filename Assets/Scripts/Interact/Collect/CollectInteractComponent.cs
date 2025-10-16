@@ -1,5 +1,7 @@
+using Common;
 using GameData;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static Define;
@@ -23,7 +25,7 @@ namespace GameInteract
             Debug.Log($"{GetType()} : {collectType.ToString()} Á¾·á.");
 
             List<(CollectData, float)> probList = new List<(CollectData, float)>();
-            var data = Manager.System.GetCollectData(objectID);
+            var data = GameSystem.Instance.GetCollectData(objectID);
 
             for (int i = 0; i < data.rows.Count; i++)
             {
@@ -31,18 +33,13 @@ namespace GameInteract
                 Debug.Log($"{GetType()} : {GameDB.GetItemData(data.rows[i].ID).Name} {data.rows[i].Count}°³ Å‰µæ °¡´É");
             }
 
-            var item = Manager.Random.Pick(probList);
+            var item = GameSystem.Random.Pick(probList);
             Debug.Log($"{GetType()} : {item.ID} {item.Count}°³ Å‰µæ!");
 
+            GameSystem.Life.AddExp<CollectInteractComponent>(10);
+
             EndInteract();
-            FuncForEndCollect();
         }
-
-        protected virtual void FuncForEndCollect() 
-        {
-
-        }
-
     }
 
 }

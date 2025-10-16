@@ -1,3 +1,4 @@
+using Common;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,9 @@ namespace GameUI
         public void OnClickStartButton()
         {
             Debug.Log($"[{GetType()}] 게임 시작!");
-            Manager.SceneLoader.LoadScene(Define.SceneType.GameScene);
+            GameSystem.Init();
+            Manager.Scene.LoadScene(Define.SceneType.GameScene);
+            Manager.UI.ShowHUD<UI_GameScene>();
         }
 
         public void OnClickSettingButton()

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static Define;
-using GameData;// ªË¡¶ «“ ∞Õ
+using GameData;
+using Common;// ªË¡¶ «“ ∞Õ
 
 namespace GameInteract
 {
@@ -18,9 +19,9 @@ namespace GameInteract
         {
             base.EnterInteract();
 
-            for(int i = 0; i < Manager.System.GetFishData(areaType).rows.Count; i++)
+            for(int i = 0; i < GameSystem.Instance.GetFishData(areaType).rows.Count; i++)
             {
-                var fishSOData = Manager.System.GetFishData(areaType);
+                var fishSOData = GameSystem.Instance.GetFishData(areaType);
                 var itemData = GameDB.GetItemData(fishSOData.rows[i].ID);
                 var newGO = Resources.Load<GameObject>("UI/FishISlot");
                 Instantiate(newGO, listRoot);
@@ -52,15 +53,18 @@ namespace GameInteract
 
             List<(FishData, float)> probList = new();
 
-            var fishDataSO = Manager.System.GetFishData(areaType);
+            var fishDataSO = GameSystem.Instance.GetFishData(areaType);
             for (int i = 0; i < fishDataSO.rows.Count; i++)
             {
                 probList.Add((fishDataSO.rows[i], fishDataSO.rows[i].Probability));
                 Debug.Log($"{GetType()} : {GameDB.GetItemData(fishDataSO.rows[i].ID).Name} ≈âµÊ ∞°¥…");
             }
-            var item = Manager.Random.Pick(probList);
+            var item = GameSystem.Random.Pick(probList);
 
             Debug.Log($"{GetType()} : {item.ID} ≈âµÊ!");
+
+            GameSystem.Life.AddExp<CollectInteractComponent>(10);
+
             EndInteract();
         }
     }

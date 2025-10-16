@@ -30,11 +30,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 01e37dbc5ed6ebd44b7fba8991577062
-    m_Address: PP_Blacksmith_Roof_08
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01e99255e6437174c9845d439f9c1c02
     m_Address: PP_Money_Bag_04_Gold
     m_ReadOnly: 0
@@ -475,11 +470,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 108d889a0667cc440b54903ff47507a3
-    m_Address: PP_Beam_Wooden_Short_02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10a71c3fbd449294e89069f0ff924fe6
     m_Address: PP_Climbing_Plant_10
     m_ReadOnly: 0
@@ -622,11 +612,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 153edaef248436b469900611b69b5d14
     m_Address: PP_Bridge_06_Middle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 15518cf4441523a4591c68a00c27c338
-    m_Address: PP_Beam_Wooden_Edge_03
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -885,11 +870,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 20ff39d015f2d8f4cbb66d22add37512
-    m_Address: PP_Blacksmith_Roof_End_01
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 215e202d0b6125a4d96e2487ecdde132
     m_Address: PP_Cave_Wall_Curved_Veins_03_Iron
     m_ReadOnly: 0
@@ -907,11 +887,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22221ff7622127f4780346501163b3a5
     m_Address: PP_Lake_03
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2222bdae1325d6d4b9f9cbbd4def4214
-    m_Address: PP_Beam_Wooden_Edge_01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -992,11 +967,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23e3484b7c039934880ed2fa56a2a522
     m_Address: PP_Fire_Torch_Used_01
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 23f47b0e3b186ae4c8d1b570b228ba66
-    m_Address: PP_Blacksmith_Roof_12
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2055,11 +2025,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 46000643e260edd4cb635a267fda170e
-    m_Address: PP_Blacksmith_Roof_Cap_01
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4645ce72025e77f418a7bc8e13a1710f
     m_Address: PP_Cave_Wall_Curved_Corner_Veins_01_Green
     m_ReadOnly: 0
@@ -2067,11 +2032,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 464f37a72cb9248449ccefa7d9b8ebeb
     m_Address: PP_Shield_Used_05
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 466eb50431828fe4da9c6dfbc666b774
-    m_Address: PP_Beam_Wooden_02
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -3595,11 +3555,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7dfe2b6267ef6f045878eb6c5e815f54
-    m_Address: PP_Blacksmith_Roof_13
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e38f84f9c7c48b4fa4c9a7dc5f458a6
     m_Address: PP_Tent_04
     m_ReadOnly: 0
@@ -3652,11 +3607,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8040ad1416828bc46afde88f54e00361
     m_Address: PP_Torch_Standing_05
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 804bca572841ece48adb39be6decbf9e
-    m_Address: PP_Beam_Wooden_04
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -3945,11 +3895,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 87b4aef87b6f4ef4eb11f50180de0c0b
-    m_Address: PP_Blacksmith_Roof_14
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87c1d64f80aaeb944acd3f93b6ace1dd
     m_Address: PP_Gemstone_08_Copper
     m_ReadOnly: 0
@@ -4227,11 +4172,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90b2b2bededfccc449390a86fd32cb53
     m_Address: Weapons
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9106cabf49af3d04080cc9c7a5edb069
-    m_Address: PP_Beam_Wooden_Short_01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4592,11 +4532,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9dfd0346886fffa48b0d757cda898125
     m_Address: PP_Stalagmite_07
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9e09c8e3a8044c84cb9100f8b66082c9
-    m_Address: PP_Blacksmith_Roof_Edge_04
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -5630,11 +5565,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c1b6c454fbc66504f8b96c471b610d6f
-    m_Address: PP_Blacksmith_Roof_Cap_02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1c9c1c6926b6634a87340fb0359d841
     m_Address: PP_Crystal_Single_10_Silver
     m_ReadOnly: 0
@@ -5852,11 +5782,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8124f255b824dc4c8710937b9cc2a3b
     m_Address: PP_Feather_01
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c85e5b9ad942a214fa78093beae34879
-    m_Address: PP_Beam_Wooden_Edge_02
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -6697,11 +6622,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5c8fea12bda8fb47bebe0a68423e80a
     m_Address: PP_Wooden_Wall_01
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e60c0b3ee2a98bd45bfff505f94a744d
-    m_Address: PP_Beam_Wooden_01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

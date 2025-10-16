@@ -1,3 +1,4 @@
+using Common;
 using GameData;
 using GameUI;
 using System;
@@ -68,7 +69,7 @@ namespace GameInteract
         
         void RefreshProgressSlots()
         {
-            List<CraftingSlot> craftingSlots = Manager.System.GetCurrentCraftingSlots(type);
+            List<CraftingSlot> craftingSlots = GameSystem.Instance.GetCurrentCraftingSlots(type);
             for (int index = 0; index < craftingSlots.Count; index++)
             {
                 int currentIndex = index;

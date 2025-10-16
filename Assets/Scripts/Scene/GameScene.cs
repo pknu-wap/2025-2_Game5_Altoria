@@ -8,6 +8,5 @@ public class GameScene : BaseScene
         base.Init();
 
         sceneType = Define.SceneType.GameScene;
-        Manager.UI.ShowHUD<UI_GameScene>();
     }
 }
