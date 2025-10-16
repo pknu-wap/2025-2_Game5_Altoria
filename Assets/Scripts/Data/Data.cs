@@ -13,6 +13,7 @@ public class ItemData
     public string SpriteAddress;
     public ItemType Type;
     public int SellCost;
+    public int ItemGrade;
     [TextArea] public string Description;
 }
 [System.Serializable]
@@ -36,10 +37,11 @@ public class CraftingSlotData
         SlotIndex = slotIndex;
     }
 }
-
 [System.Serializable]
-public  class InventoryData
+public class InventoryData
 {
-    public ItemData Item;
+    public string ID;
+    public string Name;
+    public bool IsEquipped;
     public int Count;
-}
+} 

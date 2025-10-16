@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f3f9b37e8d3554abb8791fbb883c41, type: 3}
+  m_Name: InventoryData
+  m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 0}
+  rows:
+  - ID: 12211000
+    Name: "\uBD80\uC154\uC9C4 \uB3C4\uB07C"
+    IsEquipped: 1
+    Count: 2
+  - ID: 12212000
+    Name: "\uD3C9\uBC94\uD55C \uB3C4\uB07C"
+    IsEquipped: 0
+    Count: 3
+  - ID: 12214000
+    Name: "\uD0C4\uC9C0\uB85C"
+    IsEquipped: 0
+    Count: 22
+  - ID: 12215000
+    Name: "\uB124\uC988\uCF54"
+    IsEquipped: 0
+    Count: 1
+  - ID: 12216000
+    Name: "\uC544\uCE74\uC790"
+    IsEquipped: 0
+    Count: 9
+  - ID: 12217000
+    Name: "\uBCF4\uC11D"
+    IsEquipped: 0
+    Count: 51
+  - ID: 12218000
+    Name: "\uB098\uBB34"
+    IsEquipped: 0
+    Count: 321
+  - ID: 12219000
+    Name: "\uCCA0"
+    IsEquipped: 0
+    Count: 11
+  - ID: 122
+    Name: "\uB9C8\uD0A4\uB9C8"
+    IsEquipped: 0
+    Count: 222
+  maxSlotCount: 30

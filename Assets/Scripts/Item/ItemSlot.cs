@@ -4,12 +4,15 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    [SerializeField] protected Image itemImage;
-    [SerializeField] protected TextMeshProUGUI itemCount;
+    [SerializeField] Image itemImage;
+    [SerializeField] Image itemBorder; 
+    [SerializeField] TextMeshProUGUI itemCount;
+
 
     public void SetSlot(string item, int count)
     {
-       // itemImage.sprite = item;
+        //itemImage.sprite = item;
+        //itemBorder.sprite = border; 
         itemCount.text = count.ToString();  
     }
 

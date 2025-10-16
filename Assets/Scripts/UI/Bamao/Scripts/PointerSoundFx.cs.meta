@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 851a6de59e274c541a5bb8ee291da3f0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Scripts/PointerSoundFx.cs
+  uploadId: 740277
