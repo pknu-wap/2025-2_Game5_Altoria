@@ -3,16 +3,19 @@ using UnityEngine.UI;
 using GameUI;
 using TMPro;
 
+[System.Serializable]
+public class Stat
+{
+    public Slider slider;
+    public TextMeshProUGUI statText;
+}
+
 public class MainMenuPopUp : UIPopUp
 {
-    [SerializeField] private GameObject mainMenuPopUp;
-    [SerializeField] private GameObject settingPopUp;
+    [SerializeField] GameObject mainMenuPopUp;
+    [SerializeField] GameObject settingPopUp;
 
-    // ÃßÈÄ ÀÌ¸§ º¯°æ
-    [SerializeField] private Slider stat1;   [SerializeField] private TextMeshProUGUI stat1Text;
-    [SerializeField] private Slider stat2;   [SerializeField] private TextMeshProUGUI stat2Text;
-    [SerializeField] private Slider stat3;   [SerializeField] private TextMeshProUGUI stat3Text;
-    [SerializeField] private Slider stat4;   [SerializeField] private TextMeshProUGUI stat4Text;
+    [SerializeField] Stat[] stats = new Stat[4];
 
     private UIController ui;
 
@@ -38,7 +41,7 @@ public class MainMenuPopUp : UIPopUp
         /*
        if(settingUI.activeSelf && Input.GetKeyDown(KeyCode.I))
        {
-
+            ì°½ ë‹«ê¸°  
        }
        */
     }
@@ -50,13 +53,16 @@ public class MainMenuPopUp : UIPopUp
 
     public void updateStats()
     {
-        // ½ºÅÈ Ç¥½Ã~
-        // stat1.onValueChanged.AddListener( ÇÔ¼ö Ãß°¡ ); 
+        for (int i = 0; i < stats.Length; i++)
+        {
+            int index = i;
 
-        stat1Text.text = stat1.value.ToString() + " / 250";  //ÃßÈÄ ÀÌ¸§ º¯°æ  ¸®½ºÆ®·Î ¹Ù²ÙµçÁö 
-        stat2Text.text = stat2.value.ToString() + " / 250";
-        stat3Text.text = stat3.value.ToString() + " / 250";
-        stat4Text.text = stat4.value.ToString() + " / 250";
+            stats[i].slider.onValueChanged.AddListener((value) =>
+            {
+                stats[index].statText.text = value.ToString("F0") + " / 250";
+            });
+            stats[i].statText.text = stats[i].slider.value.ToString("F0") + " / 250";
+        }
     }
     public void OnClickInventory()
     {
@@ -73,8 +79,9 @@ public class MainMenuPopUp : UIPopUp
     {
         //ui.ShowPopup<SettingPopUp>();
         settingPopUp.SetActive(true);
-        Debug.Log("[MainMenuPopUp] : ¼³Á¤Ã¢");
+        Debug.Log("[MainMenuPopUp] : ì„¤ì •ì°½");
     }
+
     public void closePopUp()
     {
         //ui.ClosePopup();
