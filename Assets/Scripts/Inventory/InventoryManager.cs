@@ -39,14 +39,22 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
+            if (inventoryData.rows.Count >= inventoryData.maxSlotCount)
+            {
+                Debug.LogWarning($"[InventoryManager] : 인벤토리가 가득 참 (최대 {inventoryData.maxSlotCount}개)");
+                return false;
+            }
+
             InventoryData newItem = new InventoryData
             {
                 ID = itemID,
                 Count = count,
+                Name = "temp name", // 나중에 아이템 DB에서 이름 불러오기
+                IsEquipped = false,
             };
 
             inventoryData.rows.Add(newItem);
-            Debug.Log($"{itemID} {count}개 새 슬롯에 추가");
+            Debug.Log($"[InventoryManager] : {itemID} {count}개 새 슬롯 추가 (현재 슬롯 수: {inventoryData.rows.Count})");
             return true;
         }
     }

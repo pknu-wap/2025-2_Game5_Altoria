@@ -22,20 +22,32 @@ MonoBehaviour:
     Name: "\uD3C9\uBC94\uD55C \uB3C4\uB07C"
     IsEquipped: 0
     Count: 3
-  - ID: 12213000
-    Name: "\uAC1C\uC624\uC9C0\uB294 \uB3C4\uB07C "
-    IsEquipped: 0
-    Count: 4
   - ID: 12214000
     Name: "\uD0C4\uC9C0\uB85C"
     IsEquipped: 0
-    Count: 423
+    Count: 22
   - ID: 12215000
     Name: "\uB124\uC988\uCF54"
     IsEquipped: 0
-    Count: 32
+    Count: 1
   - ID: 12216000
-    Name: "\uC774\uB178\uC2A4\uCF00"
+    Name: "\uC544\uCE74\uC790"
     IsEquipped: 0
-    Count: 2
+    Count: 9
+  - ID: 12217000
+    Name: "\uBCF4\uC11D"
+    IsEquipped: 0
+    Count: 51
+  - ID: 12218000
+    Name: "\uB098\uBB34"
+    IsEquipped: 0
+    Count: 321
+  - ID: 12219000
+    Name: "\uCCA0"
+    IsEquipped: 0
+    Count: 11
+  - ID: 122
+    Name: "\uB9C8\uD0A4\uB9C8"
+    IsEquipped: 0
+    Count: 222
   maxSlotCount: 30

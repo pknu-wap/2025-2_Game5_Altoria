@@ -157,6 +157,16 @@ public class InventoryUI : MonoBehaviour
         deletePopUp.Open(id, count);   //UIController 이용하여 수정 
     }
 
+    // 아이템 추가 test
+    public void debugAddItem()
+    {
+        int randomID = Random.Range(1, 201);  // 랜덤 아이템 코드 추가
+        string itemID = randomID.ToString();
+
+        InventoryManager.Instance.AddItem(itemID, 10);
+        RefreshInventory();
+    }
+
     //창 닫기
     public void Hide()
     {
