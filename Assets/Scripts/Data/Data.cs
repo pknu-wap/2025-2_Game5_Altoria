@@ -17,9 +17,6 @@ public class ItemData
     public ItemType Type;
     [TextArea] public string Description;
     public ItemData() { }
-
-    // �ӽ� �������� �����ϱ� ���� �����ڸ� �߰��߽��ϴ�.
-    // ���� �κ��丮�� �ϼ��Ǿ� �κ��丮���� �������� ������ �� �����ϰڽ��ϴ�.
     public ItemData(string id, ItemGrade grade)
     {
         ID = id;

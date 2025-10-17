@@ -2,14 +2,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FishSlot : MonoBehaviour
+namespace GameInteract
 {
-    [SerializeField] Image image;
-    [SerializeField] TextMeshProUGUI text;
-
-    public void Init(string spriteAddress, string probablilty)
+    public class FishSlot : MonoBehaviour
     {
-        //image.sprite = 
-        text.text = probablilty;
+        [SerializeField] Image image;
+        [SerializeField] TextMeshProUGUI text;
+
+        public void Init(string spriteAddress, string probablilty)
+        {
+            //image.sprite = 
+            text.text = probablilty;
+        }
     }
+
 }
