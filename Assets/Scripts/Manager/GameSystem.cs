@@ -14,15 +14,13 @@ namespace Common
         TimeController time = new();
         RandomHellper randomHellper = new();
         LifeStatsManager lifeStatsManager = new();
+        CraftingController crafting = new();
 
         public static GameSystem Instance { get { return instance; } }
         public static TimeController Time { get { return instance.time; } }
         public static RandomHellper Random { get { return instance.randomHellper; } }
         public static LifeStatsManager Life { get { return instance.lifeStatsManager; } }
-
-        public readonly CraftingController Crafting = new();
-
-        CollectHandler collectHandler;
+        public static CraftingController Crafting {  get { return instance.crafting; } }
 
         public static void Init()
         {
@@ -35,20 +33,9 @@ namespace Common
                 instance = go.GetOrAddComponent<GameSystem>();
                 DontDestroyOnLoad(go);
             }
-
-            instance.SetManagers();
         }
 
-        void SetManagers()
-        {
-            Manager.Resource.LoadAsync<CollectHandler>("CollectHandler", asset =>
-            {
-                if (asset == null)
-                    Debug.LogError("CollectHandler is not exit");
-                else
-                    collectHandler = asset;
-            });
-        }
+
         public void Update()
         {
             if (Time != null)
@@ -64,8 +51,5 @@ namespace Common
         public bool HaveEmptySlot(CraftingType type) => Crafting.HaveEmptySlot(type);    
         public CraftingSlot GetCraftingSlot(CraftingType type, int slotIndex) => Crafting.GetCraftingSlot(type, slotIndex);  
         public ItemData GetCompletedItem(CraftingType type, int slotIndex) => Crafting.GetCompletedItem(type, slotIndex);
-
-        public FishDataSO GetFishData(Define.AreaType areaType) => collectHandler.FishiSO(areaType);
-        public CollectDataSO GetCollectData(string id) => collectHandler.CollectSo(id);
     }
 }

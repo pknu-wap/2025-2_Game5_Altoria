@@ -24,17 +24,15 @@ namespace GameInteract
         {
             Debug.Log($"{GetType()} : {collectType.ToString()} Á¾·á.");
 
-            List<(CollectData, float)> probList = new List<(CollectData, float)>();
-            var data = GameSystem.Instance.GetCollectData(objectID);
+            List<(CollectGroup, float)> probList = new List<(CollectGroup, float)>();
+            var dic = GameDB.GetCollectData(objectID).Value;
+            var data = dic[objectID];
 
-            for (int i = 0; i < data.rows.Count; i++)
-            {
-                probList.Add((data.rows[i], data.rows[i].Probability));
-                Debug.Log($"{GetType()} : {GameDB.GetItemData(data.rows[i].ID).Name} {data.rows[i].Count}°³ Å‰µæ °¡´É");
-            }
+            for (int i = 0; i < data.CollectGroup.Count; i++)
+                probList.Add((data.CollectGroup[i], data.CollectGroup[i].Probability));
 
             var item = GameSystem.Random.Pick(probList);
-            Debug.Log($"{GetType()} : {item.ID} {item.Count}°³ Å‰µæ!");
+            Debug.Log($"{GetType()} : {objectID} {item.Count}°³ Å‰µæ!");
 
             GameSystem.Life.AddExp<CollectInteractComponent>(10);
 

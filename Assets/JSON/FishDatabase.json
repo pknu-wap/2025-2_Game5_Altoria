@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {
+      "Area": "A",
+      "FishGroups": [{"ID":"10021038","Probability":70},{"ID":"10022044","Probability":30}]
+    },
+    {
+      "Area": "B",
+      "FishGroups": [{"ID":"10021039","Probability":70},{"ID":"10023045","Probability":30}]
+    },
+    {
+      "Area": "C",
+      "FishGroups": [{"ID":"10022040","Probability":30},{"ID":"10021043","Probability":70}]
+    },
+    {
+      "Area": "D",
+      "FishGroups": [{"ID":"10023041","Probability":80},{"ID":"10024046","Probability":15},{"ID":"10025049","Probability":5}]
+    },
+    {
+      "Area": "E",
+      "FishGroups": [{"ID":"10021042","Probability":80},{"ID":"10024047","Probability":15},{"ID":"10025048","Probability":5}]
+    }
+  ]
+}

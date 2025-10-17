@@ -19,17 +19,17 @@ namespace GameInteract
         {
             base.EnterInteract();
 
-            for(int i = 0; i < GameSystem.Instance.GetFishData(areaType).rows.Count; i++)
-            {
-                var fishSOData = GameSystem.Instance.GetFishData(areaType);
-                var itemData = GameDB.GetItemData(fishSOData.rows[i].ID);
-                var newGO = Resources.Load<GameObject>("UI/FishISlot");
-                Instantiate(newGO, listRoot);
-                if(newGO.TryGetComponent<FishSlot>(out var fishSlot))
-                {
-                    fishSlot.Init(itemData.SpriteAddress, fishSOData.rows[i].Probability.ToString());
-                }
-            }
+            //for(int i = 0; i < GameSystem.Instance.GetFishData(areaType).rows.Count; i++)
+            //{
+            //    var fishSOData = GameSystem.Instance.GetFishData(areaType);
+            //    var itemData = GameDB.GetItemData(fishSOData.rows[i].ID);
+            //    var newGO = Resources.Load<GameObject>("UI/FishISlot");
+            //    Instantiate(newGO, listRoot);
+            //    if(newGO.TryGetComponent<FishSlot>(out var fishSlot))
+            //    {
+            //        fishSlot.Init(itemData.SpriteAddress, fishSOData.rows[i].Probability.ToString());
+            //    }
+            //}
 
             canvas.gameObject.SetActive(true);
         }
@@ -51,13 +51,15 @@ namespace GameInteract
         {
             Debug.Log($"{GetType()} : ³¬½Ã ³¡!");
 
-            List<(FishData, float)> probList = new();
+            List<(FishGroup, float)> probList = new();
 
-            var fishDataSO = GameSystem.Instance.GetFishData(areaType);
-            for (int i = 0; i < fishDataSO.rows.Count; i++)
+            var fishDic = GameDB.GetFishData(areaType.ToString()).Value;
+            var data = fishDic[areaType.ToString()];
+
+            for (int i = 0; i < data.FishGroups.Count; i++)
             {
-                probList.Add((fishDataSO.rows[i], fishDataSO.rows[i].Probability));
-                Debug.Log($"{GetType()} : {GameDB.GetItemData(fishDataSO.rows[i].ID).Name} Å‰µæ °¡´É");
+                probList.Add((data.FishGroups[i], data.FishGroups[i].Probability));
+                Debug.Log($"{GetType()} : {data.FishGroups[i].ID} ¾ÆÀÌÅÛ {data.FishGroups[i].Probability} È®·ü·Î Å‰µæ °¡´É");
             }
             var item = GameSystem.Random.Pick(probList);
 

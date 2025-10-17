@@ -72,13 +72,11 @@ public class GradeData
 public class CollectData
 {
     public string ID;
-    public string Count;
-    public int Probability;
+    public List<CollectGroup> CollectGroup;
 }
 [System.Serializable]
 public class FishData
 {
-    public string ID;
     public string Area;
-    public int Probability;
+    public List<FishGroup> FishGroups;
 }
