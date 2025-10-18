@@ -625,6 +625,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b3a02e2297ba0147a264df4e655f9d2
+    m_Address: FishDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e284fa31cb4d7a478aa70beb830ce66
     m_Address: PP_Stone_Ground_01
     m_ReadOnly: 0
@@ -1247,11 +1252,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9891f0c63b94ce247aca02eb67b43d03
     m_Address: PP_Coin_02_Gold
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 98dd62b45e9767e40b50aadbbe16ae2e
-    m_Address: FishDatabase
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

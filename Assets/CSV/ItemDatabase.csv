@@ -1,5 +1,5 @@
 ID,Content,Name,Grade,SpriteAddress,Description,Type
-12211000,Plant,나무 낫,Nomal,,가볍고 다루기 쉬운 초보자용 낫.,Tool
+12211000,Plant,나무 낫,Nomal,12211000Sprite,가볍고 다루기 쉬운 초보자용 낫.,Tool
 12212000,Plant,철 낫,Uncommon,,단단한 날이 달린 표준 낫.,Tool
 12213000,Plant,금 낫,Rare,,부식이 거의 없는 고급 낫.,Tool
 12214000,Plant,전문가 낫,Epic,,장인의 손길이 깃든 낫.,Tool
@@ -94,3 +94,9 @@ ID,Content,Name,Grade,SpriteAddress,Description,Type
 10071063,Creat,치즈,Nomal,,숙성된 우유로 만든 유제품. 풍미가 깊다.,Material
 10071064,Creat,실타래,Nomal,,양털을 꼬아 만든 실. 의류 제작에 사용된다.,Material
 10071065,Creat,밀가루,Nomal,,곡물을 곱게 빻은 재료. 각종 요리의 기초다.,Material
+10071066,Creat,참나무 판자,Nomal,,참나무를 가공하여 만든 판자이다.,Material
+10071067,Creat,소나무 판자,Nomal,,소나무를 가공하여 만든 판자이다.,Material
+10071068,Creat,자작나무 판자,Nomal,,자작나무를 가공하여 만든 판자이다.,Material
+10072069,Creat,단풍나무 판자,Uncommon,,단풍나무를 가공하여 만든 판자이다.,Material
+10073070,Creat,벚꽃나무 판자,Rare,,벚꽃나무를 가공하여 만든 판자이다.,Material
+10074071,Creat,달빛나무 판자,Epic,,달빛나무를 가공하여 만든 판자이다.,Material

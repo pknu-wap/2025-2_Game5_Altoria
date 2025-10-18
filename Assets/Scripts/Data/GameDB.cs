@@ -44,7 +44,7 @@ namespace GameData
             => GradeDB.TryGetValue(currentGrade, out var data) ? data : null;
         public static CustomDictionary<CollectData>? GetCollectData(string id)
             => CollectDB.TryGetValue(id, out var data) ? data : null;
-        public static CustomDictionary<FishData>? GetFishData(string areaType)
+        public static CustomDictionary<FishData>? GetFishData(AreaType areaType)
             => FishDB.TryGetValue(areaType, out var data) ? data : null;
     }
     public abstract class GameDatabase<TKey, TValue>
@@ -194,7 +194,7 @@ namespace GameData
         }
     }
 
-    public class FishDatabase : GameDatabase<string, CustomDictionary<FishData>>
+    public class FishDatabase : GameDatabase<AreaType, CustomDictionary<FishData>>
     {
         readonly ILoadStrategy<FishData> innerLoader;
 

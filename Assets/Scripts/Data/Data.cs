@@ -77,6 +77,6 @@ public class CollectData
 [System.Serializable]
 public class FishData
 {
-    public string Area;
+    public AreaType Area;
     public List<FishGroup> FishGroups;
 }

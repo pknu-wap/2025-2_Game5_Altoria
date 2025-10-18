@@ -53,7 +53,7 @@ namespace GameInteract
 
             List<(FishGroup, float)> probList = new();
 
-            var fishDic = GameDB.GetFishData(areaType.ToString()).Value;
+            var fishDic = GameDB.GetFishData(areaType).Value;
             var data = fishDic[areaType.ToString()];
 
             for (int i = 0; i < data.FishGroups.Count; i++)
