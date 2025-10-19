@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Define;
 using GameData;
-using Common;// ªË¡¶ «“ ∞Õ
 
 namespace GameInteract
 {
@@ -12,7 +11,7 @@ namespace GameInteract
         [Header("Setting of WorldUI")]
         [SerializeField] Canvas canvas;
         [SerializeField] RectTransform listRoot;
-        Content collectType = Content.Fish;
+        //Content collectType = Content.Fish;
 
 
         public override void EnterInteract()
@@ -61,11 +60,11 @@ namespace GameInteract
                 probList.Add((data.FishGroups[i], data.FishGroups[i].Probability));
                 Debug.Log($"{GetType()} : {data.FishGroups[i].ID} æ∆¿Ã≈€ {data.FishGroups[i].Probability} »Æ∑¸∑Œ ≈âµÊ ∞°¥…");
             }
-            var item = GameSystem.Random.Pick(probList);
+            var item = Common.GameSystem.Random.Pick(probList);
 
             Debug.Log($"{GetType()} : {item.ID} ≈âµÊ!");
 
-            GameSystem.Life.AddExp<CollectInteractComponent>(10);
+            Common.GameSystem.Life.AddExp<CollectInteractComponent>(10);
 
             EndInteract();
         }

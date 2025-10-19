@@ -1,4 +1,5 @@
 using GameUI;
+using SceneLoade;
 using UnityEngine;
 
 public class GameScene : BaseScene

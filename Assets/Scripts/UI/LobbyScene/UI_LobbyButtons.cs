@@ -1,4 +1,5 @@
 using Common;
+using SceneLoade;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,8 @@ namespace GameUI
             Debug.Log($"[{GetType()}] 게임 시작!");
             GameSystem.Init();
             Manager.Scene.LoadScene(Define.SceneType.GameScene);
+            var loadingUI = Manager.UI.ShowPopup<LoadingUI>();
+            loadingUI.StartLoding(Define.SceneType.GameScene);
             Manager.UI.ShowHUD<UI_GameScene>();
         }
 
