@@ -35,28 +35,9 @@ public class Manager : MonoBehaviour
         instance.InitManagers();
     }
 
-    //void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //        DontDestroyOnLoad(gameObject);
-    //        InitManagers();
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //    }
-
-    //    GameSystem.Init();
-    //}
-
 
     async void InitManagers()
     {
         await GameDB.LoadAll();
-        //ui = new();
-        //scene = new();
-        //resource = new();
     }
 }
