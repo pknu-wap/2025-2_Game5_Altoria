@@ -1,0 +1,102 @@
+ID,Content,Name,Grade,SpriteAddress,Description,Type
+12211000,Plant,나무 낫,Nomal,12211000Sprite,가볍고 다루기 쉬운 초보자용 낫.,Tool
+12212000,Plant,철 낫,Uncommon,,단단한 날이 달린 표준 낫.,Tool
+12213000,Plant,금 낫,Rare,,부식이 거의 없는 고급 낫.,Tool
+12214000,Plant,전문가 낫,Epic,,장인의 손길이 깃든 낫.,Tool
+12215000,Plant,신기한 낫,Legendary,,정체불명의 재료로 만들어진 낫.,Tool
+12221000,Fish,나무 낚시대,Nomal,,가장 기본적인 낚시 도구. 작고 잔잔한 연못에 적합하다.,Tool
+12222000,Fish,철 낚시대,Uncommon,,내구성이 좋아 큰 물고기도 쉽게 끌어올릴 수 있다.,Tool
+12223000,Fish,금 낚시대,Rare,,물고기가 쉽게 유혹당하는 신기한 낚시대.,Tool
+12224000,Fish,전문가 낚시대,Epic,,낚시꾼의 꿈. 정교한 릴과 줄이 탑재되어 어떤 상황에서도 믿음직스럽다.,Tool
+12225000,Fish,신기한 낚시대,Legendary,,무엇이든 낚을 수 있을 듯한 알 수 없는 자신감이 생기는 낚시대.,Tool
+12231000,Farm,나무 호미,Nomal,,가볍고 단순한 형태의 호미. 작은 밭을 일구기에 알맞다.,Tool
+12232000,Farm,철 호미,Uncommon,,농부의 기본 도구. 단단한 흙도 부드럽게 갈아엎는다.,Tool
+12233000,Farm,금 호미,Rare,,윤이 나는 금빛 호미. 사용하는 것만으로도 기분이 좋아진다.,Tool
+12234000,Farm,전문가 호미,Epic,,경작 효율을 극대화한 도구. 작물의 생장 속도에 도움을 준다고 한다.,Tool
+12235000,Farm,신비한 호미,Legendary,,땅에 닿으면 흙이 스스로 움직이는 듯하다. 생명의 기운이 깃들어 있나?,Tool
+12241000,Fell,나무 도끼,Nomal,,기본적인 벌목 도구. 부드러운 나무를 자르기에 적합하다.,Tool
+12242000,Fell,철 도끼,Uncommon,,단단한 날로 두꺼운 나무도 거침없이 벤다.,Tool
+12243000,Fell,금 도끼,Rare,,아름다운 금빛 날이 특징. 나무를 벨 때 황금빛 조각이 흩날린다.,Tool
+12244000,Fell,전문가 도끼,Epic,,효율적인 무게 밸런스로 숙련된 벌목꾼이 애용한다.,Tool
+12245000,Fell,신비한 도끼,Legendary,,무거워 보이지만 가볍게 휘둘러지는 도끼. 계속 나무를 베고 싶어진다.,Tool
+12251000,Mining,나무 곡괭이,Nomal,,가벼운 돌을 캐기에 적합한 초급 도구.,Tool
+12252000,Mining,철 곡괭이,Uncommon,,대부분의 광물을 채굴할 수 있는 표준 곡괭이.,Tool
+12253000,Mining,금 곡괭이,Rare,,금으로 된 곡괭이를 사용하려니 조심스럽다.,Tool
+12254000,Mining,전문가 곡괭이,Epic,,깊은 광산에서도 부서지지 않는 강력한 채굴 도구.,Tool
+12255000,Mining,신기한 곡괭이,Legendary,,한 번 내리치면 바위가 스스로 갈라진다. 마나가 깃든 신비한 도구다.,Tool
+12261000,Animal,나무 브러시,Nomal,,가축의 털을 부드럽게 정리하는 기본 브러시.,Tool
+12262000,Animal,철 브러쉬,Uncommon,,단단한 털이나 흙먼지를 제거가 쉽다.,Tool
+12263000,Animal,금 브러쉬,Rare,,빛나는 털을 만들어주는 고급 브러시.,Tool
+12264000,Animal,전문가 브러쉬,Epic,,"세심한 관리용으로, 동물의 컨디션을 향상시킨다.",Tool
+12265000,Animal,신비한 브러쉬,Legendary,,사용하면 가축이 잠시 행복한 꿈을 꾼다는 전설이 있다.,Tool
+10011001,Plant,들꽃,Nomal,,들판에서 흔히 볼 수 있는 작은 꽃. 향긋한 냄새가 난다.,Additive
+10014002,Plant,만년설초,Epic,,눈 덮인 산 정상에 피는 희귀한 꽃. 차가운 생명력이 느껴진다.,Additive
+10051003,Mining,구리,Nomal,,초급 금속 광석. 다양한 공예의 기초 재료로 쓰인다.,Material
+10051004,Mining,석탄,Nomal,,연료로 사용되는 검은 광석. 제련에는 필수적이다.,Material
+10051005,Mining,철,Nomal,,모든 도구 제작의 중심 금속. 단단하고 믿음직스럽다.,Material
+10052006,Mining,은,Uncommon,,아름답고 차가운 광택이 나는 귀금속. 장식품으로도 인기다.,Material
+10052007,Mining,금,Uncommon,,부와 번영의 상징. 모든 이의 눈을 사로잡는다.,Material
+10053008,Mining,다이아몬드,Rare,,강도와 아름다움을 모두 갖춘 보석.,Material
+10053009,Mining,석영,Rare,,맑은 빛이 흐르는 광석. 마법 장비의 재료로 쓰인다.,Material
+10053010,Mining,에메랄드,Rare,,녹빛의 마력 결정체. 희귀하고 고가의 보석이다.,Material
+10054011,Mining,마나석,Epic,,마법 에너지를 저장한 결정. 각종 마도 도구의 핵심 소재다.,Material
+10054012,Mining,운석 조각,Epic,,하늘에서 떨어진 돌. 특유의 에너지가 감돈다.,Material
+10055013,Mining,신비한 크리스탈,Legendary,,순수한 마력으로 이루어진 결정체. 신성한 빛을 낸다.,Material
+10061014,Animal,우유,Nomal,,신선한 우유. 음료나 요리에 다양하게 쓰인다.,Material
+10061015,Animal,양털,Nomal,,부드럽고 따뜻한 재료. 실타래의 주원료다.,Material
+10061016,Animal,달걀,Nomal,,흔하지만 영양가 높은 식재료.,Material
+10064017,Animal,황금 달걀,Epic,,전설 속에서만 나온다는 황금빛 달걀. 행운의 상징이다.,Material
+10031018,Farm,밀,Nomal,,기본 곡물. 대부분의 빵의 주재료다.,Material
+10031019,Farm,보리,Nomal,,"맥주와 빵, 여러 식품의 기본 재료.",Material
+10031020,Farm,쌀,Nomal,,따뜻한 지역에서 자라는 주요 식량 작물.,Material
+10031021,Farm,사탕수수,Nomal,,달콤한 설탕의 원료.,Material
+10031022,Farm,당근,Nomal,,달콤한 뿌리채소. 동물도 좋아한다.,Material
+10031023,Farm,양파,Nomal,,요리의 기본 재료. 강한 향이 특징이다.,Material
+10031024,Farm,감자,Nomal,,땅속에서 자라는 포만감 있는 식재료.,Material
+10031025,Farm,토마토,Nomal,,즙이 많고 상큼한 과일형 채소.,Material
+10031026,Farm,사과,Nomal,,아삭하고 달콤한 과일.,Material
+10031027,Farm,포토,Nomal,,달콤한 즙이 흐르는 과일. 와인의 원료다.,Material
+10033028,Farm,블루베리,Rare,,새콤달콤한 베리류. 항산화 효과가 있다.,Material
+10033029,Farm,딸기,Rare,,사랑받는 봄의 과일. 달콤한 향기가 풍긴다.,Material
+10034030,Farm,황금 사과,Epic,,한 입 베어 물면 활력이 샘솟는 전설의 과일.,Material
+10041031,Fell,참나무,Nomal,,단단한 목재로 건축에 널리 쓰인다.,Material
+10041032,Fell,소나무,Nomal,,향긋한 수액이 흐르는 상록수.,Material
+10041033,Fell,자작나무,Nomal,,흰 껍질이 아름다운 나무. 고급 목재로 분류된다.,Material
+10042034,Fell,단풍나무,Uncommon,,붉게 물든 잎이 아름답다. 장식용으로 인기가 많다.,Material
+10043035,Fell,벚꽃나무,Rare,,봄마다 화려한 꽃을 피우는 나무.,Material
+10044036,Fell,달빛나무,Epic,,달빛을 머금은 신비한 나무. 밤에도 은은히 빛난다.,Material
+10045037,Fell,세계수 가지,Legendary,,세계의 근원을 상징하는 나무의 일부. 막대한 생명력이 깃들어 있다.,Material
+10021038,Fish,잉어,Nomal,,연못에서 흔히 낚이는 물고기.,Additive
+10021039,Fish,송어,Nomal,,차가운 강물에 서식하는 민물고기.,Additive
+10022040,Fish,메기,Uncommon,,수심이 깊은 곳에 사는 힘센 물고기.,Additive
+10023041,Fish,장어,Rare,,미끈한 몸을 가진 강력한 물고기.,Additive
+10021042,Fish,고등어,Nomal,,바다의 대표적인 어종. 지방이 많아 맛이 좋다.,Additive
+10021043,Fish,가오리,Nomal,,넓은 날개처럼 생긴 어류.,Additive
+10022044,Fish,참치,Uncommon,,빠르고 강력한 바다의 포식자.,Additive
+10023045,Fish,연어,Rare,,바다와 강을 오가는 생명력의 상징.,Additive
+10024046,Fish,블루길,Epic,,작은 호수에서 자주 잡히는 외래종.,Additive
+10024047,Fish,개복치,Epic,,커다란 몸집이 인상적인 해양 생물.,Additive
+10025048,Fish,황금 잉어,Legendary,,전설 속 행운의 물고기. 잡는 사람에게 복이 따른다.,Additive
+10025049,Fish,빛나는 해파리,Legendary,,밤바다를 아름답게 수놓는 해파리. 마나의 흔적이 깃들어 있다.,Additive
+10072050,Creat,은괴,Uncommon,,은을 제련해 만든 금속 덩어리. 장신구 재료로 사용된다.,Material
+10072051,Creat,금괴,Uncommon,,금을 제련해 만든 고급 금속. 거래가 활발하다.,Material
+10073052,Creat,다이아몬드 결정,Rare,,다이아몬드 원석을 정제해 만든 결정체.,Material
+10074053,Creat,마나 결정,Epic,,마나석을 응축한 에너지 결정. 마법 장비 강화에 쓰인다.,Material
+10071054,Creat,빵,Nomal,,갓 구운 밀빵. 따뜻한 향기가 난다.,Consume
+10074055,Creat,황금 빵,Epic,,금가루를 뿌린 고급 빵. 희귀한 축제 음식이다.,Consume
+10074056,Creat,빛나는 수정,Epic,,순수한 마력을 응축한 결정. 장식품이나 마법 재료로 쓰인다.,Material
+10075057,Creat,세계수 목재,Legendary,,세계수 가지를 가공해 만든 고급 목재. 건축과 마법 제작에 사용된다.,Material
+10071058,Creat,보리빵,Nomal,,구수한 향이 나는 전통 빵. 포만감이 높다.,Consume
+10072059,Creat,사과 파이,Uncommon,,달콤한 사과와 바삭한 반죽의 조화. 인기 있는 디저트다.,Consume
+10073060,Creat,블루베리 잼,Rare,,달콤한 향이 가득한 잼. 빵에 발라 먹기 좋다.,Consume
+10071061,Creat,설탕,Nomal,,사탕수수에서 추출한 감미료. 요리의 필수 재료.,Material
+10071062,Creat,철괴,Nomal,,철을 제련한 기본 금속 덩어리. 대부분의 도구 제작에 쓰인다.,Material
+10071063,Creat,치즈,Nomal,,숙성된 우유로 만든 유제품. 풍미가 깊다.,Material
+10071064,Creat,실타래,Nomal,,양털을 꼬아 만든 실. 의류 제작에 사용된다.,Material
+10071065,Creat,밀가루,Nomal,,곡물을 곱게 빻은 재료. 각종 요리의 기초다.,Material
+10071066,Creat,참나무 판자,Nomal,,참나무를 가공하여 만든 판자이다.,Material
+10071067,Creat,소나무 판자,Nomal,,소나무를 가공하여 만든 판자이다.,Material
+10071068,Creat,자작나무 판자,Nomal,,자작나무를 가공하여 만든 판자이다.,Material
+10072069,Creat,단풍나무 판자,Uncommon,,단풍나무를 가공하여 만든 판자이다.,Material
+10073070,Creat,벚꽃나무 판자,Rare,,벚꽃나무를 가공하여 만든 판자이다.,Material
+10074071,Creat,달빛나무 판자,Epic,,달빛나무를 가공하여 만든 판자이다.,Material

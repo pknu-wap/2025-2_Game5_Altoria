@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace GameUI
        
         
 
-        public UIController() {  uiHelper.FindOrAddEventSystem(UI_PATH_PREFIX);}
+        public UIController() {  /*uiHelper.FindOrAddEventSystem(UI_PATH_PREFIX);*/}
        
         void LoadUI<T>(string name, System.Action<T> onLoaded, Transform parent = null, bool sort = true) where T : UIBase
         {

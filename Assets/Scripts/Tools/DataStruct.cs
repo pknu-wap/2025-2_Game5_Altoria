@@ -25,3 +25,15 @@ public class Ingredient
     public string ID;
     public int Count;
 }
+[System.Serializable]
+public class FishGroup
+{
+    public string ID;
+    public int Probability;
+}
+[System.Serializable]
+public class CollectGroup
+{
+    public int Count;
+    public int Probability;
+}

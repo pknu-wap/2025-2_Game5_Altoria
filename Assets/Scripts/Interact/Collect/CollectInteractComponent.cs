@@ -1,4 +1,7 @@
-using GameInteract;
+using Common;
+using GameData;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static Define;
@@ -7,20 +10,11 @@ namespace GameInteract
 {
     public class CollectInteractComponent : InteractBaseComponent
     {
-        [SerializeField] protected CollectType collectType = CollectType.None;
-        [Header("지역&콘텐츠에 따른 SO")]
-        [SerializeField] protected CollectInteractSO dropTable;
-        [Header("플레이어가 사용하는 도구(추후 인스펙터에서 설정X)")]
-        [SerializeField] protected CollectToolSO currentTool;
-
-        private bool doing = false;
+        [SerializeField] protected Content collectType = Content.None;
+        [SerializeField] string objectID;
 
         public override void Interact()
         {
-            if (doing)
-                return;
-            doing = true;
-
             CollectTimer timer = new(2);
             timer.OnFinished += EndCollect;
         }
@@ -30,19 +24,20 @@ namespace GameInteract
         {
             Debug.Log($"{GetType()} : {collectType.ToString()} 종료.");
 
-            doing = false;
-            var item = Manager.Collect.GetRandomItem(dropTable, currentTool);
-            Debug.Log($"결과: {item} 획득!");
+            List<(CollectGroup, float)> probList = new List<(CollectGroup, float)>();
+            var dic = GameDB.GetCollectData(objectID).Value;
+            var data = dic[objectID];
 
-            FuncForEndCollect();
-        
+            for (int i = 0; i < data.CollectGroup.Count; i++)
+                probList.Add((data.CollectGroup[i], data.CollectGroup[i].Probability));
+
+            var item = GameSystem.Random.Pick(probList);
+            Debug.Log($"{GetType()} : {objectID} {item.Count}개 흭득!");
+
+            GameSystem.Life.AddExp<CollectInteractComponent>(10);
+
+            EndInteract();
         }
-
-        protected virtual void FuncForEndCollect() 
-        {
-
-        }
-
     }
 
 }

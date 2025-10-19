@@ -1,4 +1,5 @@
 using GameUI;
+using SceneLoade;
 using UnityEngine;
 
 public class GameScene : BaseScene
@@ -8,6 +9,5 @@ public class GameScene : BaseScene
         base.Init();
 
         sceneType = Define.SceneType.GameScene;
-        Manager.UI.ShowHUD<UI_GameScene>();
     }
 }

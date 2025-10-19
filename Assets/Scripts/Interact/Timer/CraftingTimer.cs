@@ -1,3 +1,4 @@
+using Common;
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace GameInteract
             IsRunning = true;
 
             if (autoRegister)
-                Manager.Time.RegisterTimer(this);
+                GameSystem.Time.RegisterTimer(this);
         }
 
         void ITimer.Tick(float deltaTime)
