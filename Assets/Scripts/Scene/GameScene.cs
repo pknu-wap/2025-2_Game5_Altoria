@@ -10,4 +10,9 @@ public class GameScene : BaseScene
 
         sceneType = Define.SceneType.GameScene;
     }
+
+    public void TestMoveScene()
+    {
+        Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
+    }
 }

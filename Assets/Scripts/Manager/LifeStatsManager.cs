@@ -7,11 +7,16 @@ using GameInteract;
 [Serializable]
 public class LifeStatData
 {
-    [SerializeField] private int level = 1;
-    [SerializeField] private int exp = 0;
+    [SerializeField] int level = 1;
+    [SerializeField] int exp = 0;
 
     readonly List<int> levelThresholds = CsvLoader.LoadCsv<int>($"{Application.dataPath}/CSV/LevelThresholds.csv");
 
+    public LifeStatData(int level, int exp)
+    {
+        this.level = level;
+        this.exp = exp;
+    }
 
     public bool AddExp(int amount)
     {
@@ -36,8 +41,8 @@ public class TotalLife { }
 
 public class LifeStatsManager
 {
-    private Dictionary<Type, LifeStatData> lifeStats = new ();
-    private readonly Dictionary<Type, float> weights = new ()
+    Dictionary<Type, LifeStatData> lifeStats = new ();
+    readonly Dictionary<Type, float> weights = new ()
     {
         { typeof(CollectInteractComponent), 0.7f },
         { typeof(UpgradeInteractComponent), 0.3f },
@@ -45,10 +50,15 @@ public class LifeStatsManager
 
     public LifeStatsManager()
     {
-        lifeStats[typeof(CollectInteractComponent)] = new();
-        lifeStats[typeof(UpgradeInteractComponent)] = new();
-        lifeStats[typeof(TotalLife)] = new();
+        SetData();
+    }
 
+    void SetData()
+    {
+        var lifeDataList = Manager.UserData.GetUserData<UserLifeData>().GetUserLifeData();
+        lifeStats[typeof(CollectInteractComponent)] = new LifeStatData(lifeDataList[0].level, lifeDataList[0].exp);
+        lifeStats[typeof(UpgradeInteractComponent)] = new LifeStatData(lifeDataList[1].level, lifeDataList[1].exp);
+        lifeStats[typeof(TotalLife)] = new LifeStatData(lifeDataList[2].level, lifeDataList[2].exp);
     }
 
     public void AddExp<T>(int amount)
@@ -69,7 +79,7 @@ public class LifeStatsManager
 
     public int GetEXP<T>() => lifeStats[typeof(T)].GetEXP();
 
-    private void SetTotalStat(Type type, int amount, bool levelUp)
+    void SetTotalStat(Type type, int amount, bool levelUp)
     {
         int totalLevel = GetLevel<TotalLife>();
 
@@ -92,4 +102,6 @@ public class LifeStatsManager
             Debug.Log($"{GetType()} : 생활력 레벨업! {GetLevel<TotalLife>() - 1} -> {GetLevel<TotalLife>()}");
         }
     }
+
+    public Dictionary<Type, LifeStatData> GetLifeStats() => lifeStats;
 }

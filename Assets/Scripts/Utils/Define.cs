@@ -7,6 +7,7 @@ public class Define
         None,
         Lobby,
         GameScene,
+        TestFC_1,
     };
     public enum ItemType
     {

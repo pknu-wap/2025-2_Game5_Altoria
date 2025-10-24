@@ -11,6 +11,8 @@ namespace GameUI
         [SerializeField] Button settingBtn;
         [SerializeField] Button eixtBtn;
 
+        Define.SceneType startScene = Define.SceneType.GameScene;
+
         public override bool Init()
         {
             if (!base.Init()) return false;
@@ -21,19 +23,16 @@ namespace GameUI
         #region OnClick Event
         public void OnClickStartButton()
         {
-            Debug.Log($"[{GetType()}] 게임 시작!");
             GameSystem.Init();
-            Manager.Scene.LoadScene(Define.SceneType.GameScene);
+            Manager.Scene.LoadScene(startScene);
+
             var loadingUI = Manager.UI.ShowPopup<LoadingUI>();
-            loadingUI.StartLoding(Define.SceneType.GameScene);
-            Manager.UI.ShowHUD<UI_GameScene>();
+            loadingUI.StartLoding(startScene);
+            loadingUI.OnClosed += () => Manager.UI.ShowHUD<UI_GameScene>();
         }
 
         public void OnClickSettingButton()
         {
-            Debug.Log($"[{GetType()}] 설정 창 열기");
-
-            // 팝업 UI 생성 및 표시
             Manager.UI.ShowPopup<TestSettingPopUp>();
         }
         public void OnClickExitButton()

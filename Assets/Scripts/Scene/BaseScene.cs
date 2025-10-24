@@ -5,7 +5,7 @@ public class BaseScene : MonoBehaviour
 {
     protected SceneType sceneType = SceneType.None;
 
-    private void Awake()
+    void Awake()
     {
         Init();
     }
