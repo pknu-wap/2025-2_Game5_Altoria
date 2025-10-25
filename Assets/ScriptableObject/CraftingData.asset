@@ -12,15 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c843b28f827284f9d073f4fa2033b1, type: 3}
   m_Name: CraftingData
   m_EditorClassIdentifier: 
-  rows:
-  - Type: 1
-    ID: 1000000000
-    Count: 3
-    Time: 10
-    Ingredients:
-    - ID: 11111
-      Count: 1
-    - ID: 2222
-      Count: 2
-    - ID: 3333
-      Count: 3
+  rows: []

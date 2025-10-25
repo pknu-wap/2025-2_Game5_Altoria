@@ -1,0 +1,152 @@
+{
+  "rows": [
+    {
+      "ID": "10011001",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10014002",
+      "CollectGroup": [{"Count":1,"Probability":100}]
+    },
+    {
+      "ID": "10051003",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10051004",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10051005",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10052006",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10052007",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10053008",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10053009",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10053010",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10054011",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10054012",
+      "CollectGroup": [{"Count":1,"Probability":100}]
+    },
+    {
+      "ID": "10055013",
+      "CollectGroup": [{"Count":1,"Probability":100}]
+    },
+    {
+      "ID": "10061014",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10061015",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10061016",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10064017",
+      "CollectGroup": [{"Count":1,"Probability":100}]
+    },
+    {
+      "ID": "10031018",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031019",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031020",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031021",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031022",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031023",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031024",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031025",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031026",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10031027",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10033028",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10033029",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10034030",
+      "CollectGroup": [{"Count":1,"Probability":100}]
+    },
+    {
+      "ID": "10041031",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10041032",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10041033",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10042034",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10043035",
+      "CollectGroup": [{"Count":1,"Probability":90},{"Count":3,"Probability":10}]
+    },
+    {
+      "ID": "10044036",
+      "CollectGroup": [{"Count":1,"Probability":100}]
+    },
+    {
+      "ID": "10045037",
+      "CollectGroup": [{"Count":1,"Probability":100}]
+    }
+  ]
+}

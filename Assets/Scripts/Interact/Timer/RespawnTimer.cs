@@ -1,3 +1,4 @@
+using Common;
 using System;
 using System.Diagnostics;
 
@@ -31,7 +32,7 @@ namespace GameInteract
             Elapsed = 0f;
 
             if (autoRegister)
-                Manager.Time.RegisterTimer(this);
+                GameSystem.Time.RegisterTimer(this);
         }
     }
 }

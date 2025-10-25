@@ -18,8 +18,17 @@ public class Define
         Additive,// ±‚≈∏ 
 
     }
+    public enum ItemGrade
+    {
+        None,
+        Nomal,
+        Uncommon,
+        Rare,
+        Epic,
+        Legendary
+    }
 
-    public enum CollectType
+    public enum Content
     {
         None,
         Farm,
@@ -29,5 +38,15 @@ public class Define
         Mining,
         Plant,
         COUNT,
+    }
+    public enum AreaType
+    {
+        None,
+        A, 
+        B, 
+        C, 
+        D, 
+        E,
+        COUNT
     }
 }

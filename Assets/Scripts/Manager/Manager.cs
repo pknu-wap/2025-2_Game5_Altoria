@@ -6,57 +6,38 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using Common;
 using SceneLoader;
+using Unity.VisualScripting;
 public class Manager : MonoBehaviour
 {
     private static Manager instance;
+
+    UIController ui = new();
+    SceneLoader.SceneLoader scene = new();
+    ResourceManager resource = new();
+
     public static Manager Instance { get { return instance; } }
+    public static UIController UI { get { return instance.ui; } }
+    public static SceneLoader.SceneLoader Scene { get { return instance.scene; } }
+    public static ResourceManager Resource { get { return instance.resource; } }
 
-    public static UIController UI { get { return Instance.ui; } }
-    public static TimeController Time { get { return Instance.time; } }
-    public static SceneLoader.SceneLoader SceneLoader { get { return Instance.scene; } }
-    public static CollectDropHellper Collect { get { return Instance.collectDropHellper;  } }
-    public static LifeStatsManager Life { get { return Instance.lifeStatsManager; } }
-    public static ResourceManager Resource { get { return Instance.resource; } }    
-
-    public static GameSystem System { get { return Instance.system; } }   
-
-    UIController ui;
-    TimeController time;
-    SceneLoader.SceneLoader scene;
-    CollectDropHellper collectDropHellper;
-    LifeStatsManager lifeStatsManager;
-    ResourceManager resource;
-    GameSystem system;
-
-    void Awake()
+    public static void Init()
     {
         if (instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            InitManagers();
+            GameObject go = GameObject.Find("Manager");
+            if (go == null)
+                go = new GameObject { name = "Manager" };
+
+            instance = go.GetOrAddComponent<Manager>();
+            DontDestroyOnLoad(go);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        instance.InitManagers();
     }
 
-    void Update()
-    {
-        if(Time!=null)
-        Time.Tick(UnityEngine.Time.deltaTime);  
-    }
+
     async void InitManagers()
     {
         await GameDB.LoadAll();
-        system = new();
-        time = new();
-        scene = new();
-        resource=new();
-        collectDropHellper = new();
-        lifeStatsManager = new();
-
-        ui = new ();
     }
 }
