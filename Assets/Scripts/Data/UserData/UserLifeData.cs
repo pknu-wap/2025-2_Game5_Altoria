@@ -8,19 +8,19 @@ using UnityEngine;
 [Serializable]
 public class LifeData
 {
-    public int level;
-    public int exp;
+    public int Level;
+    public int Exp;
 
     public LifeData()
     {
-        level = 1;
-        exp = 0;
+        Level = 1;
+        Exp = 0;
     }
 
     public LifeData(int level, int exp)
     {
-        this.level = level;
-        this.exp = exp;
+        this.Level = level;
+        this.Exp = exp;
     }
 }
 

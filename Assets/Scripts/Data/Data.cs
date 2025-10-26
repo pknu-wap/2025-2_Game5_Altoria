@@ -55,18 +55,12 @@ public class InventoryData
 [System.Serializable]
 public class UpgradeData
 {
-
-}
-
-[System.Serializable]
-public class GradeData
-{
     public int CurrentGrade;
     public int Success;
     public int Fail;
     public int Destroy;
-    public int bous;
-    public int Durability;
+    public int Bous;
+    public int Material;
 }
 [System.Serializable]
 public class CollectData

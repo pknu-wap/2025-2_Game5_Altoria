@@ -38,6 +38,7 @@ public class Define
         Animal,
         Mining,
         Plant,
+        Upgrade,
         COUNT,
     }
     public enum AreaType

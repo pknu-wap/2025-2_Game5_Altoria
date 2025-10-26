@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,15 +7,15 @@ namespace GameInteract
 {
     public class UpgradeSelectItem : MonoBehaviour
     {
-        Image itemGradeImg;
+        [SerializeField] Image itemGradeImg;
         [SerializeField] Image itmeImg;
-        int slotIndex;
+        [SerializeField] TextMeshProUGUI upgtadeStepTxt;
 
-        public void Init(ItemData data, int slotIndex)
+        public void Init(ItemData data)
         {
-            // itemGrade.GetComponent<Image>().sprite = data.SpriteAddress를 등급에 맞는 틀 설정
-            // itmeImg.sprite = data.id 를 통해 이미지 가져오기
-            this.slotIndex = slotIndex;
+            itemGradeImg.sprite = Resources.Load<Sprite>($"UI/ItemFrame/{data.Grade}");
+            // itmeImg.sprite = 
+            //upgtadeStepTxt.text =   
         }
     }
 }

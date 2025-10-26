@@ -14,5 +14,7 @@ public class GameScene : BaseScene
     public void TestMoveScene()
     {
         Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
+        var loadingUI = Manager.UI.ShowPopup<LoadingUI>();
+        loadingUI.StartLoding(Define.SceneType.TestFC_1);
     }
 }

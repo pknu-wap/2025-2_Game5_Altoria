@@ -11,7 +11,7 @@ public class Manager : MonoBehaviour
 {
     static Manager instance;
 
-    UserDataManager userDataManager = new UserDataManager();
+    UserDataManager userDataManager = new ();
     UIController ui = new();
     SceneLoader.SceneLoader scene = new();
     ResourceManager resource = new();

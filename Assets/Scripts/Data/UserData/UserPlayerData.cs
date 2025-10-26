@@ -20,11 +20,11 @@ public class PlayerData
 public class UserPlayerData : Security, IUserData
 {
     string path = Path.Combine(Application.dataPath, "playerData.json");
-    PlayerData playerData;
+    PlayerData userPlayerData;
 
     public void SetDefaultData()
     {
-        playerData = new PlayerData();
+        userPlayerData = new ();
     }
 
     public bool LoadData()
@@ -40,7 +40,7 @@ public class UserPlayerData : Security, IUserData
             else // Load
             {
                 string loadJson = File.ReadAllText(path);
-                playerData = JsonUtility.FromJson<PlayerData>(loadJson);
+                userPlayerData = JsonUtility.FromJson<PlayerData>(loadJson);
                 //playerData = JsonUtility.FromJson<PlayerData>(Decrypt(loadJson, KEY));
             }
 
@@ -60,7 +60,7 @@ public class UserPlayerData : Security, IUserData
 
         try
         {
-            string jsonData = JsonUtility.ToJson(playerData);
+            string jsonData = JsonUtility.ToJson(userPlayerData);
             File.WriteAllText(path, jsonData);
             //File.WriteAllText(path, Encrypt(jsonData, KEY));
 

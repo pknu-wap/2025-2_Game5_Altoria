@@ -56,9 +56,9 @@ public class LifeStatsManager
     void SetData()
     {
         var lifeDataList = Manager.UserData.GetUserData<UserLifeData>().GetUserLifeData();
-        lifeStats[typeof(CollectInteractComponent)] = new LifeStatData(lifeDataList[0].level, lifeDataList[0].exp);
-        lifeStats[typeof(UpgradeInteractComponent)] = new LifeStatData(lifeDataList[1].level, lifeDataList[1].exp);
-        lifeStats[typeof(TotalLife)] = new LifeStatData(lifeDataList[2].level, lifeDataList[2].exp);
+        lifeStats[typeof(CollectInteractComponent)] = new LifeStatData(lifeDataList[0].Level, lifeDataList[0].Exp);
+        lifeStats[typeof(UpgradeInteractComponent)] = new LifeStatData(lifeDataList[1].Level, lifeDataList[1].Exp);
+        lifeStats[typeof(TotalLife)] = new LifeStatData(lifeDataList[2].Level, lifeDataList[2].Exp);
     }
 
     public void AddExp<T>(int amount)
