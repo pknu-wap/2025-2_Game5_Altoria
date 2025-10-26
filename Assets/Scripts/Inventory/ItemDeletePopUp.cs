@@ -50,7 +50,7 @@ public class ItemDeletePopUp : UIPopUp
         if (data != null)
         {
             //counttext = maxCount;
-            itemNameText.text = data.Name;
+            itemNameText.text = data.Item.Name;
             /* 아이템 이미지 
             if (!string.IsNullOrEmpty(data.SpriteAddress))
             {
@@ -121,11 +121,11 @@ public class ItemDeletePopUp : UIPopUp
 
         if (success)
         {
-            Debug.Log($"[ItemDeletePopUp] : {data.Name} 아이템 {currentCount}개 삭제 완료");
+            Debug.Log($"[ItemDeletePopUp] : {data.Item.Name} 아이템 {currentCount}개 삭제 완료");
         }
         else
         {
-            Debug.Log($"[ItemDeletePopUp] : {data.Name} 삭제 실패 - 존재하지 않음");
+            Debug.Log($"[ItemDeletePopUp] : {data.Item.Name} 삭제 실패 - 존재하지 않음");
         }
 
         InventoryUI.Instance.RefreshInventory();

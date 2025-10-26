@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -29,7 +30,7 @@ public class InventoryManager : MonoBehaviour
             return false;
         }
 
-        InventoryData existing = inventoryData.rows.Find(x => x.ID == itemID);
+        InventoryData existing = inventoryData.rows.Find(x => x.Item != null && x.Item.ID == itemID);
 
         if (existing != null)
         {
@@ -37,32 +38,33 @@ public class InventoryManager : MonoBehaviour
             Debug.Log($"{itemID} {count}개 추가 (총 {existing.Count})");
             return true;
         }
-        else
+
+        ItemData itemData = itemDatabase.GetItemById(itemID);
+
+        if (itemData == null)
         {
-            if (inventoryData.rows.Count >= inventoryData.maxSlotCount)
-            {
-                Debug.LogWarning($"[InventoryManager] : 인벤토리가 가득 참 (최대 {inventoryData.maxSlotCount}개)");
-                return false;
-            }
-
-            InventoryData newItem = new InventoryData
-            {
-                ID = itemID,
-                Count = count,
-                Name = "temp name", // 나중에 아이템 DB에서 이름 불러오기
-                IsEquipped = false,
-            };
-
-            inventoryData.rows.Add(newItem);
-            Debug.Log($"[InventoryManager] : {itemID} {count}개 새 슬롯 추가 (현재 슬롯 수: {inventoryData.rows.Count})");
-            return true;
+            Debug.LogWarning($"[InventoryManager] : {itemID} 아이템 정보를 찾을 수 없음");
+            itemData = new ItemData { ID = itemID, Name = "Temp Item" };
         }
+
+        // 새로운 인벤토리 데이터 생성
+        InventoryData newItem = new InventoryData
+        {
+            Item = itemData,
+            Count = count,
+            IsEquipped = false
+        };
+
+        inventoryData.rows.Add(newItem);
+        Debug.Log($"[InventoryManager] : {itemID} {count}개 새 슬롯 추가 (현재 슬롯 수: {inventoryData.rows.Count})");
+        return true;
+        
     }
 
 
     public bool RemoveItem(string itemID, int count = 1)
     {
-        InventoryData existing = inventoryData.rows.Find(x => x.ID == itemID);
+        InventoryData existing = inventoryData.rows.Find(x => x.Item.ID == itemID);
 
         if (existing == null)
         {
@@ -93,7 +95,6 @@ public class InventoryManager : MonoBehaviour
 
     public List<InventoryData> GetAllItems()
     {
-        // 실제 인벤토리 SO 참조하지 않고 복제본으로 참조하는 것 검토중 (데이터 영구손실 방지)
         return inventoryData.rows;
     }
 

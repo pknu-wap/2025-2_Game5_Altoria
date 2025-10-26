@@ -13,6 +13,7 @@ public class Stat
 public class MainMenuPopUp : UIPopUp
 {
     [SerializeField] GameObject mainMenuPopUp;
+    [SerializeField] GameObject inventoryUI;
     [SerializeField] GameObject settingPopUp;
 
     [SerializeField] Stat[] stats = new Stat[4];
@@ -66,6 +67,8 @@ public class MainMenuPopUp : UIPopUp
     }
     public void OnClickInventory()
     {
+        //ui.ShowPopup<InventoryUI>();
+        inventoryUI.SetActive(true);
     }
     public void OnClickCraft()
     {

@@ -14,40 +14,94 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDatabase: {fileID: 0}
   rows:
-  - ID: 12211000
-    Name: "\uBD80\uC154\uC9C4 \uB3C4\uB07C"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 1
+      SellCost: 0
+      ItemGrade: 5
+      Description: 
     IsEquipped: 1
     Count: 2
-  - ID: 12212000
-    Name: "\uD3C9\uBC94\uD55C \uB3C4\uB07C"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 0
+      SellCost: 0
+      ItemGrade: 0
+      Description: 
     IsEquipped: 0
     Count: 3
-  - ID: 12214000
-    Name: "\uD0C4\uC9C0\uB85C"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 1
+      SellCost: 0
+      ItemGrade: 3
+      Description: 
     IsEquipped: 0
     Count: 22
-  - ID: 12215000
-    Name: "\uB124\uC988\uCF54"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 0
+      SellCost: 0
+      ItemGrade: 0
+      Description: 
     IsEquipped: 0
     Count: 1
-  - ID: 12216000
-    Name: "\uC544\uCE74\uC790"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 4
+      SellCost: 0
+      ItemGrade: 1
+      Description: 
     IsEquipped: 0
     Count: 9
-  - ID: 12217000
-    Name: "\uBCF4\uC11D"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 4
+      SellCost: 0
+      ItemGrade: 5
+      Description: 
     IsEquipped: 0
     Count: 51
-  - ID: 12218000
-    Name: "\uB098\uBB34"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 5
+      SellCost: 0
+      ItemGrade: 6
+      Description: 
     IsEquipped: 0
     Count: 321
-  - ID: 12219000
-    Name: "\uCCA0"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 2
+      SellCost: 0
+      ItemGrade: 0
+      Description: 
     IsEquipped: 0
     Count: 11
-  - ID: 122
-    Name: "\uB9C8\uD0A4\uB9C8"
+  - Item:
+      ID: 
+      Name: 
+      SpriteAddress: 
+      Type: 0
+      SellCost: 0
+      ItemGrade: 0
+      Description: 
     IsEquipped: 0
     Count: 222
   maxSlotCount: 30
