@@ -135,6 +135,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 052faaac586de48259a63d0c4782560b
+    m_Address: Assets/InputSystem_Actions.inputactions
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0569769e08d6796429b5920293e138de
     m_Address: PP_Ground_01
     m_ReadOnly: 0
