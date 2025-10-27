@@ -118,13 +118,17 @@ public class InventoryUI : MonoBehaviour
     // 보여질 아이템 타입 변경
     public void OnTypeChanged(int index)
     {
-        //Weapon, Tool, Consume, Material, Additive
+        //None, Weapon, Tool, Consume, Material, Additive
         currentType = (Define.ItemType)index;
 
-        var allItems = InventoryManager.Instance.GetAllItems();
+        if(currentType != Define.ItemType.None)
+        {
+            var allItems = InventoryManager.Instance.GetAllItems();
+            displayListData = allItems.FindAll(item => item.Item != null && item.Item.Type == currentType);
+        }
+        else
+            displayListData = new List<InventoryData>(InventoryManager.Instance.GetAllItems());
 
-        displayListData = allItems.FindAll(item => item.Item != null && item.Item.Type == currentType);
-        
         ApplySort();
         RefreshInventory();
         Debug.Log($"[InventoryUI] : {currentType} 아이템만 표시");
@@ -184,7 +188,7 @@ public class InventoryUI : MonoBehaviour
 
     public void OnClickItemDelete(string id, int count)
     {
-        deletePopUp.Open(id, count);   //UIController 이용하여 수정 
+        deletePopUp.Open(id, count);   //삭제창에 아이템 정보 전달
     }
 
     // 아이템 추가 test

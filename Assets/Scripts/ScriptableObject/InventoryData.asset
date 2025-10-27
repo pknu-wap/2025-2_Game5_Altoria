@@ -15,48 +15,28 @@ MonoBehaviour:
   itemDatabase: {fileID: 0}
   rows:
   - Item:
-      ID: 
-      Name: 
-      SpriteAddress: 
-      Type: 1
-      SellCost: 0
-      ItemGrade: 5
-      Description: 
-    IsEquipped: 1
-    Count: 2
-  - Item:
-      ID: 
-      Name: 
-      SpriteAddress: 
-      Type: 0
-      SellCost: 0
-      ItemGrade: 0
-      Description: 
-    IsEquipped: 0
-    Count: 3
-  - Item:
-      ID: 
-      Name: 
+      ID: 11111
+      Name: "\uB784\uB784\uB77C"
       SpriteAddress: 
       Type: 1
       SellCost: 0
       ItemGrade: 3
       Description: 
     IsEquipped: 0
-    Count: 22
+    Count: 21
   - Item:
-      ID: 
-      Name: 
+      ID: 121212
+      Name: "\uAE5C\uCC0D\uC218\uBC0D"
       SpriteAddress: 
-      Type: 0
+      Type: 4
       SellCost: 0
       ItemGrade: 0
       Description: 
     IsEquipped: 0
-    Count: 1
+    Count: 3
   - Item:
-      ID: 
-      Name: 
+      ID: 222222
+      Name: "\uC6B0\uC6B0\uC6C5"
       SpriteAddress: 
       Type: 4
       SellCost: 0
@@ -75,8 +55,8 @@ MonoBehaviour:
     IsEquipped: 0
     Count: 51
   - Item:
-      ID: 
-      Name: 
+      ID: 333333
+      Name: "\uB3C4\uB3C4\uB3C4"
       SpriteAddress: 
       Type: 5
       SellCost: 0
@@ -85,23 +65,23 @@ MonoBehaviour:
     IsEquipped: 0
     Count: 321
   - Item:
-      ID: 
-      Name: 
+      ID: 444444
+      Name: "\uC18C\uC18C\uC18C"
       SpriteAddress: 
       Type: 2
       SellCost: 0
-      ItemGrade: 0
+      ItemGrade: 4
       Description: 
     IsEquipped: 0
     Count: 11
   - Item:
-      ID: 
-      Name: 
+      ID: 555555
+      Name: "\u3157\u3157"
       SpriteAddress: 
-      Type: 0
+      Type: 1
       SellCost: 0
-      ItemGrade: 0
+      ItemGrade: 6
       Description: 
-    IsEquipped: 0
+    IsEquipped: 1
     Count: 222
   maxSlotCount: 30

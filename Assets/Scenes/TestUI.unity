@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 134472326}
   - component: {fileID: 134472327}
   m_Layer: 5
-  m_Name: Buttons
+  m_Name: Horizontal Layout Group Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

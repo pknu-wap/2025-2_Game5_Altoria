@@ -24,20 +24,21 @@ public class InventoryManager : MonoBehaviour
 
     public bool AddItem(string itemID, int count = 1)
     {
+        InventoryData existing = inventoryData.rows.Find(x => x.Item != null && x.Item.ID == itemID);
+
+        if (existing != null) //이미 존재하면 
+        {
+            existing.Count += count;
+            Debug.Log($"{itemID} {count}개 추가 (총 {existing.Count})");
+            return true;
+        }
+
         if (inventoryData.rows.Count >= inventoryData.maxSlotCount)
         {
             Debug.Log("[InventoryManager] : 인벤토리가 가득참");
             return false;
         }
 
-        InventoryData existing = inventoryData.rows.Find(x => x.Item != null && x.Item.ID == itemID);
-
-        if (existing != null)
-        {
-            existing.Count += count;
-            Debug.Log($"{itemID} {count}개 추가 (총 {existing.Count})");
-            return true;
-        }
 
         ItemData itemData = itemDatabase.GetItemById(itemID);
 
@@ -58,7 +59,6 @@ public class InventoryManager : MonoBehaviour
         inventoryData.rows.Add(newItem);
         Debug.Log($"[InventoryManager] : {itemID} {count}개 새 슬롯 추가 (현재 슬롯 수: {inventoryData.rows.Count})");
         return true;
-        
     }
 
 

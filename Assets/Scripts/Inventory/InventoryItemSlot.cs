@@ -47,7 +47,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
             return;
         }
         SetSlot(inventory.Item.Name, count);
-        
+        equippedText.gameObject.SetActive(inventory.IsEquipped);
         //추가 커스터마이징
     }
 
@@ -108,7 +108,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         description.SetActive(true);
-        //itemNameText.text = inventory.Name;
+        itemNameText.text = inventory.Item.Name;
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -7,8 +7,6 @@ public class ItemDeletePopUp : UIPopUp
 {
     public static ItemDeletePopUp Instance;
 
-    UIController ui;
-
     [Header("UI 요소")]
     [SerializeField] InventoryItemSlot itemIcon;
     [SerializeField] TextMeshProUGUI itemNameText;
@@ -34,7 +32,6 @@ public class ItemDeletePopUp : UIPopUp
     void Start()
     {
         CountInput.text = "1";
-        //ui = Manager.UI;     오류
     }
 
     // Update is called once per frame
@@ -45,20 +42,7 @@ public class ItemDeletePopUp : UIPopUp
 
     private void OnEnable()
     {
-        data = InventoryManager.Instance.GetItemData(itemID);
-
-        if (data != null)
-        {
-            //counttext = maxCount;
-            itemNameText.text = data.Item.Name;
-            /* 아이템 이미지 
-            if (!string.IsNullOrEmpty(data.SpriteAddress))
-            {
-                Sprite icon = Resources.Load<Sprite>(data.SpriteAddress);
-                if (icon) itemIcon.sprite = icon;
-            }
-            */
-        }
+        SetItem(itemID, maxCount);
         CountInput.onValueChanged.RemoveListener(OnInputChanged);
         CountInput.text = currentCount.ToString();
         CountInput.onValueChanged.AddListener(OnInputChanged);
@@ -71,9 +55,14 @@ public class ItemDeletePopUp : UIPopUp
 
     public void SetItem(string id, int count)
     {
-        // 아이템 아이콘에 표시할 정보 가져옴   //// ItemSlot.cs 꺼 쓸수도 
-        //itemIcon.SetSlot(itemID, 1);
-        //itemNameText.text = 
+        // 아이템 아이콘에 표시할 정보 가져옴 
+        data = InventoryManager.Instance.GetItemData(id);
+
+        if (data != null)
+        {
+            itemIcon.SetSlot(id, count);  // 아이템 이미지, 테두리, 개수 설정.현재는 개수만됨
+            itemNameText.text = data.Item.Name;
+        }
     }
 
     void OnInputChanged(string str)
@@ -139,8 +128,6 @@ public class ItemDeletePopUp : UIPopUp
         maxCount = Mathf.Max(1, count);  
         currentCount = 1;
 
-        
-
         gameObject.SetActive(true);
         CountInput.onValueChanged.RemoveListener(OnInputChanged);  //잠깐 끊기 
         CountInput.text = currentCount.ToString();
@@ -151,6 +138,6 @@ public class ItemDeletePopUp : UIPopUp
     public void OnClose()
     {
         gameObject.SetActive(false);
-        //ui.ClosePopup();  //오류 
+        //Manager.UI.ClosePopup();  //오류 
     }
 }
