@@ -9,7 +9,7 @@ public class CameraRegister : MonoBehaviour
     void Awake()
     {
         cam = GetComponent<CinemachineCamera>();
-      
+
         id = !string.IsNullOrEmpty(gameObject.name)
             ? gameObject.name
             : $"Camera_{cam.GetInstanceID()}";
