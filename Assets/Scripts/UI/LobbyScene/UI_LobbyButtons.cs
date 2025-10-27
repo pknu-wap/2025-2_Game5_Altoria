@@ -11,8 +11,6 @@ namespace GameUI
         [SerializeField] Button settingBtn;
         [SerializeField] Button eixtBtn;
 
-        Define.SceneType startScene = Define.SceneType.GameScene;
-
         public override bool Init()
         {
             if (!base.Init()) return false;
@@ -24,11 +22,7 @@ namespace GameUI
         public void OnClickStartButton()
         {
             GameSystem.Init();
-            Manager.Scene.LoadScene(startScene);
-
-            var loadingUI = Manager.UI.ShowPopup<LoadingUI>();
-            loadingUI.StartLoding(startScene);
-            loadingUI.OnClosed += () => Manager.UI.ShowHUD<UI_GameScene>();
+            Manager.Scene.LoadScene(Define.SceneType.TestMap);
         }
 
         public void OnClickSettingButton()

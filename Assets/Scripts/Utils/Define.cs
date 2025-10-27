@@ -8,6 +8,7 @@ public class Define
         Lobby,
         GameScene,
         TestFC_1,
+        TestMap,
     };
     public enum ItemType
     {

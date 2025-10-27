@@ -1,20 +1,25 @@
 using GameUI;
+using SceneLoad;
 using SceneLoade;
-using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    protected int task = 15;
+
     protected override void Init()
     {
         base.Init();
 
         sceneType = Define.SceneType.GameScene;
+        SceneLoad();
     }
 
-    public void TestMoveScene()
+    void SceneLoad()
     {
-        Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
         var loadingUI = Manager.UI.ShowPopup<LoadingUI>();
-        loadingUI.StartLoding(Define.SceneType.TestFC_1);
+        var loader = new JsonMapLoader($"{GetType()}", task);
+        loader.Load();
+        loadingUI.StartLoding(loader);
+        loadingUI.OnClosed += () => Manager.UI.ShowHUD<UI_GameScene>();
     }
 }
