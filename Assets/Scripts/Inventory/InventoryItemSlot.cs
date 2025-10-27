@@ -18,7 +18,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
 
     [SerializeField] TextMeshProUGUI equippedText;
     [SerializeField] TextMeshProUGUI itemNameText;
-    [SerializeField] GameObject description;
+    [SerializeField] GameObject description; //hover하면 나타나는 작은창
     [SerializeField] Button deleteButton;
     [SerializeField] GameObject deletePopUp;
 
@@ -46,7 +46,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
             Debug.LogWarning($"[InventoryItemSlot] : ID {id} 에 해당하는 아이템 데이터를 찾을 수 없음");
             return;
         }
-        SetSlot(inventory.Item.Name, count);
+        SetSlot(inventory.Item.SpriteAddress, count);  // 인자 다시 검토
         equippedText.gameObject.SetActive(inventory.IsEquipped);
         //추가 커스터마이징
     }

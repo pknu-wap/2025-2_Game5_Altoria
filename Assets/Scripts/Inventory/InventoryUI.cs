@@ -191,16 +191,6 @@ public class InventoryUI : MonoBehaviour
         deletePopUp.Open(id, count);   //삭제창에 아이템 정보 전달
     }
 
-    // 아이템 추가 test
-    public void debugAddItem()
-    {
-        int randomID = Random.Range(1, 201);  // 랜덤 아이템 코드 추가
-        string itemID = randomID.ToString();
-
-        InventoryManager.Instance.AddItem(itemID, 10);
-        RefreshInventory();
-    }
-
     //창 켜기
     public void Show()
     {
@@ -211,5 +201,17 @@ public class InventoryUI : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+
+    // -----------------------------------------------------------------------------
+    // 아이템 추가 test
+    public void debugAddItem()
+    {
+        int randomID = Random.Range(1, 201);  // 랜덤 아이템 코드 추가
+        string itemID = randomID.ToString();
+
+        InventoryManager.Instance.AddItem(itemID, 10);
+        RefreshInventory();
     }
 }

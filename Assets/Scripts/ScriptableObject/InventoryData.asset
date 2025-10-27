@@ -60,7 +60,7 @@ MonoBehaviour:
       SpriteAddress: 
       Type: 5
       SellCost: 0
-      ItemGrade: 6
+      ItemGrade: 5
       Description: 
     IsEquipped: 0
     Count: 321
@@ -80,8 +80,8 @@ MonoBehaviour:
       SpriteAddress: 
       Type: 1
       SellCost: 0
-      ItemGrade: 6
+      ItemGrade: 2
       Description: 
     IsEquipped: 1
-    Count: 222
+    Count: 205
   maxSlotCount: 30

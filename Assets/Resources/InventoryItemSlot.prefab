@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 728735568044834100}
-  itemBorder: {fileID: 5319532244205620684}
+  itemBorders: []
   itemCount: {fileID: 8769780263455187671}
   equippedText: {fileID: 8998047192682442048}
   itemNameText: {fileID: 2639128366330823554}
