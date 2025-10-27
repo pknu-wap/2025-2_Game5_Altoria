@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpHeight = 3f;
-    [SerializeField] private float gravity = -9.81f * 2f;
+    [SerializeField] float speed = 5f;
+    [SerializeField] float jumpHeight = 3f;
+    [SerializeField] float gravity = -9.81f * 2f;
 
     [Header("References")]
-    [SerializeField] private Transform modelTransform;
+    [SerializeField] Transform modelTransform;
 
     CharacterController controller;
     GroundChecker groundChecker;
@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     Vector3 moveInput = Vector3.zero;
+
+    public bool IsGrounded => groundChecker.IsGrounded;
 
     private void Awake()
     {
