@@ -21,7 +21,8 @@ MonoBehaviour:
   - rid: 7545617984089227576
   - rid: 7545617984089227863
   - rid: 7545617984089228239
-  m_VersionTimestamp: 638972511716128299
+  - rid: 7545617987382280277
+  m_VersionTimestamp: 638972591111371549
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 1697443115780595665}
@@ -78,6 +79,16 @@ MonoBehaviour:
         IsExposed: 0
         m_IsShared: 0
         m_Value: {fileID: 0}
+    - rid: 7545617987382280277
+      type: {class: 'TypedVariableModel`1[[WanderArea, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 2026577081287194767
+          m_Value1: 13126193906414896613
+        Name: Area
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
 --- !u!114 &-6016954459009838267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,14 +121,14 @@ MonoBehaviour:
           rid: 7545617984089227518
         BlackboardGroupReferences: []
         Root:
-          rid: 7545617985846902909
+          rid: 7545617987382280748
         m_ActiveNodes: []
         m_NodesToTick: []
         m_NodesToEnd:
           rid: 7545617984089227520
         m_EndedNodes:
           rid: 7545617984089227521
-        m_VersionTimestamp: 638972513608898943
+        m_VersionTimestamp: 638972593986949349
     - rid: 7545617984089227518
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -134,12 +145,13 @@ MonoBehaviour:
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 7545617985846902855
-        - rid: 7545617985846902856
-        - rid: 7545617985846902857
-        - rid: 7545617985846902858
-        - rid: 7545617985846902859
-    - rid: 7545617985846902855
+        - rid: 7545617987382280469
+        - rid: 7545617987382280470
+        - rid: 7545617987382280471
+        - rid: 7545617987382280472
+        - rid: 7545617987382280473
+        - rid: 7545617987382280474
+    - rid: 7545617987382280469
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -147,7 +159,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 7545617985846902856
+    - rid: 7545617987382280470
       type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -155,7 +167,7 @@ MonoBehaviour:
           m_Value1: 672067989602182730
         Name: AIState
         m_Value: 0
-    - rid: 7545617985846902857
+    - rid: 7545617987382280471
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -163,7 +175,7 @@ MonoBehaviour:
           m_Value1: 16436929259266497678
         Name: Speed
         m_Value: 0
-    - rid: 7545617985846902858
+    - rid: 7545617987382280472
       type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -171,7 +183,7 @@ MonoBehaviour:
           m_Value1: 1310939031304088710
         Name: MovePos
         m_Value: {x: 0, y: 0, z: 0}
-    - rid: 7545617985846902859
+    - rid: 7545617987382280473
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -179,7 +191,95 @@ MonoBehaviour:
           m_Value1: 13039167646627305691
         Name: NULL
         m_Value: {fileID: 0}
-    - rid: 7545617985846902909
+    - rid: 7545617987382280474
+      type: {class: 'BlackboardVariable`1[[WanderArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2026577081287194767
+          m_Value1: 13126193906414896613
+        Name: Area
+        m_Value: {fileID: 0}
+    - rid: 7545617987382280583
+      type: {class: 'BlackboardVariable`1[[InteractState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 7545617987382280587
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0.2
+    - rid: 7545617987382280588
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: SpeedMagnitude
+    - rid: 7545617987382280589
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 7545617987382280590
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.NavigateToTargetAction/TargetPositionMode, Unity.Behavior]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 7545617987382280593
+      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 7545617987382280594
+      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 7545617987382280595
+      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 2
+    - rid: 7545617987382280600
+      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 7545617987382280601
+      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 2
+    - rid: 7545617987382280748
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -190,10 +290,10 @@ MonoBehaviour:
         m_Parent:
           rid: -2
         m_Child:
-          rid: 7545617985846902910
+          rid: 7545617987382280749
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
-    - rid: 7545617985846902910
+    - rid: 7545617987382280749
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -202,11 +302,11 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902909
+          rid: 7545617987382280748
         m_Children:
-        - rid: 7545617985846902911
-        - rid: 7545617985846902912
-    - rid: 7545617985846902911
+        - rid: 7545617987382280750
+        - rid: 7545617987382280751
+    - rid: 7545617987382280750
       type: {class: BranchingConditionComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -215,20 +315,20 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902910
+          rid: 7545617987382280749
         m_Children:
-        - rid: 7545617985846902913
-        - rid: 7545617985846902914
+        - rid: 7545617987382280752
+        - rid: 7545617987382280753
         m_Conditions:
-        - rid: 7545617985846902915
+        - rid: 7545617987382280754
         m_RequiresAllConditions: 0
         True:
-          rid: 7545617985846902913
+          rid: 7545617987382280752
         False:
-          rid: 7545617985846902914
+          rid: 7545617987382280753
         m_CurrentChild:
           rid: -2
-    - rid: 7545617985846902912
+    - rid: 7545617987382280751
       type: {class: SwitchComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -237,15 +337,15 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902910
+          rid: 7545617987382280749
         m_Children:
-        - rid: 7545617985846902916
-        - rid: 7545617985846902917
+        - rid: 7545617987382280755
+        - rid: 7545617987382280756
         - rid: -2
         - rid: -2
         EnumVariable:
-          rid: 7545617985846902856
-    - rid: 7545617985846902913
+          rid: 7545617987382280470
+    - rid: 7545617987382280752
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -254,11 +354,11 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902911
+          rid: 7545617987382280750
         m_Children:
-        - rid: 7545617985846902918
-        - rid: 7545617985846902919
-    - rid: 7545617985846902914
+        - rid: 7545617987382280757
+        - rid: 7545617987382280758
+    - rid: 7545617987382280753
       type: {class: RandomComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -267,21 +367,21 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902911
+          rid: 7545617987382280750
         m_Children:
-        - rid: 7545617985846902920
-        - rid: 7545617985846902921
-        - rid: 7545617985846902922
-    - rid: 7545617985846902915
+        - rid: 7545617987382280759
+        - rid: 7545617987382280760
+        - rid: 7545617987382280761
+    - rid: 7545617987382280754
       type: {class: CheckInteractState, ns: , asm: Assembly-CSharp}
       data:
         Graph:
           rid: 7545617984089227517
         Self:
-          rid: 7545617985846902923
+          rid: 7545617987382280762
         Interacting:
-          rid: 7545617985846902924
-    - rid: 7545617985846902916
+          rid: 7545617987382280583
+    - rid: 7545617987382280755
       type: {class: WaitRangeAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -290,12 +390,12 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902912
+          rid: 7545617987382280751
         Min:
-          rid: 7545617985846902925
+          rid: 7545617987382280763
         Max:
-          rid: 7545617985846902926
-    - rid: 7545617985846902917
+          rid: 7545617987382280764
+    - rid: 7545617987382280756
       type: {class: AbortModifier, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -304,13 +404,13 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902912
+          rid: 7545617987382280751
         m_Child:
-          rid: 7545617985846902927
+          rid: 7545617987382280765
         m_Conditions:
-        - rid: 7545617985846902928
+        - rid: 7545617987382280766
         m_RequiresAllConditions: 0
-    - rid: 7545617985846902918
+    - rid: 7545617987382280757
       type: {class: NavigateToTargetAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -319,22 +419,22 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902913
+          rid: 7545617987382280752
         Agent:
-          rid: 7545617985846902855
+          rid: 7545617987382280469
         Target:
-          rid: 7545617985846902929
+          rid: 7545617987382280767
         Speed:
-          rid: 7545617985846902857
+          rid: 7545617987382280471
         DistanceThreshold:
-          rid: 7545617985846902930
+          rid: 7545617987382280587
         AnimatorSpeedParam:
-          rid: 7545617985846902931
+          rid: 7545617987382280588
         SlowDownDistance:
-          rid: 7545617985846902932
+          rid: 7545617987382280589
         m_TargetPositionMode:
-          rid: 7545617985846902933
-    - rid: 7545617985846902919
+          rid: 7545617987382280590
+    - rid: 7545617987382280758
       type: {class: RandomComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -343,11 +443,11 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902913
+          rid: 7545617987382280752
         m_Children:
-        - rid: 7545617985846902934
-        - rid: 7545617985846902935
-    - rid: 7545617985846902920
+        - rid: 7545617987382280768
+        - rid: 7545617987382280769
+    - rid: 7545617987382280759
       type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -356,12 +456,12 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902914
+          rid: 7545617987382280753
         Variable:
-          rid: 7545617985846902856
+          rid: 7545617987382280470
         Value:
-          rid: 7545617985846902936
-    - rid: 7545617985846902921
+          rid: 7545617987382280593
+    - rid: 7545617987382280760
       type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -370,12 +470,12 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902914
+          rid: 7545617987382280753
         Variable:
-          rid: 7545617985846902856
+          rid: 7545617987382280470
         Value:
-          rid: 7545617985846902937
-    - rid: 7545617985846902922
+          rid: 7545617987382280594
+    - rid: 7545617987382280761
       type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -384,12 +484,12 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902914
+          rid: 7545617987382280753
         Variable:
-          rid: 7545617985846902856
+          rid: 7545617987382280470
         Value:
-          rid: 7545617985846902938
-    - rid: 7545617985846902923
+          rid: 7545617987382280595
+    - rid: 7545617987382280762
       type: {class: 'GameObjectToComponentBlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -398,16 +498,8 @@ MonoBehaviour:
         Name: 
         m_Value: {fileID: 0}
         m_LinkedVariable:
-          rid: 7545617985846902855
-    - rid: 7545617985846902924
-      type: {class: 'BlackboardVariable`1[[InteractState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 1
-    - rid: 7545617985846902925
+          rid: 7545617987382280469
+    - rid: 7545617987382280763
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -415,7 +507,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 1
-    - rid: 7545617985846902926
+    - rid: 7545617987382280764
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -423,29 +515,30 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 3
-    - rid: 7545617985846902927
-      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 7545617987382280765
+      type: {class: TimeOutModifier, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 72623324908236078
-          m_Value1: 13252565314957646368
+          m_Value0: 12902135620800287225
+          m_Value1: 7143296591588393084
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902917
-        m_Children:
-        - rid: 7545617985846902939
-        - rid: 7545617985846902940
-    - rid: 7545617985846902928
+          rid: 7545617987382280756
+        m_Child:
+          rid: 7545617987382280770
+        Duration:
+          rid: 7545617987382280771
+    - rid: 7545617987382280766
       type: {class: CheckInteractState, ns: , asm: Assembly-CSharp}
       data:
         Graph:
           rid: 7545617984089227517
         Self:
-          rid: 7545617985846902941
+          rid: 7545617987382280772
         Interacting:
-          rid: 7545617985846902942
-    - rid: 7545617985846902929
+          rid: 7545617987382280773
+    - rid: 7545617987382280767
       type: {class: 'ComponentToGameObjectBlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -454,40 +547,8 @@ MonoBehaviour:
         Name: 
         m_Value: {fileID: 0}
         m_LinkedVariable:
-          rid: 7545617985846902859
-    - rid: 7545617985846902930
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 0.2
-    - rid: 7545617985846902931
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: SpeedMagnitude
-    - rid: 7545617985846902932
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 1
-    - rid: 7545617985846902933
-      type: {class: 'BlackboardVariable`1[[Unity.Behavior.NavigateToTargetAction/TargetPositionMode, Unity.Behavior]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 0
-    - rid: 7545617985846902934
+          rid: 7545617987382280473
+    - rid: 7545617987382280768
       type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -496,12 +557,12 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902919
+          rid: 7545617987382280758
         Variable:
-          rid: 7545617985846902856
+          rid: 7545617987382280470
         Value:
-          rid: 7545617985846902943
-    - rid: 7545617985846902935
+          rid: 7545617987382280600
+    - rid: 7545617987382280769
       type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -510,64 +571,33 @@ MonoBehaviour:
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902919
+          rid: 7545617987382280758
         Variable:
-          rid: 7545617985846902856
+          rid: 7545617987382280470
         Value:
-          rid: 7545617985846902944
-    - rid: 7545617985846902936
-      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 0
-    - rid: 7545617985846902937
-      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 1
-    - rid: 7545617985846902938
-      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 2
-    - rid: 7545617985846902939
-      type: {class: NavigateMoveAction, ns: , asm: Assembly-CSharp}
+          rid: 7545617987382280601
+    - rid: 7545617987382280770
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 6905235759360304351
-          m_Value1: 8658272018082142730
+          m_Value0: 72623324908236078
+          m_Value1: 13252565314957646368
         Graph:
           rid: 7545617984089227517
         m_Parent:
-          rid: 7545617985846902927
-        Self:
-          rid: 7545617985846902855
-        MovePos:
-          rid: 7545617985846902858
-        Speed:
-          rid: 7545617985846902857
-    - rid: 7545617985846902940
-      type: {class: WaitAction, ns: Unity.Behavior, asm: Unity.Behavior}
+          rid: 7545617987382280765
+        m_Children:
+        - rid: 7545617987382280774
+        - rid: 7545617987382280775
+    - rid: 7545617987382280771
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
-        ID:
-          m_Value0: 2925282681200998337
-          m_Value1: 2860288981584103806
-        Graph:
-          rid: 7545617984089227517
-        m_Parent:
-          rid: 7545617985846902927
-        SecondsToWait:
-          rid: 7545617985846902945
-    - rid: 7545617985846902941
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 3
+    - rid: 7545617987382280772
       type: {class: 'GameObjectToComponentBlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -576,8 +606,8 @@ MonoBehaviour:
         Name: 
         m_Value: {fileID: 0}
         m_LinkedVariable:
-          rid: 7545617985846902855
-    - rid: 7545617985846902942
+          rid: 7545617987382280469
+    - rid: 7545617987382280773
       type: {class: 'BlackboardVariable`1[[InteractState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -585,30 +615,36 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 1
-    - rid: 7545617985846902943
-      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 7545617987382280774
+      type: {class: SetMovePosInArea, ns: , asm: Assembly-CSharp}
       data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 0
-    - rid: 7545617985846902944
-      type: {class: 'BlackboardVariable`1[[AIState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+        ID:
+          m_Value0: 6690375267457172422
+          m_Value1: 10596610416805451968
+        Graph:
+          rid: 7545617984089227517
+        m_Parent:
+          rid: 7545617987382280770
+        MovePos:
+          rid: 7545617987382280472
+        Area:
+          rid: 7545617987382280474
+    - rid: 7545617987382280775
+      type: {class: NavigateMoveAction, ns: , asm: Assembly-CSharp}
       data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 2
-    - rid: 7545617985846902945
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 3
+        ID:
+          m_Value0: 6905235759360304351
+          m_Value1: 8658272018082142730
+        Graph:
+          rid: 7545617984089227517
+        m_Parent:
+          rid: 7545617987382280770
+        Self:
+          rid: 7545617987382280469
+        MovePos:
+          rid: 7545617987382280472
+        Speed:
+          rid: 7545617987382280471
 --- !u!114 &-3101960247690498368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,15 +689,15 @@ MonoBehaviour:
   - rid: 7545617984089227823
   - rid: 7545617984089227883
   - rid: 7545617984089227916
-  - rid: 7545617984089228015
   - rid: 7545617984089228028
   - rid: 7545617984089228053
   - rid: 7545617984089228066
   - rid: 7545617984089228067
   - rid: 7545617984089228111
   - rid: 7545617984089228285
-  - rid: 7545617985846902903
-  m_VersionTimestamp: 638972513608898943
+  - rid: 7545617987382280381
+  - rid: 7545617987382280606
+  m_VersionTimestamp: 638972593986949349
   m_SerializedVersion: 1
   m_DebugInfo: {fileID: -3101960247690498368}
   m_RuntimeGraph: {fileID: -6016954459009838267}
@@ -807,21 +843,6 @@ MonoBehaviour:
     Variables: []
     NamedChildren: []
     IsPlaceholder: 0
-  - Name: Wait (Seconds)
-    Story: Wait for [SecondsToWait] seconds
-    RuntimeTypeString: Unity.Behavior.WaitAction, Unity.Behavior, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    RuntimeTypeID:
-      m_Value0: 7729581452106168333
-      m_Value1: 8820302366443624372
-    Variables:
-    - Name: SecondsToWait
-      Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      Tooltip: 
-    NamedChildren: []
-    IsPlaceholder: 0
   - Name: Navigate To Target
     Story: '[Agent] navigates to [Target]'
     RuntimeTypeString: Unity.Behavior.NavigateToTargetAction, Unity.Behavior, Version=0.0.0.0,
@@ -867,18 +888,38 @@ MonoBehaviour:
       Tooltip: 
     NamedChildren: []
     IsPlaceholder: 0
-  - Name: StopMovement
-    Story: '[Self] StopMove'
-    RuntimeTypeString: StopMovementAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Name: SetMovePosInArea
+    Story: 'Set [MovePos] in [Area]'
+    RuntimeTypeString: SetMovePosInArea, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RuntimeTypeID:
-      m_Value0: 13954398875901829933
-      m_Value1: 15516152144597727983
+      m_Value0: 4303276979510706292
+      m_Value1: 6099674197215322490
     Variables:
-    - Name: Self
+    - Name: MovePos
       Type:
-        m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+        m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Area
+      Type:
+        m_SerializableType: WanderArea, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+    IsPlaceholder: 0
+  - Name: Time Out
+    Story: Time out after [Duration] seconds
+    RuntimeTypeString: Unity.Behavior.TimeOutModifier, Unity.Behavior, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    RuntimeTypeID:
+      m_Value0: 4725243088229644710
+      m_Value1: 8959865044334223964
+    Variables:
+    - Name: Duration
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
       Tooltip: 
     NamedChildren: []
     IsPlaceholder: 0
@@ -1459,8 +1500,8 @@ MonoBehaviour:
         m_NodeModel:
           rid: 7545617984089227734
         m_Connections:
-        - rid: 7545617984089227662
         - rid: 7545617984089227611
+        - rid: 7545617984089227662
     - rid: 7545617984089227793
       type: {class: CompositeNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -1833,7 +1874,7 @@ MonoBehaviour:
         m_NodeModel:
           rid: 7545617984089227916
         m_Connections:
-        - rid: 7545617984089228029
+        - rid: 7545617987382280607
     - rid: 7545617984089227975
       type: {class: ConditionModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -1898,67 +1939,10 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 7545617984089228015
-      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        Position: {x: 25.28441, y: 368.52228}
-        ID:
-          m_Value0: 2925282681200998337
-          m_Value1: 2860288981584103806
-        Parents:
-        - rid: 7545617984089228028
-        PortModels:
-        - rid: 7545617984089228016
-        - rid: 7545617984089228017
-        NodeType:
-          m_SerializableType: Unity.Behavior.WaitAction, Unity.Behavior, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        NodeTypeID:
-          m_Value0: 7729581452106168333
-          m_Value1: 8820302366443624372
-        m_FieldValues:
-        - rid: 7545617984089228018
-    - rid: 7545617984089228016
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: InputPort
-        m_PortDataFlowType: 0
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 7545617984089228015
-        m_Connections: []
-    - rid: 7545617984089228017
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: OutputPort
-        m_PortDataFlowType: 1
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 7545617984089228015
-        m_Connections: []
-    - rid: 7545617984089228018
-      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        FieldName: SecondsToWait
-        Type:
-          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-            PublicKeyToken=b77a5c561934e089
-        LocalValue:
-          rid: 7545617984089228019
-        LinkedVariable:
-          rid: -2
-    - rid: 7545617984089228019
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 3
     - rid: 7545617984089228028
       type: {class: SequenceNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
-        Position: {x: 466.08307, y: 58.85182}
+        Position: {x: 434.72302, y: 178.53181}
         ID:
           m_Value0: 72623324908236078
           m_Value1: 13252565314957646368
@@ -1967,8 +1951,8 @@ MonoBehaviour:
         - rid: 7545617984089228029
         - rid: 7545617984089228030
         Nodes:
+        - rid: 7545617987382280381
         - rid: 7545617984089227883
-        - rid: 7545617984089228015
     - rid: 7545617984089228029
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -1978,7 +1962,7 @@ MonoBehaviour:
         m_NodeModel:
           rid: 7545617984089228028
         m_Connections:
-        - rid: 7545617984089227918
+        - rid: 7545617987382280608
     - rid: 7545617984089228030
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -2477,72 +2461,161 @@ MonoBehaviour:
         IsExposed: 0
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 7545617985846902903
+    - rid: 7545617987382280381
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -413.5583, y: -485.3087}
+        Position: {x: 449.07474, y: 50.83505}
         ID:
-          m_Value0: 10838054050267038809
-          m_Value1: 4582160421759098602
-        Parents: []
+          m_Value0: 6690375267457172422
+          m_Value1: 10596610416805451968
+        Parents:
+        - rid: 7545617984089228028
         PortModels:
-        - rid: 7545617985846902904
-        - rid: 7545617985846902905
+        - rid: 7545617987382280382
+        - rid: 7545617987382280383
         NodeType:
-          m_SerializableType: StopMovementAction, Assembly-CSharp, Version=0.0.0.0,
+          m_SerializableType: SetMovePosInArea, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         NodeTypeID:
-          m_Value0: 13954398875901829933
-          m_Value1: 15516152144597727983
+          m_Value0: 4303276979510706292
+          m_Value1: 6099674197215322490
         m_FieldValues:
-        - rid: 7545617985846902906
-    - rid: 7545617985846902904
+        - rid: 7545617987382280384
+        - rid: 7545617987382280385
+    - rid: 7545617987382280382
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: InputPort
         m_PortDataFlowType: 0
         m_IsFloating: 0
         m_NodeModel:
-          rid: 7545617985846902903
+          rid: 7545617987382280381
         m_Connections: []
-    - rid: 7545617985846902905
+    - rid: 7545617987382280383
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: OutputPort
         m_PortDataFlowType: 1
         m_IsFloating: 0
         m_NodeModel:
-          rid: 7545617985846902903
+          rid: 7545617987382280381
         m_Connections: []
-    - rid: 7545617985846902906
+    - rid: 7545617987382280384
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        FieldName: Self
+        FieldName: MovePos
         Type:
-          m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         LocalValue:
-          rid: 7545617985846902907
+          rid: 7545617987382280386
         LinkedVariable:
-          rid: 7545617985846902908
-    - rid: 7545617985846902907
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+          rid: 7545617987382280387
+    - rid: 7545617987382280385
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Area
+        Type:
+          m_SerializableType: WanderArea, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        LocalValue:
+          rid: 7545617987382280388
+        LinkedVariable:
+          rid: 7545617987382280466
+    - rid: 7545617987382280386
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {x: 0, y: 0, z: 0}
+    - rid: 7545617987382280387
+      type: {class: 'TypedVariableModel`1[[UnityEngine.Vector3, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 4661663359775357855
+          m_Value1: 1310939031304088710
+        Name: MovePos
+        IsExposed: 0
+        m_IsShared: 0
+        m_Value: {x: 0, y: 0, z: 0}
+    - rid: 7545617987382280388
+      type: {class: 'BlackboardVariable`1[[WanderArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
           m_Value0: 0
           m_Value1: 0
         Name: 
         m_Value: {fileID: 0}
-    - rid: 7545617985846902908
-      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+    - rid: 7545617987382280466
+      type: {class: 'TypedVariableModel`1[[WanderArea, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
+          m_Value0: 2026577081287194767
+          m_Value1: 13126193906414896613
+        Name: Area
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
+    - rid: 7545617987382280606
+      type: {class: ModifierNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: 430.41357, y: 51.395462}
+        ID:
+          m_Value0: 12902135620800287225
+          m_Value1: 7143296591588393084
+        Parents: []
+        PortModels:
+        - rid: 7545617987382280607
+        - rid: 7545617987382280608
+        NodeType:
+          m_SerializableType: Unity.Behavior.TimeOutModifier, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 4725243088229644710
+          m_Value1: 8959865044334223964
+        m_FieldValues:
+        - rid: 7545617987382280634
+    - rid: 7545617987382280607
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 7545617987382280606
+        m_Connections:
+        - rid: 7545617984089227918
+    - rid: 7545617987382280608
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 7545617987382280606
+        m_Connections:
+        - rid: 7545617984089228029
+    - rid: 7545617987382280634
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Duration
+        Type:
+          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 7545617987382280635
+        LinkedVariable:
+          rid: -2
+    - rid: 7545617987382280635
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 3
 --- !u!114 &1697443115780595665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2555,7 +2628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: InteractAnimal Blackboard
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638972511716128299
+  VersionTimestamp: 638972591111371549
   AssetID:
     m_Value0: 2608796150118355164
     m_Value1: 6932238473913863355
@@ -2566,6 +2639,7 @@ MonoBehaviour:
     - rid: 7545617984089227582
     - rid: 7545617984089227872
     - rid: 7545617984089228262
+    - rid: 7545617987382280321
   m_SharedBlackboardVariableGuids: []
   references:
     version: 2
@@ -2609,4 +2683,12 @@ MonoBehaviour:
           m_Value0: 636858122030594047
           m_Value1: 13039167646627305691
         Name: NULL
+        m_Value: {fileID: 0}
+    - rid: 7545617987382280321
+      type: {class: 'BlackboardVariable`1[[WanderArea, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2026577081287194767
+          m_Value1: 13126193906414896613
+        Name: Area
         m_Value: {fileID: 0}

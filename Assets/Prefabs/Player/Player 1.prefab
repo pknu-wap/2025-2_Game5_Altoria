@@ -238,10 +238,11 @@ GameObject:
   - component: {fileID: 6990342168470802063}
   - component: {fileID: 3852071802707214573}
   - component: {fileID: 5595162942121503360}
+  - component: {fileID: 3091465839570679349}
   - component: {fileID: 3893796398693538805}
   - component: {fileID: 4472381095750347585}
+  - component: {fileID: 6697372245329851398}
   - component: {fileID: 5401362384640874912}
-  - component: {fileID: 3091465839570679349}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -303,6 +304,28 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!195 &3091465839570679349
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8062884451884329150}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0.95
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &3893796398693538805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +360,24 @@ MonoBehaviour:
   jumpHeight: 3
   gravity: -19.62
   modelTransform: {fileID: 937644298799092754}
+--- !u!114 &6697372245329851398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8062884451884329150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cafb35eb41b1cd4ab13e1475aa65ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRadius: 1.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  interactCount: 5
+  drawGizmo: 1
 --- !u!114 &5401362384640874912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,28 +391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6621138424599072360}
---- !u!195 &3091465839570679349
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8062884451884329150}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1001 &4381818147950724284
 PrefabInstance:
   m_ObjectHideFlags: 0

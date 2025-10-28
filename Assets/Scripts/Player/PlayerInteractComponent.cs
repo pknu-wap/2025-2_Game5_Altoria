@@ -30,11 +30,6 @@ public class PlayerInteractComponent : MonoBehaviour
 
         currentTarget = FindClosestInteractable();
         interactSystem.UpdateTarget(currentTarget);
-
-        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            interactSystem.TryInteract();
-        }
     }
 
     IInteractable FindClosestInteractable()
@@ -66,6 +61,7 @@ public class PlayerInteractComponent : MonoBehaviour
         return closest;
     }
 
+    public void TryInteract() => interactSystem.TryInteract();
 
 #if UNITY_EDITOR
     [SerializeField] bool drawGizmo = true;
