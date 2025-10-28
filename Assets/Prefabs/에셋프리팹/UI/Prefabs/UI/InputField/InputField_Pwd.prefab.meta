@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d08481483aaba854c890720736a24f94
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/UI/InputField/InputField_Pwd.prefab
+  uploadId: 740277

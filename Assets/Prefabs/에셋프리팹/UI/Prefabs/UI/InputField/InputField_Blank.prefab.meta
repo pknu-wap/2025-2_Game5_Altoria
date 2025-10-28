@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3766da3ae1b1cd341be3f14dacd8f1a2
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/UI/InputField/InputField_Blank.prefab
+  uploadId: 740277

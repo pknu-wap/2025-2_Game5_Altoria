@@ -23,8 +23,6 @@ public class PlayerController : BaseEntityComponent
         movement = GetComponent<PlayerMovement>();
         interact = GetComponent<PlayerInteractComponent>();
         groundChecker = GetComponent<GroundChecker>();
-
-       
     }
 
     void OnEnable()
@@ -107,15 +105,15 @@ public class PlayerController : BaseEntityComponent
         interact.TryInteract();
         State.SetState(PlayerState.Interacting);
     }
-    void OnInteract(int type)
+    void OnInteract(int interactType)
     {
         if (State.CurrentState == PlayerState.Die)
             return;
 
-        if (animator.GetInteger("InteractType") != type)
-            animator.SetInteger("InteractType", type);
+        if (animator.GetInteger("InteractType") != interactType)
+            animator.SetInteger("InteractType", interactType);
 
-        if (type == 0)
+        if (interactType == 0)
         {
             animator.SetBool("IsInteract", false);
             State.SetState(PlayerState.Idle);

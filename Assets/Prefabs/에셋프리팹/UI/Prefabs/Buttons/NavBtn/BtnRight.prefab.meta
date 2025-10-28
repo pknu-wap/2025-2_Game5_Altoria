@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 92b74fab3a23faa418def119eaee7bf9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Buttons/NavBtn/BtnRight.prefab
+  uploadId: 740277
