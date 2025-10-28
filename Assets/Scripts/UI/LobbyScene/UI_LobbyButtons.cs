@@ -22,12 +22,13 @@ namespace GameUI
         public void OnClickStartButton()
         {
             GameSystem.Init();
+
             Manager.Scene.LoadScene(Define.SceneType.TestMap);
         }
 
         public void OnClickSettingButton()
         {
-            Manager.UI.ShowPopup<TestSettingPopUp>();
+            Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
         }
         public void OnClickExitButton()
         {

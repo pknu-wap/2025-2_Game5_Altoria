@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static Define;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace GameInteract
 {
@@ -38,6 +39,15 @@ namespace GameInteract
 
             EndInteract();
         }
-    }
 
+        public void SetObjectID(string id)
+        {
+            objectID = id;
+        }
+
+        public void SetCollectType(Content type)
+        {
+            collectType = type;
+        }
+    }
 }
