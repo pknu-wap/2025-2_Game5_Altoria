@@ -427,8 +427,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4227611891128812390, guid: 81c3e640da93ff644973aab33c31cd34, type: 3}
-      propertyPath: managedReferences[7433452414185242701].m_Value
+    - target: {fileID: 6140680891443235471, guid: 81c3e640da93ff644973aab33c31cd34, type: 3}
+      propertyPath: managedReferences[7433452421129699413].m_Value
       value: 
       objectReference: {fileID: 1488785058}
     m_RemovedComponents: []
@@ -1054,6 +1054,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 4625813844040050705, guid: 1e7d51ab524c3994cbac18c3c28c548a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554344389836382273, guid: 1e7d51ab524c3994cbac18c3c28c548a, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 1d4dd4fb8cc98614883ecfaffffb988f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
