@@ -6,42 +6,25 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class LifeData
+public class LifeDataDictionary
 {
-    public int Level;
-    public int Exp;
-
-    public LifeData()
-    {
-        Level = 1;
-        Exp = 0;
-    }
-
-    public LifeData(int level, int exp)
-    {
-        this.Level = level;
-        this.Exp = exp;
-    }
+    public SerializableDictionary<Type, LifeStatData> LifeData;
 }
 
-[Serializable]
-public class WrapperUserLifeData
-{
-    public List<LifeData> userLifeData;
-}
 
 public class UserLifeData : Security, IUserData
 {
     string path = Path.Combine(Application.dataPath, "lifeData.json");
-    List<LifeData> userLifeData;
+    
+    Dictionary<Type, LifeStatData> userLifeDataDic;
 
     public void SetDefaultData()
     {
-        userLifeData = new List<LifeData>()
+        userLifeDataDic = new ()
         {
-            (new ()),
-            (new ()),
-            (new ())
+            { typeof(CollectInteractComponent), new ()},
+            { typeof(UpgradeInteractComponent), new ()},
+            { typeof(TotalLife), new ()}
         };
     }
 
@@ -58,9 +41,9 @@ public class UserLifeData : Security, IUserData
             else // Load
             {
                 string loadJson = File.ReadAllText(path);
-                var wrapperUserLifeData = JsonUtility.FromJson<WrapperUserLifeData>(loadJson);
-                // var wrapperUserLifeData = JsonUtility.FromJson<WrapperUserLifeData>(Decrypt(loadJson, KEY));
-                userLifeData = wrapperUserLifeData.userLifeData;
+                var loadData = JsonUtility.FromJson<LifeDataDictionary>(loadJson);
+                // var loadData = JsonUtility.FromJson<LifeDataDictionary>(Decrypt(loadJson, KEY));
+                userLifeDataDic = loadData.LifeData.ToDictionary();
             }
 
             result = true;
@@ -77,20 +60,10 @@ public class UserLifeData : Security, IUserData
     {
         bool result = false;
 
-        var lifeStatList = GameSystem.Life.GetLifeStats();
-        List<Type> keys = new List<Type>(lifeStatList.Keys);
-
-        userLifeData.Clear();
-        for (int i = 0; i < lifeStatList.Count; i++)
-        {
-            userLifeData.Add(new LifeData(lifeStatList[keys[i]].GetLevel(), lifeStatList[keys[i]].GetEXP()));
-        }
-
         try
         {
-            var wrapperUserLifeData = new WrapperUserLifeData();
-            wrapperUserLifeData.userLifeData = userLifeData;
-            string jsonData = JsonUtility.ToJson(wrapperUserLifeData);
+            var saveData = new LifeDataDictionary { LifeData = new (userLifeDataDic) };
+            string jsonData = JsonUtility.ToJson(saveData, true);
             File.WriteAllText(path, jsonData);
             //File.WriteAllText(path, Encrypt(jsonData, KEY));
 
@@ -104,5 +77,5 @@ public class UserLifeData : Security, IUserData
         return result;
     }
 
-    public List<LifeData> GetUserLifeData() => userLifeData;
+    public Dictionary<Type, LifeStatData> GetUserLifeData() => userLifeDataDic;
 }

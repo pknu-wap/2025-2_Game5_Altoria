@@ -65,8 +65,7 @@ public class UserToolData : Security, IUserData
 
         try
         {
-
-            var saveData = new ToolsDataDictionary { ToolsData = new SerializableDictionary<string, int>(userToolsDataDic) };
+            var saveData = new ToolsDataDictionary { ToolsData = new (userToolsDataDic) };
             string jsonData = JsonUtility.ToJson(saveData, true);
             File.WriteAllText(path, jsonData);
             //File.WriteAllText(path, Encrypt(jsonData, KEY));

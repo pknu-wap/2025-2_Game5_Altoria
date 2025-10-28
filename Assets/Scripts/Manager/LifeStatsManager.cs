@@ -12,6 +12,8 @@ public class LifeStatData
 
     readonly List<int> levelThresholds = CsvLoader.LoadCsv<int>($"{Application.dataPath}/CSV/LevelThresholds.csv");
 
+    public LifeStatData() { }
+
     public LifeStatData(int level, int exp)
     {
         this.level = level;
@@ -41,7 +43,7 @@ public class TotalLife { }
 
 public class LifeStatsManager
 {
-    Dictionary<Type, LifeStatData> lifeStats = new ();
+    Dictionary<Type, LifeStatData> lifeStats;
     readonly Dictionary<Type, float> weights = new ()
     {
         { typeof(CollectInteractComponent), 0.7f },
@@ -55,10 +57,7 @@ public class LifeStatsManager
 
     void SetData()
     {
-        var lifeDataList = Manager.UserData.GetUserData<UserLifeData>().GetUserLifeData();
-        lifeStats[typeof(CollectInteractComponent)] = new LifeStatData(lifeDataList[0].Level, lifeDataList[0].Exp);
-        lifeStats[typeof(UpgradeInteractComponent)] = new LifeStatData(lifeDataList[1].Level, lifeDataList[1].Exp);
-        lifeStats[typeof(TotalLife)] = new LifeStatData(lifeDataList[2].Level, lifeDataList[2].Exp);
+        lifeStats = Manager.UserData.GetUserData<UserLifeData>().GetUserLifeData();
     }
 
     public void AddExp<T>(int amount)
