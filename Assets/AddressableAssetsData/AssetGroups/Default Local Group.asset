@@ -2170,6 +2170,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b3a02e2297ba0147a264df4e655f9d2
+    m_Address: FishDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b4d1d7ab0f4d4f49b8ba8c2f489375e
     m_Address: PP_Crystal_Single_10_Blue
     m_ReadOnly: 0
@@ -3577,6 +3582,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7efd8bd8dbd85204ba79d5b2811e9cd1
     m_Address: PP_Mountain_Cave_02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f41866f78a349b4fbaf2beca6a250d6
+    m_Address: CraftDatabase
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -5227,6 +5237,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b49e4cee8b6922640ac28b21808b5903
     m_Address: PP_Dagger_04
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4d4fb400c816da4ab58ed612079f742
+    m_Address: GradeDatabase
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -7015,6 +7030,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f546d854122c5934295cc3b3f21b1f0d
+    m_Address: ItemDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5939b15d24537541944062a85553c09
     m_Address: PP_Stone_Crystal_06_Silver
     m_ReadOnly: 0
@@ -7312,6 +7332,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe997fd383f1dd3469148d8b2e3b901a
     m_Address: PP_Rail_Curved_05
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: febe2473a1fa26c468ffdc920e4d65cd
+    m_Address: CollectDatabase
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

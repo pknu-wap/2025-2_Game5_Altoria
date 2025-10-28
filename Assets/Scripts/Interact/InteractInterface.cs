@@ -6,6 +6,7 @@ namespace GameInteract
 {
     public interface IInteractable
     {
+        bool IsInteract { get; }
         bool CanInteract { get; }
         void EnterInteract();
         void ExitInteract();
