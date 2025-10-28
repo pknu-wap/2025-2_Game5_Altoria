@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5389548e06b86a043b3649e0edce3590
+timeCreated: 1502127848
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/UI/UI_Button.prefab
+  uploadId: 779737

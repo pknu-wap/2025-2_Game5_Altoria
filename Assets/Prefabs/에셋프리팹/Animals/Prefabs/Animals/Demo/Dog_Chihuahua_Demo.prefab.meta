@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 881f7b647f892402cb194d72891c6b78
+timeCreated: 1569529087
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/Animals/Demo/Dog_Chihuahua_Demo.prefab
+  uploadId: 779737
