@@ -17,21 +17,14 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
     const float doubleClickThreshold = 0.25f;
 
     [SerializeField] TextMeshProUGUI equippedText;
-    [SerializeField] TextMeshProUGUI itemNameText;
+    [SerializeField] TextMeshProUGUI itemNameText; //hover하면 나타나는 작은창의 텍스트
     [SerializeField] GameObject description; //hover하면 나타나는 작은창
-    [SerializeField] Button deleteButton;
+    [SerializeField] Button deleteButton; //hover하면 나타나는 작은창의 버리기 버튼
     [SerializeField] GameObject deletePopUp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        /*
-        deletePopUp = GameObject.Find("ItemDeletePopUp");
-        if (deletePopUp != null)
-            deleteButton.onClick.AddListener(() => deletePopUp.SetActive(true));
-        else
-            Debug.Log("????????");
-        */
     }
 
     public void Initialize(string id, int count)
@@ -46,7 +39,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
             Debug.LogWarning($"[InventoryItemSlot] : ID {id} 에 해당하는 아이템 데이터를 찾을 수 없음");
             return;
         }
-        SetSlot(inventory.Item.SpriteAddress, count);  // 인자 다시 검토
+        SetSlot(inventory.Item.SpriteAddress, count, inventory.Item.ItemGrade);  // 인자 다시 검토
         equippedText.gameObject.SetActive(inventory.IsEquipped);
         //추가 커스터마이징
     }

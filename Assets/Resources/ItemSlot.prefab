@@ -344,4 +344,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d3030db33909acd49a206ee7846e04fd, type: 3}
   - {fileID: 21300000, guid: e0fafc6c52363d04c8cb58f632f6b374, type: 3}
   - {fileID: 21300000, guid: 4ab291378de14ce4193ef70edff0e2dd, type: 3}
+  itemBorder: {fileID: 7704228155534376239}
   itemCount: {fileID: 9050749195574925979}

@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     [SerializeField] Image itemImage;
-    [SerializeField] Sprite[] itemBorders; 
+    [SerializeField] Sprite[] itemBorders;
+    [SerializeField] Image itemBorder;
     [SerializeField] TextMeshProUGUI itemCount;
 
-    // 등급 테두리 표시해야해서 인자로 itemGrade 추가하는거 어때? 띄울 정보가 이미지,테두리,갯수 세개임 
-    public void SetSlot(string item, int count) //변수명 item에서 spriteAddress로 바꾸는거 어떰? 헷갈림 
+    public void SetSlot(string spriteAddress, int count, int grade = 0)
     {
-        //itemImage.sprite = item;
-        //itemBorder.sprite = itemBorders[itemGrade]; 
+        //itemImage.sprite = spriteAddress;
+        itemBorder.sprite = itemBorders[grade]; 
         itemCount.text = count.ToString();  
     }
 }

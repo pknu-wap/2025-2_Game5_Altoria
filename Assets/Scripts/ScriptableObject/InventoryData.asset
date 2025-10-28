@@ -45,12 +45,12 @@ MonoBehaviour:
     IsEquipped: 0
     Count: 9
   - Item:
-      ID: 
-      Name: 
+      ID: 232323
+      Name: "\uBC8C\uB808\uD30C\uBA39\uC740\uC0AC\uACFC"
       SpriteAddress: 
-      Type: 4
+      Type: 3
       SellCost: 0
-      ItemGrade: 5
+      ItemGrade: 0
       Description: 
     IsEquipped: 0
     Count: 51
@@ -60,7 +60,7 @@ MonoBehaviour:
       SpriteAddress: 
       Type: 5
       SellCost: 0
-      ItemGrade: 5
+      ItemGrade: 4
       Description: 
     IsEquipped: 0
     Count: 321
@@ -70,18 +70,68 @@ MonoBehaviour:
       SpriteAddress: 
       Type: 2
       SellCost: 0
-      ItemGrade: 4
+      ItemGrade: 3
       Description: 
     IsEquipped: 0
     Count: 11
   - Item:
       ID: 555555
-      Name: "\u3157\u3157"
+      Name: "\uC1E0\uACE1\uAD2D\uC774"
+      SpriteAddress: 
+      Type: 2
+      SellCost: 0
+      ItemGrade: 2
+      Description: 
+    IsEquipped: 0
+    Count: 205
+  - Item:
+      ID: 2323223
+      Name: "\uB2E4\uC774\uC544 \uACE1\uAD2D\uC774"
+      SpriteAddress: 
+      Type: 2
+      SellCost: 0
+      ItemGrade: 3
+      Description: 
+    IsEquipped: 0
+    Count: 1
+  - Item:
+      ID: 634232
+      Name: "\uB808\uC804\uB4DC\uAC13\uACE1\uAD2D\uC774"
+      SpriteAddress: 
+      Type: 2
+      SellCost: 0
+      ItemGrade: 4
+      Description: 
+    IsEquipped: 0
+    Count: 2
+  - Item:
+      ID: 634232
+      Name: "\uB625"
+      SpriteAddress: 
+      Type: 3
+      SellCost: 0
+      ItemGrade: 0
+      Description: 
+    IsEquipped: 0
+    Count: 222
+  - Item:
+      ID: 634232
+      Name: "\uADF9\uC131\uBE44"
+      SpriteAddress: 
+      Type: 3
+      SellCost: 0
+      ItemGrade: 4
+      Description: 
+    IsEquipped: 0
+    Count: 22
+  - Item:
+      ID: 23211
+      Name: "\uC720\uACE8"
       SpriteAddress: 
       Type: 1
       SellCost: 0
       ItemGrade: 2
       Description: 
     IsEquipped: 1
-    Count: 205
+    Count: 32
   maxSlotCount: 30

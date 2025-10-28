@@ -60,7 +60,7 @@ public class ItemDeletePopUp : UIPopUp
 
         if (data != null)
         {
-            itemIcon.SetSlot(data.Item.SpriteAddress, count);  // 아이템 이미지, 테두리, 개수 설정.현재는 개수만됨
+            itemIcon.SetSlot(data.Item.SpriteAddress, count, data.Item.ItemGrade);  // 아이템 이미지, 테두리, 개수 설정.현재는 개수만됨
             itemNameText.text = data.Item.Name;
         }
     }
