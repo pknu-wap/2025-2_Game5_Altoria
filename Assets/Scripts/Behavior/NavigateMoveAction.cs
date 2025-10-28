@@ -42,6 +42,7 @@ public partial class NavigateMoveAction : Action
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
                 agent.isStopped = true;
+                agent.ResetPath();
                 return Status.Success;
             }
         }

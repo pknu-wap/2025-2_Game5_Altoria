@@ -49,5 +49,9 @@ public class PlayerInputHandler : MonoBehaviour
      void OnMoveCanceledPerformed(InputAction.CallbackContext ctx) => OnMoveCanceled?.Invoke();
      void OnJumpPerformed(InputAction.CallbackContext ctx) => OnJump?.Invoke();
      void OnAttackPerformed(InputAction.CallbackContext ctx) => OnAttack?.Invoke();
-     void OnInteractPerformed(InputAction.CallbackContext ctx) => OnInteract?.Invoke();
+     void OnInteractPerformed(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Interact");
+          OnInteract?.Invoke();
+    }    
 }

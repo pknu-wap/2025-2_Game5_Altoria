@@ -6,15 +6,17 @@ using UnityEngine;
 public class PlayerController : BaseEntityComponent
 {
     [SerializeField] Animator animator;
+   
      PlayerInputHandler input;
      PlayerMovement movement;
-  
+    PlayerInteractComponent interact;
     bool isDead = false;
 
     void Awake()
     {
         input = GetComponent<PlayerInputHandler>();
         movement = GetComponent<PlayerMovement>();
+        interact=GetComponent<PlayerInteractComponent>();   
         GetComponent<GroundChecker>().OnGroundedChanged += OnGround;
     }
 
@@ -29,14 +31,17 @@ public class PlayerController : BaseEntityComponent
     {
         input.OnMove += HandleMove;
         input.OnMoveCanceled += HandleMoveCanceled;
+        input.OnInteract += HandleInteract;
         input.OnJump += HandleJump;
     }
 
+ 
     void UnbindInputEvents()
     {
         input.OnMove -= HandleMove;
         input.OnMoveCanceled -= HandleMoveCanceled;
         input.OnJump -= HandleJump;
+        input.OnInteract-= HandleInteract; 
     }
 
      void HandleMove(Vector2 inputDir)
@@ -60,9 +65,15 @@ public class PlayerController : BaseEntityComponent
     }
     void OnGround(bool ground)
     {
-        Debug.Log("ground");
         animator.SetBool("IsGround",ground);
     }
+    void HandleInteract()
+    {
+        Debug.Log("Interact");
+        interact.TryInteract();
+    }
+
+ 
     public void Die()
     {
         isDead = true;
