@@ -19,7 +19,6 @@ public class PlayerInteractComponent : MonoBehaviour
     Collider[] hitBuffer;
     IInteractable currentTarget;
 
-    public InteractionSystem InteractSystem => interactSystem;
     void Awake()
     {
         origin = transform;
@@ -31,6 +30,11 @@ public class PlayerInteractComponent : MonoBehaviour
 
         currentTarget = FindClosestInteractable();
         interactSystem.UpdateTarget(currentTarget);
+
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            interactSystem.TryInteract();
+        }
     }
 
     IInteractable FindClosestInteractable()
@@ -62,7 +66,6 @@ public class PlayerInteractComponent : MonoBehaviour
         return closest;
     }
 
-    public void TryInteract() => interactSystem.TryInteract();
 
 #if UNITY_EDITOR
     [SerializeField] bool drawGizmo = true;

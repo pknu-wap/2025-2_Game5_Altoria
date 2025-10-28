@@ -1,4 +1,4 @@
-ï»¿using Common;
+using Common;
 using GameData;
 using GameUI;
 using System;
@@ -62,7 +62,7 @@ namespace GameInteract
                 OnProgressStart(slotIndex);
                 else
                 {
-                    //todo : í˜„ì¬ ì¹¸ì´ ë¶€ì¡±í•˜ë‹¤ëŠ” ì•Œë¦¼ì°½ 
+                    //todo : ÇöÀç Ä­ÀÌ ºÎÁ·ÇÏ´Ù´Â ¾Ë¸²Ã¢ 
                 }
             };
         }
