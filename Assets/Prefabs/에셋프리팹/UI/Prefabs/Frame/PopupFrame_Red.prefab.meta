@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b6a51e3f5786d344e961d000fca2ecad
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Frame/PopupFrame_Red.prefab
+  uploadId: 740277

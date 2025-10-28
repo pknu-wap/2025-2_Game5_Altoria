@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3530aa07ed1fa41bd899b6d9780d97ad
+timeCreated: 1542405264
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/Animals/Dog_GreatDane.prefab
+  uploadId: 779737

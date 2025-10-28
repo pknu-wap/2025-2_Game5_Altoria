@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c8abe056368b4dd44ae3a8295ddff17d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Map/Creatures/MovementPoint/Movement_Point.prefab
+  uploadId: 740277

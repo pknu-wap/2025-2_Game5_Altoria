@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6ed651d2201001a41b3a948ea0165f11
+timeCreated: 1542405278
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/Animals/Dog_Chihuahua_Black.prefab
+  uploadId: 779737

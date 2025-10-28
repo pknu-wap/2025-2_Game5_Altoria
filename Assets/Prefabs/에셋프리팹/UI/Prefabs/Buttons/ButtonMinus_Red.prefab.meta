@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6854f42db491d2949abebf70ce5da1c9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Buttons/ButtonMinus_Red.prefab
+  uploadId: 740277

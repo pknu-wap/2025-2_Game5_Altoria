@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4c828f339c332427492611b718276025
+timeCreated: 1569528251
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/Animals/Demo/Snake_Demo.prefab
+  uploadId: 779737
