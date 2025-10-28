@@ -6,6 +6,8 @@ namespace GameInteract
 {
     public interface IInteractable
     {
+        public Define.ContentType Type { get; }
+        bool IsInteract { get; }
         bool CanInteract { get; }
         void EnterInteract();
         void ExitInteract();
@@ -33,6 +35,4 @@ namespace GameInteract
         void Tick(float deltaTime);
         void Reset();
     }
-
-    public interface IDropHellper { }
 }

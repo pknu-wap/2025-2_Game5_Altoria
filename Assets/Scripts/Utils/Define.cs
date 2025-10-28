@@ -18,16 +18,46 @@ public class Define
         Additive,// 扁鸥 
 
     }
-
-    public enum CollectType
+    public enum ItemGrade
     {
         None,
-        Farm,
-        Fish,
-        Fell, // 国格
-        Animal,
-        Mining,
-        Plant,
-        COUNT,
+        Nomal,
+        Uncommon,
+        Rare,
+        Epic,
+        Legendary
     }
+
+    public enum ContentType
+    {
+        None=0,
+        Farm=1,
+        Fish=2,
+        Fell=3,// 国格
+        Animal=4,
+        Mining=5,
+        Plant=6,
+        COUNT=7,
+        Craft=8,
+    }
+    public enum AreaType
+    {
+        None,
+        A, 
+        B, 
+        C, 
+        D, 
+        E,
+        COUNT
+    }
+    public enum PlayerState
+    {
+        Idle,
+        Move,
+        Jump,
+        Interacting,
+        Attack,
+        Die,
+    }
+    
 }

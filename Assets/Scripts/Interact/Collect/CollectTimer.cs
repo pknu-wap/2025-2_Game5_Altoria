@@ -1,3 +1,4 @@
+using Common;
 using System;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ namespace GameInteract
             Duration = duration;
             Elapsed = 0f;
 
-            Manager.Time.RegisterTimer(this);
+            GameSystem.Time.RegisterTimer(this);
         }
 
 

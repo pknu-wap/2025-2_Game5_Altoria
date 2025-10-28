@@ -23,32 +23,23 @@ namespace GameUI
             return uiRoot;
         }
 
-        public  GameObject FindOrAddEventSystem(string path)
+        public GameObject FindOrAddEventSystem(string path)
         {
-            if (eventSystem != null) return eventSystem;
-
-            var existing = Object.FindAnyObjectByType<EventSystem>();
-            if (existing != null)
-            {
-                eventSystem = existing.gameObject;
-                Object.DontDestroyOnLoad(eventSystem);
+    
+            if (eventSystem != null)
                 return eventSystem;
-            }
+
+       
             string prefabPath = path + "EventSystem";
             GameObject prefab = Resources.Load<GameObject>(prefabPath);
-            if (prefab != null)
-            {
-                eventSystem = Object.Instantiate(prefab);
-            }
-            else
-            {
-                eventSystem = new GameObject("@EventSystem");
-                eventSystem.AddComponent<UnityEngine.EventSystems.EventSystem>();
-                eventSystem.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
-            }
 
-            Object.DontDestroyOnLoad(eventSystem);
+            
+           eventSystem = Object.Instantiate(prefab);
+           Object.DontDestroyOnLoad(eventSystem);
             return eventSystem;
         }
+            
+          
+
     }
 }

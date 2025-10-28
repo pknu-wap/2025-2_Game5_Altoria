@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+using CustomEditor;
 using GameInteract;
 
 [Serializable]
@@ -10,7 +10,7 @@ public class LifeStatData
     [SerializeField] private int level = 1;
     [SerializeField] private int exp = 0;
 
-    private readonly int[] levelThresholds = { 0, 100, 300, 700, 1500 };
+    readonly List<int> levelThresholds = CsvLoader.LoadCsv<int>($"{Application.dataPath}/CSV/LevelThresholds.csv");
 
 
     public bool AddExp(int amount)
@@ -18,7 +18,7 @@ public class LifeStatData
         exp += amount;
         bool leveledUp = false;
 
-        while (level < levelThresholds.Length && exp >= levelThresholds[level])
+        while (level < levelThresholds.Count && exp >= levelThresholds[level])
         {
             level++;
             leveledUp = true;
@@ -39,13 +39,15 @@ public class LifeStatsManager
     private Dictionary<Type, LifeStatData> lifeStats = new ();
     private readonly Dictionary<Type, float> weights = new ()
     {
-        { typeof(CollectInteractComponent), 1f },
+        { typeof(CollectInteractComponent), 0.7f },
+        { typeof(UpgradeInteractComponent), 0.3f },
     };
 
     public LifeStatsManager()
     {
-        lifeStats[typeof(CollectInteractComponent)] = new LifeStatData();
-        lifeStats[typeof(TotalLife)] = new LifeStatData();
+        lifeStats[typeof(CollectInteractComponent)] = new();
+        lifeStats[typeof(UpgradeInteractComponent)] = new();
+        lifeStats[typeof(TotalLife)] = new();
 
     }
 
@@ -60,14 +62,14 @@ public class LifeStatsManager
             Debug.Log($"{GetType()} : {type} 숙련도 레벨업! {GetLevel<T>() - 1} -> {GetLevel<T>()}");
         }
 
-        Test(type, amount, levelUp);
+        SetTotalStat(type, amount, levelUp);
     }
 
     public int GetLevel<T>() => lifeStats[typeof(T)].GetLevel();
 
     public int GetEXP<T>() => lifeStats[typeof(T)].GetEXP();
 
-    private void Test(Type type, int amount, bool levelUp)
+    private void SetTotalStat(Type type, int amount, bool levelUp)
     {
         int totalLevel = GetLevel<TotalLife>();
 
