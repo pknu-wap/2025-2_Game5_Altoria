@@ -12,7 +12,7 @@ public class ItemData
     public string ID;
     public string Name;
     public string SpriteAddress;
-    public ContentType content;
+    public Content content;
     public ItemGrade Grade;
     public ItemType Type;
     [TextArea] public string Description;

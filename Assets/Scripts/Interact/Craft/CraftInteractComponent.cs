@@ -14,11 +14,7 @@ namespace GameInteract
     }
     public class CraftInteractComponent : InteractBaseComponent
     {
-        public override void Interact()
-        {
-            base.Interact();
-            OpenInteractWindow();
-        }
+        public override void Interact() => OpenInteractWindow();
         void OpenInteractWindow()
         {
             Manager.UI.ShowPopup<CraftProcessPopUp>(() => {EndInteract();});

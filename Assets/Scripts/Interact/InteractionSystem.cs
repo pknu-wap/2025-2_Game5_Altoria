@@ -17,7 +17,6 @@ public class InteractionSystem
     public InteractionState CurrentState { get; private set; } = InteractionState.None;
     public IInteractable CurrentTarget { get; private set; }
 
-    public Action<int> InteractInvoke;
     public void UpdateTarget(IInteractable newTarget)
     {
         if(newTarget==null)return;      
@@ -56,7 +55,6 @@ public class InteractionSystem
         if (CurrentState == InteractionState.Entered && CurrentTarget != null)
         {
             UnityEngine.Debug.Log("[InteractionSystem]: Interact");
-            InteractInvoke.Invoke((int)(CurrentTarget.Type)); 
             CurrentTarget.Interact();
             CurrentState = InteractionState.Interacting;
             CurrentTarget.OnInteractionEnded += HandleInteractionEnded;
@@ -81,6 +79,5 @@ public class InteractionSystem
     {
         if (CurrentTarget != null) CurrentTarget.ExitInteract();
         CurrentState = InteractionState.None;
-        InteractInvoke.Invoke(0);
     }
 }

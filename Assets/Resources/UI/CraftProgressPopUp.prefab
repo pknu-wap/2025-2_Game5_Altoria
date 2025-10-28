@@ -261,7 +261,6 @@ GameObject:
   - component: {fileID: 4455180363361674049}
   - component: {fileID: 1174123307849488268}
   - component: {fileID: 6649175888901178143}
-  - component: {fileID: 1276023496989326224}
   m_Layer: 5
   m_Name: CraftProgressPopUp
   m_TagString: Untagged
@@ -364,21 +363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521771e0b7dd80943a99eeb698c6e249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSlot: {fileID: 3581487223103896245}
+  itemSlot: {fileID: 0}
   rewardButton: {fileID: 8704544472866002574}
   progressText: {fileID: 7443702993147170845}
---- !u!114 &1276023496989326224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692618470810417700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467be0ed14d34444ebf297db68ddf75c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5730200784883074574
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,17 +980,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2236383e6001c3e479a0b574ccf8e4c7, type: 3}
---- !u!114 &3581487223103896245 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6957309882884424380, guid: 2236383e6001c3e479a0b574ccf8e4c7, type: 3}
-  m_PrefabInstance: {fileID: 5854305532463101961}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb5eac7b6c2c09d4fa258f1c53a00d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8424935234448343990 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2726307423226067903, guid: 2236383e6001c3e479a0b574ccf8e4c7, type: 3}
