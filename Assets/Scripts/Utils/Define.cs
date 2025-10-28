@@ -28,16 +28,17 @@ public class Define
         Legendary
     }
 
-    public enum Content
+    public enum ContentType
     {
-        None,
-        Farm,
-        Fish,
-        Fell, // 国格
-        Animal,
-        Mining,
-        Plant,
-        COUNT,
+        None=0,
+        Farm=1,
+        Fish=2,
+        Fell=3,// 国格
+        Animal=4,
+        Mining=5,
+        Plant=6,
+        COUNT=7,
+        Craft=8,
     }
     public enum AreaType
     {
@@ -49,4 +50,14 @@ public class Define
         E,
         COUNT
     }
+    public enum PlayerState
+    {
+        Idle,
+        Move,
+        Jump,
+        Interacting,
+        Attack,
+        Die,
+    }
+    
 }

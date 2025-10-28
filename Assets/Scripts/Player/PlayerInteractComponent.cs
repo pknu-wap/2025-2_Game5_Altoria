@@ -19,6 +19,7 @@ public class PlayerInteractComponent : MonoBehaviour
     Collider[] hitBuffer;
     IInteractable currentTarget;
 
+    public InteractionSystem InteractSystem => interactSystem;
     void Awake()
     {
         origin = transform;

@@ -14,13 +14,14 @@ public partial class NavigateMoveAction : Action
     [SerializeReference] public BlackboardVariable<float> Speed;
 
     NavMeshAgent agent;
+    
 
     protected override Status OnStart()
     {
         if (Self.Value == null)
             return Status.Failure;
         if(Self.Value.TryGetComponent<IMovable>(out var movable))
-            movable.MoveTo(MovePos, Speed); 
+           { movable.MoveTo(MovePos, Speed); }
         agent = Self.Value.GetComponent<NavMeshAgent>();
         if (agent == null)
 
@@ -41,6 +42,8 @@ public partial class NavigateMoveAction : Action
         {
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
+                if (agent.TryGetComponent<IMovable>(out var movable))
+                    movable.Stop();
                 agent.isStopped = true;
                 agent.ResetPath();
                 return Status.Success;

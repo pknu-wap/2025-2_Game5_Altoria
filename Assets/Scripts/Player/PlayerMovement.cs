@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     GroundChecker groundChecker;
     Transform mainCamera;
 
+
     Vector3 velocity;
     Vector3 moveInput = Vector3.zero;
 

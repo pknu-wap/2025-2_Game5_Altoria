@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GameInteract
 {
     [RequireComponent(typeof(Animator))]
-    public class InteractableAnimalComponent : InteractBaseComponent,IMovable,IAmbient
+    public class InteractableAnimalComponent : InteractBaseComponent,IMovable,IAmbient,IInteractStay
     {
         [Header("Actor Components")]
         [SerializeField] private Animator animator;
@@ -58,6 +58,9 @@ namespace GameInteract
             animator.SetTrigger(ambientTrigger);
         }
 
-      
+        public void HoldInteract()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

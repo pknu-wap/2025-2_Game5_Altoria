@@ -2,13 +2,18 @@ using GameInteract;
 using System;
 using UnityEngine;
 
+
 namespace GameInteract
 {
     public class InteractBaseComponent : BaseEntityComponent, IInteractable
     {
+        [SerializeField] Define.ContentType type = Define.ContentType.None;
+
+        public Define.ContentType Type => type;
         public bool CanInteract { get; private set; }
 
         public bool IsInteract { get; private set; }
+
 
         public event Action OnInteractionEnded;
 

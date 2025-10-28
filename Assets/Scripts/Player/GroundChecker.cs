@@ -9,14 +9,11 @@ public class GroundChecker : MonoBehaviour
     [SerializeField] private Vector3 centerOffset = Vector3.zero;
     [SerializeField, Range(0.05f, 1f)] private float groundDistance = 0.3f;
     [SerializeField] private LayerMask groundMask;
-    [SerializeField] private float groundedBufferTime = 0.1f;
-   
-    float groundedTimer;
-    public bool IsGrounded { get; private set; }
 
+    public bool IsGrounded { get; private set; }
     public event Action<bool> OnGroundedChanged;
 
-     bool lastGrounded;
+    private bool lastGrounded;
 
     void Awake()
     {
@@ -24,12 +21,10 @@ public class GroundChecker : MonoBehaviour
             groundCheck = transform;
     }
 
-     void Update()
+    void Update()
     {
         CheckGrounded();
     }
-
-    
 
     public bool CheckGrounded()
     {
@@ -39,22 +34,18 @@ public class GroundChecker : MonoBehaviour
         Vector3 checkPos = groundCheck.position + centerOffset;
         bool hit = Physics.CheckSphere(checkPos, groundDistance, groundMask);
 
+       
         if (hit != lastGrounded)
         {
-            groundedTimer += Time.deltaTime;
-            if (groundedTimer >= groundedBufferTime)
-            {
-                OnGroundedChanged?.Invoke(hit);
-                lastGrounded = hit;
-                groundedTimer = 0f;
-            }
+            lastGrounded = hit;
+            IsGrounded = hit;
+            OnGroundedChanged?.Invoke(hit);
         }
         else
         {
-            groundedTimer = 0f;
+            IsGrounded = hit;
         }
 
-        IsGrounded = lastGrounded;
         return IsGrounded;
     }
 
