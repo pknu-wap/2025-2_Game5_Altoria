@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 771047030815355669}
   - component: {fileID: 1834260704347028121}
   - component: {fileID: 2080645547073053841}
-  - component: {fileID: 9095674297621912678}
+  - component: {fileID: 5808521140821544034}
   m_Layer: 6
   m_Name: CraftingTable
   m_TagString: Untagged
@@ -68,7 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd9cb123b882654aafaeef8d0315185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9095674297621912678
+  type: 8
+--- !u!114 &5808521140821544034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
