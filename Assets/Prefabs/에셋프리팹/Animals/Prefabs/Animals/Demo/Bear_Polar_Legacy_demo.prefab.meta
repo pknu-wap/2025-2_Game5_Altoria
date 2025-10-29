@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b808c2a59943f4e82824567db55f03e1
+timeCreated: 1569527266
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/Animals/Demo/Bear_Polar_Legacy_demo.prefab
+  uploadId: 779737

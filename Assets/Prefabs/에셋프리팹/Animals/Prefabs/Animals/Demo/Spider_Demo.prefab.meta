@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 652878394fa0e41deb08911ec350a66b
+timeCreated: 1569528314
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/Animals/Demo/Spider_Demo.prefab
+  uploadId: 779737

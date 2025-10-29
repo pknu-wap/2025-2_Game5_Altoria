@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 290e409804c8014418aae8706e5b3a7c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/UI/Sliders/SliderAtk.prefab
+  uploadId: 740277

@@ -17,7 +17,7 @@ public class Define
         Tool,
         Consume,
         Material,
-        Additive,// ±âÅ¸ 
+        Additive,// ï¿½ï¿½Å¸ 
 
     }
     public enum ItemGrade
@@ -30,17 +30,17 @@ public class Define
         Legendary
     }
 
-    public enum Content
+    public enum ContentType
     {
-        None,
-        Farm,
-        Fish,
-        Fell, // ¹ú¸ñ
-        Animal,
-        Mining,
-        Plant,
-        Upgrade,
-        COUNT,
+        None=0,
+        Farm=1,
+        Fish=2,
+        Fell=3,// ï¿½ï¿½ï¿½ï¿½
+        Animal=4,
+        Mining=5,
+        Plant=6,
+        Upgrade=7,
+        Craft=8,
     }
     public enum AreaType
     {
@@ -52,4 +52,14 @@ public class Define
         E,
         COUNT
     }
+    public enum PlayerState
+    {
+        Idle,
+        Move,
+        Jump,
+        Interacting,
+        Attack,
+        Die,
+    }
+    
 }

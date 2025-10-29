@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: aead764db704f6b4b8d912bd5d00d8b3
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Buttons/NavBtn/BtnLeft.prefab
+  uploadId: 740277

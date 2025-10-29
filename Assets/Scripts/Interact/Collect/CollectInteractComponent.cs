@@ -11,7 +11,7 @@ namespace GameInteract
 {
     public class CollectInteractComponent : InteractBaseComponent
     {
-        [SerializeField] protected Content collectType = Content.None;
+        [SerializeField] protected ContentType collectType = ContentType.None;
         [SerializeField] string objectID;
 
         public override void Interact()
