@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ab65f6e593446439d9115382fe8209, type: 3}
+  m_Name: CraftPrefabDB
+  m_EditorClassIdentifier: 
+  entries:
+  - Type: 2
+    Prefab: {fileID: 1641477228926019621, guid: d506a27454308e74aa81abcec360fca9, type: 3}
+    Position: {x: -0.004, y: 0.025, z: -0.086}
+    Rotation: {x: -81.283, y: 168.707, z: -78.091}
+    Scale: {x: 1, y: 1, z: 1}
+  - Type: 5
+    Prefab: {fileID: 5569136935561951871, guid: e4fa22aa03421d5429251a41dc6f7df5, type: 3}
+    Position: {x: -0.004, y: 0.025, z: -0.086}
+    Rotation: {x: -81.283, y: 168.707, z: -78.091}
+    Scale: {x: 1, y: 1, z: 1}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using static Define;
 
@@ -7,16 +8,16 @@ using static Define;
 public class PlayerController : BaseEntityComponent
 {
     [SerializeField] Animator animator;
-
+    [SerializeField] SocketHandler socketHandler;
     PlayerInputHandler input;
     PlayerMovement movement;
     PlayerInteractComponent interact;
     GroundChecker groundChecker;
 
-    public PlayerStateController State { get; private set; } = new PlayerStateController();
+    public PlayerStateMachine State { get; private set; } = new PlayerStateMachine();
 
     bool isJump = false;
-
+    
     void Awake()
     {
         input = GetComponent<PlayerInputHandler>();
@@ -70,10 +71,8 @@ public class PlayerController : BaseEntityComponent
 
     void OnMoveCanceled()
     {
-
-        animator.SetBool("IsMove", false);
-        movement.SetMoveInput(Vector3.zero);
-        State.SetState(PlayerState.Idle);
+        if (!State.CanReceiveInput()) return;
+        StopMove();
     }
     void OnGround(bool grounded)
     {
@@ -101,7 +100,6 @@ public class PlayerController : BaseEntityComponent
     {
         if (State.CurrentState==PlayerState.Die) return;
 
-
         interact.TryInteract();
         State.SetState(PlayerState.Interacting);
     }
@@ -109,17 +107,25 @@ public class PlayerController : BaseEntityComponent
     {
         if (State.CurrentState == PlayerState.Die)
             return;
-
-        if (animator.GetInteger("InteractType") != interactType)
+        StopMove();
+        int currentType = animator.GetInteger("InteractType");
+        if (currentType != interactType)
             animator.SetInteger("InteractType", interactType);
+
+        StopAllCoroutines(); // 이전 Lerp 중단
 
         if (interactType == 0)
         {
             animator.SetBool("IsInteract", false);
             State.SetState(PlayerState.Idle);
+            StartCoroutine(BlendLayerWeight(1f, 0f, 0.4f)); 
         }
         else
+        {
             animator.SetBool("IsInteract", true);
+            State.SetState(PlayerState.Interacting);
+            StartCoroutine(BlendLayerWeight(0f, 1f, 0.3f));
+        }
     }
 
     public void OnDie()
@@ -134,11 +140,32 @@ public class PlayerController : BaseEntityComponent
     {
         input.enabled = true;
         State.SetState(PlayerState.Idle);
+
     }
     
-
+    public void StopMove()
+    {
+        animator.SetBool("IsMove", false);
+        movement.SetMoveInput(Vector3.zero);
+        State.SetState(PlayerState.Idle);
+    }
     void OnStateChanged(PlayerState newState)
     {
         Debug.Log($"[PlayerController] State changed → {newState}");
     }
+    IEnumerator BlendLayerWeight(float from, float to, float duration)
+    {
+        float time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float weight = Mathf.Lerp(from, to, time / duration);
+            animator.SetLayerWeight(1, weight);
+            yield return null;
+        }
+        animator.SetLayerWeight(1, to);
+    }
+    public void OnSpawnTool(int contentType) => socketHandler.SpawnTool(contentType);
+    public void OnDespawnTool() => socketHandler.DespawnTool();
+
 }

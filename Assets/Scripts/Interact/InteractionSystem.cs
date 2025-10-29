@@ -20,7 +20,6 @@ public class InteractionSystem
     public Action<int> InteractInvoke;
     public void UpdateTarget(IInteractable newTarget)
     {
-        if(newTarget==null)return;      
 
         if (newTarget != CurrentTarget)
         {
