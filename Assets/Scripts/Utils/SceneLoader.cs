@@ -16,6 +16,7 @@ namespace SceneLoader
         public void LoadScene(SceneType sceneType)
         {
             Time.timeScale = 1f;
+            Manager.UserData.SaveAllUserData();
             SceneManager.LoadScene(sceneType.ToString());
         }
 

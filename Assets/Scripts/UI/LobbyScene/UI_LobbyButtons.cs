@@ -1,5 +1,4 @@
 using Common;
-using SceneLoade;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,23 +20,20 @@ namespace GameUI
         #region OnClick Event
         public void OnClickStartButton()
         {
-            Debug.Log($"[{GetType()}] 게임 시작!");
             GameSystem.Init();
-            Manager.Scene.LoadScene(Define.SceneType.GameScene);
-            var loadingUI = Manager.UI.ShowPopup<LoadingUI>();
-            loadingUI.StartLoding(Define.SceneType.GameScene);
-            Manager.UI.ShowHUD<UI_GameScene>();
+
+            // TODO: 시작할 Scene Data에서 받아와서 사용하기
+            Manager.Scene.LoadScene(Define.SceneType.TestMap);
         }
 
         public void OnClickSettingButton()
         {
-            Debug.Log($"[{GetType()}] 설정 창 열기");
-
-            // 팝업 UI 생성 및 표시
-            Manager.UI.ShowPopup<TestSettingPopUp>();
+            GameSystem.Init();
+            Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
         }
         public void OnClickExitButton()
         {
+            Manager.UserData.SaveAllUserData();
             Debug.Log($"[{GetType()}] 게임 종료");
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

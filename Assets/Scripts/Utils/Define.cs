@@ -7,6 +7,8 @@ public class Define
         None,
         Lobby,
         GameScene,
+        TestFC_1,
+        TestMap,
     };
     public enum ItemType
     {
@@ -15,7 +17,7 @@ public class Define
         Tool,
         Consume,
         Material,
-        Additive,// ±âÅ¸ 
+        Additive,// ï¿½ï¿½Å¸ 
 
     }
     public enum ItemGrade
@@ -33,11 +35,11 @@ public class Define
         None=0,
         Farm=1,
         Fish=2,
-        Fell=3,// ¹ú¸ñ
+        Fell=3,// ï¿½ï¿½ï¿½ï¿½
         Animal=4,
         Mining=5,
         Plant=6,
-        COUNT=7,
+        Upgrade=7,
         Craft=8,
     }
     public enum AreaType

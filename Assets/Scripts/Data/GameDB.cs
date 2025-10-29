@@ -14,7 +14,7 @@ namespace GameData
     {
         public static readonly CraftDatabase CraftingDB;
         public static readonly ItemDatabase ItemDB;
-        public static readonly GradeDatabase GradeDB;
+        public static readonly UpgradeDatabase UpgradeDB;
         public static readonly CollectDatabase CollectDB;
         public static readonly FishDatabase FishDB;
 
@@ -22,7 +22,7 @@ namespace GameData
         {
             ItemDB = new ItemDatabase(new CsvLoader<ItemData>());
             CraftingDB = new CraftDatabase(new JsonLoader<CraftingData>());
-            GradeDB = new GradeDatabase(new CsvLoader<GradeData>());
+            UpgradeDB = new UpgradeDatabase(new CsvLoader<UpgradeData>());
             CollectDB = new CollectDatabase(new JsonLoader<CollectData>());
             FishDB = new FishDatabase(new JsonLoader<FishData>());
         }
@@ -31,7 +31,7 @@ namespace GameData
         {
             await CraftingDB.LoadAsync(nameof(CraftDatabase));
             await ItemDB.LoadAsync(nameof(ItemDatabase));
-            await GradeDB.LoadAsync(nameof(GradeDatabase));
+            await UpgradeDB.LoadAsync(nameof(UpgradeDatabase));
             await CollectDB.LoadAsync(nameof(CollectDatabase));
             await FishDB.LoadAsync(nameof(FishDatabase));
         }
@@ -40,8 +40,8 @@ namespace GameData
             => CraftingDB.TryGetValue(type, out var dict) ? dict : null;
         public static ItemData? GetItemData(string itemId)
             => ItemDB.TryGetValue(itemId, out var data) ? data : null;
-        public static GradeData? GetGradeData(int currentGrade)
-            => GradeDB.TryGetValue(currentGrade, out var data) ? data : null;
+        public static UpgradeData? GetUpgradeData(int currentGrade)
+            => UpgradeDB.TryGetValue(currentGrade, out var data) ? data : null;
         public static CustomDictionary<CollectData>? GetCollectData(string id)
             => CollectDB.TryGetValue(id, out var data) ? data : null;
         public static CustomDictionary<FishData>? GetFishData(AreaType areaType)
@@ -131,11 +131,11 @@ namespace GameData
         }
     }
 
-    public class GradeDatabase : GameDatabase<int, GradeData>
+    public class UpgradeDatabase : GameDatabase<int, UpgradeData>
     {
-        public GradeDatabase(ILoadStrategy<GradeData> loader) : base(loader) { }
+        public UpgradeDatabase(ILoadStrategy<UpgradeData> loader) : base(loader) { }
 
-        protected override void OnLoaded(IList<GradeData> assets)
+        protected override void OnLoaded(IList<UpgradeData> assets)
         {
             values.Clear();
             for (int i = 0; i < assets.Count; i++)

@@ -1,0 +1,27 @@
+{
+    "LifeData": {
+        "items": [
+            {
+                "Key": "CollectInteractComponent",
+                "Value": {
+                    "level": 1,
+                    "exp": 0
+                }
+            },
+            {
+                "Key": "UpgradeInteractComponent",
+                "Value": {
+                    "level": 1,
+                    "exp": 0
+                }
+            },
+            {
+                "Key": "TotalLife",
+                "Value": {
+                    "level": 1,
+                    "exp": 0
+                }
+            }
+        ]
+    }
+}

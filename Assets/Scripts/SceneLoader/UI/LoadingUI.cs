@@ -16,60 +16,47 @@ namespace SceneLoade
         [SerializeField] Image progressImage;
         [SerializeField] TextMeshProUGUI progressTxt;
         UnityEngine.AsyncOperation _asyncOperation;
+        JsonMapLoader currentMapLoader;
 
-        private void Awake()
+        void Awake()
         {
             progressImage.fillAmount = 0;
             progressTxt.text = "0%";
         }
 
-        public void StartLoding(SceneType sceneType)
+        public void StartLoding(JsonMapLoader loader)
         {
-            StartCoroutine(Loading(sceneType));
+            currentMapLoader = loader;
+            currentMapLoader.OnProgress += UpdateProgress;
+            currentMapLoader.OnSuccess += OnLoadSuccess;
+            currentMapLoader.OnFailure += OnLoadFailure;
         }
 
-        IEnumerator Loading(SceneType sceneType)
+        void UpdateProgress(float progress)
         {
-            _asyncOperation = Manager.Scene.LoadSceneAsync(sceneType);
-            if (_asyncOperation == null)
-            {
-                Debug.LogError($"{GetType()} : {sceneType} async loading error");
-                yield break;
-            }
-
-            _asyncOperation.allowSceneActivation = false;
-
-            progressTxt.text = $"{((int)(progressImage.fillAmount * 100))}%";
-            yield return new WaitForSeconds(0.5f);
-
-            while (!_asyncOperation.isDone) // Loading
-            {
-                progressImage.fillAmount = _asyncOperation.progress < 0.5f ? 0.5f : _asyncOperation.progress;
-                progressTxt.text = $"{((int)(progressImage.fillAmount * 100))}%";
-
-                // End Load
-                if (_asyncOperation.progress >= 0.9f)
-                {
-                    progressTxt.text = "100%";
-                    _asyncOperation.allowSceneActivation = true;
-                    EndLoding();
-                    yield break;
-                }
-
-                yield return null;
-            }
-
-            if (_asyncOperation.progress >= 0.9f)
-            {
-                progressTxt.text = "100%";
-                _asyncOperation.allowSceneActivation = true;
-                EndLoding();
-                yield break;
-            }
+            Debug.Log($"{progress}");
+            progressImage.fillAmount = progress;
+            progressTxt.text = $"{(int)(progress * 100)}%";
         }
 
-        void EndLoding()
+        void OnLoadSuccess()
         {
+            progressImage.fillAmount = 1f;
+            progressTxt.text = "100%";
+            EndLoading();
+        }
+
+        void OnLoadFailure()
+        {
+            Debug.LogError("Loading failed!");
+            EndLoading();
+        }
+
+        void EndLoading()
+        {
+            currentMapLoader.OnProgress -= UpdateProgress;
+            currentMapLoader.OnSuccess -= OnLoadSuccess;
+            currentMapLoader.OnFailure -= OnLoadFailure;
             Close();
         }
     }
