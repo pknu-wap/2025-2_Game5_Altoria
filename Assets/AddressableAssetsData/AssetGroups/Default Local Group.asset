@@ -125,6 +125,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e2068bc798403343bc7579037e13f79
+    m_Address: Crystals&Ores&Veins
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e9d8928bd2de9b4dbf706542b0c18ae
     m_Address: PP_Log_Wall_02
     m_ReadOnly: 0
@@ -155,6 +160,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1343ee47590785644ba9d244ce0b6b09
+    m_Address: Terrain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13ee0a705bd767d4f90af4cc9dcbf0b1
     m_Address: PP_Money_Bag_Corded_02
     m_ReadOnly: 0
@@ -162,6 +172,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15518cf4441523a4591c68a00c27c338
     m_Address: PP_Beam_Wooden_Edge_03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 159b3aab4e094704d8b56f719ae942ad
+    m_Address: Main Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 188b5f6f3104ecb428e7e12e8062982e
+    m_Address: Cave
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -295,6 +315,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ccda875855b71744b8a23ce34978533
+    m_Address: Lighting
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ce7676910484874593596ad2cd68d48
     m_Address: PP_Blacksmithing_Sign_01
     m_ReadOnly: 0
@@ -367,6 +392,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37891e327730c3b459559e14724ceeeb
     m_Address: PP_Roof_Top_02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38d20c18d755b7e42ae6be092cf2177f
+    m_Address: FX
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -515,6 +545,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b094fb7f9ceb444aae9b6fc37cbccbd
+    m_Address: Terrain_Stone
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b3a02e2297ba0147a264df4e655f9d2
     m_Address: FishDatabase
     m_ReadOnly: 0
@@ -635,6 +670,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e4ec836e7ca81546b8a1fdf0556a803
+    m_Address: Stalactite&Stalagmite&Stalagnate
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f10005441d4c6d45a769599059774bc
     m_Address: PP_Stone_Cave_Entrance_04
     m_ReadOnly: 0
@@ -745,6 +785,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 731d492bcf280bf43ab3e9f74e43e6a8
+    m_Address: Stones&Rocks
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73b2f229eea161941b6757f099569beb
     m_Address: PP_Coin_09_Gold
     m_ReadOnly: 0
@@ -840,6 +885,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8298ab92218ce4d47abf5f29eda68be3
+    m_Address: Mushrooms
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8422824fcca5dfc41b9eada32b1d8d8c
     m_Address: PP_Coin_12_Green
     m_ReadOnly: 0
@@ -860,6 +910,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 856e717f629463247856b60b5c810d29
+    m_Address: Bridges
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 860c747f47e051544a60a1237f866d91
     m_Address: PP_Coin_11_Green
     m_ReadOnly: 0
@@ -872,6 +927,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86429b3b8dadf694c8733a0e3ba04198
     m_Address: PP_Cave_Wall_Curved_Veins_03_Gold
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 871658db36ab799468b74b44f2939e81
+    m_Address: Cave Props
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -902,6 +962,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89cd9b6dd476fa545b1ce7c8eb43e735
     m_Address: PP_Wooden_Wall_Peak_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a070210d65d16547aa9d60b480be36a
+    m_Address: Runes
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1165,6 +1230,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae0d29492630e6c44ad800d7ef142c19
+    m_Address: Vegetation
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae54dc0dcaf26cd46b55cc52cd5f6607
     m_Address: PP_Meadow_02
     m_ReadOnly: 0
@@ -1172,6 +1242,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae9db66e4771c88478ba693096655b6f
     m_Address: PP_Coin_20_Red
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aed05d650fdc1f1498b011b2a338a2d1
+    m_Address: Blacksmithing House
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1192,6 +1267,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b00231701206d594bb7369b26bb20703
     m_Address: PP_Coin_16_Green
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1139ee661f271a4e87c395d54a20f24
+    m_Address: Rails&Mine Carts
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1495,6 +1575,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec75909d941f6dd4686107f069dbe68d
+    m_Address: Tools
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee404a7d8cdbe2443a85f8efd97a20d9
     m_Address: PP_Coin_20_Green
     m_ReadOnly: 0
@@ -1507,6 +1592,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eeb131ffb7640af42be1a9d512a13bcb
     m_Address: PP_Cave_Wall_Even_03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eef8464366570b34d93c04d69d669b98
+    m_Address: Props
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1542,6 +1632,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f546d854122c5934295cc3b3f21b1f0d
     m_Address: ItemDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5ab06074b9d607449a87d4a7401f21b
+    m_Address: Coins
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1602,6 +1697,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd3f7e25a6ab6ed46a64b93ffed6c6ab
     m_Address: PP_Wooden_Fence_03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe0ab53e669454b4094f68fc2c229914
+    m_Address: Weapons
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
