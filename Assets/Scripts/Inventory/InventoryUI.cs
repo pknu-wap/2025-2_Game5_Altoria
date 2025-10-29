@@ -153,10 +153,10 @@ public class InventoryUI : MonoBehaviour
         switch (currentSort)
         {
             case SortType.GradeHighToLow:
-                displayListData.Sort((a, b) => b.Item.ItemGrade.CompareTo(a.Item.ItemGrade));
+                displayListData.Sort((a, b) => b.Item.Grade.CompareTo(a.Item.Grade));
                 break;
             case SortType.GradeLowToHigh:
-                displayListData.Sort((a, b) => a.Item.ItemGrade.CompareTo(b.Item.ItemGrade));
+                displayListData.Sort((a, b) => a.Item.Grade.CompareTo(b.Item.Grade));
                 break;
         }
     }

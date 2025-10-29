@@ -15,123 +15,143 @@ MonoBehaviour:
   itemDatabase: {fileID: 0}
   rows:
   - Item:
-      ID: 11111
-      Name: "\uB784\uB784\uB77C"
+      ID: 1
+      Name: "\uC2E0\uBE44\uD55C \uCE7C"
       SpriteAddress: 
+      content: 0
+      Grade: 1
       Type: 1
-      SellCost: 0
-      ItemGrade: 3
       Description: 
     IsEquipped: 0
-    Count: 21
+    Count: 16
   - Item:
-      ID: 121212
-      Name: "\uAE5C\uCC0D\uC218\uBC0D"
-      SpriteAddress: 
-      Type: 4
-      SellCost: 0
-      ItemGrade: 0
-      Description: 
-    IsEquipped: 0
-    Count: 3
-  - Item:
-      ID: 222222
-      Name: "\uC6B0\uC6B0\uC6C5"
-      SpriteAddress: 
-      Type: 4
-      SellCost: 0
-      ItemGrade: 1
-      Description: 
-    IsEquipped: 0
-    Count: 9
-  - Item:
-      ID: 232323
+      ID: 3
       Name: "\uBC8C\uB808\uD30C\uBA39\uC740\uC0AC\uACFC"
       SpriteAddress: 
+      content: 0
+      Grade: 1
       Type: 3
-      SellCost: 0
-      ItemGrade: 0
       Description: 
     IsEquipped: 0
-    Count: 51
+    Count: 50
   - Item:
-      ID: 333333
-      Name: "\uB3C4\uB3C4\uB3C4"
+      ID: 4
+      Name: "\uACE0\uB4F1\uC5B4"
       SpriteAddress: 
+      content: 0
+      Grade: 5
       Type: 5
-      SellCost: 0
-      ItemGrade: 4
       Description: 
     IsEquipped: 0
-    Count: 321
+    Count: 319
   - Item:
-      ID: 444444
-      Name: "\uC18C\uC18C\uC18C"
+      ID: 5
+      Name: "\uB2E4\uC774\uC544 \uD638\uBBF8"
       SpriteAddress: 
+      content: 0
+      Grade: 4
       Type: 2
-      SellCost: 0
-      ItemGrade: 3
       Description: 
     IsEquipped: 0
-    Count: 11
+    Count: 5
   - Item:
-      ID: 555555
+      ID: 6
       Name: "\uC1E0\uACE1\uAD2D\uC774"
       SpriteAddress: 
+      content: 0
+      Grade: 1
       Type: 2
-      SellCost: 0
-      ItemGrade: 2
       Description: 
     IsEquipped: 0
     Count: 205
   - Item:
-      ID: 2323223
-      Name: "\uB2E4\uC774\uC544 \uACE1\uAD2D\uC774"
-      SpriteAddress: 
-      Type: 2
-      SellCost: 0
-      ItemGrade: 3
-      Description: 
-    IsEquipped: 0
-    Count: 1
-  - Item:
-      ID: 634232
-      Name: "\uB808\uC804\uB4DC\uAC13\uACE1\uAD2D\uC774"
-      SpriteAddress: 
-      Type: 2
-      SellCost: 0
-      ItemGrade: 4
-      Description: 
-    IsEquipped: 0
-    Count: 2
-  - Item:
-      ID: 634232
+      ID: 7
       Name: "\uB625"
       SpriteAddress: 
+      content: 0
+      Grade: 4
       Type: 3
-      SellCost: 0
-      ItemGrade: 0
       Description: 
     IsEquipped: 0
-    Count: 222
+    Count: 219
   - Item:
-      ID: 634232
-      Name: "\uADF9\uC131\uBE44"
+      ID: 9
+      Name: "\uC720\uACE8"
       SpriteAddress: 
+      content: 0
+      Grade: 2
+      Type: 1
+      Description: 
+    IsEquipped: 1
+    Count: 32
+  - Item:
+      ID: 10
+      Name: "\u3131\u3131\u3131"
+      SpriteAddress: 
+      content: 0
+      Grade: 5
       Type: 3
-      SellCost: 0
-      ItemGrade: 4
+      Description: 
+    IsEquipped: 0
+    Count: 32
+  - Item:
+      ID: 11
+      Name: "\u3134\u3134\u3134"
+      SpriteAddress: 
+      content: 0
+      Grade: 4
+      Type: 4
+      Description: 
+    IsEquipped: 0
+    Count: 32
+  - Item:
+      ID: 12
+      Name: "\u3137\u3137\u3137"
+      SpriteAddress: 
+      content: 0
+      Grade: 2
+      Type: 5
       Description: 
     IsEquipped: 0
     Count: 22
   - Item:
-      ID: 23211
-      Name: "\uC720\uACE8"
+      ID: 13
+      Name: "\u3139\u3139\u3139"
       SpriteAddress: 
-      Type: 1
-      SellCost: 0
-      ItemGrade: 2
+      content: 0
+      Grade: 3
+      Type: 4
       Description: 
-    IsEquipped: 1
-    Count: 32
+    IsEquipped: 0
+    Count: 245
+  - Item:
+      ID: 14
+      Name: "\u3141\u3141\u3141"
+      SpriteAddress: 
+      content: 0
+      Grade: 1
+      Type: 5
+      Description: 
+    IsEquipped: 0
+    Count: 245
+  - Item:
+      ID: 15
+      Name: "\u3142\u3142\u3142"
+      SpriteAddress: 
+      content: 0
+      Grade: 3
+      Type: 1
+      Description: 
+    IsEquipped: 0
+    Count: 245
+  - Item:
+      ID: 16
+      Name: "\u3145\u3145\u3145"
+      SpriteAddress: 
+      content: 0
+      Grade: 2
+      Type: 2
+      Description: 
+    IsEquipped: 0
+    Count: 245
   maxSlotCount: 30

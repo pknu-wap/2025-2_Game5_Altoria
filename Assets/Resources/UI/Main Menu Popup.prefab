@@ -2202,6 +2202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuPopUp: {fileID: 8540270025131385341}
+  inventoryUI: {fileID: 0}
   settingPopUp: {fileID: 0}
   stats:
   - slider: {fileID: 2572006157371413121}
@@ -2396,7 +2397,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4045180907395505023, guid: d30c1090fcab81148bbde9a8ff20da02, type: 3}
       propertyPath: m_Name
-      value: Inventory
+      value: upgrade
       objectReference: {fileID: 0}
     - target: {fileID: 6636304411989005878, guid: d30c1090fcab81148bbde9a8ff20da02, type: 3}
       propertyPath: m_Pivot.x
@@ -2561,7 +2562,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4045180907395505023, guid: d30c1090fcab81148bbde9a8ff20da02, type: 3}
       propertyPath: m_Name
-      value: Inventory
+      value: craft
       objectReference: {fileID: 0}
     - target: {fileID: 6636304411989005878, guid: d30c1090fcab81148bbde9a8ff20da02, type: 3}
       propertyPath: m_Pivot.x
@@ -3001,7 +3002,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BtnClose
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2296325060100860754, guid: 592fd9c4eb6238f4db7eff816802ed06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3351,7 +3353,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4045180907395505023, guid: d30c1090fcab81148bbde9a8ff20da02, type: 3}
       propertyPath: m_Name
-      value: Inventory
+      value: setting
       objectReference: {fileID: 0}
     - target: {fileID: 6636304411989005878, guid: d30c1090fcab81148bbde9a8ff20da02, type: 3}
       propertyPath: m_Pivot.x

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Define;
 
 public class ItemSlot : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] Image itemBorder;
     [SerializeField] TextMeshProUGUI itemCount;
 
-    public void SetSlot(string spriteAddress, int count, int grade = 0)
+    public void SetSlot(string spriteAddress, int count, ItemGrade grade = 0)
     {
         //itemImage.sprite = spriteAddress;
-        itemBorder.sprite = itemBorders[grade]; 
+        itemBorder.sprite = itemBorders[(int)grade-1]; 
         itemCount.text = count.ToString();  
     }
 }

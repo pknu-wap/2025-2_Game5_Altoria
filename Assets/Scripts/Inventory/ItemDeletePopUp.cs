@@ -20,7 +20,7 @@ public class ItemDeletePopUp : UIPopUp
     int maxCount;  // 갖고있는 아이템 개수
     string itemID;
 
-    private void Awake()
+    void Awake()
     {
         Instance = this;   //인스턴스 초기화
 
@@ -40,7 +40,7 @@ public class ItemDeletePopUp : UIPopUp
         
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         SetItem(itemID, maxCount);
         CountInput.onValueChanged.RemoveListener(OnInputChanged);
@@ -60,7 +60,7 @@ public class ItemDeletePopUp : UIPopUp
 
         if (data != null)
         {
-            itemIcon.SetSlot(data.Item.SpriteAddress, count, data.Item.ItemGrade);  // 아이템 이미지, 테두리, 개수 설정.현재는 개수만됨
+            itemIcon.SetSlot(data.Item.SpriteAddress, count, data.Item.Grade);  // 아이템 이미지, 테두리, 개수 설정.현재는 개수만됨
             itemNameText.text = data.Item.Name;
         }
     }
@@ -89,10 +89,19 @@ public class ItemDeletePopUp : UIPopUp
         CountInput.onValueChanged.AddListener(OnInputChanged);
     }
 
-    private void OnMinus()
+    void OnMinus()
     {
         if (currentCount <= 1) return;
         currentCount--;
+
+        CountInput.onValueChanged.RemoveListener(OnInputChanged);
+        CountInput.text = currentCount.ToString();
+        CountInput.onValueChanged.AddListener(OnInputChanged);
+    }
+
+    public void OnMax()
+    {
+        currentCount = maxCount;
 
         CountInput.onValueChanged.RemoveListener(OnInputChanged);
         CountInput.text = currentCount.ToString();

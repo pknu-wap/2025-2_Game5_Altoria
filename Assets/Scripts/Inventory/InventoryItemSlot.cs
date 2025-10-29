@@ -17,9 +17,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
     const float doubleClickThreshold = 0.25f;
 
     [SerializeField] TextMeshProUGUI equippedText;
-    [SerializeField] TextMeshProUGUI itemNameText; //hover하면 나타나는 작은창의 텍스트
-    [SerializeField] GameObject description; //hover하면 나타나는 작은창
-    [SerializeField] Button deleteButton; //hover하면 나타나는 작은창의 버리기 버튼
+    [SerializeField] Button deleteButton; //아이템 버리기 버튼
     [SerializeField] GameObject deletePopUp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,7 +37,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
             Debug.LogWarning($"[InventoryItemSlot] : ID {id} 에 해당하는 아이템 데이터를 찾을 수 없음");
             return;
         }
-        SetSlot(inventory.Item.SpriteAddress, count, inventory.Item.ItemGrade);  // 인자 다시 검토
+        SetSlot(inventory.Item.SpriteAddress, count, inventory.Item.Grade); 
         equippedText.gameObject.SetActive(inventory.IsEquipped);
         //추가 커스터마이징
     }
@@ -100,13 +98,12 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
     // 마우스 hover -> 버리기 버튼 표시 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        description.SetActive(true);
-        itemNameText.text = inventory.Item.Name;
+        deleteButton.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //description.SetActive(false);    // 버튼 누르기도 전에 꺼져버려서 나중에 수정
+        deleteButton.gameObject.SetActive(false);  
     }
 
     public void OnClickDelete()

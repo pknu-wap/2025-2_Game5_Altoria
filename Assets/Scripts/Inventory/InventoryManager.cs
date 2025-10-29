@@ -29,7 +29,7 @@ public class InventoryManager : MonoBehaviour
         if (existing != null) //이미 존재하면 
         {
             existing.Count += count;
-            Debug.Log($"{itemID} {count}개 추가 (총 {existing.Count})");
+            Debug.Log($"[InventoryManager] : {itemID} {count}개 추가 (총 {existing.Count})");
             return true;
         }
 
@@ -68,7 +68,7 @@ public class InventoryManager : MonoBehaviour
 
         if (existing == null)
         {
-            Debug.LogWarning($"{itemID} 아이템이 인벤토리에 없습니다.");
+            Debug.LogWarning($"[InventoryManager] : {itemID} - 잘못된 ItemID");
             return false;
         }
 
@@ -76,11 +76,11 @@ public class InventoryManager : MonoBehaviour
         if (existing.Count <= 0)
         {
             inventoryData.rows.Remove(existing);
-            Debug.Log($"{itemID} 전부 삭제됨");
+            Debug.Log($"[InventoryManager] : {itemID} 전부 삭제됨");
         }
         else
         {
-            Debug.Log($"{itemID} {count}개 삭제됨 (남은 수량: {existing.Count})");
+            Debug.Log($"[InventoryManager] : {itemID} {count}개 삭제됨 (남은 수량: {existing.Count})");
         }
 
         return true;
