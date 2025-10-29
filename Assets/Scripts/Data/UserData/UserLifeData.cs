@@ -8,7 +8,7 @@ using UnityEngine;
 [Serializable]
 public class LifeDataDictionary
 {
-    public SerializableDictionary<Type, LifeStatData> LifeData;
+    public SerializableDictionary<string, LifeStatData> LifeData;
 }
 
 
@@ -16,15 +16,15 @@ public class UserLifeData : Security, IUserData
 {
     string path = Path.Combine(Application.dataPath, "lifeData.json");
     
-    Dictionary<Type, LifeStatData> userLifeDataDic;
+    Dictionary<string, LifeStatData> userLifeDataDic;
 
     public void SetDefaultData()
     {
         userLifeDataDic = new ()
         {
-            { typeof(CollectInteractComponent), new ()},
-            { typeof(UpgradeInteractComponent), new ()},
-            { typeof(TotalLife), new ()}
+            { nameof(CollectInteractComponent), new ()},
+            { nameof(UpgradeInteractComponent), new ()},
+            { nameof(TotalLife), new ()}
         };
     }
 
@@ -77,5 +77,5 @@ public class UserLifeData : Security, IUserData
         return result;
     }
 
-    public Dictionary<Type, LifeStatData> GetUserLifeData() => userLifeDataDic;
+    public Dictionary<string, LifeStatData> GetUserLifeData() => userLifeDataDic;
 }

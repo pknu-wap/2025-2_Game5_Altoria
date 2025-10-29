@@ -4,7 +4,7 @@ using SceneLoade;
 
 public class GameScene : BaseScene
 {
-    protected int task = 15;
+    protected int task = 1;
 
     protected override void Init()
     {

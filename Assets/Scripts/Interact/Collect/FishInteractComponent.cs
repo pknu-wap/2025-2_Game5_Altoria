@@ -11,7 +11,7 @@ namespace GameInteract
         [Header("Setting of WorldUI")]
         [SerializeField] Canvas canvas;
         [SerializeField] RectTransform listRoot;
-        Content contentType = Content.Fish;
+        ContentType contentType = ContentType.Fish;
 
 
         public override void EnterInteract()

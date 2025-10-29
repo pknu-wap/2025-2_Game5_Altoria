@@ -44,7 +44,7 @@ namespace GameInteract
             objectID = id;
         }
 
-        public void SetCollectType(Content type)
+        public void SetCollectType(ContentType type)
         {
             collectType = type;
         }

@@ -14,6 +14,6 @@ public class BaseScene : MonoBehaviour
     protected virtual void Init()
     {
         Manager.Init();
-        GameSystem.Init();
+        //GameSystem.Init();
     }
 }

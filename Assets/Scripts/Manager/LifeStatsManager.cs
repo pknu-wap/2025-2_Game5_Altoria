@@ -43,11 +43,11 @@ public class TotalLife { }
 
 public class LifeStatsManager
 {
-    Dictionary<Type, LifeStatData> lifeStats;
-    readonly Dictionary<Type, float> weights = new ()
+    Dictionary<string, LifeStatData> lifeStats;
+    readonly Dictionary<string, float> weights = new ()
     {
-        { typeof(CollectInteractComponent), 0.7f },
-        { typeof(UpgradeInteractComponent), 0.3f },
+        { nameof(CollectInteractComponent), 0.7f },
+        { nameof(UpgradeInteractComponent), 0.3f },
     };
 
     public LifeStatsManager()
@@ -62,7 +62,7 @@ public class LifeStatsManager
 
     public void AddExp<T>(int amount)
     {
-        var type = typeof(T);
+        var type = nameof(T);
         if (!lifeStats.ContainsKey(type)) return;
 
         bool levelUp = lifeStats[type].AddExp(amount);
@@ -74,11 +74,11 @@ public class LifeStatsManager
         SetTotalStat(type, amount, levelUp);
     }
 
-    public int GetLevel<T>() => lifeStats[typeof(T)].GetLevel();
+    public int GetLevel<T>() => lifeStats[nameof(T)].GetLevel();
 
-    public int GetEXP<T>() => lifeStats[typeof(T)].GetEXP();
+    public int GetEXP<T>() => lifeStats[nameof(T)].GetEXP();
 
-    void SetTotalStat(Type type, int amount, bool levelUp)
+    void SetTotalStat(string type, int amount, bool levelUp)
     {
         int totalLevel = GetLevel<TotalLife>();
 
@@ -94,7 +94,7 @@ public class LifeStatsManager
         }
 
         int addExp = Mathf.RoundToInt(weights[type] * amount);
-        bool _levelUp = lifeStats[typeof(TotalLife)].AddExp(addExp);
+        bool _levelUp = lifeStats[nameof(TotalLife)].AddExp(addExp);
 
         if (_levelUp)
         {
@@ -102,5 +102,5 @@ public class LifeStatsManager
         }
     }
 
-    public Dictionary<Type, LifeStatData> GetLifeStats() => lifeStats;
+    public Dictionary<string, LifeStatData> GetLifeStats() => lifeStats;
 }

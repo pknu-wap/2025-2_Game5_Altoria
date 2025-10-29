@@ -24,7 +24,7 @@ public class SetComponent
             string id = GO.name[..^2];
             var GOComponent = GO.GetComponent<CollectInteractComponent>();
             GOComponent.SetObjectID(id);
-            GOComponent.SetCollectType(Define.Content.Mining);
+            GOComponent.SetCollectType(Define.ContentType.Mining);
         }
     }
 }

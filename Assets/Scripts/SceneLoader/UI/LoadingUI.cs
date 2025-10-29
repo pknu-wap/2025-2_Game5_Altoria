@@ -34,6 +34,7 @@ namespace SceneLoade
 
         void UpdateProgress(float progress)
         {
+            Debug.Log($"{progress}");
             progressImage.fillAmount = progress;
             progressTxt.text = $"{(int)(progress * 100)}%";
         }
