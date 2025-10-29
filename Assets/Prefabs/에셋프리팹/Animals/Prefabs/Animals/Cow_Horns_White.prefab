@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5397407424846376344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162506657745228798, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593539148767382440, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741619003447426552, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 046a59800f61c3f4dacd52bc4c2d6d01, type: 2}
+    - target: {fileID: 2554612804456361857, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 046a59800f61c3f4dacd52bc4c2d6d01, type: 2}
+    - target: {fileID: 2731608224330026504, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 046a59800f61c3f4dacd52bc4c2d6d01, type: 2}
+    - target: {fileID: 3587668936107216389, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934421340693164072, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5200801968732257933, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316202253030870019, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086130918295043764, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 046a59800f61c3f4dacd52bc4c2d6d01, type: 2}
+    - target: {fileID: 8010486647813828432, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: m_Name
+      value: Cow_Horns_White
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.data[0].stateName
+      value: Idle 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.data[1].stateName
+      value: Eating
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.data[0].stateWeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.data[2].stateWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.data[1].maxStateTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.data[1].minStateTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643653291114068889, guid: 8b99acdc33fb143218f2a1f66903591f,
+        type: 3}
+      propertyPath: idleStates.Array.data[1].animationBool
+      value: isEating
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b99acdc33fb143218f2a1f66903591f, type: 3}
