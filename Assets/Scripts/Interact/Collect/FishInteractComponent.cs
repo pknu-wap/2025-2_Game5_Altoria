@@ -12,7 +12,7 @@ namespace GameInteract
         [SerializeField] Canvas canvas;
         [SerializeField] RectTransform listRoot;
         ContentType contentType = ContentType.Fish;
-
+        const string path = "UI/";
 
         public override void EnterInteract()
         {
@@ -24,7 +24,7 @@ namespace GameInteract
             for (int i = 0; i < data.FishGroups.Count; i++)
             {
                 var itemData = GameDB.GetItemData(data.FishGroups[i].ID);
-                var newGO = Resources.Load<GameObject>("UI/FishISlot");
+                var newGO = Resources.Load<GameObject>(path + nameof(FishSlot));
                 Instantiate(newGO, listRoot);
                 if (newGO.TryGetComponent<FishSlot>(out var fishSlot))
                 {
