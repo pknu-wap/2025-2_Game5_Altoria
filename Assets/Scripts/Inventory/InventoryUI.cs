@@ -164,6 +164,13 @@ public class InventoryUI : MonoBehaviour
     // 인벤토리 최신화 - 필터링,정렬된 데이터로 
     public void RefreshInventory()
     {
+        displayListData = new List<InventoryData>(InventoryManager.Instance.GetAllItems());
+
+        if (currentType != Define.ItemType.None)
+            displayListData = displayListData.FindAll(item => item.Item != null && item.Item.Type == currentType);
+
+        ApplySort();
+
         foreach (var slot in displayList)
             Destroy(slot.gameObject);
         displayList.Clear();
@@ -172,7 +179,7 @@ public class InventoryUI : MonoBehaviour
         {
             InventoryItemSlot slot = Instantiate(itemPrefab, slotsParent);
             displayList.Add(slot);
-            Debug.Log($"[InventoryUI] : 아이템 슬롯 생성 - ID: {data.Item.ID}, Count: {data.Count}");
+            Debug.Log($"[InventoryUI] : 아이템 슬롯 생성 - Name: {data.Item.Name}, Count: {data.Count}");
 
             InventoryData itemInfo = InventoryManager.Instance.GetItemData(data.Item.ID);
 
@@ -180,7 +187,7 @@ public class InventoryUI : MonoBehaviour
             Sprite icon = Resources.Load<Sprite>(data.Item.SpriteAddress);
             */
 
-            slot.Initialize(data.Item.ID, data.Count);  //실제 UI에 표시 
+            if(data.Count > 0) slot.Initialize(data.Item.ID, data.Count);  //실제 UI에 표시 
         }
         Debug.Log("[InventoryUI] : 인벤토리 최신화됨");
     }
@@ -189,6 +196,7 @@ public class InventoryUI : MonoBehaviour
     public void OnClickItemDelete(string id, int count)
     {
         deletePopUp.Open(id, count);   //삭제창에 아이템 정보 전달
+        deletePopUp.SetItem(id, count);
     }
 
     //창 켜기

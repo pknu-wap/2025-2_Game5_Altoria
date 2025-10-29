@@ -42,7 +42,7 @@ public class ItemDeletePopUp : UIPopUp
 
     void OnEnable()
     {
-        SetItem(itemID, maxCount);
+        //SetItem(itemID, maxCount);
         CountInput.onValueChanged.RemoveListener(OnInputChanged);
         CountInput.text = currentCount.ToString();
         CountInput.onValueChanged.AddListener(OnInputChanged);

@@ -29,14 +29,16 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
     {
         inventory = InventoryManager.Instance.GetItemData(id);
 
+        if (inventory == null)
+        {
+            Debug.Log($"[InventoryItemSlot] : ID {id} 에 해당하는 아이템 데이터를 찾을 수 없음");
+            return;
+        }
+        if (count <= 0) return;
+
         itemID = id;
         itemName = inventory.Item.Name;
         itemCount1 = count;
-        if (inventory == null)
-        {
-            Debug.LogWarning($"[InventoryItemSlot] : ID {id} 에 해당하는 아이템 데이터를 찾을 수 없음");
-            return;
-        }
         SetSlot(inventory.Item.SpriteAddress, count, inventory.Item.Grade); 
         equippedText.gameObject.SetActive(inventory.IsEquipped);
         //추가 커스터마이징

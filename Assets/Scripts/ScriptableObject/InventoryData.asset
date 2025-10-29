@@ -19,11 +19,11 @@ MonoBehaviour:
       Name: "\uC2E0\uBE44\uD55C \uCE7C"
       SpriteAddress: 
       content: 0
-      Grade: 1
+      Grade: 2
       Type: 1
       Description: 
     IsEquipped: 0
-    Count: 16
+    Count: 14
   - Item:
       ID: 3
       Name: "\uBC8C\uB808\uD30C\uBA39\uC740\uC0AC\uACFC"
@@ -39,31 +39,11 @@ MonoBehaviour:
       Name: "\uACE0\uB4F1\uC5B4"
       SpriteAddress: 
       content: 0
-      Grade: 5
+      Grade: 2
       Type: 5
       Description: 
     IsEquipped: 0
-    Count: 319
-  - Item:
-      ID: 5
-      Name: "\uB2E4\uC774\uC544 \uD638\uBBF8"
-      SpriteAddress: 
-      content: 0
-      Grade: 4
-      Type: 2
-      Description: 
-    IsEquipped: 0
-    Count: 5
-  - Item:
-      ID: 6
-      Name: "\uC1E0\uACE1\uAD2D\uC774"
-      SpriteAddress: 
-      content: 0
-      Grade: 1
-      Type: 2
-      Description: 
-    IsEquipped: 0
-    Count: 205
+    Count: 306
   - Item:
       ID: 7
       Name: "\uB625"
@@ -73,85 +53,125 @@ MonoBehaviour:
       Type: 3
       Description: 
     IsEquipped: 0
-    Count: 219
+    Count: 208
   - Item:
       ID: 9
       Name: "\uC720\uACE8"
       SpriteAddress: 
       content: 0
-      Grade: 2
+      Grade: 3
       Type: 1
       Description: 
-    IsEquipped: 1
-    Count: 32
+    IsEquipped: 0
+    Count: 31
   - Item:
       ID: 10
-      Name: "\u3131\u3131\u3131"
+      Name: "\uBA78\uCE58"
       SpriteAddress: 
       content: 0
-      Grade: 5
+      Grade: 2
       Type: 3
       Description: 
     IsEquipped: 0
-    Count: 32
+    Count: 55
   - Item:
-      ID: 11
-      Name: "\u3134\u3134\u3134"
+      ID: 12
+      Name: "\uADF9\uC131\uBE44"
       SpriteAddress: 
       content: 0
-      Grade: 4
+      Grade: 5
       Type: 4
       Description: 
     IsEquipped: 0
-    Count: 32
+    Count: 24
   - Item:
-      ID: 12
-      Name: "\u3137\u3137\u3137"
+      ID: 13
+      Name: "\uC815\uC5B4\uB9AC"
+      SpriteAddress: 
+      content: 0
+      Grade: 3
+      Type: 4
+      Description: 
+    IsEquipped: 0
+    Count: 4
+  - Item:
+      ID: 14
+      Name: "\uC369\uC740 \uBE75"
+      SpriteAddress: 
+      content: 0
+      Grade: 1
+      Type: 3
+      Description: 
+    IsEquipped: 0
+    Count: 900
+  - Item:
+      ID: 15
+      Name: "\uD669\uAE08 \uBE75"
       SpriteAddress: 
       content: 0
       Grade: 2
-      Type: 5
+      Type: 3
+      Description: 
+    IsEquipped: 0
+    Count: 2
+  - Item:
+      ID: 16
+      Name: "\uAC74\uCD08"
+      SpriteAddress: 
+      content: 0
+      Grade: 1
+      Type: 4
+      Description: 
+    IsEquipped: 0
+    Count: 481
+  - Item:
+      ID: 33333
+      Name: "\uBAA9\uC7AC"
+      SpriteAddress: 
+      content: 0
+      Grade: 1
+      Type: 4
+      Description: 
+    IsEquipped: 0
+    Count: 23
+  - Item:
+      ID: 22222
+      Name: "\uB3CC"
+      SpriteAddress: 
+      content: 0
+      Grade: 5
+      Type: 4
       Description: 
     IsEquipped: 0
     Count: 22
   - Item:
-      ID: 13
-      Name: "\u3139\u3139\u3139"
-      SpriteAddress: 
-      content: 0
-      Grade: 3
-      Type: 4
-      Description: 
-    IsEquipped: 0
-    Count: 245
-  - Item:
-      ID: 14
-      Name: "\u3141\u3141\u3141"
-      SpriteAddress: 
-      content: 0
-      Grade: 1
-      Type: 5
-      Description: 
-    IsEquipped: 0
-    Count: 245
-  - Item:
-      ID: 15
-      Name: "\u3142\u3142\u3142"
-      SpriteAddress: 
-      content: 0
-      Grade: 3
-      Type: 1
-      Description: 
-    IsEquipped: 0
-    Count: 245
-  - Item:
-      ID: 16
-      Name: "\u3145\u3145\u3145"
+      ID: 17
+      Name: "\uC9F1\uB3CC"
       SpriteAddress: 
       content: 0
       Grade: 2
       Type: 2
       Description: 
     IsEquipped: 0
-    Count: 245
+    Count: 23
+  - Item:
+      ID: 18
+      Name: "\uC6B0\uC720"
+      SpriteAddress: 
+      content: 0
+      Grade: 4
+      Type: 3
+      Description: 
+    IsEquipped: 0
+    Count: 34
+  - Item:
+      ID: 333
+      Name: "\uC885\uC774 \uD638\uBBF8"
+      SpriteAddress: 
+      content: 0
+      Grade: 1
+      Type: 2
+      Description: 
+    IsEquipped: 0
+    Count: 34
   maxSlotCount: 30
