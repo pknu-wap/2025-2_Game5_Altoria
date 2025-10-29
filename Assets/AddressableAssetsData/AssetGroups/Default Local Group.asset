@@ -1330,11 +1330,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b4d4fb400c816da4ab58ed612079f742
-    m_Address: GradeDatabase
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4ed978a0d898114fa1bf695aa993446
     m_Address: PP_Blacksmithing_Sign_02
     m_ReadOnly: 0
