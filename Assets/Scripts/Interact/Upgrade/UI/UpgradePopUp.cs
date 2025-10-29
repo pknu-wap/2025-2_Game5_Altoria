@@ -41,7 +41,7 @@ namespace GameInteract
             return true;
         }
 
-        private void SetUpgradeData(ItemData itemData)
+        void SetUpgradeData(ItemData itemData)
         {
             Destroy(meterialsItem);
             Destroy(selectedItemGO);

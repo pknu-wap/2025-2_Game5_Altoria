@@ -21,5 +21,12 @@ public class GameScene : BaseScene
         loader.Load();
         loadingUI.StartLoding(loader);
         loadingUI.OnClosed += () => Manager.UI.ShowHUD<UI_GameScene>();
+        loadingUI.OnClosed += () => PlayerLoad();
     }
+
+    void PlayerLoad()
+    {
+        
+    }
+
 }

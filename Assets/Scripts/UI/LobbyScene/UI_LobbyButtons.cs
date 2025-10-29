@@ -1,5 +1,4 @@
 using Common;
-using SceneLoade;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,15 +22,18 @@ namespace GameUI
         {
             GameSystem.Init();
 
+            // TODO: 시작할 Scene Data에서 받아와서 사용하기
             Manager.Scene.LoadScene(Define.SceneType.TestMap);
         }
 
         public void OnClickSettingButton()
         {
+            GameSystem.Init();
             Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
         }
         public void OnClickExitButton()
         {
+            Manager.UserData.SaveAllUserData();
             Debug.Log($"[{GetType()}] 게임 종료");
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

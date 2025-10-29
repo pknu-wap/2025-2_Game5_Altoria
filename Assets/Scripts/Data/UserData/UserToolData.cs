@@ -17,7 +17,7 @@ public class UserToolData : Security, IUserData
     Dictionary<string, int> userToolsDataDic;
 
     public int? GetToolStep(string id) => userToolsDataDic.TryGetValue(id, out var data) ? data : null;
-    // 추후 새로운 key에 대해 value를 넣는 작업을 인덱스로 대입해도 추가가 되는지 확인 필요(2025.10.25_미확인)
+    // TODO: 추후 새로운 key에 대해 value를 넣는 작업을 인덱스로 대입해도 추가가 되는지 확인 필요(2025.10.25_미확인)
     public void SetToolSteop(string id, int step) => userToolsDataDic[id] = step;
 
     public void SetDefaultData()

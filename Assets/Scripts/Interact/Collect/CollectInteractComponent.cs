@@ -20,8 +20,7 @@ namespace GameInteract
             timer.OnFinished += EndCollect;
         }
 
-        // 채집 타이머가 끝나면 채집이 종료
-        private void EndCollect(ITimer timer)
+        void EndCollect(ITimer timer)
         {
             Debug.Log($"{GetType()} : {collectType.ToString()} 종료.");
 

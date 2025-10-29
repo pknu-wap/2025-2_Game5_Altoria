@@ -8,12 +8,14 @@ public class PlayerData
     public Vector3 PlayerTransform;
     public Quaternion Rotation;
     public float Stemina;
+    public Define.SceneType LastScene;
 
     public PlayerData()
     {
         PlayerTransform = Vector3.zero;
         Rotation = Quaternion.identity;
         Stemina = 100f;
+        LastScene = Define.SceneType.None; // TODO: 최초 시작 마을로 변경
     }
 }
 
@@ -21,6 +23,8 @@ public class UserPlayerData : Security, IUserData
 {
     string path = Path.Combine(Application.dataPath, "playerData.json");
     PlayerData userPlayerData;
+
+    public PlayerData GetPlayerData() => userPlayerData;
 
     public void SetDefaultData()
     {
