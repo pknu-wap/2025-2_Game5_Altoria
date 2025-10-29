@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cbaa336f4abf1be48b0831b3a6c71d99
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299336
+  packageName: Bamao's Fantastic UI Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/Bamao/BamaoUIPack/Prefabs/Layout/Equipment/EquipmentItem.prefab
+  uploadId: 740277

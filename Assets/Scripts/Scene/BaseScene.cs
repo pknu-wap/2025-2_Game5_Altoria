@@ -6,7 +6,7 @@ public class BaseScene : MonoBehaviour
 {
     protected SceneType sceneType = SceneType.None;
 
-    private void Awake()
+    void Awake()
     {
         Init();
     }
@@ -14,6 +14,6 @@ public class BaseScene : MonoBehaviour
     protected virtual void Init()
     {
         Manager.Init();
-        GameSystem.Init();
+        //GameSystem.Init();
     }
 }

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f33d28b62654f43548073eac88ec2e43
+timeCreated: 1569528895
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93089
+  packageName: Low Poly Animated Animals
+  packageVersion: 4.1.1
+  assetPath: Assets/polyperfect/Low Poly Animated Animals/Prefabs/Animals/Demo/Cow_Legacy_Demo.prefab
+  uploadId: 779737

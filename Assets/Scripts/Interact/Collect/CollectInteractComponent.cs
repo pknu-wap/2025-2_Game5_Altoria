@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static Define;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace GameInteract
 {
@@ -19,8 +20,7 @@ namespace GameInteract
             timer.OnFinished += EndCollect;
         }
 
-        // 채집 타이머가 끝나면 채집이 종료
-        private void EndCollect(ITimer timer)
+        void EndCollect(ITimer timer)
         {
             Debug.Log($"{GetType()} : {collectType.ToString()} 종료.");
 
@@ -38,6 +38,15 @@ namespace GameInteract
 
             EndInteract();
         }
-    }
 
+        public void SetObjectID(string id)
+        {
+            objectID = id;
+        }
+
+        public void SetCollectType(ContentType type)
+        {
+            collectType = type;
+        }
+    }
 }
