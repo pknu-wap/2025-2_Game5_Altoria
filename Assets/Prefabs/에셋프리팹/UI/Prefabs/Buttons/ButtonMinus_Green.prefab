@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 8765069299822816241}
   - component: {fileID: 6409914050821214839}
   - component: {fileID: 5836471493914457963}
-  - component: {fileID: 7226237657767599689}
   m_Layer: 5
   m_Name: ButtonMinus_Green
   m_TagString: Untagged
@@ -201,7 +200,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &6409914050821214839
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -215,6 +214,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -231,6 +231,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -316,23 +317,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7226237657767599689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6653620933679294797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 851a6de59e274c541a5bb8ee291da3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AvoidEnterSelectedStatus: 1
-  MouseEnterClip: {fileID: 0}
-  MouseEnterSoundVolume: 1
-  AvoidExitSelectedStatus: 1
-  MouseExitClip: {fileID: 0}
-  MouseExitSoundVolume: 1
-  MouseClickClip: {fileID: 8300000, guid: 3157bab3f7ec79f41a8c993659a7eff1, type: 3}
-  MouseClickSoundVolume: 1

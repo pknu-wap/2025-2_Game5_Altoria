@@ -98,9 +98,10 @@ public class PlayerController : BaseEntityComponent
 
     void TryInteract()
     {
-        if (State.CurrentState==PlayerState.Die) return;
+        if (State.CurrentState==PlayerState.Die||interact.CurrentTarget==null) return;
 
         interact.TryInteract();
+       
         State.SetState(PlayerState.Interacting);
     }
     void OnInteract(int interactType)
