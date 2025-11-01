@@ -9,7 +9,6 @@ namespace GameInteract
     {
         [SerializeField] AreaType areaType;
         [Header("Setting of WorldUI")]
-        ContentType contentType = ContentType.Fish;
         const string path = "UI/";
 
         public override void EnterInteract()
