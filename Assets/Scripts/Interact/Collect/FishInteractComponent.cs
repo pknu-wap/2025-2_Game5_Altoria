@@ -9,9 +9,6 @@ namespace GameInteract
     {
         [SerializeField] AreaType areaType;
         [Header("Setting of WorldUI")]
-        [SerializeField] Canvas canvas;
-        [SerializeField] RectTransform listRoot;
-        ContentType contentType = ContentType.Fish;
         const string path = "UI/";
 
         public override void EnterInteract()
@@ -21,25 +18,25 @@ namespace GameInteract
             var fishDic = GameDB.GetFishData(areaType).Value;
             var data = fishDic[areaType.ToString()];
 
-            for (int i = 0; i < data.FishGroups.Count; i++)
-            {
-                var itemData = GameDB.GetItemData(data.FishGroups[i].ID);
-                var newGO = Resources.Load<GameObject>(path + nameof(FishSlot));
-                Instantiate(newGO, listRoot);
-                if (newGO.TryGetComponent<FishSlot>(out var fishSlot))
-                {
-                    fishSlot.Init(itemData.SpriteAddress, data.FishGroups[i].Probability.ToString());
-                }
-            }
+            //for (int i = 0; i < data.FishGroups.Count; i++)
+            //{
+            //    var itemData = GameDB.GetItemData(data.FishGroups[i].ID);
+            //    var newGO = Resources.Load<GameObject>(path + nameof(FishSlot));
+            //    Instantiate(newGO, listRoot);
+            //    if (newGO.TryGetComponent<FishSlot>(out var fishSlot))
+            //    {
+            //        fishSlot.Init(itemData.SpriteAddress, data.FishGroups[i].Probability.ToString());
+            //    }
+            //}
 
-            canvas.gameObject.SetActive(true);
+            //canvas.gameObject.SetActive(true);
         }
 
         public override void ExitInteract()
         {
             base.ExitInteract();
 
-            canvas.gameObject.SetActive(false);
+            //canvas.gameObject.SetActive(false);
         }
 
         public override void Interact()

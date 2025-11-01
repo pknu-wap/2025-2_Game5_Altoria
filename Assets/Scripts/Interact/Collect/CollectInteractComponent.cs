@@ -11,7 +11,6 @@ namespace GameInteract
 {
     public class CollectInteractComponent : InteractBaseComponent
     {
-        [SerializeField] protected ContentType collectType = ContentType.None;
         [SerializeField] string objectID;
 
         public override void Interact()
@@ -22,8 +21,6 @@ namespace GameInteract
 
         void EndCollect(ITimer timer)
         {
-            Debug.Log($"{GetType()} : {collectType.ToString()} Á¾·á.");
-
             List<(CollectGroup, float)> probList = new List<(CollectGroup, float)>();
             var dic = GameDB.GetCollectData(objectID).Value;
             var data = dic[objectID];
@@ -42,11 +39,6 @@ namespace GameInteract
         public void SetObjectID(string id)
         {
             objectID = id;
-        }
-
-        public void SetCollectType(ContentType type)
-        {
-            collectType = type;
         }
     }
 }
