@@ -11,24 +11,26 @@ namespace GameInteract
         [Header("Setting of WorldUI")]
         [SerializeField] Canvas canvas;
         [SerializeField] RectTransform listRoot;
-        //Content collectType = Content.Fish;
-
+        ContentType contentType = ContentType.Fish;
+        const string path = "UI/";
 
         public override void EnterInteract()
         {
             base.EnterInteract();
 
-            //for(int i = 0; i < GameSystem.Instance.GetFishData(areaType).rows.Count; i++)
-            //{
-            //    var fishSOData = GameSystem.Instance.GetFishData(areaType);
-            //    var itemData = GameDB.GetItemData(fishSOData.rows[i].ID);
-            //    var newGO = Resources.Load<GameObject>("UI/FishISlot");
-            //    Instantiate(newGO, listRoot);
-            //    if(newGO.TryGetComponent<FishSlot>(out var fishSlot))
-            //    {
-            //        fishSlot.Init(itemData.SpriteAddress, fishSOData.rows[i].Probability.ToString());
-            //    }
-            //}
+            var fishDic = GameDB.GetFishData(areaType).Value;
+            var data = fishDic[areaType.ToString()];
+
+            for (int i = 0; i < data.FishGroups.Count; i++)
+            {
+                var itemData = GameDB.GetItemData(data.FishGroups[i].ID);
+                var newGO = Resources.Load<GameObject>(path + nameof(FishSlot));
+                Instantiate(newGO, listRoot);
+                if (newGO.TryGetComponent<FishSlot>(out var fishSlot))
+                {
+                    fishSlot.Init(itemData.SpriteAddress, data.FishGroups[i].Probability.ToString());
+                }
+            }
 
             canvas.gameObject.SetActive(true);
         }

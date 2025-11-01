@@ -18,16 +18,14 @@ namespace GameInteract
         [SerializeField] TextMeshProUGUI gradeTxt;
 
         GameObject selectedItemGO;
+        GameObject meterialsItem;
         ItemData selectItemData;
-        List<GameObject> meterialsItem = new List<GameObject>();
 
         public override bool Init()
         {
             if (base.Init() == false) return false;
 
             // TODO: 인벤토리 데이터 가져와서 강화 가능한 물품만 정리하기
-
-
             GameObject upgradeSlotPrefab = Resources.Load<GameObject>(nameof(UpgradeSlot));
             for (int i = 1; i <= 3; i++)
             {
@@ -43,38 +41,34 @@ namespace GameInteract
             return true;
         }
 
-        private void SetUpgradeData(ItemData data)
+        void SetUpgradeData(ItemData itemData)
         {
-            for (int i = 0; i < meterialsItem.Count; i++)
-                Destroy(meterialsItem[i]);
-            meterialsItem.Clear();
+            Destroy(meterialsItem);
             Destroy(selectedItemGO);
 
-            // TODO: 선택된 item을 selectItemSlotRoot에 설정
             GameObject selectdSlotPrefab = Resources.Load<GameObject>(nameof(UpgradeSelectItem));
-            selectedItemGO = Instantiate(selectdSlotPrefab, selectItemSlotRoot);
-            selectItemData = data;
-
-            gradeTxt.text = $"{((int)data.Grade)}강 -> {((int)data.Grade + 1)}강";
-
-            // TODO : 강화재료 Data를 받아야한다.
-            // TEST
-            GameObject meterialSlotPrefab = Resources.Load<GameObject>(nameof(UpgradeMeterialSlot));
-            for (int i = 0; i < (Convert.ToInt32(data.ID) / 1000) % 10; i++)
+            if(selectdSlotPrefab.TryGetComponent<UpgradeSelectItem>(out var slot))
             {
-                var newGO = Instantiate(meterialSlotPrefab, meterialSlotRoot);
-                meterialsItem.Add(newGO);
-                if (newGO.TryGetComponent<UpgradeMeterialSlot>(out var item))
-                {
-                    item.Init(new ItemData(data.ID, (Define.ItemGrade)i), i);
-                }
+                slot.Init(itemData);
             }
+            selectedItemGO = Instantiate(selectdSlotPrefab, selectItemSlotRoot);
+            selectItemData = itemData;
+
+            var step = Manager.UserData.GetUserData<UserToolData>().GetToolStep(itemData.ID);
+            gradeTxt.text = $"?강 -> ?강";
+            //gradeTxt.text = $"{((int)step)}강 -> {((int)step + 1)}강";
+
+            GameObject meterialSlotPrefab = Resources.Load<GameObject>(nameof(ItemSlot));
+            var newGO = Instantiate(meterialSlotPrefab, meterialSlotRoot);
+            meterialsItem = newGO;
+            if (newGO.TryGetComponent<ItemSlot>(out var item))
+                item.SetSlot(itemData.ID, 0);
+            //item.SetSlot(itemData.ID, GameDB.GetUpgradeData((int)step).Material);
         }
 
         public void OnClickUpgradeBtn()
         {
-            // TODO: 위에서 가져온 강화 재료(meterialsItem)로부터 재료가 있는지 확인고, 재료를 인벤에서 소진시킨다.
-            // 재료가 없다면 재료 없다고 popUp창 띄우기
+            // TODO: 강화석이 충분하다면 삭제, 아니면 강화석 부족 PopUp창 띄우기
             var popUp = Manager.UI.ShowPopup<UpgradeResultPopUp>();
             GameSystem.Life.AddExp<UpgradeInteractComponent>(10);
             popUp.SetResult(selectItemData);

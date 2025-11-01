@@ -7,11 +7,18 @@ using GameInteract;
 [Serializable]
 public class LifeStatData
 {
-    [SerializeField] private int level = 1;
-    [SerializeField] private int exp = 0;
+    [SerializeField] int level = 1;
+    [SerializeField] int exp = 0;
 
     readonly List<int> levelThresholds = CsvLoader.LoadCsv<int>($"{Application.dataPath}/CSV/LevelThresholds.csv");
 
+    public LifeStatData() { }
+
+    public LifeStatData(int level, int exp)
+    {
+        this.level = level;
+        this.exp = exp;
+    }
 
     public bool AddExp(int amount)
     {
@@ -36,24 +43,26 @@ public class TotalLife { }
 
 public class LifeStatsManager
 {
-    private Dictionary<Type, LifeStatData> lifeStats = new ();
-    private readonly Dictionary<Type, float> weights = new ()
+    Dictionary<string, LifeStatData> lifeStats;
+    readonly Dictionary<string, float> weights = new ()
     {
-        { typeof(CollectInteractComponent), 0.7f },
-        { typeof(UpgradeInteractComponent), 0.3f },
+        { nameof(CollectInteractComponent), 0.7f },
+        { nameof(UpgradeInteractComponent), 0.3f },
     };
 
     public LifeStatsManager()
     {
-        lifeStats[typeof(CollectInteractComponent)] = new();
-        lifeStats[typeof(UpgradeInteractComponent)] = new();
-        lifeStats[typeof(TotalLife)] = new();
+        SetData();
+    }
 
+    void SetData()
+    {
+        lifeStats = Manager.UserData.GetUserData<UserLifeData>().GetUserLifeData();
     }
 
     public void AddExp<T>(int amount)
     {
-        var type = typeof(T);
+        var type = nameof(T);
         if (!lifeStats.ContainsKey(type)) return;
 
         bool levelUp = lifeStats[type].AddExp(amount);
@@ -65,11 +74,11 @@ public class LifeStatsManager
         SetTotalStat(type, amount, levelUp);
     }
 
-    public int GetLevel<T>() => lifeStats[typeof(T)].GetLevel();
+    public int GetLevel<T>() => lifeStats[nameof(T)].GetLevel();
 
-    public int GetEXP<T>() => lifeStats[typeof(T)].GetEXP();
+    public int GetEXP<T>() => lifeStats[nameof(T)].GetEXP();
 
-    private void SetTotalStat(Type type, int amount, bool levelUp)
+    void SetTotalStat(string type, int amount, bool levelUp)
     {
         int totalLevel = GetLevel<TotalLife>();
 
@@ -85,11 +94,13 @@ public class LifeStatsManager
         }
 
         int addExp = Mathf.RoundToInt(weights[type] * amount);
-        bool _levelUp = lifeStats[typeof(TotalLife)].AddExp(addExp);
+        bool _levelUp = lifeStats[nameof(TotalLife)].AddExp(addExp);
 
         if (_levelUp)
         {
             Debug.Log($"{GetType()} : 생활력 레벨업! {GetLevel<TotalLife>() - 1} -> {GetLevel<TotalLife>()}");
         }
     }
+
+    public Dictionary<string, LifeStatData> GetLifeStats() => lifeStats;
 }
