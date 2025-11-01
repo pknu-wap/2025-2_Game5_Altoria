@@ -102,13 +102,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensivity: 0.1
-  maxVerticalAngle: 60
+  maxVerticalAngle: 50
   minVerticalAngle: -30
   camera: {fileID: 2890462667965848778}
   cameraCollision:
     serializedVersion: 2
     m_Bits: 0
-  _offset: {x: 0, y: 2, z: -3.5}
+  _offset: {x: 0, y: 3, z: -4.25}
   inputHandler: {fileID: 0}
 --- !u!1 &2495812562024042374
 GameObject:
