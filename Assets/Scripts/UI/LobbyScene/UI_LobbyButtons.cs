@@ -23,7 +23,7 @@ namespace GameUI
             GameSystem.Init();
 
             // TODO: 시작할 Scene Data에서 받아와서 사용하기
-            Manager.Scene.LoadScene(Define.SceneType.TestMap);
+            Manager.Scene.LoadScene(Define.SceneType.GameScene);
         }
 
         public void OnClickSettingButton()

@@ -16,7 +16,7 @@ public class PlayerController : BaseEntityComponent
 
     public PlayerStateMachine State { get; private set; } = new PlayerStateMachine();
 
-    bool isJump = false;
+   [SerializeField] bool isJump = false;
     
     void Awake()
     {
@@ -76,6 +76,7 @@ public class PlayerController : BaseEntityComponent
     }
     void OnGround(bool grounded)
     {
+            Debug.Log(grounded);
         if (grounded)
         {
             isJump = false;
@@ -87,7 +88,7 @@ public class PlayerController : BaseEntityComponent
     }
     void OnJump()
     {
-        if (!State.CanReceiveInput() || !movement.IsGrounded || isJump)
+        if (!State.CanReceiveInput() || isJump)
             return;
 
         isJump = true;
