@@ -25,7 +25,7 @@
         {
             "ID": 1,
             "parentID": -1,
-            "PrefabAddress": "Lighting 1",
+            "PrefabAddress": "Lighting",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -47,7 +47,7 @@
         {
             "ID": 2,
             "parentID": -1,
-            "PrefabAddress": "Vegetation 1",
+            "PrefabAddress": "Vegetation",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -69,7 +69,7 @@
         {
             "ID": 3,
             "parentID": -1,
-            "PrefabAddress": "Stones&Rocks 1",
+            "PrefabAddress": "Stones&Rocks",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -91,7 +91,7 @@
         {
             "ID": 4,
             "parentID": -1,
-            "PrefabAddress": "Crystals&Ores&Veins 1",
+            "PrefabAddress": "Crystals&Ores&Veins",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -113,7 +113,7 @@
         {
             "ID": 5,
             "parentID": -1,
-            "PrefabAddress": "Coins 1",
+            "PrefabAddress": "Coins",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -135,7 +135,7 @@
         {
             "ID": 6,
             "parentID": -1,
-            "PrefabAddress": "Props 1",
+            "PrefabAddress": "Props",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -157,7 +157,7 @@
         {
             "ID": 7,
             "parentID": -1,
-            "PrefabAddress": "Mushrooms 1",
+            "PrefabAddress": "Mushrooms",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -179,7 +179,7 @@
         {
             "ID": 8,
             "parentID": -1,
-            "PrefabAddress": "Cave Props 1",
+            "PrefabAddress": "Cave Props",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -201,7 +201,7 @@
         {
             "ID": 9,
             "parentID": -1,
-            "PrefabAddress": "Cave 1",
+            "PrefabAddress": "Cave",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -223,7 +223,7 @@
         {
             "ID": 10,
             "parentID": -1,
-            "PrefabAddress": "Rails&Mine Carts 1",
+            "PrefabAddress": "Rails&Mine Carts",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -245,7 +245,7 @@
         {
             "ID": 11,
             "parentID": -1,
-            "PrefabAddress": "Runes 1",
+            "PrefabAddress": "Runes",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -267,7 +267,7 @@
         {
             "ID": 12,
             "parentID": -1,
-            "PrefabAddress": "Blacksmithing House 1",
+            "PrefabAddress": "Blacksmithing House",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -289,7 +289,7 @@
         {
             "ID": 13,
             "parentID": -1,
-            "PrefabAddress": "Bridges 1",
+            "PrefabAddress": "Bridges",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -311,7 +311,7 @@
         {
             "ID": 14,
             "parentID": -1,
-            "PrefabAddress": "Stalactite&Stalagmite&Stalagnate 1",
+            "PrefabAddress": "Stalactite&Stalagmite&Stalagnate",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -333,7 +333,7 @@
         {
             "ID": 15,
             "parentID": -1,
-            "PrefabAddress": "Terrain_Stone 1",
+            "PrefabAddress": "Terrain_Stone",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -355,7 +355,7 @@
         {
             "ID": 16,
             "parentID": -1,
-            "PrefabAddress": "Terrain 1",
+            "PrefabAddress": "Terrain",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -377,7 +377,7 @@
         {
             "ID": 17,
             "parentID": -1,
-            "PrefabAddress": "Weapons 1",
+            "PrefabAddress": "Weapons",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -399,7 +399,7 @@
         {
             "ID": 18,
             "parentID": -1,
-            "PrefabAddress": "Tools 1",
+            "PrefabAddress": "Tools",
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -421,7 +421,7 @@
         {
             "ID": 19,
             "parentID": -1,
-            "PrefabAddress": "FX 1",
+            "PrefabAddress": "FX",
             "Position": {
                 "x": 168.62184143066407,
                 "y": -2.9132018089294435,
