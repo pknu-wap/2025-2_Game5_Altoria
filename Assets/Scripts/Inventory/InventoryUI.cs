@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using GameInventory;
+using GameUI;
 
 [System.Serializable]
 public class TopButtonSet
@@ -18,7 +19,7 @@ public enum SortType
     GradeLowToHigh
 }
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : UIPopUp
 {
     #region Singleton
     public static InventoryUI Instance;
@@ -46,9 +47,6 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] Transform slotsParent;
     List<InventoryItemSlot> displayList = new();
     List<InventoryEntry> displayListData = new();
-
-    [SerializeField] ItemDeletePopUp deletePopUp;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -191,20 +189,20 @@ public class InventoryUI : MonoBehaviour
 
     public void OnClickItemDelete(InventoryEntry data)
     {
-        deletePopUp.Open(data);   //삭제창에 아이템 정보 전달
+        ItemDeletePopUp.Open(data);   //삭제창에 아이템 정보 전달
         //deletePopUp.SetItem(id, count); // 지워도 됨
     }
 
     //창 켜기
     public void Show()
     {
-        gameObject.SetActive(true);
+        Manager.UI.ShowPopup<InventoryUI>();
     }
 
     //창 닫기
     public void Hide()
     {
-        gameObject.SetActive(false);
+        Manager.UI.ClosePopup();
     }
 
 

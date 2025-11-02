@@ -12,10 +12,6 @@ public class Stat
 
 public class MainMenuPopUp : UIPopUp
 {
-    [SerializeField] GameObject mainMenuPopUp;
-    [SerializeField] GameObject inventoryUI;
-    [SerializeField] GameObject settingPopUp;
-
     [SerializeField] Stat[] stats = new Stat[4];
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,8 +56,7 @@ public class MainMenuPopUp : UIPopUp
     }
     public void OnClickInventory()
     {
-        //ui.ShowPopup<InventoryUI>();
-        inventoryUI.SetActive(true);
+        Manager.UI.ShowPopup<InventoryUI>();
     }
     public void OnClickCraft()
     {
@@ -73,14 +68,12 @@ public class MainMenuPopUp : UIPopUp
 
     public void OnClickSetting()
     {
-        //ui.ShowPopup<SettingPopUp>();
-        settingPopUp.SetActive(true);
+        Manager.UI.ShowPopup<SettingPopUp>();
         Debug.Log("[MainMenuPopUp] : 설정창");
     }
 
     public void closePopUp()
     {
-        //ui.ClosePopup();
-        mainMenuPopUp.SetActive(false);
+        Manager.UI.ClosePopup();
     }
 }
