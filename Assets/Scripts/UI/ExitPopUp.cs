@@ -1,7 +1,7 @@
 using GameUI;
 using UnityEngine;
 
-public class ExitPopUp : MonoBehaviour
+public class ExitPopUp : UIPopUp
 {
     [SerializeField] private GameObject exitUI;
 
@@ -38,6 +38,6 @@ public class ExitPopUp : MonoBehaviour
 
     public void OnClickNo()
     {
-        exitUI.SetActive(false);
+        Manager.UI.ClosePopup();
     }
 }

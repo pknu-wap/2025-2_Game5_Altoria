@@ -5233,7 +5233,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8847895277300198546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5788,6 +5788,22 @@ PrefabInstance:
     - target: {fileID: 4672388907590394361, guid: 354b860a92108f54c902d35eee77b2be, type: 3}
       propertyPath: m_Size
       value: 0.8244673
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997753380910877403, guid: 354b860a92108f54c902d35eee77b2be, type: 3}
+      propertyPath: m_fontSize
+      value: 22.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997753380910877403, guid: 354b860a92108f54c902d35eee77b2be, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a025ce544c473645adc3f9e4421f684, type: 2}
+    - target: {fileID: 4997753380910877403, guid: 354b860a92108f54c902d35eee77b2be, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1152067393657090986, guid: 2a025ce544c473645adc3f9e4421f684, type: 2}
+    - target: {fileID: 4997753380910877403, guid: 354b860a92108f54c902d35eee77b2be, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4997753380910877403, guid: 354b860a92108f54c902d35eee77b2be, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
