@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using GameInventory;
 
 [System.Serializable]
 public class TopButtonSet
@@ -44,7 +45,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] InventoryItemSlot itemPrefab;
     [SerializeField] Transform slotsParent;
     List<InventoryItemSlot> displayList = new();
-    List<InventoryData> displayListData = new();
+    List<InventoryEntry> displayListData = new();
 
     [SerializeField] ItemDeletePopUp deletePopUp;
 
@@ -52,7 +53,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        displayListData = new List<InventoryData>(InventoryManager.Instance.GetAllItems());
+        displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
 
         InitSortDropdown();
         InitCategoryButtons();
@@ -61,6 +62,11 @@ public class InventoryUI : MonoBehaviour
 
     void OnEnable()
     {
+        displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
+
+        InitSortDropdown();
+        InitCategoryButtons();
+        RefreshInventory();
     }
 
     // Update is called once per frame
@@ -72,7 +78,7 @@ public class InventoryUI : MonoBehaviour
 
 
     // 상위 버튼 선택 관리
-    public void InitCategoryButtons()
+    void InitCategoryButtons()
     {
         for (int i = 0; i < topButtons.Length; i++)
         {
@@ -81,24 +87,16 @@ public class InventoryUI : MonoBehaviour
             {
                 for (int j = 0; j < topButtons.Length; j++)
                 {
-                    if (j == index)
-                    {
-                        OnTypeChanged(j);
-                        topButtons[j].focus.gameObject.SetActive(true);
-                    }
-                    else
-                    {
-                        topButtons[j].focus.gameObject.SetActive(false);
-                    }
+                    topButtons[j].focus.gameObject.SetActive(j == index);
                 }
-                
+                OnTypeChanged(index);
                 SoundManager.Instance.PlaySFX(SFX.ButtonClick);
             });
         }
     }
 
     // 드롭다운 초기화
-    public void InitSortDropdown()
+    void InitSortDropdown()
     {
         sortDropdown.ClearOptions();
 
@@ -124,10 +122,10 @@ public class InventoryUI : MonoBehaviour
         if(currentType != Define.ItemType.None)
         {
             var allItems = InventoryManager.Instance.GetAllItems();
-            displayListData = allItems.FindAll(item => item.Item != null && item.Item.Type == currentType);
+            displayListData = allItems.FindAll(x => x.item.ItemData != null && x.item.ItemData.Type == currentType);
         }
         else
-            displayListData = new List<InventoryData>(InventoryManager.Instance.GetAllItems());
+            displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
 
         ApplySort();
         RefreshInventory();
@@ -146,17 +144,17 @@ public class InventoryUI : MonoBehaviour
     }
 
     //정렬
-    private void ApplySort()
+    void ApplySort()
     {
         if (displayListData == null || displayListData.Count == 0) return;
 
         switch (currentSort)
         {
             case SortType.GradeHighToLow:
-                displayListData.Sort((a, b) => b.Item.Grade.CompareTo(a.Item.Grade));
+                displayListData.Sort((a, b) => b.item.ItemData.Grade.CompareTo(a.item.ItemData.Grade));
                 break;
             case SortType.GradeLowToHigh:
-                displayListData.Sort((a, b) => a.Item.Grade.CompareTo(b.Item.Grade));
+                displayListData.Sort((a, b) => a.item.ItemData.Grade.CompareTo(b.item.ItemData.Grade));
                 break;
         }
     }
@@ -164,10 +162,10 @@ public class InventoryUI : MonoBehaviour
     // 인벤토리 최신화 - 필터링,정렬된 데이터로 
     public void RefreshInventory()
     {
-        displayListData = new List<InventoryData>(InventoryManager.Instance.GetAllItems());
+        displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
 
         if (currentType != Define.ItemType.None)
-            displayListData = displayListData.FindAll(item => item.Item != null && item.Item.Type == currentType);
+            displayListData = displayListData.FindAll(x => x.item.ItemData != null && x.item.ItemData.Type == currentType);
 
         ApplySort();
 
@@ -179,24 +177,22 @@ public class InventoryUI : MonoBehaviour
         {
             InventoryItemSlot slot = Instantiate(itemPrefab, slotsParent);
             displayList.Add(slot);
-            Debug.Log($"[InventoryUI] : 아이템 슬롯 생성 - Name: {data.Item.Name}, Count: {data.Count}");
-
-            InventoryData itemInfo = InventoryManager.Instance.GetItemData(data.Item.ID);
-
+            
             /* 이미지 연결 
             Sprite icon = Resources.Load<Sprite>(data.Item.SpriteAddress);
             */
 
-            if(data.Count > 0) slot.Initialize(data.Item.ID, data.Count);  //실제 UI에 표시 
+            if(data.count > 0) slot.Initialize(data);  //실제 UI에 표시 
+            Debug.Log($"[InventoryUI] : 아이템 슬롯 생성 - Name: {data.item.ItemData.Name}, Count: {data.count}");
         }
         Debug.Log("[InventoryUI] : 인벤토리 최신화됨");
     }
 
 
-    public void OnClickItemDelete(string id, int count)
+    public void OnClickItemDelete(InventoryEntry data)
     {
-        deletePopUp.Open(id, count);   //삭제창에 아이템 정보 전달
-        deletePopUp.SetItem(id, count);
+        deletePopUp.Open(data);   //삭제창에 아이템 정보 전달
+        //deletePopUp.SetItem(id, count); // 지워도 됨
     }
 
     //창 켜기

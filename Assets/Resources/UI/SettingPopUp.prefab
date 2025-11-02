@@ -5375,7 +5375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pknu - WAP\n\uAE40\uC775\uD658 \uB0A8\uD615\uC6B0 \uC774\uC7AC\uD604 \uC870\uC218\uBBFC"
+  m_text: "Pknu - WAP\n\uAE40\uC775\uD658 \uC774\uC7AC\uD604 \uC870\uC218\uBBFC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a025ce544c473645adc3f9e4421f684, type: 2}
   m_sharedMaterial: {fileID: -1152067393657090986, guid: 2a025ce544c473645adc3f9e4421f684, type: 2}

@@ -2,6 +2,8 @@ using GameUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using GameInventory;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ItemDeletePopUp : UIPopUp
 {
@@ -14,7 +16,7 @@ public class ItemDeletePopUp : UIPopUp
     [SerializeField] Button minusButton;
     [SerializeField] TMP_InputField CountInput;
 
-    InventoryData data;
+    InventoryEntry currentItem;
 
     int currentCount = 1;
     int maxCount;  // 갖고있는 아이템 개수
@@ -53,16 +55,18 @@ public class ItemDeletePopUp : UIPopUp
         return base.Init();
     }
 
-    public void SetItem(string id, int count)
+    public void SetItem(InventoryEntry data)
     {
-        // 아이템 아이콘에 표시할 정보 가져옴 
-        data = InventoryManager.Instance.GetItemData(id);
-
         if (data != null)
         {
-            itemIcon.SetSlot(data.Item.SpriteAddress, count, data.Item.Grade);  // 아이템 이미지, 테두리, 개수 설정.현재는 개수만됨
-            itemNameText.text = data.Item.Name;
+            currentItem = data;
+            itemID = data.item.ItemData.ID;
+            maxCount = Mathf.Max(1, data.count);
+
+            itemIcon.SetSlot(data.item.ItemData.SpriteAddress, data.count, data.item.ItemData.Grade);  // 아이템 이미지, 테두리, 개수 설정
+            itemNameText.text = data.item.ItemData.Name;
         }
+        else return;
     }
 
     void OnInputChanged(string str)
@@ -115,33 +119,31 @@ public class ItemDeletePopUp : UIPopUp
         else
             currentCount = 1;
 
-        bool success = InventoryManager.Instance.RemoveItem(itemID, currentCount);
+        bool success = InventoryManager.Instance.RemoveItem(currentItem.item.ItemData.ID, currentCount);
 
         if (success)
         {
-            Debug.Log($"[ItemDeletePopUp] : {data.Item.Name} 아이템 {currentCount}개 삭제 완료");
+            Debug.Log($"[ItemDeletePopUp] : {currentItem.item.ItemData.Name} 아이템 {currentCount}개 삭제 완료");
         }
         else
         {
-            Debug.Log($"[ItemDeletePopUp] : {data.Item.Name} 삭제 실패 - 존재하지 않음");
+            Debug.Log($"[ItemDeletePopUp] : {currentItem.item.ItemData.Name} 삭제 실패 - 존재하지 않음");
         }
 
         InventoryUI.Instance.RefreshInventory();
-
         OnClose();
     }
 
-    public void Open(string id, int count)
+    public void Open(InventoryEntry data)
     {
-        itemID = id;
-        maxCount = Mathf.Max(1, count);  
+        SetItem(data);
         currentCount = 1;
 
         gameObject.SetActive(true);
         CountInput.onValueChanged.RemoveListener(OnInputChanged);  //잠깐 끊기 
         CountInput.text = currentCount.ToString();
         CountInput.onValueChanged.AddListener(OnInputChanged);
-        Debug.Log($"[ItemDeletePopUp] : {itemID} 아이템 삭제창 오픈 / maxCount={maxCount}");
+        Debug.Log($"[ItemDeletePopUp] : {data.item.ItemData.ID} 아이템 삭제창 오픈 / maxCount={maxCount}");
     }
 
     public void OnClose()

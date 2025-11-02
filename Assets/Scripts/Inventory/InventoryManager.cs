@@ -1,19 +1,24 @@
 using System.Collections.Generic;
 using NUnit.Framework.Interfaces;
 using UnityEngine;
+using GameItem;
+using GameInventory;
+using UnityEditor;
+using GameData;
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
     [Header("아이템 데이터베이스 (모든 아이템 정보)")]
-    [SerializeField] private ItemDatabaseSO itemDatabase;  //미완성
+    [SerializeField] ItemDatabaseSO itemDatabase;  //미완성
 
     [Header("플레이어 인벤토리 데이터 (보유 중 아이템 목록)")]
-    [SerializeField] private InventoryDatabase inventoryData;
+    [SerializeField] InventoryDatabase inventoryData; // 데이터 저장용
 
+    List<InventoryEntry> inventory = new(); // 런타임용
 
-    private void Awake()
+    void Awake()
     {
         if (Instance == null)
             Instance = this;
@@ -24,23 +29,23 @@ public class InventoryManager : MonoBehaviour
 
     public bool AddItem(string itemID, int count = 1)
     {
-        InventoryData existing = inventoryData.rows.Find(x => x.Item != null && x.Item.ID == itemID);
+        InventoryEntry existing = inventory.Find(x => x.item.ItemData.ID == itemID);
 
         if (existing != null) //이미 존재하면 
         {
-            existing.Count += count;
-            Debug.Log($"[InventoryManager] : {itemID} {count}개 추가 (총 {existing.Count})");
+            existing.count += count;
+            Debug.Log($"[InventoryManager] : {itemID} {count}개 추가 (총 {existing.count})");
             return true;
         }
 
-        if (inventoryData.rows.Count >= inventoryData.maxSlotCount)
+        if (inventory.Count >= inventoryData.maxSlotCount)
         {
             Debug.Log("[InventoryManager] : 인벤토리가 가득참");
             return false;
         }
 
 
-        ItemData itemData = itemDatabase.GetItemById(itemID);
+        ItemData itemData = GameDB.GetItemData(itemID);
 
         if (itemData == null)
         {
@@ -48,23 +53,18 @@ public class InventoryManager : MonoBehaviour
             itemData = new ItemData { ID = itemID, Name = "Temp Item" };
         }
 
-        // 새로운 인벤토리 데이터 생성
-        InventoryData newItem = new InventoryData
-        {
-            Item = itemData,
-            Count = count,
-            IsEquipped = false
-        };
+        // 새로운 아이템 생성
+        InventoryEntry newItem = new InventoryEntry(ItemFactory.CreateItem(itemData), count);
 
-        inventoryData.rows.Add(newItem);
-        Debug.Log($"[InventoryManager] : {itemID} {count}개 새 슬롯 추가 (현재 슬롯 수: {inventoryData.rows.Count})");
+        inventory.Add(newItem);
+        Debug.Log($"[InventoryManager] : {itemID} {count}개 새 슬롯 추가 (현재 슬롯 수: {inventory.Count})");
         return true;
     }
 
 
     public bool RemoveItem(string itemID, int count = 1)
     {
-        InventoryData existing = inventoryData.rows.Find(x => x.Item.ID == itemID);
+        InventoryEntry existing = inventory.Find(x => x.item.ItemData.ID == itemID);
 
         if (existing == null)
         {
@@ -72,30 +72,68 @@ public class InventoryManager : MonoBehaviour
             return false;
         }
 
-        existing.Count -= count;
-        if (existing.Count <= 0)
+        existing.count -= count;
+        if (existing.count <= 0)
         {
-            inventoryData.rows.Remove(existing);
+            inventory.Remove(existing);
             Debug.Log($"[InventoryManager] : {itemID} 전부 삭제됨");
         }
         else
         {
-            Debug.Log($"[InventoryManager] : {itemID} {count}개 삭제됨 (남은 수량: {existing.Count})");
+            Debug.Log($"[InventoryManager] : {itemID} {count}개 삭제됨 (남은 수량: {existing.count})");
         }
 
         return true;
     }
 
 
-    public InventoryData GetItemData(string itemID)
+    public InventoryEntry GetItem(string itemID)
     {
-        return inventoryData.GetItemById(itemID);
+        return inventory.Find(x => x.item.ItemData.ID == itemID);
     }
 
 
-    public List<InventoryData> GetAllItems()
+    public List<InventoryEntry> GetAllItems()
     {
-        return inventoryData.rows;
+        return inventory;
     }
 
+    // Load & Save
+    // inventoryData에서 꺼내기 
+    public void InventoryLoad()  // 일단 public으로 해둠
+    {
+        inventory.Clear();
+
+        foreach (var data in inventoryData.rows)
+        {
+            if (data.Item == null) continue;
+
+            Item item = ItemFactory.CreateItem(data.Item);
+            InventoryEntry newItem = new InventoryEntry(item, data.Count, data.IsEquipped);
+
+            inventory.Add(newItem);
+        }
+        Debug.Log("[InventoryManager] : 인벤토리 데이터 로드 완료");
+    }
+
+    // inventoryData에 넣기
+    public void InventorySave()
+    {
+        inventoryData.rows.Clear();
+
+        foreach (var entry in inventory)
+        {
+            if (entry.item == null) continue;
+
+            InventoryData data = new InventoryData
+            {
+                Item = entry.item.ItemData,
+                Count = entry.count,
+                IsEquipped = entry.isEquipped
+            };
+
+            inventoryData.rows.Add(data);
+        }
+        Debug.Log("[InventoryManager] : 인벤토리 데이터 세이브 완료");
+    }
 }

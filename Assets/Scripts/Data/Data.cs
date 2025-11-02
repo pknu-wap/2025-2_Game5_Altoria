@@ -48,8 +48,8 @@ public class CraftingSlotData
 public class InventoryData
 {
     public ItemData Item;
-    public bool IsEquipped;
     public int Count;
+    public bool IsEquipped;
 }
 [System.Serializable]
 public class UpgradeData
