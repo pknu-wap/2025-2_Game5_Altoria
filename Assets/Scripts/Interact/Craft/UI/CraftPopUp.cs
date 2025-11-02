@@ -52,10 +52,11 @@ namespace GameInteract
         void OnClickItemSlot(int slotIndex)
         {
             ItemData resultItem = handler.GetResultItem(slotIndex);
+            float time = handler.GetCraftingData(slotIndex).Time;
             List<ItemEntry> ingredients = handler.GetIngredients(slotIndex);
 
             CraftRecipePopUp  popUp= Manager.UI.ShowPopup<CraftRecipePopUp>();
-            popUp.SetRecipe(resultItem, ingredients,10);
+            popUp.SetRecipe(resultItem, ingredients,time);
             popUp.OnCraftButtonClicked += () =>
             {
                 if(CheckEmptySlot())

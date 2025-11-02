@@ -52,7 +52,12 @@ public class LifeStatsManager
 
     public LifeStatsManager()
     {
-        SetData();
+        lifeStats = new Dictionary<string, LifeStatData>()
+{
+    { nameof(CollectInteractComponent), new ()},
+    { nameof(UpgradeInteractComponent), new ()},
+    { nameof(TotalLife), new ()},
+};
     }
 
     void SetData()
