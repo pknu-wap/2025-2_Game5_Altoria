@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 8842246629911819357}
   - component: {fileID: 6724172485561483415}
   - component: {fileID: 6890633230640629570}
-  - component: {fileID: 6964660542050449353}
   m_Layer: 9
   m_Name: PP_Rail_Straight_Long
   m_TagString: Untagged
@@ -139,7 +138,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7832148805230006515}
@@ -220,24 +219,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5231120176078684279, guid: c9e4a859ba999eb4895e437e89e3ccc9, type: 3}
---- !u!135 &6964660542050449353
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5067098580372070722}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -4.1909795, y: 0.12647843, z: -0.06867208}

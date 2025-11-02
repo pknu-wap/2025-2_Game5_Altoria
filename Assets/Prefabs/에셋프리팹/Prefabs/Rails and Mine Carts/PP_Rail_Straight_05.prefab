@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 8271951253124341760}
   - component: {fileID: 6138169482167850186}
   - component: {fileID: 2652648922080376986}
-  - component: {fileID: 6061031273730532019}
   m_Layer: 9
   m_Name: PP_Rail_Straight_05
   m_TagString: Untagged
@@ -220,24 +219,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6772569647087741195, guid: b3ffe52d3f4430648968844340676c15, type: 3}
---- !u!135 &6061031273730532019
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5633955783259305247}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -3.1609285, y: 0.14058992, z: 0.019083142}
