@@ -57,7 +57,6 @@ namespace GameInteract
 
             var item = Common.GameSystem.Random.Pick(probList);
 
-            // TODO: 인벤토리에 item 추가
 
             Common.GameSystem.Life.AddExp<CollectInteractComponent>(10);
 
