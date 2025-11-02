@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TestMap : BaseScene
 {
-    protected int task = 1;
+    protected int task = 15;
 
     protected override void Init()
     {

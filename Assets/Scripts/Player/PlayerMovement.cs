@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(GroundChecker))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -14,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
 
     CharacterController controller;
     GroundChecker groundChecker;
+    NavMeshAgent agent;
     Transform mainCamera;
-
 
     Vector3 velocity;
     Vector3 moveInput = Vector3.zero;
+    Vector3 navMove = Vector3.zero;
+    bool useNavPath = false;
 
     public bool IsGrounded => groundChecker.IsGrounded;
 
@@ -26,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         groundChecker = GetComponent<GroundChecker>();
+        agent = GetComponent<NavMeshAgent>();
+
+        
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+
         CheckCamera();
     }
 
@@ -37,28 +47,23 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("Main Camera not found! Please tag your camera as 'MainCamera'.");
     }
 
-    private void Update()
-    {
-        HandleInput();
-    }
-
     private void FixedUpdate()
     {
         HandleMovement();
     }
 
-    private void HandleInput()
-    {
-       
-    }
-
     private void HandleMovement()
     {
         bool isGrounded = groundChecker.CheckGrounded();
-
         ApplyGravity(isGrounded);
-        MoveCharacter();
+
+        if (useNavPath)
+            UpdateNavMovement();
+        else
+            MoveCharacter();
+
         RotateModel();
+        agent.nextPosition = transform.position;
     }
 
     private void ApplyGravity(bool isGrounded)
@@ -86,9 +91,28 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.fixedDeltaTime);
     }
 
+    private void UpdateNavMovement()
+    {
+        if (!agent.hasPath || agent.pathPending)
+            return;
+
+        Vector3 target = agent.steeringTarget;
+        navMove = target - transform.position;
+        navMove.y = 0f;
+
+        if (navMove.sqrMagnitude < 0.01f)
+        {
+            useNavPath = false;
+            return;
+        }
+
+        navMove.Normalize();
+        controller.Move(navMove * speed * Time.fixedDeltaTime);
+    }
+
     private void RotateModel()
     {
-        Vector3 move = controller.velocity;
+        Vector3 move = useNavPath ? navMove : controller.velocity;
         move.y = 0;
 
         if (move.sqrMagnitude > 0.01f)
@@ -103,6 +127,20 @@ public class PlayerMovement : MonoBehaviour
     public void SetMoveInput(Vector3 moveInput)
     {
         this.moveInput = moveInput;
+        if (moveInput.sqrMagnitude > 0.01f)
+            useNavPath = false;
+    }
+
+    public void SetDestination(Vector3 destination)
+    {
+        if (!agent.isOnNavMesh)
+        {
+            Debug.LogWarning("NavMeshAgent is not on a NavMesh!");
+            return;
+        }
+
+        agent.SetDestination(destination);
+        useNavPath = true;
     }
 
     public void Jump()

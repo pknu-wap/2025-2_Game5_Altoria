@@ -3,7 +3,7 @@ using UnityEngine;
 using static Define;
 
 [Serializable]
-public class PlayerStateController
+public class PlayerStateMachine
 {
     public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
     public event Action<PlayerState> OnStateChanged;
@@ -16,7 +16,7 @@ public class PlayerStateController
         CurrentState = newState;
         OnStateChanged?.Invoke(newState);
     }
-
+  
     public bool Is(PlayerState state) => CurrentState == state;
 
   
