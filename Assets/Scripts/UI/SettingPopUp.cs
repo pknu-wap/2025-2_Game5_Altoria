@@ -7,10 +7,8 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 
-public class SettingPopUp : MonoBehaviour
+public class SettingPopUp : UIPopUp
 {
-    [SerializeField] GameObject settingUI;
-
     [Header("Setting Tabs")]
     [SerializeField] List<GameObject> tabs;
 
@@ -48,9 +46,9 @@ public class SettingPopUp : MonoBehaviour
     void Update()
     {
         /*
-        if(settingUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            settingUI.SetActive(false);
+            Manager.UI.ClosePopup();
         }
         */
     }
@@ -90,7 +88,7 @@ public class SettingPopUp : MonoBehaviour
 
     public void settingHide()
     {
-        settingUI.SetActive(false);
+        Manager.UI.ClosePopup();
     }
 
     // 오디오 설정
