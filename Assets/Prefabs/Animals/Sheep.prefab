@@ -555,6 +555,8 @@ GameObject:
   - component: {fileID: 25511944822440754}
   - component: {fileID: 25511945054143295}
   - component: {fileID: 25511945054143293}
+  - component: {fileID: -8947840926208514188}
+  - component: {fileID: -8019627396595763586}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -589,7 +591,7 @@ Animator:
   m_GameObject: {fileID: 25511944815030434}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 052bebf61d6951a4a85d3db972c27f55, type: 3}
-  m_Controller: {fileID: 9100000, guid: b49ccdbb350252149874b1ad7e384b99, type: 2}
+  m_Controller: {fileID: 9100000, guid: 22faa3bf190a3ea4abf15dbec4cfb82e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -648,6 +650,58 @@ NavMeshAgent:
   m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-8947840926208514188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25511944815030434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -6016954459009838267, guid: dc1036cb464e3424bb8ceed729423460, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 6245345949282205974
+  - rid: 6245345949282205975
+  m_OriginalGraph: {fileID: 0}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 6245345949282205974
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 25511944815030434}
+    - rid: 6245345949282205975
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 10337833871304519691
+          m_Value1: 16436929259266497678
+        Name: Speed
+        m_Value: 3
+--- !u!114 &-8019627396595763586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25511944815030434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cd2c301454258498f2ce716e3fcf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  animator: {fileID: 25511944822440754}
 --- !u!1 &25511944815030436
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5713621328086330917}
   - component: {fileID: 7543013818771610351}
   - component: {fileID: 8335836813613677373}
+  - component: {fileID: 8771090857024416141}
   m_Layer: 9
   m_Name: PP_Rock_Moss_03
   m_TagString: Untagged
@@ -109,3 +110,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8584270202893135832, guid: 82326ad55bfe6ad499a67fd8157dc0b8, type: 3}
+--- !u!135 &8771090857024416141
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335836813613677370}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.01
+  m_Center: {x: 0.058092237, y: 1.2230678, z: -0.05946225}

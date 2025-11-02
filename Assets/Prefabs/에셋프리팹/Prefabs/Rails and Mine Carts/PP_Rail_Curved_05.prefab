@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7172813089065194903}
   - component: {fileID: 4930883906507383133}
   - component: {fileID: 6876707156821770377}
-  - component: {fileID: 2108151585388136517}
   m_Layer: 9
   m_Name: PP_Rail_Curved_05
   m_TagString: Untagged
@@ -111,27 +110,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3937027567660550643, guid: 5b220cb523a983f49b5b23f0586a5fed, type: 3}
---- !u!135 &2108151585388136517
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6876707156821770376}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -3.544442, y: 0.12570208, z: 1.3247163}
 --- !u!1 &7651113341036852406
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,8 +138,8 @@ Transform:
   m_GameObject: {fileID: 7651113341036852406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0.05, z: 0.21}
-  m_LocalScale: {x: 1, y: 1.2743, z: 1}
+  m_LocalPosition: {x: 0.09, y: -0.025, z: -0.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6063296544253139506}

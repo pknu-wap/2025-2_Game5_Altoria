@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 2839106588426101852}
   - component: {fileID: 36731589103390870}
   - component: {fileID: 1982291233231647042}
-  - component: {fileID: 8855573498477838411}
   m_Layer: 9
   m_Name: PP_Rail_Curved_07
   m_TagString: Untagged
@@ -139,7 +138,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4465132823429108819}
@@ -220,24 +219,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7706081321354775042, guid: 55c218dd4eabaf64a91ecc5e037e3c10, type: 3}
---- !u!135 &8855573498477838411
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982291233231647043}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -6.568099, y: 0.16541077, z: 1.6292012}
