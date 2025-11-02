@@ -12,11 +12,11 @@ namespace GameInteract
         [SerializeField] TextMeshProUGUI upgtadeStepTxt;
         const string path = "UI/ItemFrame/";
 
-        public void Init(ItemData data)
+        public void Init(ItemData data, int step)
         {
             itemGradeImg.sprite = Resources.Load<Sprite>(path + data.Grade);
-            // itmeImg.sprite = 
-            //upgtadeStepTxt.text =   
+            //itmeImg.sprite = 
+            upgtadeStepTxt.text = "+" + step;
         }
     }
 }

@@ -19,12 +19,8 @@ namespace GameInteract
         public override void Interact()
         {
             if (interactCollTime)
-            {
-                Debug.Log("해당 오브젝트 쿨타임");
                 return;
-            }
 
-            Debug.Log("상호작용!");
             interactCollTime = true;
             CollectTimer timer = new(2);
             orignScale = transform.localScale;
@@ -33,10 +29,11 @@ namespace GameInteract
 
         void EndCollect(ITimer timer)
         {
-            Debug.Log("상호작용 종료");
             GetComponent<Collider>().enabled = false;
             transform.localScale = Vector3.zero;
+
             StartCoroutine("ScaleUP");
+
             List<(CollectGroup, float)> probList = new List<(CollectGroup, float)>();
             var dic = GameDB.GetCollectData(objectID).Value;
             var data = dic[objectID];
@@ -49,7 +46,6 @@ namespace GameInteract
 
             GameSystem.Life.AddExp<CollectInteractComponent>(10);
 
-            Debug.Log("EndInteract() 호출");
             EndInteract();
         }
 
@@ -60,7 +56,6 @@ namespace GameInteract
 
         IEnumerator ScaleUP()
         {
-            Debug.Log("ScaleUP!");
             float elapsed = 0f;
 
             while (elapsed < returnDuration)
@@ -71,10 +66,9 @@ namespace GameInteract
                 yield return null;
             }
 
-            transform.localScale = orignScale; // 정확히 원래 크기로
+            transform.localScale = orignScale;
             GetComponent<Collider>().enabled = true;
             interactCollTime = false;
-            Debug.Log("ScaleUP 종료");
         }
     }
 }

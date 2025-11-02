@@ -1,7 +1,7 @@
 using Common;
 using UnityEngine;
 
-public class TestScene :BaseScene
+public class TestScene : BaseScene
 {
     protected virtual void Init()
     {

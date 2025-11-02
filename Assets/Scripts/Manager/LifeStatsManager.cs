@@ -62,7 +62,8 @@ public class LifeStatsManager
 
     public void AddExp<T>(int amount)
     {
-        var type = nameof(T);
+        var type = typeof(T).Name;
+        Debug.Log(type);
         if (!lifeStats.ContainsKey(type)) return;
 
         bool levelUp = lifeStats[type].AddExp(amount);
@@ -74,9 +75,9 @@ public class LifeStatsManager
         SetTotalStat(type, amount, levelUp);
     }
 
-    public int GetLevel<T>() => lifeStats[nameof(T)].GetLevel();
+    public int GetLevel<T>() => lifeStats[typeof(T).Name].GetLevel();
 
-    public int GetEXP<T>() => lifeStats[nameof(T)].GetEXP();
+    public int GetEXP<T>() => lifeStats[typeof(T).Name].GetEXP();
 
     void SetTotalStat(string type, int amount, bool levelUp)
     {
