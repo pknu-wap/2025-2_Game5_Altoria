@@ -865,11 +865,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 207a40a4d5eb9bf4c8f92cb0686a30d1
-    m_Address: FishingArea
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20b95a119eaee5b4c9602c2e16021a76
     m_Address: 10071068
     m_ReadOnly: 0
@@ -1692,6 +1687,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d55890623ed21f41a70dc18561e04a4
     m_Address: PP_Crystal_Single_08_Green
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d8cbc77cb39b09418283bc72212f29e
+    m_Address: CraftingTable
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2740,6 +2740,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6367da5ccf4029d4bb00229b8cc0109e
+    m_Address: CraftingTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 639ca6aeb9610d84ebe78ef0e631f659
     m_Address: 10054011_3
     m_ReadOnly: 0
@@ -2867,11 +2872,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6859a465b2508a14dbeaeb7a1abad37d
     m_Address: PP_Rock_Pile_03
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 685f713c6002ad849a724b2d3aba8a30
-    m_Address: Ground
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -3225,11 +3225,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 76e1be0708931fa4b9dbebaf37d220ed
-    m_Address: Water
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76e749d4cbef74449aefbe186c86c3ae
     m_Address: PP_Gemstone_05_Copper
     m_ReadOnly: 0
@@ -3387,6 +3382,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c8d44f58fa31be4ab6520adf3ad26fa
     m_Address: PP_Cliff_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cc36ce106481f943b146f7d3523929d
+    m_Address: AnimalGroup
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -6707,6 +6707,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74cf8f870386dd4b841730458e9ddff
     m_Address: PP_Meadow_Lake_04
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7588dd2a5315d141adc4655eb01e414
+    m_Address: Group1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

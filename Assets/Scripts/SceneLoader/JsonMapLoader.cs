@@ -73,7 +73,7 @@ namespace SceneLoad
 
             if (failedList.Count > 0)
             {
-                Debug.LogError($"[JsonSceneLoader] 여전히 실패한 객체 존재: {failedList.Count}");
+                Debug.LogError($"[JsonSceneLoader] 여전히 실패한 객체 존재: {failedList[0].ID}");
                 InvokeOnFailure();
             }
             else
