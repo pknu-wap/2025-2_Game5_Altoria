@@ -1,3 +1,4 @@
+using Common;
 using GameUI;
 using SceneLoad;
 using SceneLoade;
@@ -18,6 +19,7 @@ public class GameScene : BaseScene
     {
         base.Init();
 
+        GameSystem.Init();
         sceneType = Define.SceneType.GameScene;
         SceneLoad();
     }
