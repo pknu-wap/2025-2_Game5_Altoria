@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 4290368403962083835}
   - component: {fileID: 2048720140247813425}
   - component: {fileID: 9211085389101207811}
-  - component: {fileID: 3609840384940612154}
-  m_Layer: 7
+  m_Layer: 4
   m_Name: PP_Water_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535497814663720164}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.051121324, z: -0, w: 0.9986925}
+  m_LocalPosition: {x: 45.15454, y: 0.9, z: -2}
   m_LocalScale: {x: 11.581464, y: 11.581462, z: 11.581464}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,24 +109,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5779199223207618945, guid: dd3353f252e4da54aa0439c4ee50a01f, type: 3}
---- !u!135 &3609840384940612154
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535497814663720164}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: 0, y: -0.0000000012027499, z: 0}

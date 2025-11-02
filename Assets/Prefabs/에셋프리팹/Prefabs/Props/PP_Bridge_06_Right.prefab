@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3218749040031429499}
   - component: {fileID: 815077294751287217}
   - component: {fileID: 2808953624592469428}
+  - component: {fileID: 9031675762408054197}
   m_Layer: 9
   m_Name: PP_Bridge_06_Right
   m_TagString: Untagged
@@ -27,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175228444234786404}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -4.8021315e-10, z: 0.0000000037234709, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8730507, y: 1.8730507, z: 1.8730508}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,3 +110,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1653263194849728319, guid: b21096ef4ca9e6840a6db3ff79aff49e, type: 3}
+--- !u!135 &9031675762408054197
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175228444234786404}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.01
+  m_Center: {x: 3.1522493, y: 0.98251647, z: 0.06997711}

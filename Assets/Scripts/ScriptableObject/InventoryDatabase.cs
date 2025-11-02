@@ -14,6 +14,6 @@ public class InventoryDatabase : ScriptableObject
 
     public InventoryData GetItemById(string id)
     {
-        return rows.Find(item => item.ID == id);
+        return rows.Find(x => x.Item.ID== id);
     }
 }

@@ -3,11 +3,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using GameInventory;
+using GameItem;
 
 public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    private InventoryData inventory;
+    InventoryEntry entry;
 
     string itemID;
     string itemName;
@@ -17,45 +18,40 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
     const float doubleClickThreshold = 0.25f;
 
     [SerializeField] TextMeshProUGUI equippedText;
-    [SerializeField] TextMeshProUGUI itemNameText;
-    [SerializeField] GameObject description;
-    [SerializeField] Button deleteButton;
+    [SerializeField] Button deleteButton; //아이템 버리기 버튼
     [SerializeField] GameObject deletePopUp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        /*
-        deletePopUp = GameObject.Find("ItemDeletePopUp");
-        if (deletePopUp != null)
-            deleteButton.onClick.AddListener(() => deletePopUp.SetActive(true));
-        else
-            Debug.Log("????????");
-        */
     }
 
-    public void Initialize(string id, int count)
+    public void Initialize(InventoryEntry data)
     {
-        inventory = InventoryManager.Instance.GetItemData(id);
-
-        itemID = id;
-        itemName = inventory.Name;
-        itemCount1 = count;
-        if (inventory == null)
+        if (data == null || data.item == null)
         {
-            Debug.LogWarning($"[InventoryItemSlot] : ID {id} 에 해당하는 아이템 데이터를 찾을 수 없음");
+            Debug.Log($"[InventoryItemSlot] : ID {data.item.ItemData.ID} 에 해당하는 아이템 데이터를 찾을 수 없음");
             return;
         }
-        SetSlot(inventory.Name, count);
-        
+        if (data.count <= 0) return;
+
+        entry = data;
+        itemID = data.item.ItemData.ID;
+        itemName = entry.item.ItemData.Name;
+        itemCount1 = data.count;
+        SetSlot(data.item.ItemData.SpriteAddress, data.count, data.item.ItemData.Grade);
+
+        equippedText.gameObject.SetActive(data.item is IEquippable);
         //추가 커스터마이징
     }
 
     public void ClearSlot()
     {
+        entry = null;
         itemID = null;
-        inventory = null;
+        itemName = null;
         itemCount1 = 0;
+        SetSlot(null, 0, 0);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -79,45 +75,47 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
 
     public void OnDoubleClick()
     {
-        if (inventory == null)
+        if (entry == null)
         {
             Debug.LogWarning("[InventoryItemSlot] : inventory가 아직 초기화되지 않음!");
             return;
         }
-
-        if (inventory.IsEquipped)
+        
+        if(entry.item is EquipItem equipItem) //EquipItem형 이면 equipItem으로 변환
         {
-            // 아이템 장착 해제 구현
-            inventory.IsEquipped = false;
-            equippedText.gameObject.SetActive(false);
-            Debug.Log("[InventoryItemSlot] : 아이템 장착해제");
+            if (!entry.isEquipped)
+            {
+                // 아이템 장착 구현   --> 추후에 장비와 연동.지금은 단순 토글
+                equipItem.Equip();
+                entry.isEquipped = true;
+                equippedText.gameObject.SetActive(true);
+                Debug.Log("[InventoryItemSlot] : 아이템 장착됨");
+            }
+            else
+            {
+                // 아이템 장착 해제 구현   
+                equipItem.Unequip();
+                entry.isEquipped = false;
+                equippedText.gameObject.SetActive(false);
+                Debug.Log("[InventoryItemSlot] : 아이템 장착해제");
+            }
         }
-        else
-        {
-            // 아이템 장착 구현
-            inventory.IsEquipped = true;
-            equippedText.gameObject.SetActive(true);
-            Debug.Log("[InventoryItemSlot] : 아이템 장착됨");
-        }
-
-
     }
 
     // 마우스 hover -> 버리기 버튼 표시 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        description.SetActive(true);
-        //itemNameText.text = inventory.Name;
+        deleteButton.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //description.SetActive(false);    // 버튼 누르기도 전에 꺼져버려서 나중에 수정
+        deleteButton.gameObject.SetActive(false);  
     }
 
     public void OnClickDelete()
     {
         Debug.Log("[InventoryItemSlot] : 아이템 버리기 버튼 클릭됨");
-        InventoryUI.Instance.OnClickItemDelete(itemID, itemCount1);
+        InventoryUI.Instance.OnClickItemDelete(entry);
     }
 }

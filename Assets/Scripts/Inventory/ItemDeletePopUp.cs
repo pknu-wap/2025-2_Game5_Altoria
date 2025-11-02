@@ -2,12 +2,12 @@ using GameUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using GameInventory;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ItemDeletePopUp : UIPopUp
 {
     public static ItemDeletePopUp Instance;
-
-    UIController ui;
 
     [Header("UI 요소")]
     [SerializeField] InventoryItemSlot itemIcon;
@@ -16,13 +16,13 @@ public class ItemDeletePopUp : UIPopUp
     [SerializeField] Button minusButton;
     [SerializeField] TMP_InputField CountInput;
 
-    InventoryData data;
+    InventoryEntry currentItem;
 
     int currentCount = 1;
     int maxCount;  // 갖고있는 아이템 개수
     string itemID;
 
-    private void Awake()
+    void Awake()
     {
         Instance = this;   //인스턴스 초기화
 
@@ -34,7 +34,6 @@ public class ItemDeletePopUp : UIPopUp
     void Start()
     {
         CountInput.text = "1";
-        //ui = Manager.UI;     오류
     }
 
     // Update is called once per frame
@@ -43,22 +42,9 @@ public class ItemDeletePopUp : UIPopUp
         
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
-        data = InventoryManager.Instance.GetItemData(itemID);
-
-        if (data != null)
-        {
-            //counttext = maxCount;
-            itemNameText.text = data.Name;
-            /* 아이템 이미지 
-            if (!string.IsNullOrEmpty(data.SpriteAddress))
-            {
-                Sprite icon = Resources.Load<Sprite>(data.SpriteAddress);
-                if (icon) itemIcon.sprite = icon;
-            }
-            */
-        }
+        //SetItem(itemID, maxCount);
         CountInput.onValueChanged.RemoveListener(OnInputChanged);
         CountInput.text = currentCount.ToString();
         CountInput.onValueChanged.AddListener(OnInputChanged);
@@ -69,11 +55,18 @@ public class ItemDeletePopUp : UIPopUp
         return base.Init();
     }
 
-    public void SetItem(string id, int count)
+    public void SetItem(InventoryEntry data)
     {
-        // 아이템 아이콘에 표시할 정보 가져옴   //// ItemSlot.cs 꺼 쓸수도 
-        //itemIcon.SetSlot(itemID, 1);
-        //itemNameText.text = 
+        if (data != null)
+        {
+            currentItem = data;
+            itemID = data.item.ItemData.ID;
+            maxCount = Mathf.Max(1, data.count);
+
+            itemIcon.SetSlot(data.item.ItemData.SpriteAddress, data.count, data.item.ItemData.Grade);  // 아이템 이미지, 테두리, 개수 설정
+            itemNameText.text = data.item.ItemData.Name;
+        }
+        else return;
     }
 
     void OnInputChanged(string str)
@@ -100,10 +93,19 @@ public class ItemDeletePopUp : UIPopUp
         CountInput.onValueChanged.AddListener(OnInputChanged);
     }
 
-    private void OnMinus()
+    void OnMinus()
     {
         if (currentCount <= 1) return;
         currentCount--;
+
+        CountInput.onValueChanged.RemoveListener(OnInputChanged);
+        CountInput.text = currentCount.ToString();
+        CountInput.onValueChanged.AddListener(OnInputChanged);
+    }
+
+    public void OnMax()
+    {
+        currentCount = maxCount;
 
         CountInput.onValueChanged.RemoveListener(OnInputChanged);
         CountInput.text = currentCount.ToString();
@@ -117,40 +119,36 @@ public class ItemDeletePopUp : UIPopUp
         else
             currentCount = 1;
 
-        bool success = InventoryManager.Instance.RemoveItem(itemID, currentCount);
+        bool success = InventoryManager.Instance.RemoveItem(currentItem.item.ItemData.ID, currentCount);
 
         if (success)
         {
-            Debug.Log($"[ItemDeletePopUp] : {data.Name} 아이템 {currentCount}개 삭제 완료");
+            Debug.Log($"[ItemDeletePopUp] : {currentItem.item.ItemData.Name} 아이템 {currentCount}개 삭제 완료");
         }
         else
         {
-            Debug.Log($"[ItemDeletePopUp] : {data.Name} 삭제 실패 - 존재하지 않음");
+            Debug.Log($"[ItemDeletePopUp] : {currentItem.item.ItemData.Name} 삭제 실패 - 존재하지 않음");
         }
 
         InventoryUI.Instance.RefreshInventory();
-
         OnClose();
     }
 
-    public void Open(string id, int count)
+    public void Open(InventoryEntry data)
     {
-        itemID = id;
-        maxCount = Mathf.Max(1, count);  
+        SetItem(data);
         currentCount = 1;
-
-        
 
         gameObject.SetActive(true);
         CountInput.onValueChanged.RemoveListener(OnInputChanged);  //잠깐 끊기 
         CountInput.text = currentCount.ToString();
         CountInput.onValueChanged.AddListener(OnInputChanged);
-        Debug.Log($"[ItemDeletePopUp] : {itemID} 아이템 삭제창 오픈 / maxCount={maxCount}");
+        Debug.Log($"[ItemDeletePopUp] : {data.item.ItemData.ID} 아이템 삭제창 오픈 / maxCount={maxCount}");
     }
 
     public void OnClose()
     {
         gameObject.SetActive(false);
-        //ui.ClosePopup();  //오류 
+        //Manager.UI.ClosePopup();  //오류 
     }
 }

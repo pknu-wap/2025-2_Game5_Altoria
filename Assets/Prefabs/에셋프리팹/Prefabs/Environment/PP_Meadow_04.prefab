@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8303243496511431612}
   - component: {fileID: 6115884713563527030}
   - component: {fileID: 5755319735337989724}
-  - component: {fileID: 2040459163302466723}
   m_Layer: 7
   m_Name: PP_Meadow_04
   m_TagString: Untagged
@@ -28,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5755319735337989795}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.024930691, w: 0.99968916}
+  m_LocalPosition: {x: -124.8865, y: -0.9862405, z: 56.58707}
   m_LocalScale: {x: 1.8074003, y: 1.8074003, z: 1.8074}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,24 +109,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3521644371445443050, guid: 290ec45c93fd74c438b14b00f4f5ddc2, type: 3}
---- !u!135 &2040459163302466723
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755319735337989795}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: 0.00011443929, y: 0.43820587, z: 0.000012874605}

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3733467488514873978}
   - component: {fileID: 1453263755163397808}
   - component: {fileID: 1093244272814673770}
-  - component: {fileID: 6800757340399384284}
   m_Layer: 9
   m_Name: PP_Rail_Wood_Slat_02
   m_TagString: Untagged
@@ -110,24 +109,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 530090075268058397, guid: c415fcf9fbd14604fbd93d92cddd8561, type: 3}
---- !u!135 &6800757340399384284
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093244272814673765}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -0.19062865, y: 0.15320209, z: -0.023254989}

@@ -130,11 +130,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 052faaac586de48259a63d0c4782560b
-    m_Address: Assets/InputSystem_Actions.inputactions
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0569769e08d6796429b5920293e138de
     m_Address: PP_Ground_01
     m_ReadOnly: 0
@@ -151,7 +146,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 058f448d5c4bcab49a031b7ae0450ccd
-    m_Address: 10051005_3
+    m_Address: PP_Crystal_03_Silver
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -576,7 +571,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 127b5e15a04e08c49baa988e594b5fbf
-    m_Address: 10053008_4
+    m_Address: PP_Crystal_04_Blue
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1316,7 +1311,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30da8c3c6dac1fc40af4f198a73153c5
-    m_Address: 10054011_4
+    m_Address: PP_Crystal_04_Red
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1346,7 +1341,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 326103f211d986f4fa5a49f2cd495035
-    m_Address: 10053010_4
+    m_Address: PP_Crystal_04_Green
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1486,7 +1481,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 370fa77f28e68f14cb97f109ffddce45
-    m_Address: 10053008_8
+    m_Address: PP_Crystal_08_Blue
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1866,7 +1861,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4373d0f3998abf049bc0dfd12320d5e9
-    m_Address: 10051004_4
+    m_Address: PP_Crystal_04_Iron
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2126,7 +2121,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c92cc9ffb2b20549836e4eaa6b972f9
-    m_Address: 10052007_8
+    m_Address: PP_Crystal_08_Gold
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2441,7 +2436,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 588069e65eeea604f92dd018f4af1d78
-    m_Address: 10051003_4
+    m_Address: PP_Crystal_04_Copper
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2577,11 +2572,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d90818eccad23449bf4285abdbdc3b5
     m_Address: PP_Stalagmite_02
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5dc43c64843248d4981380f3db5901e1
-    m_Address: PP_Cave_Tube_20
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2740,13 +2730,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6367da5ccf4029d4bb00229b8cc0109e
-    m_Address: CraftingTable
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 639ca6aeb9610d84ebe78ef0e631f659
-    m_Address: 10054011_3
+    m_Address: PP_Crystal_03_Red
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2791,7 +2776,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 661f54177b4eb1b47b3f8d6feaed71f8
-    m_Address: 10053010_8
+    m_Address: PP_Crystal_08_Green
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -3391,7 +3376,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d02083fef9e8e9428e1d5abfb22b28a
-    m_Address: 10052007_4
+    m_Address: PP_Crystal_04_Gold
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -3521,7 +3506,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 816a53c630342114982eb25a7992807e
-    m_Address: 10055013_3
+    m_Address: PP_Crystal_Gradient_03
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4061,7 +4046,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9522e77773fffb149b6741a7026b71c5
-    m_Address: 10051005_8
+    m_Address: PP_Crystal_08_Silver
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4196,7 +4181,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99d71121b47f1494fbdd6b78404ed9bd
-    m_Address: 10051004_8
+    m_Address: PP_Crystal_08_Iron
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4211,7 +4196,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a9f61a2f9c532648acb811375bd4518
-    m_Address: 10054011_8
+    m_Address: PP_Crystal_08_Red
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4262,11 +4247,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b35970757beea94988c4610c669fc21
     m_Address: 10054011
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b69c8f559687ba47a149f67bd15c26c
-    m_Address: Assets/Prefabs/Player.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4421,7 +4401,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a120a6a072548ee4da52dc54bc67164f
-    m_Address: 10052007_3
+    m_Address: PP_Crystal_03_Gold
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4616,7 +4596,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8d7452240a30cc408e9075c99078c50
-    m_Address: 10055013_2
+    m_Address: PP_Crystal_Gradient_02
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -4736,7 +4716,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac3873b02381d3044ade188087f9da28
-    m_Address: 10053008_3
+    m_Address: PP_Crystal_03_Blue
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -5471,7 +5451,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7851f11ce16b154c893170681c8be80
-    m_Address: 10051004_3
+    m_Address: PP_Crystal_03_Iron
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -5621,7 +5601,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccd50b49bab9ea641941f4585a1d05c9
-    m_Address: 10051003_3
+    m_Address: PP_Crystal_03_Copper
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -5636,7 +5616,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd5946d6860364e449b3afc4d935a1eb
-    m_Address: 10051005_4
+    m_Address: PP_Crystal_04_Silver
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -5996,7 +5976,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc73e4437e30a2d4ea41573d04963360
-    m_Address: 10055013_1
+    m_Address: PP_Crystal_Gradient_01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -6186,7 +6166,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2fb11ae1bae45d41b828e91c2de011c
-    m_Address: 10053010_3
+    m_Address: PP_Crystal_03_Green
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -6710,11 +6690,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f7588dd2a5315d141adc4655eb01e414
-    m_Address: Group1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f786c72997877334597f9fdb733f59a3
     m_Address: PP_Crystal_Cluster_04_Gold
     m_ReadOnly: 0
@@ -6807,11 +6782,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fad1b18925f821443bf61375236cac0f
     m_Address: PP_Coin_13_Blue
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: faeca6ce6d8e6b343adc7036dacfcfab
-    m_Address: PP_Cave_Wall_Curved_Corner_Veins_07_Gold
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

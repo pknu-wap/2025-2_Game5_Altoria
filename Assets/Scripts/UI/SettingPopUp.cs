@@ -88,7 +88,7 @@ public class SettingPopUp : MonoBehaviour
         tabs[index].SetActive(true);
     }
 
-    public void 창끄기()
+    public void settingHide()
     {
         settingUI.SetActive(false);
     }
@@ -108,5 +108,11 @@ public class SettingPopUp : MonoBehaviour
     public void SetCameraSensitivitySlider()
     {
         //감도 조절 부분 
+    }
+
+    public void customerClick()
+    {
+        // 문의 링크
+        Application.OpenURL("https://www.youtube.com/watch?v=BlAvNOmBLKY");
     }
 }

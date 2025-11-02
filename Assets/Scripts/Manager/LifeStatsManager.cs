@@ -57,7 +57,15 @@ public class LifeStatsManager
 
     void SetData()
     {
-        lifeStats = Manager.UserData.GetUserData<UserLifeData>().GetUserLifeData();
+        var userData = Manager.UserData.GetUserData<UserLifeData>();
+        if (userData == null)
+        {
+            Debug.LogError("[LifeStatsManager] UserData not initialized!");
+            return;
+        }
+
+        lifeStats = userData.GetUserLifeData();
+        Debug.Log($"[LifeStatsManager] Loaded {lifeStats.Count} life stats.");
     }
 
     public void AddExp<T>(int amount)

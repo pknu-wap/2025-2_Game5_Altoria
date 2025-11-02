@@ -344,7 +344,6 @@ GameObject:
   - component: {fileID: 1187567312107228621}
   - component: {fileID: 6069161040960405776}
   - component: {fileID: 8186608568340955881}
-  - component: {fileID: 7695653716855045564}
   m_Layer: 9
   m_Name: PP_Mine_Cart_06
   m_TagString: Untagged
@@ -362,7 +361,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8606945812109944820}
@@ -549,24 +548,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.602852, y: 0.08146417, z: 0.19693878}
   m_Center: {x: -0.87334937, y: -0.29289716, z: 0.0251569}
---- !u!135 &7695653716855045564
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8606945812110310358}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -0.071969695, y: 0.026986986, z: 0.021950366}

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3084023986684492068}
   - component: {fileID: 948095889573678574}
   - component: {fileID: 1596715458808228922}
-  - component: {fileID: 5233408904224859903}
   m_Layer: 7
   m_Name: PP_Riverbed_01
   m_TagString: Untagged
@@ -28,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596715458808228923}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.02218108, z: -0, w: 0.999754}
+  m_LocalPosition: {x: -136.0854, y: 1.009999, z: 77.21875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,24 +109,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3984388139193204020, guid: 788d866163f7d304193575a1f54a08a2, type: 3}
---- !u!135 &5233408904224859903
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596715458808228923}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -0.80615443, y: 0.20863557, z: -0.06845998}
