@@ -46,7 +46,7 @@ namespace Common
         {
             Destroy(this);
         }
-
+      
         public List<CraftingSlot> GetCurrentCraftingSlots(CraftingType type) => Crafting.GetCurrentCraftingSlots(type);
         public bool HaveEmptySlot(CraftingType type) => Crafting.HaveEmptySlot(type);    
         public CraftingSlot GetCraftingSlot(CraftingType type, int slotIndex) => Crafting.GetCraftingSlot(type, slotIndex);  

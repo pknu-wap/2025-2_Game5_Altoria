@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Define;
 using GameData;
+using Common;
 
 namespace GameInteract
 {
@@ -47,6 +48,7 @@ namespace GameInteract
 
         protected void EndCollect(ITimer timer)
         {
+            
             List<(FishGroup, float)> probList = new();
 
             var fishDic = GameDB.GetFishData(areaType).Value;
@@ -57,8 +59,7 @@ namespace GameInteract
 
             var item = Common.GameSystem.Random.Pick(probList);
 
-            // TODO: 인벤토리에 item 추가
-
+          
             Common.GameSystem.Life.AddExp<CollectInteractComponent>(10);
 
             EndInteract();

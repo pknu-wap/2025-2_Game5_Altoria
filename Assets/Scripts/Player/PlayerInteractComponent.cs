@@ -20,6 +20,7 @@ public class PlayerInteractComponent : MonoBehaviour
     IInteractable currentTarget;
 
     public InteractionSystem InteractSystem => interactSystem;
+    public IInteractable CurrentTarget => currentTarget;
     void Awake()
     {
         origin = transform;

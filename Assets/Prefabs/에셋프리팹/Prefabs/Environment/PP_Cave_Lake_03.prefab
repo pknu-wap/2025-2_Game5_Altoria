@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8462331624055362312}
   - component: {fileID: 675100717793172675}
   - component: {fileID: 5899087702451489185}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: PP_Cave_Lake_Water_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,12 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7865580830874824418}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -6.7640074e-17, w: 1}
   m_LocalPosition: {x: 0.21554565, y: -0.0000000023836322, z: -0.00006105442}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9129558673306678989}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8462331624055362312
 MeshFilter:
@@ -52,10 +53,15 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +86,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &5899087702451489185
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88,9 +95,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7865580830874824418}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7295070037057761042, guid: 787d3d1f52e27194db87124580e07005, type: 3}
@@ -106,7 +121,7 @@ GameObject:
   - component: {fileID: 5268488821565618536}
   - component: {fileID: 7996591811505687970}
   - component: {fileID: 8330814724266970533}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: PP_Cave_Lake_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,14 +135,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8500937452401699959}
-  m_LocalRotation: {x: -0.0000000016298145, y: -0.000000044693024, z: 0.000000007479684,
-    w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000000054680727, y: -0.54892015, z: 0.000000005357438, w: 0.8358748}
+  m_LocalPosition: {x: -79.00538, y: -7.8129816, z: -243.1016}
+  m_LocalScale: {x: 1.5589, y: 1.5589, z: 1.5589}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5855473138670315490}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5268488821565618536
 MeshFilter:
@@ -148,10 +163,15 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -176,6 +196,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &8330814724266970533
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -184,9 +205,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8500937452401699959}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5678023637640305391, guid: 787d3d1f52e27194db87124580e07005, type: 3}

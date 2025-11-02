@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: e75daef660b0ece41bdbbda151a1121e
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157920
+  packageName: Human Crafting Animations FREE
+  packageVersion: 2.2
+  assetPath: Assets/Kevin Iglesias/Human Animations/Animations/Male/Work/Fishing/HumanM@FishingPullOut01.fbx
+  uploadId: 762236
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,8 +23,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -56,7 +61,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.9178082
+        functionName: InvokeRecall
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: eac140d49da99ce4e96d1329c34edfd4, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -953,8 +965,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2faa610713d3b3c439473daa55e8c60a,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2faa610713d3b3c439473daa55e8c60a, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
@@ -966,10 +977,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 157920
-  packageName: Human Crafting Animations FREE
-  packageVersion: 2.2
-  assetPath: Assets/Kevin Iglesias/Human Animations/Animations/Male/Work/Fishing/HumanM@FishingPullOut01.fbx
-  uploadId: 762236
