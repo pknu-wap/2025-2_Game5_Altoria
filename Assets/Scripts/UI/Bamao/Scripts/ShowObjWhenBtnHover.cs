@@ -19,13 +19,13 @@ namespace BamaoUIPack.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            FocusObj.SetActive(true);
+            if(FocusObj) FocusObj.SetActive(true);
             SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            FocusObj.SetActive(false);
+            if (FocusObj) FocusObj.SetActive(false);
             //SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 

@@ -338,5 +338,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 7351711941066733923}
-  itemBorder: {fileID: 0}
+  itemBorders:
+  - {fileID: 21300000, guid: e871402abc73a3148a51a83dfa448fc9, type: 3}
+  - {fileID: 21300000, guid: f5a49db85c52c164ca10362625d01a0d, type: 3}
+  - {fileID: 21300000, guid: 81c5a5be60cd9044bb31bf7833862877, type: 3}
+  - {fileID: 21300000, guid: ae14846884733884da2372ffecb162e7, type: 3}
+  - {fileID: 21300000, guid: 5616165c48019894881088aef7678005, type: 3}
+  itemBorder: {fileID: 7704228155534376239}
   itemCount: {fileID: 9050749195574925979}
