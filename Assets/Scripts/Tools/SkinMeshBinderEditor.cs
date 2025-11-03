@@ -1,3 +1,4 @@
+#if  UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -51,3 +52,4 @@ public class SkinMeshBinderEditor : EditorWindow
         Debug.Log($" Successfully bound bones from [{playerRenderer.name}] to [{targetRenderer.name}]");
     }
 }
+#endif

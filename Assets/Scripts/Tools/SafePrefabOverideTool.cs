@@ -1,3 +1,4 @@
+#if  UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
@@ -138,3 +139,4 @@ public class SafePrefabBatchOverrideTool : EditorWindow
         }
     }
 }
+#endif

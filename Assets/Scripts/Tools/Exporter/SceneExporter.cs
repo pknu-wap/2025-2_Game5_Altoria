@@ -1,13 +1,13 @@
-﻿// SceneExportWindow.cs
+﻿#if  UNITY_EDITOR
+// SceneExportWindow.cs
 // MARKER 제거 + BLOCKER 기반 + 외부 SceneExportSettings 기반 구조
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.AddressableAssets;
 using System.Linq;
-using JetBrains.Annotations;
+
 
 
 
@@ -292,3 +292,4 @@ namespace SceneLoader
         }
     }
 }
+#endif

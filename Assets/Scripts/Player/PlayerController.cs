@@ -116,7 +116,17 @@ public class PlayerController : BaseEntityComponent
 
         if (interactType == 0)
         {
-           
+
+            var layerInfo = animator.GetCurrentAnimatorStateInfo(1);
+
+            bool isLayerIdle = layerInfo.IsName("HumanM@Idle01 0") || layerInfo.IsTag("Idle");
+
+ 
+            if (isLayerIdle)
+            {
+                animController.BlendLayerWeight(1, animController.GetLayerWeight(1), 0f, 0.3f);
+            }
+
             State.SetState(PlayerState.Idle);
         }
         else
