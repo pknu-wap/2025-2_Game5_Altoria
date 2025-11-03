@@ -4105,11 +4105,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 971a617ed68685e4fb9b435b935aedb2
-    m_Address: NavMesh/GameScene
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 976e412fa85178d448d317b7cfa633d0
     m_Address: PP_Stalagnate_03
     m_ReadOnly: 0
@@ -5207,6 +5202,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf110e5a37ddfa348abe54a915d346fd
     m_Address: PP_Bota_Bag_02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf9721e1f917a444ab178d4eb45d02fe
+    m_Address: NavMesh/GameScene
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

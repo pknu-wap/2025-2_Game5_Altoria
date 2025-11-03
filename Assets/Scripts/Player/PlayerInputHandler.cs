@@ -15,7 +15,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     bool isCursorLocked;
     bool isAltMode;
-
+    bool isOpen;
     void Awake()
     {
         var input = new InputSystem_Actions();
@@ -101,6 +101,7 @@ public class PlayerInputHandler : MonoBehaviour
     void ForceLockCursor()
     {
         isCursorLocked = true;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         OnCursorLockChanged?.Invoke(true);
@@ -115,8 +116,25 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
   
-    void OpenInventory() => ForceUnlockCursor();
-    void OpenMainMenu() => ForceUnlockCursor();
+    void OpenInventory()
+    {
+        ForceUnlockCursor();
+        
+        Manager.UI.ShowPopup<InventoryUI>();
+    }
+        
+       
+        
+  
+    void OpenMainMenu()
+    {
+        if (Manager.UI.IsAnyPopUp()) Manager.UI.ClosePopup();
+        else
+        {
+            Manager.UI.ShowPopup<MainMenuPopUp>();
+            ForceUnlockCursor();
+        }
+    }
 
     bool IsPointerOverUI() =>
         EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();

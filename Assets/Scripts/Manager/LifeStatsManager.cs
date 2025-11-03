@@ -83,7 +83,7 @@ public class LifeStatsManager
         bool levelUp = lifeStats[type].AddExp(amount);
         if (levelUp)
         {
-            Debug.Log($"{GetType()} : {type} ¼÷·Ãµµ ·¹º§¾÷! {GetLevel<T>() - 1} -> {GetLevel<T>()}");
+            Debug.Log($"{GetType()} : {type} ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½! {GetLevel<T>() - 1} -> {GetLevel<T>()}");
         }
 
         SetTotalStat(type, amount, levelUp);
@@ -97,8 +97,8 @@ public class LifeStatsManager
     {
         int totalLevel = GetLevel<TotalLife>();
 
-        // ·¹º§ÀÌ °°Áö ¾ÊÀ¸¸é ´Ù¸¥ ¼÷·Ãµµ¸¦ ¿Ã·Á¾ß »ýÈ°·ÂÀÌ ¿Ã¶ó°£´Ù.
-        // ÇÏÁö¸¸ ¹æ±Ý ¸· ·¹º§¾÷À» ÇÑ °æ¿ì´Â °æÇèÄ¡¸¦ Áý°èÇÑ´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ó°£´ï¿½.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         if (totalLevel != lifeStats[type].GetLevel() && !(levelUp && (totalLevel == lifeStats[type].GetLevel() - 1))) 
             return;
 
@@ -113,7 +113,7 @@ public class LifeStatsManager
 
         if (_levelUp)
         {
-            Debug.Log($"{GetType()} : »ýÈ°·Â ·¹º§¾÷! {GetLevel<TotalLife>() - 1} -> {GetLevel<TotalLife>()}");
+            Debug.Log($"{GetType()} : ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½! {GetLevel<TotalLife>() - 1} -> {GetLevel<TotalLife>()}");
         }
     }
 

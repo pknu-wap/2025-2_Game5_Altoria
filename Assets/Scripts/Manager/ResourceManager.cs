@@ -137,7 +137,17 @@ public class ResourceManager
             handles.Remove(key);
         }
     }
+    public T Load<T>(string key) where T : Object
+    {
+        if (cache.TryGetValue(key, out var resource))
+            return resource as T;
 
+        var handle = Addressables.LoadAssetAsync<T>(key);
+        handle.WaitForCompletion(); 
+        cache[key] = handle.Result;
+        handles[key] = handle;
+        return handle.Result;
+    }
     public void Clear()
     {
        

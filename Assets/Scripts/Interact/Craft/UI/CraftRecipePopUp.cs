@@ -35,13 +35,14 @@ namespace GameInteract
                 GameObject obj = Instantiate(prefab, listRoot);
                 if (obj.TryGetComponent<ItemSlot>(out var slotUI))
                 {
-                    slotUI.SetSlot(entry.Item.SpriteAddress, entry.Value);
+                    slotUI.SetSlot(entry.Item.ID, entry.Value);
                 }
             }
         }
 
         void SetResultItem(ItemData resultItem,float craftTime)
         {
+           this.resultItem.sprite = Manager.Resource.Load <Sprite>(resultItem.ID);
             string timeText = FormatTime(craftTime);
 
             text.text =

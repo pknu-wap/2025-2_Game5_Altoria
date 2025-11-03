@@ -14,9 +14,11 @@ public class GameScene : BaseScene
 
     Vector3 PlayerPos = new Vector3(-33.9f, 3.74f, -12.01f);
     NavMeshDataInstance navMeshInstance;
-
+    bool isInit;
     protected override void Init()
     {
+        if (isInit) return;
+        isInit = true;
         base.Init();
 
         GameSystem.Init();

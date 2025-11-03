@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using GameInventory;
 using GameUI;
+using Common;
 
 [System.Serializable]
 public class TopButtonSet
@@ -51,7 +52,7 @@ public class InventoryUI : UIPopUp
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
+        displayListData = new List<InventoryEntry>(GameSystem.Inventory.GetAllItems());
 
         InitSortDropdown();
         InitCategoryButtons();
@@ -60,7 +61,7 @@ public class InventoryUI : UIPopUp
 
     void OnEnable()
     {
-        displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
+        displayListData = new List<InventoryEntry>(GameSystem.Inventory.GetAllItems());
 
         InitSortDropdown();
         InitCategoryButtons();
@@ -119,11 +120,11 @@ public class InventoryUI : UIPopUp
 
         if(currentType != Define.ItemType.None)
         {
-            var allItems = InventoryManager.Instance.GetAllItems();
+            var allItems = GameSystem.Inventory.GetAllItems();
             displayListData = allItems.FindAll(x => x.item.ItemData != null && x.item.ItemData.Type == currentType);
         }
         else
-            displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
+            displayListData = new List<InventoryEntry>(GameSystem.Inventory.GetAllItems());
 
         ApplySort();
         RefreshInventory();
@@ -160,7 +161,7 @@ public class InventoryUI : UIPopUp
     // 인벤토리 최신화 - 필터링,정렬된 데이터로 
     public void RefreshInventory()
     {
-        displayListData = new List<InventoryEntry>(InventoryManager.Instance.GetAllItems());
+        displayListData = new List<InventoryEntry>(GameSystem.Inventory.GetAllItems());
 
         if (currentType != Define.ItemType.None)
             displayListData = displayListData.FindAll(x => x.item.ItemData != null && x.item.ItemData.Type == currentType);
@@ -213,7 +214,7 @@ public class InventoryUI : UIPopUp
         int randomID = Random.Range(1, 201);  // 랜덤 아이템 코드 추가
         string itemID = randomID.ToString();
 
-        InventoryManager.Instance.AddItem(itemID, 10);
+        GameSystem.Inventory.AddItem(itemID, 10);
         RefreshInventory();
     }
 }

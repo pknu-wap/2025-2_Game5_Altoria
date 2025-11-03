@@ -22,6 +22,7 @@ public class Manager : MonoBehaviour
     public static SceneLoader.SceneLoader Scene { get { return instance.scene; } }
     public static ResourceManager Resource { get { return instance.resource; } }
 
+
     public static void Init()
     {
         if (instance == null)
