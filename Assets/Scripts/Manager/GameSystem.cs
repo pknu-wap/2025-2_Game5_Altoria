@@ -15,13 +15,14 @@ namespace Common
         RandomHellper randomHellper = new();
         LifeStatsManager lifeStatsManager = new();
         CraftingController crafting = new();
-
+        InventoryManager inventory = new();
         public static GameSystem Instance { get { return instance; } }
         public static TimeController Time { get { return instance.time; } }
         public static RandomHellper Random { get { return instance.randomHellper; } }
         public static LifeStatsManager Life { get { return instance.lifeStatsManager; } }
         public static CraftingController Crafting {  get { return instance.crafting; } }
 
+        public static InventoryManager Inventory { get { return instance.inventory; } }
         public static void Init()
         {
             if (instance == null)
@@ -32,9 +33,14 @@ namespace Common
 
                 instance = go.GetOrAddComponent<GameSystem>();
                 DontDestroyOnLoad(go);
+             
             }
         }
 
+        private void Start()
+        {
+            Inventory.Init();
+        }
 
         public void Update()
         {

@@ -57,7 +57,7 @@ namespace SceneLoade
             currentMapLoader.OnProgress -= UpdateProgress;
             currentMapLoader.OnSuccess -= OnLoadSuccess;
             currentMapLoader.OnFailure -= OnLoadFailure;
-            Close();
+            Manager.UI.ClosePopup(this);
         }
     }
 }

@@ -39,7 +39,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
         itemID = data.item.ItemData.ID;
         itemName = entry.item.ItemData.Name;
         itemCount1 = data.count;
-        SetSlot(data.item.ItemData.SpriteAddress, data.count, data.item.ItemData.Grade);
+        SetSlot(itemID, data.count, data.item.ItemData.Grade);
 
         equippedText.gameObject.SetActive(data.item is IEquippable);
         //추가 커스터마이징

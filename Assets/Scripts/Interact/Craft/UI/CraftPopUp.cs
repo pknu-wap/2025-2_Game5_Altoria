@@ -43,7 +43,7 @@ namespace GameInteract
                 GameObject obj = UnityEngine.Object.Instantiate(prefab, listRoot);
                 if (obj.TryGetComponent<CraftItemSlot>(out var slot))
                 {
-                    slot.SetSlot(info.Index, info.SpriteAddress, info.Count);
+                    slot.SetSlot(info.Index, info.ItemID, info.Count);
                     slot.OnClicked += OnClickItemSlot;
                 }
             }

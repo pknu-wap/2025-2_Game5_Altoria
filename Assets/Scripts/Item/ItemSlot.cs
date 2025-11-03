@@ -26,7 +26,9 @@ public class ItemSlot : MonoBehaviour
 
         itemCount.text = count.ToString();
 
-        // TODO: spriteAddress → 실제 스프라이트 로드 (Addressables 등)
-        // itemImage.sprite = ResourceManager.Load<Sprite>(spriteAddress);
+  
+       Sprite sprite = Manager.Resource.Load<Sprite>(spriteAddress);
+        if (sprite != null)
+            itemImage.sprite = sprite;
     }
 }
