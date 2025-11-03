@@ -6,26 +6,24 @@ using GameInventory;
 using UnityEditor;
 using GameData;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager 
 {
-    public static InventoryManager Instance;
 
-    [Header("아이템 데이터베이스 (모든 아이템 정보)")]
-    [SerializeField] ItemDatabaseSO itemDatabase;  //미완성
+
+ 
 
     [Header("플레이어 인벤토리 데이터 (보유 중 아이템 목록)")]
-    [SerializeField] InventoryDatabase inventoryData; // 데이터 저장용
+   InventoryDatabase inventoryData; // 데이터 저장용
 
     List<InventoryEntry> inventory = new(); // 런타임용
 
-    void Awake()
+   
+    public void Init()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-    }
 
+        inventoryData = Resources.Load<InventoryDatabase>(nameof(InventoryDatabase));
+        InventoryLoad();
+    }
 
     public bool AddItem(string itemID, int count = 1)
     {

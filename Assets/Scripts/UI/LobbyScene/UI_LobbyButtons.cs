@@ -28,8 +28,9 @@ namespace GameUI
 
         public void OnClickSettingButton()
         {
-            //GameSystem.Init();
-            Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
+            //TODO:  ÆË¾÷Ã¢ »ý¼º 
+            
+           // Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
         }
         public void OnClickExitButton()
         {

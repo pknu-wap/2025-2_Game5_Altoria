@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using GameInventory;
 using static UnityEngine.EventSystems.EventTrigger;
+using Common;
 
 public class ItemDeletePopUp : UIPopUp
 {
@@ -65,7 +66,7 @@ public class ItemDeletePopUp : UIPopUp
             itemID = data.item.ItemData.ID;
             maxCount = Mathf.Max(1, data.count);
 
-            itemIcon.SetSlot(data.item.ItemData.SpriteAddress, data.count, data.item.ItemData.Grade);  // 아이템 이미지, 테두리, 개수 설정
+            itemIcon.SetSlot(itemID, data.count, data.item.ItemData.Grade);  // 아이템 이미지, 테두리, 개수 설정
             itemNameText.text = data.item.ItemData.Name;
         }
         else return;
@@ -121,7 +122,7 @@ public class ItemDeletePopUp : UIPopUp
         else
             currentCount = 1;
 
-        bool success = InventoryManager.Instance.RemoveItem(currentItem.item.ItemData.ID, currentCount);
+        bool success = GameSystem.Inventory.RemoveItem(currentItem.item.ItemData.ID, currentCount);
 
         if (success)
         {
@@ -152,7 +153,7 @@ public class ItemDeletePopUp : UIPopUp
         itemID = data.item.ItemData.ID;
         maxCount = Mathf.Max(1, data.count);
 
-        itemIcon.SetSlot(data.item.ItemData.SpriteAddress, data.count, data.item.ItemData.Grade);
+        itemIcon.SetSlot(itemID, data.count, data.item.ItemData.Grade);
         itemNameText.text = data.item.ItemData.Name;
 
         currentCount = 1;

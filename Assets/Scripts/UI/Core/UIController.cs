@@ -119,7 +119,25 @@ namespace GameUI
             order--;
            
         }
-       
+        public void ClosePopup(UIPopUp popup)
+        {
+            if (popUpStack.Count == 0) return;
+
+            var top = popUpStack.Peek();
+            if (top != popup)
+            {
+                Debug.LogWarning($"[UIController] Tried to close popup '{popup.name}', but top is '{top.name}'.");
+                return;
+            }
+
+            popUpStack.Pop();
+            if (popup != null && popup.gameObject != null)
+                popup.Close();
+
+            order = Mathf.Max(0, order - 1);
+        }
+
+
         public void CloseAllPopup()
         {
             while (popUpStack.Count > 0) ClosePopup();
@@ -133,6 +151,13 @@ namespace GameUI
             MainHUD = null;
         }
         public bool IsAnyPopUp() { return popUpStack.Count > 0; }
+        public bool HasThisPopUp(UIPopUp popup)
+        {
+            if (popup == null) return false;
+            if (popUpStack == null || popUpStack.Count == 0) return false;
+
+            return popUpStack.Contains(popup);
+        }
         public void HideHUD() => MainHUD.Hide();
     }
 }
