@@ -14,6 +14,7 @@ public class ItemDeletePopUp : UIPopUp
     [SerializeField] TextMeshProUGUI itemNameText;
     [SerializeField] Button plusButton;
     [SerializeField] Button minusButton;
+    [SerializeField] Button maxButton;
     [SerializeField] TMP_InputField CountInput;
 
     InventoryEntry currentItem;
@@ -24,11 +25,13 @@ public class ItemDeletePopUp : UIPopUp
 
     void Awake()
     {
+        //Manager.Init();
         Instance = this;   //인스턴스 초기화
 
         CountInput.onValueChanged.AddListener(OnInputChanged);
         plusButton.onClick.AddListener(OnPlus);
         minusButton.onClick.AddListener(OnMinus);
+        maxButton.onClick.AddListener(OnMax);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,13 +48,12 @@ public class ItemDeletePopUp : UIPopUp
     void OnEnable()
     {
         //SetItem(itemID, maxCount);
-        CountInput.onValueChanged.RemoveListener(OnInputChanged);
-        CountInput.text = currentCount.ToString();
-        CountInput.onValueChanged.AddListener(OnInputChanged);
+
     }
 
     public override bool Init()
     {
+        CountInput.text = "1";
         return base.Init();
     }
 
@@ -133,22 +135,35 @@ public class ItemDeletePopUp : UIPopUp
         InventoryUI.Instance.RefreshInventory();
         OnClose();
     }
-
-    public void Open(InventoryEntry data)
+    public static ItemDeletePopUp Open(InventoryEntry data)
     {
-        SetItem(data);
-        currentCount = 1;
+        var popup = Manager.UI.ShowPopup<ItemDeletePopUp>(); 
+        popup.SetUp(data);
 
-        gameObject.SetActive(true);
+        Debug.Log($"[ItemDeletePopUp] : {data.item.ItemData.ID} 아이템 삭제창 오픈 / maxCount={data.count}");
+        return popup;
+    }
+
+    public void SetUp(InventoryEntry data)
+    {
+        if (data == null) return;
+
+        currentItem = data;
+        itemID = data.item.ItemData.ID;
+        maxCount = Mathf.Max(1, data.count);
+
+        itemIcon.SetSlot(data.item.ItemData.SpriteAddress, data.count, data.item.ItemData.Grade);
+        itemNameText.text = data.item.ItemData.Name;
+
+        currentCount = 1;
+       
         CountInput.onValueChanged.RemoveListener(OnInputChanged);  //잠깐 끊기 
         CountInput.text = currentCount.ToString();
         CountInput.onValueChanged.AddListener(OnInputChanged);
-        Debug.Log($"[ItemDeletePopUp] : {data.item.ItemData.ID} 아이템 삭제창 오픈 / maxCount={maxCount}");
     }
 
     public void OnClose()
     {
-        gameObject.SetActive(false);
-        //Manager.UI.ClosePopup();  //오류 
+        Manager.UI.ClosePopup();  
     }
 }
