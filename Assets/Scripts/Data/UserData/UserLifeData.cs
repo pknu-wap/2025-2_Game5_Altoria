@@ -62,7 +62,7 @@ public class UserLifeData : Security, IUserData
 
         try
         {
-            var saveData = new LifeDataDictionary { LifeData = new (userLifeDataDic) };
+            var saveData = new LifeDataDictionary { LifeData = new (GameSystem.Life.GetLifeStats()) };
             string jsonData = JsonUtility.ToJson(saveData, true);
             File.WriteAllText(path, jsonData);
             //File.WriteAllText(path, Encrypt(jsonData, KEY));

@@ -5,7 +5,7 @@
                 "Key": "CollectInteractComponent",
                 "Value": {
                     "level": 1,
-                    "exp": 0
+                    "exp": 10
                 }
             },
             {
@@ -19,7 +19,7 @@
                 "Key": "TotalLife",
                 "Value": {
                     "level": 1,
-                    "exp": 0
+                    "exp": 7
                 }
             }
         ]
