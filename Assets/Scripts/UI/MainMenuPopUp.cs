@@ -71,10 +71,15 @@ public class MainMenuPopUp : UIPopUp
         Manager.UI.ShowPopup<SettingPopUp>();
         Debug.Log("[MainMenuPopUp] : 설정창");
     }
+    public void OnClickMain()
+    {
+        Manager.UI.ShowPopup<ExitPopUp>().SetPopUpType(ExitPopUpType.GoToMainMenu);
+        Debug.Log("[MainMenuPopUp] : 메인메뉴로");
+    }
 
     public void OnClickExit()
     {
-        Manager.UI.ShowPopup<ExitPopUp>();
+        Manager.UI.ShowPopup<ExitPopUp>().SetPopUpType(ExitPopUpType.ExitGame);
         Debug.Log("[MainMenuPopUp] : 종료창");
     }
 

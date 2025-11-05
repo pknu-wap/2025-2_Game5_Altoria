@@ -19,6 +19,8 @@ public class SettingPopUp : UIPopUp
     [SerializeField] SliderInput SFXtext;   
 
     [Header("Control Settings")]
+    [SerializeField] TMP_Dropdown screenmode;
+    [SerializeField] TMP_Dropdown resolution;
     [SerializeField] SliderInput CameraSensitivity;
 
     void Awake()
@@ -36,6 +38,10 @@ public class SettingPopUp : UIPopUp
         // 슬라이더 값 변경 시 사운드 매니저에 반영
         BGMtext.GetComponent<Slider>().onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
         SFXtext.GetComponent<Slider>().onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
+
+        // 화면모드, 품질
+        screenmode.onValueChanged.AddListener(ChangeScreenMode);
+        resolution.onValueChanged.AddListener(SetGraphicQuality); 
 
         // 카메라 감도 초기화
         CameraSensitivity.Value = 60f;
@@ -102,15 +108,41 @@ public class SettingPopUp : UIPopUp
         SoundManager.Instance.SetSFXVolume(value);
     }
 
+    // 화면 모드
+    public void ChangeScreenMode(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                Screen.fullScreen = true;
+                Debug.Log("[SettingPopUp] : 전체 화면 모드");
+                break;
+            case 1:
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                Screen.fullScreen = false;
+                Debug.Log("[SettingPopUp] : 창 모드");
+                break;
+        }
+    }
+
+    // 품질 설정
+    public void SetGraphicQuality(int index)
+    {
+        //Debug.Log("현재 품질 레벨 인덱스: " + QualitySettings.GetQualityLevel());
+        //QualitySettings.SetQualityLevel(2 - index);
+        Debug.Log($"[SettingPopUp] : 게임 품질 : {2-index}");
+    }
+
     // 그래픽 설정
     public void SetCameraSensitivitySlider()
     {
-        //감도 조절 부분 
+        //PlayerCameraController - mouseSensivity 필요
     }
 
     public void customerClick()
     {
-        // 문의 링크
+        // 임시 문의 링크
         Application.OpenURL("https://www.youtube.com/watch?v=BlAvNOmBLKY");
     }
 }
