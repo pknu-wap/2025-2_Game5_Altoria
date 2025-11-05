@@ -17,12 +17,12 @@ public class MainMenuPopUp : UIPopUp
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
-        updateStats();
+        UpdateStats();
     }
 
     private void OnEnable()
     {
-        updateStats();
+        UpdateStats();
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class MainMenuPopUp : UIPopUp
         return base.Init();
     }
 
-    public void updateStats()
+    public void UpdateStats()
     {
         for (int i = 0; i < stats.Length; i++)
         {
@@ -72,7 +72,13 @@ public class MainMenuPopUp : UIPopUp
         Debug.Log("[MainMenuPopUp] : 설정창");
     }
 
-    public void closePopUp()
+    public void OnClickExit()
+    {
+        Manager.UI.ShowPopup<ExitPopUp>();
+        Debug.Log("[MainMenuPopUp] : 종료창");
+    }
+
+    public void ClosePopUp()
     {
         Manager.UI.ClosePopup();
     }

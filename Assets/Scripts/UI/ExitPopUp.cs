@@ -3,19 +3,6 @@ using UnityEngine;
 
 public class ExitPopUp : UIPopUp
 {
-    [SerializeField] private GameObject exitUI;
-
-    private void Awake()
-    {
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         /*
@@ -28,7 +15,7 @@ public class ExitPopUp : UIPopUp
 
     public void OnClickYes()
     {
-        Debug.Log("Game closed");
+        Debug.Log("[ExitPopUp] : Game closed");
 #if UNITY_EDITOR                 
         UnityEditor.EditorApplication.isPlaying = false;   
 #else
