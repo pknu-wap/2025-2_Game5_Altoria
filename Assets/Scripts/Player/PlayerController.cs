@@ -3,28 +3,52 @@ using UnityEngine;
 using static Define;
 
 [RequireComponent(typeof(PlayerInputHandler))]
-[RequireComponent(typeof(PlayerMovement))]
-public class PlayerController : BaseEntityComponent
+public class PlayerController : BaseEntityComponent, IPlayerMovable
 {
     [SerializeField] Animator animator;
     [SerializeField] SocketHandler socketHandler;
+    [SerializeField] GroundChecker groundChecker;
+    [SerializeField] MoveData data;
+    [SerializeField] bool isJump = false;
 
     PlayerInputHandler input;
-    PlayerMovement movement;
     PlayerInteractComponent interact;
-    GroundChecker groundChecker;
     AnimatorControllerWrapper animController;
 
     public PlayerStateMachine State { get; private set; } = new PlayerStateMachine();
-    [SerializeField] bool isJump = false;
+
+    public IMove Move { get; private set; }
+    public IMoveData MoveData => data;
+
+    Vector2 lastInputDir; 
 
     void Awake()
     {
         input = GetComponent<PlayerInputHandler>();
-        movement = GetComponent<PlayerMovement>();
         interact = GetComponent<PlayerInteractComponent>();
-        groundChecker = GetComponent<GroundChecker>();
         animController = new AnimatorControllerWrapper(animator, this);
+    }
+
+    void Start()
+    {
+        Move = new Move();
+        Move.SetEntity(this);
+    }
+
+    void Update()
+    {
+   
+        if (lastInputDir.sqrMagnitude > 0.01f)
+        {
+            Vector3 moveDir = CalculateCameraRelativeDirection(lastInputDir);
+            Move.SetMoveInput(moveDir);
+        }
+        else
+        {
+            Move.SetMoveInput(Vector3.zero);
+        }
+
+        Move.Tick(); 
     }
 
     void OnEnable()
@@ -59,11 +83,12 @@ public class PlayerController : BaseEntityComponent
         input.OnInteract -= TryInteract;
     }
 
+
     void OnMove(Vector2 inputDir)
     {
         if (!State.CanReceiveInput()) return;
 
-        movement.SetMoveInput(new Vector3(inputDir.x, 0f, inputDir.y));
+        lastInputDir = inputDir;
         animController.SetBool("IsMove", true);
         State.SetState(PlayerState.Move);
     }
@@ -71,7 +96,26 @@ public class PlayerController : BaseEntityComponent
     void OnMoveCanceled()
     {
         if (!State.CanReceiveInput()) return;
+        lastInputDir = Vector2.zero;
         StopMove();
+    }
+
+    Vector3 CalculateCameraRelativeDirection(Vector2 inputDir)
+    {
+        if (Camera.main == null)
+            return new Vector3(inputDir.x, 0, inputDir.y);
+
+        Transform cam = Camera.main.transform;
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
+
+        camForward.y = 0;
+        camRight.y = 0;
+
+        camForward.Normalize();
+        camRight.Normalize();
+
+        return (camForward * inputDir.y + camRight * inputDir.x).normalized;
     }
 
     void OnGround(bool grounded)
@@ -93,7 +137,7 @@ public class PlayerController : BaseEntityComponent
 
         isJump = true;
         animController.SetTrigger("IsJump");
-        movement.Jump();
+        Move.Jump();
         State.SetState(PlayerState.Jump);
     }
 
@@ -116,16 +160,11 @@ public class PlayerController : BaseEntityComponent
 
         if (interactType == 0)
         {
-
             var layerInfo = animator.GetCurrentAnimatorStateInfo(1);
-
             bool isLayerIdle = layerInfo.IsName("HumanM@Idle01 0") || layerInfo.IsTag("Idle");
 
- 
             if (isLayerIdle)
-            {
                 animController.BlendLayerWeight(1, animController.GetLayerWeight(1), 0f, 0.3f);
-            }
 
             State.SetState(PlayerState.Idle);
         }
@@ -146,7 +185,8 @@ public class PlayerController : BaseEntityComponent
     public void OnDie()
     {
         input.enabled = false;
-        movement.SetMoveInput(Vector3.zero);
+        lastInputDir = Vector2.zero;
+        Move.SetMoveInput(Vector3.zero);
         animController.SetTrigger("Die");
         State.SetState(PlayerState.Die);
     }
@@ -160,7 +200,7 @@ public class PlayerController : BaseEntityComponent
     public void StopMove()
     {
         animController.SetBool("IsMove", false);
-        movement.SetMoveInput(Vector3.zero);
+        Move.SetMoveInput(Vector3.zero);
         State.SetState(PlayerState.Idle);
     }
 

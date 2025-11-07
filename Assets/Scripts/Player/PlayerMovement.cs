@@ -10,8 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float jumpHeight = 3f;
     [SerializeField] float gravity = -9.81f * 2f;
-
-    [Header("References")]
     [SerializeField] Transform modelTransform;
 
     CharacterController controller;
@@ -20,53 +18,40 @@ public class PlayerMovement : MonoBehaviour
     Transform mainCamera;
 
     Vector3 velocity;
-    Vector3 moveInput = Vector3.zero;
-    Vector3 navMove = Vector3.zero;
-    bool useNavPath = false;
+    Vector3 moveInput;
+    Vector3 navMove;
+    bool useNavPath;
 
     public bool IsGrounded => groundChecker.IsGrounded;
 
-    private void Awake()
+    void Awake()
     {
         controller = GetComponent<CharacterController>();
         groundChecker = GetComponent<GroundChecker>();
         agent = GetComponent<NavMeshAgent>();
 
-        
         agent.updatePosition = false;
         agent.updateRotation = false;
 
-        CheckCamera();
-    }
-
-    void CheckCamera()
-    {
         if (Camera.main != null)
             mainCamera = Camera.main.transform;
-        else
-            Debug.LogError("Main Camera not found! Please tag your camera as 'MainCamera'.");
     }
 
-    private void FixedUpdate()
-    {
-        HandleMovement();
-    }
+    void FixedUpdate() => HandleMovement();
 
-    private void HandleMovement()
+    void HandleMovement()
     {
         bool isGrounded = groundChecker.CheckGrounded();
         ApplyGravity(isGrounded);
 
-        if (useNavPath)
-            UpdateNavMovement();
-        else
-            MoveCharacter();
+        if (useNavPath) UpdateNavMovement();
+        else MoveCharacter();
 
         RotateModel();
         agent.nextPosition = transform.position;
     }
 
-    private void ApplyGravity(bool isGrounded)
+    void ApplyGravity(bool isGrounded)
     {
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
@@ -75,13 +60,12 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.fixedDeltaTime);
     }
 
-    private void MoveCharacter()
+    void MoveCharacter()
     {
         if (mainCamera == null) return;
 
         Vector3 camForward = mainCamera.forward;
         Vector3 camRight = mainCamera.right;
-
         camForward.y = 0;
         camRight.y = 0;
         camForward.Normalize();
@@ -91,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.fixedDeltaTime);
     }
 
-    private void UpdateNavMovement()
+    void UpdateNavMovement()
     {
         if (!agent.hasPath || agent.pathPending)
             return;
@@ -110,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(navMove * speed * Time.fixedDeltaTime);
     }
 
-    private void RotateModel()
+    void RotateModel()
     {
         Vector3 move = useNavPath ? navMove : controller.velocity;
         move.y = 0;
@@ -118,16 +102,15 @@ public class PlayerMovement : MonoBehaviour
         if (move.sqrMagnitude > 0.01f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(move);
-            modelTransform.rotation = Quaternion.Slerp(
-                modelTransform.rotation, targetRotation, Time.fixedDeltaTime * 10f
-            );
+            modelTransform.rotation = Quaternion.Slerp(modelTransform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
         }
     }
 
-    public void SetMoveInput(Vector3 moveInput)
+
+    public void SetMoveInput(Vector3 input)
     {
-        this.moveInput = moveInput;
-        if (moveInput.sqrMagnitude > 0.01f)
+        moveInput = input;
+        if (input.sqrMagnitude > 0.01f)
             useNavPath = false;
     }
 
@@ -138,7 +121,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogWarning("NavMeshAgent is not on a NavMesh!");
             return;
         }
-
         agent.SetDestination(destination);
         useNavPath = true;
     }
@@ -146,6 +128,18 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         if (groundChecker.IsGrounded)
+        {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            useNavPath = false;
+        }
     }
+
+    public void Stop()
+    {
+        moveInput = Vector3.zero;
+        useNavPath = false;
+        agent.ResetPath();
+    }
+
+    public Transform GetTransform() => transform;
 }
