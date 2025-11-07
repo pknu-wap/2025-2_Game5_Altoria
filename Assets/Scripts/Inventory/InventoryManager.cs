@@ -118,7 +118,7 @@ public class InventoryManager
     public void InventorySave()
     {
         inventoryData.rows.Clear();
-
+        //EditorUtility.SetDirty();
         foreach (var entry in inventory)
         {
             if (entry.item == null) continue;

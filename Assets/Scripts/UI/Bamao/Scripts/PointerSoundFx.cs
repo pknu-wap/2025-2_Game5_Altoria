@@ -32,7 +32,7 @@ namespace BamaoUIPack.Scripts
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
+            SoundManager.Instance.PlaySFX("CartoonPop");
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -45,8 +45,6 @@ namespace BamaoUIPack.Scripts
                     return;
                 }
             }
-
-            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 
         public void OnPointerExit(PointerEventData eventData)

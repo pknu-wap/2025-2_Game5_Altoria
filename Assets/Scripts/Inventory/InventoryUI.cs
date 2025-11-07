@@ -89,7 +89,7 @@ public class InventoryUI : UIPopUp
                     topButtons[j].focus.gameObject.SetActive(j == index);
                 }
                 OnTypeChanged(index);
-                SoundManager.Instance.PlaySFX(SFX.ButtonClick);
+                SoundManager.Instance.PlaySFX("CartoonPop");
             });
         }
     }
@@ -139,7 +139,6 @@ public class InventoryUI : UIPopUp
         RefreshInventory();
 
         Debug.Log($"[InventoryUI] : 정렬 방식 변경됨 - {sortLabels[currentSort]}");
-        SoundManager.Instance.PlaySFX(SFX.ButtonClick);
     }
 
     //정렬
