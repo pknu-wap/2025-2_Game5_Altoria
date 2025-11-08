@@ -40,7 +40,7 @@ namespace GameInteract
             //canvas.gameObject.SetActive(false);
         }
 
-        public override void Interact()
+        public override void Interact(IEntity entity)
         {
             CollectTimer timer = new(2);
             timer.OnFinished += EndCollect;

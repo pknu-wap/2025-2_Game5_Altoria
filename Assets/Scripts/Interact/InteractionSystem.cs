@@ -2,6 +2,7 @@
 using GameInteract;
 using System;
 using System.Diagnostics;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public enum InteractionState
 {
@@ -50,16 +51,22 @@ public class InteractionSystem
        
     }
 
-    public void TryInteract()
+    public void TryInteract(IEntity entity)
     {
         if (CurrentState == InteractionState.Entered && CurrentTarget != null)
         {
             UnityEngine.Debug.Log("[InteractionSystem]: Interact");
             InteractInvoke.Invoke((int)(CurrentTarget.Type)); 
-            CurrentTarget.Interact();
+            CurrentTarget.Interact(entity);
             CurrentState = InteractionState.Interacting;
             CurrentTarget.OnInteractionEnded += HandleInteractionEnded;
         }
+        if(CurrentState==InteractionState.Interacting)
+        {
+            if (CurrentTarget is RidingInteractComponent riding)
+                riding.Interact(entity);
+        }
+
     }
 
     public void HoldInteract()

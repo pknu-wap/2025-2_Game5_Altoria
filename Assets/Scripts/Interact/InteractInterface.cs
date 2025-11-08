@@ -11,7 +11,7 @@ namespace GameInteract
         bool CanInteract { get; }
         void EnterInteract();
         void ExitInteract();
-        void Interact();
+        void Interact(IEntity entity);
 
         event Action OnInteractionEnded;
     }

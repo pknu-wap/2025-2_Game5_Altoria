@@ -28,7 +28,8 @@ namespace GameInteract
             CanInteract = false;
             IsInteract = false;
         }
-        public virtual void Interact()
+  
+        public virtual void Interact(IEntity entity)
         {
             IsInteract = true;
             OnInteract();

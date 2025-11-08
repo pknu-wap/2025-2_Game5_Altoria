@@ -14,9 +14,9 @@ namespace GameInteract
     }
     public class CraftInteractComponent : InteractBaseComponent
     {
-        public override void Interact()
+        public override void Interact(IEntity entity)
         {
-            base.Interact();
+            base.Interact(entity);
             OpenInteractWindow();
         }
         void OpenInteractWindow()

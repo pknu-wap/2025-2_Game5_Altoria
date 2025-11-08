@@ -20,7 +20,7 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
     public IMove Move { get; private set; }
     public IMoveData MoveData => data;
 
-    Vector2 lastInputDir; 
+    Vector2 lastInputDir;
 
     void Awake()
     {
@@ -37,7 +37,9 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
 
     void Update()
     {
-   
+        if (!State.CanReceiveInput())
+            return;
+
         if (lastInputDir.sqrMagnitude > 0.01f)
         {
             Vector3 moveDir = CalculateCameraRelativeDirection(lastInputDir);
@@ -48,7 +50,7 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
             Move.SetMoveInput(Vector3.zero);
         }
 
-        Move.Tick(); 
+        Move.Tick();
     }
 
     void OnEnable()
@@ -71,8 +73,12 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
     {
         input.OnMove += OnMove;
         input.OnMoveCanceled += OnMoveCanceled;
-        input.OnInteract += TryInteract;
         input.OnJump += OnJump;
+
+       
+        input.OnInteract += TryInteract;          
+          
+
     }
 
     void UnbindInputEvents()
@@ -80,9 +86,11 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         input.OnMove -= OnMove;
         input.OnMoveCanceled -= OnMoveCanceled;
         input.OnJump -= OnJump;
-        input.OnInteract -= TryInteract;
-    }
 
+        input.OnInteract -= TryInteract;
+    
+     
+    }
 
     void OnMove(Vector2 inputDir)
     {
@@ -141,14 +149,19 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         State.SetState(PlayerState.Jump);
     }
 
+
     void TryInteract()
     {
-        if (State.CurrentState == PlayerState.Die || interact.CurrentTarget == null)
-            return;
+        if (State.CurrentState == PlayerState.Die || interact.CurrentTarget == null) return;
 
-        interact.TryInteract();
+
+        interact.TryInteract(this);
         State.SetState(PlayerState.Interacting);
     }
+
+   
+
+   
 
     void OnInteract(int interactType)
     {
@@ -182,6 +195,8 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         animController.BlendLayerWeight(1, animController.GetLayerWeight(1), 0f, 0.3f);
     }
 
+
+
     public void OnDie()
     {
         input.enabled = false;
@@ -199,6 +214,7 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
 
     public void StopMove()
     {
+        lastInputDir = Vector2.zero;
         animController.SetBool("IsMove", false);
         Move.SetMoveInput(Vector3.zero);
         State.SetState(PlayerState.Idle);
