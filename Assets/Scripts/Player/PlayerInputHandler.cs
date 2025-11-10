@@ -10,10 +10,11 @@ public class PlayerInputHandler : MonoBehaviour
 
 
     public event Action<Vector2> OnMove;
-    public event Action OnMoveCanceled, OnJump, OnAttack;
+    public event Action OnMoveCanceled, OnJump, OnAttack, OnRiding;
     public event Action OnInteract, OnInteractHold, OnInteractCanceled;
     public event Action<Vector2> OnLook;
     public event Action<bool> OnCursorLockChanged;
+
 
     bool isCursorLocked;
     bool isAltMode;
@@ -51,6 +52,7 @@ public class PlayerInputHandler : MonoBehaviour
         playerActions.Attack.performed += OnAttackPerformed;
         playerActions.Look.performed += OnLookPerformed;
         playerActions.Look.canceled += OnLookCanceled;
+        playerActions.Riding.started += OnRidingPreformed;
 
      
         playerActions.Interact.started += ctx => OnInteract?.Invoke();         
@@ -71,6 +73,7 @@ public class PlayerInputHandler : MonoBehaviour
         playerActions.Attack.performed -= OnAttackPerformed;
         playerActions.Look.performed -= OnLookPerformed;
         playerActions.Look.canceled -= OnLookCanceled;
+        playerActions.Riding.started -= OnRidingPreformed;
 
         playerActions.Interact.started -= ctx => OnInteract?.Invoke();
         playerActions.Interact.performed -= ctx => OnInteractHold?.Invoke();
@@ -143,6 +146,7 @@ public class PlayerInputHandler : MonoBehaviour
     void OnJumpPerformed(InputAction.CallbackContext ctx) => OnJump?.Invoke();
     void OnAttackPerformed(InputAction.CallbackContext ctx) => OnAttack?.Invoke();
 
+    void OnRidingPreformed(InputAction.CallbackContext ctx) => OnRiding?.Invoke();
     void OnLookPerformed(InputAction.CallbackContext ctx)
     {
         if (!isCursorLocked) return;

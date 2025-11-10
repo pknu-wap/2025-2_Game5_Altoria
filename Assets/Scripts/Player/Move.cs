@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,7 +20,7 @@ public class Move : IMove
     IMoveData data;
 
     public bool IsGrounded => groundChecker != null && groundChecker.IsGrounded;
-
+    public bool locked = false;
     public Move() { }
     public void SetEntity(IEntity entity)
     {
@@ -53,7 +54,7 @@ public class Move : IMove
     
     public void Tick()
     {
-
+        if (locked) return;
         bool isGrounded = groundChecker?.CheckGrounded() ?? true;
         ApplyGravity(isGrounded);
         if (isGrounded && agent != null && !agent.enabled)
@@ -79,7 +80,23 @@ public class Move : IMove
         velocity.y += data.Gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+    public void SetMovementLock(bool state)
+    {
+        locked = state;
 
+        if (agent)
+            agent.enabled = !state;
+
+        if (controller)
+            controller.enabled = !state;
+
+        if (state)
+        {
+            moveInput = Vector3.zero;
+            useNavPath = false;
+            agent?.ResetPath();
+        }
+    }
     void MoveCharacter()
     {
         if (moveInput.sqrMagnitude < 0.001f) return;

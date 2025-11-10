@@ -61,12 +61,7 @@ public class InteractionSystem
             CurrentState = InteractionState.Interacting;
             CurrentTarget.OnInteractionEnded += HandleInteractionEnded;
         }
-        if(CurrentState==InteractionState.Interacting)
-        {
-            if (CurrentTarget is RidingInteractComponent riding)
-                riding.Interact(entity);
-        }
-
+     
     }
 
     public void HoldInteract()

@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using static Define;
@@ -13,82 +12,144 @@ namespace GameInteract
         public Vector3 Rotation;
     }
 
-    public class RidingInteractComponent : InteractBaseComponent
+    public class RidingInteractComponent : BaseEntityComponent, IRiding, IMoveInput, IPlayerMovable
     {
         [SerializeField] Transform mountPoint;
         [SerializeField] Animator animator;
         [SerializeField] RidingOffset offset;
+        [SerializeField] MoveData data;
         [SerializeField] float delay = 1.2f;
-        [SerializeField] bool riding = false;
 
         IEntity rider;
-        float lastInteractTime = -999f; 
+        IMove move;
+        MoveHandler moveHandler;  
+        float lastRidingTime = -999f;
 
-        public override void Interact(IEntity entity)
+        public Transform MountPoint => mountPoint;
+        public bool IsOccupied => rider != null;
+
+        public IMove Move => move;
+        public IMoveData MoveData => data;
+
+        public event Action<IEntity> OnMounted;
+        public event Action<IEntity> OnDismounted;
+
+        void Start()
         {
-            base.Interact(entity);
+            move = new Move();
+            move.SetEntity(this);
+            moveHandler = new MoveHandler(move); 
+        }
 
+        void Update()
+        {
+            moveHandler?.Tick();
+        }
 
-            if (Time.time - lastInteractTime < delay) return;
+        public void Ride(IEntity entity)
+        {
+            if (Time.time - lastRidingTime < delay) return;
+            lastRidingTime = Time.time;
 
-
-            lastInteractTime = Time.time;
-
-            if (riding)
-                Dismount();
+            if (IsOccupied)
+                Dismount(entity);
             else
                 Mount(entity);
         }
 
         void Mount(IEntity entity)
         {
-            if (entity == null || riding) return;
-            if (entity is not PlayerController player) return;
+            if (entity == null || rider != null) return;
 
-            riding = true;
-            rider = player;
+            rider = entity;
+            Transform target = entity.transform;
 
-            Debug.Log("[Riding] Mount");
+ 
+            Vector3 mountForward = mountPoint.forward;
+            mountForward.y = 0f; 
+            if (mountForward.sqrMagnitude > 0.001f)
+                target.rotation = Quaternion.LookRotation(mountForward);
 
-            var agent = player.GetComponent<NavMeshAgent>();
-            if (agent != null) agent.enabled = false;
+            Vector3 worldPos = mountPoint.TransformPoint(offset.Position);
+            target.position = worldPos;
 
-            var controller = player.GetComponent<CharacterController>();
-            if (controller != null) controller.enabled = false;
+           
+            target.SetParent(mountPoint, true);
+            target.localRotation = Quaternion.Euler(offset.Rotation);
 
-            player.transform.SetParent(mountPoint);
-            player.transform.localPosition = offset.Position;
-            player.transform.localRotation = Quaternion.Euler(offset.Rotation);
+         
+            Vector3 worldScale = target.lossyScale;
+            target.localScale = new Vector3(
+                worldScale.x / target.lossyScale.x * target.localScale.x,
+                worldScale.y / target.lossyScale.y * target.localScale.y,
+                worldScale.z / target.lossyScale.z * target.localScale.z
+            );
 
-            player.Move.SetMoveInput(Vector3.zero);
+            Debug.Log($"[Riding] Mounted (aligned): {entity}");
+            OnMounted?.Invoke(entity);
         }
 
-        void Dismount()
+
+
+        void Dismount(IEntity entity)
         {
-            if (!riding || rider == null) return;
+            if (rider == null) return;
+            OnMoveCancel();
+            var target = rider.transform;
+            target.SetParent(null);
+            target.position = mountPoint.position + transform.forward * 1.5f;
 
-            if (rider is PlayerController player)
-            {
-                riding = false;
-                player.transform.SetParent(null);
-                player.transform.position = mountPoint.position + transform.right * 1.0f;
-                Debug.Log("[Riding] Dismount");
-
-    
-                var agent = player.GetComponent<NavMeshAgent>();
-                if (agent != null)
-                {
-                    agent.enabled = true;
-                    agent.Warp(player.transform.position);
-                }
-
-                var controller = player.GetComponent<CharacterController>();
-                if (controller != null)
-                    controller.enabled = true;
-            }
-
+            Debug.Log($"[Riding] Dismounted: {entity}");
+            OnDismounted?.Invoke(entity);
+            
+            ResetEvent();
             rider = null;
-            ExitInteract();
         }
+        void StopMove()
+        { 
+            Move.SetMoveInput(Vector3.zero);
+
+        }
+        public void ForceDismount()
+        {
+            if (rider != null) StopAllCoroutines();
+        }
+
+        
+        void ResetEvent()
+        {
+            OnMounted = null;
+            OnDismounted = null;
+        }
+
+        #region IMoveInput Implementation
+
+        public void OnMoveInput(Vector2 dir)
+        {
+            if (rider == null) return;
+            moveHandler?.SetInput(dir);
+
+            if (animator)
+                animator.SetBool("IsMove", dir.sqrMagnitude > 0.01f);
+        }
+
+        public void OnMoveCancel()
+        {
+            moveHandler?.SetInput(Vector2.zero);
+            move.Stop();
+
+            if (animator)
+                animator.SetBool("IsMove", false);
+        }
+
+        public void OnJumpInput()
+        {
+            move.Jump();
+
+            if (animator)
+                animator.SetTrigger("Jump");
+        }
+
+        #endregion
     }
 }

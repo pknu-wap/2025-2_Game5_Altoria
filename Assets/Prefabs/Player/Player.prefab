@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 1
-    m_Value: 20
+    m_Value: 10
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -109,7 +109,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _offset: {x: 0, y: 3, z: -4.25}
-  inputHandler: {fileID: 0}
+  inputHandler: {fileID: 3852071802707214573}
 --- !u!1 &2607279241957790892
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 2845408820300930504}
   - component: {fileID: 6952044259753513304}
   m_Layer: 0
-  m_Name: Fishing
+  m_Name: FishCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1960706959579959410}
+  - component: {fileID: 7645320791494325766}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -228,9 +229,27 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2890462667965848778}
+  - {fileID: 894322348915162499}
   - {fileID: 5496450906852701111}
   m_Father: {fileID: 6990342168470802063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7645320791494325766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3417295202964117785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2eafcc4d8f438b4fb9fc68b9b0100dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCameras:
+  - {fileID: 4405324789042319948}
+  - {fileID: 6952044259753513304}
+  defaultCamera: {fileID: 2146209365615927684}
+  drawGizmos: 1
 --- !u!1 &5011525765569017162
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +378,116 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &7676658275683727463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894322348915162499}
+  - component: {fileID: 874386057119290207}
+  - component: {fileID: 4405324789042319948}
+  - component: {fileID: 4332795735684951731}
+  m_Layer: 0
+  m_Name: RidingCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &894322348915162499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676658275683727463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 3.2700002, z: -4.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1960706959579959410}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!114 &874386057119290207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676658275683727463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 1
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 40
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!114 &4405324789042319948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676658275683727463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df940149290bf445a65d54940b46716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4332795735684951731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676658275683727463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17403a65409a764ea6100a885c13d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensivity: 0.1
+  maxVerticalAngle: 50
+  minVerticalAngle: -30
+  camera: {fileID: 894322348915162499}
+  cameraCollision:
+    serializedVersion: 2
+    m_Bits: 0
+  _offset: {x: 0, y: 5, z: -7}
+  inputHandler: {fileID: 3852071802707214573}
 --- !u!1 &8062884451884329150
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +504,7 @@ GameObject:
   - component: {fileID: 7345546547775900223}
   - component: {fileID: 2850349207364785792}
   - component: {fileID: 1940220007958389029}
+  - component: {fileID: 5648328167043206141}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -426,7 +556,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -475,6 +605,8 @@ MonoBehaviour:
   animator: {fileID: 6621138424599072360}
   socketHandler: {fileID: 2850349207364785792}
   groundChecker: {fileID: 1940220007958389029}
+  rider: {fileID: 5648328167043206141}
+  cameraHandler: {fileID: 7645320791494325766}
   data: {fileID: 11400000, guid: 01604671e61fdf54dadc3155c556f513, type: 2}
   isJump: 0
 --- !u!114 &7345546547775900223
@@ -527,6 +659,23 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 720
+--- !u!114 &5648328167043206141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8062884451884329150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f0b85b1684ece4d8b8f54699b6929e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 2
+  ridingMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  drawGizmo: 1
 --- !u!1001 &4381818147950724284
 PrefabInstance:
   m_ObjectHideFlags: 0

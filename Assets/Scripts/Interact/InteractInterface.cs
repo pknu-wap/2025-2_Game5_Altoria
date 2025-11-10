@@ -15,7 +15,24 @@ namespace GameInteract
 
         event Action OnInteractionEnded;
     }
-  
+
+    public interface IRiding
+    {
+        Transform MountPoint { get; }
+        bool IsOccupied { get; }
+        void Ride(IEntity entity);
+
+        public event Action<IEntity> OnMounted;
+        public event Action<IEntity> OnDismounted;
+    }
+    public interface IInteractInput { void TryInteract(); }
+    public interface IRidingInput { void TryRiding(); }
+    public interface IMoveInput
+    {
+        void OnMoveInput(Vector2 dir);
+        void OnMoveCancel();
+        void OnJumpInput();
+    }
     public  interface IInteractStay { void HoldInteract(); }
     public interface IInteractDelay { float Delay { get; } }
     public interface WorldUIShoawable{  void ShowWorldUI(IEntity entity);}

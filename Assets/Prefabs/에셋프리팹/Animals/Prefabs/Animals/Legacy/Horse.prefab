@@ -1646,10 +1646,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4303067238997750}
   - component: {fileID: 95659398919577886}
-  - component: {fileID: 143460972871814582}
   - component: {fileID: 195671168443570934}
   - component: {fileID: 2923456898318777959}
-  m_Layer: 6
+  - component: {fileID: 4874166192437815012}
+  m_Layer: 10
   m_Name: Horse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1669,7 +1669,6 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3179456336793020115}
   - {fileID: 4362255668871490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1681,7 +1680,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847083141549040}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 13dc339e98cd43441afa6d390c08c477, type: 3}
   m_Controller: {fileID: 9100000, guid: e0b94e58f777ea8479ca841156e70fa8, type: 2}
   m_CullingMode: 1
@@ -1695,31 +1694,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!143 &143460972871814582
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847083141549040}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 1
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &195671168443570934
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1754,14 +1728,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f02b8895fbfa10544a78ebf8c530f4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 4
   mountPoint: {fileID: 3179456336793020115}
-  animator: {fileID: 0}
+  animator: {fileID: 95659398919577886}
   offset:
-    Position: {x: 0, y: 0.2, z: 0}
-    Rotation: {x: 0, y: 30, z: 0}
+    Position: {x: 0, y: 0.35, z: 0.15}
+    Rotation: {x: 0, y: 60, z: 0}
+  data: {fileID: 11400000, guid: d884ef3376cbfba4b8c5ed29b608b531, type: 2}
   delay: 1.2
-  riding: 0
+--- !u!143 &4874166192437815012
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847083141549040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!1 &1862758366271582
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,12 +2041,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549182348060580560}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0002439022, y: 1.3044001, z: -0.12682223}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.713854, y: -0.026473748, z: -0.027548993, w: -0.6992516}
+  m_LocalPosition: {x: 0.00040136956, y: 0.013931924, z: -0.007224914}
+  m_LocalScale: {x: 0.06483601, y: 0.066656, z: 0.06664501}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4303067238997750}
+  m_Father: {fileID: 8284047273808436519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322233348779115830
 GameObject:
@@ -2144,7 +2142,8 @@ Transform:
   m_LocalPosition: {x: -0.012143397, y: 2.075, z: 0.433}
   m_LocalScale: {x: 30.000002, y: 30.000002, z: 30.000002}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3179456336793020115}
   m_Father: {fileID: 789080027292545561}
   m_LocalEulerAnglesHint: {x: -85.47401, y: 0, z: 0}
 --- !u!33 &1330457314264849914

@@ -1,56 +1,61 @@
-﻿using System;
+﻿using GameInteract;
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 using static Define;
 
 [RequireComponent(typeof(PlayerInputHandler))]
-public class PlayerController : BaseEntityComponent, IPlayerMovable
+public class PlayerController : BaseEntityComponent, IPlayerMovable, IMoveInput, IInteractInput, IRidingInput
 {
     [SerializeField] Animator animator;
     [SerializeField] SocketHandler socketHandler;
     [SerializeField] GroundChecker groundChecker;
+    [SerializeField] RiderComponent rider;
+    [SerializeField] PlayerCameraHandler cameraHandler;
     [SerializeField] MoveData data;
     [SerializeField] bool isJump = false;
 
     PlayerInputHandler input;
     PlayerInteractComponent interact;
     AnimatorControllerWrapper animController;
+    InputBinder inputBinder;
+    MoveHandler moveHandler;
 
     public PlayerStateMachine State { get; private set; } = new PlayerStateMachine();
-
     public IMove Move { get; private set; }
     public IMoveData MoveData => data;
-
-    Vector2 lastInputDir;
 
     void Awake()
     {
         input = GetComponent<PlayerInputHandler>();
         interact = GetComponent<PlayerInteractComponent>();
         animController = new AnimatorControllerWrapper(animator, this);
+        inputBinder = new InputBinder(input);
     }
 
     void Start()
     {
         Move = new Move();
         Move.SetEntity(this);
+
+        moveHandler = new MoveHandler(Move);
+        inputBinder.Initialize(this);
     }
 
     void Update()
     {
-        if (!State.CanReceiveInput())
-            return;
+        if (!State.CanReceiveInput()) return;
 
-        if (lastInputDir.sqrMagnitude > 0.01f)
-        {
-            Vector3 moveDir = CalculateCameraRelativeDirection(lastInputDir);
-            Move.SetMoveInput(moveDir);
-        }
-        else
-        {
-            Move.SetMoveInput(Vector3.zero);
-        }
+        moveHandler.Tick(); 
+        animController.SetBool("IsMove", MoveIsActive());
+    }
 
-        Move.Tick();
+    bool MoveIsActive()
+    {
+      
+        if (Move is Move concreteMove && concreteMove.GetTransform().GetComponent<CharacterController>() != null)
+            return concreteMove.GetTransform().GetComponent<CharacterController>().velocity.magnitude > 0.05f;
+        return false;
     }
 
     void OnEnable()
@@ -58,7 +63,7 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         groundChecker.OnGroundedChanged += OnGround;
         State.OnStateChanged += OnStateChanged;
         interact.InteractSystem.InteractInvoke += OnInteract;
-        BindInputEvents();
+        rider.OnRideChanged += OnRideChanged;
     }
 
     void OnDisable()
@@ -66,79 +71,48 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         groundChecker.OnGroundedChanged -= OnGround;
         State.OnStateChanged -= OnStateChanged;
         interact.InteractSystem.InteractInvoke -= OnInteract;
-        UnbindInputEvents();
+        inputBinder.Unbind();
     }
 
-    void BindInputEvents()
-    {
-        input.OnMove += OnMove;
-        input.OnMoveCanceled += OnMoveCanceled;
-        input.OnJump += OnJump;
-
-       
-        input.OnInteract += TryInteract;          
-          
-
-    }
-
-    void UnbindInputEvents()
-    {
-        input.OnMove -= OnMove;
-        input.OnMoveCanceled -= OnMoveCanceled;
-        input.OnJump -= OnJump;
-
-        input.OnInteract -= TryInteract;
-    
-     
-    }
-
-    void OnMove(Vector2 inputDir)
+    #region Move Input
+    public void OnMoveInput(Vector2 inputDir)
     {
         if (!State.CanReceiveInput()) return;
 
-        lastInputDir = inputDir;
+        moveHandler.SetInput(inputDir);
         animController.SetBool("IsMove", true);
         State.SetState(PlayerState.Move);
     }
 
-    void OnMoveCanceled()
+    public void OnMoveCancel()
     {
         if (!State.CanReceiveInput()) return;
-        lastInputDir = Vector2.zero;
+
+        moveHandler.SetInput(Vector2.zero);
         StopMove();
     }
 
-    Vector3 CalculateCameraRelativeDirection(Vector2 inputDir)
+    public void StopMove()
     {
-        if (Camera.main == null)
-            return new Vector3(inputDir.x, 0, inputDir.y);
-
-        Transform cam = Camera.main.transform;
-        Vector3 camForward = cam.forward;
-        Vector3 camRight = cam.right;
-
-        camForward.y = 0;
-        camRight.y = 0;
-
-        camForward.Normalize();
-        camRight.Normalize();
-
-        return (camForward * inputDir.y + camRight * inputDir.x).normalized;
+        animController.SetBool("IsMove", false);
+        Move.SetMoveInput(Vector3.zero);
+        State.SetState(PlayerState.Idle);
     }
+    #endregion
 
+    #region Jump
     void OnGround(bool grounded)
     {
         if (grounded)
         {
             isJump = false;
-            if (!State.Is(PlayerState.Move))
+            if (!State.HasState(PlayerState.Move))
                 State.SetState(PlayerState.Idle);
         }
-
         animController.SetBool("IsGround", grounded);
     }
 
-    void OnJump()
+    public void OnJumpInput()
     {
         if (!State.CanReceiveInput() || isJump)
             return;
@@ -148,25 +122,19 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         Move.Jump();
         State.SetState(PlayerState.Jump);
     }
+    #endregion
 
-
-    void TryInteract()
+    #region Interact
+    public void TryInteract()
     {
         if (State.CurrentState == PlayerState.Die || interact.CurrentTarget == null) return;
-
-
         interact.TryInteract(this);
         State.SetState(PlayerState.Interacting);
     }
 
-   
-
-   
-
     void OnInteract(int interactType)
     {
-        if (State.CurrentState == PlayerState.Die)
-            return;
+        if (State.CurrentState == PlayerState.Die) return;
 
         StopMove();
         animController.SetInt("InteractType", interactType);
@@ -175,32 +143,33 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         {
             var layerInfo = animator.GetCurrentAnimatorStateInfo(1);
             bool isLayerIdle = layerInfo.IsName("HumanM@Idle01 0") || layerInfo.IsTag("Idle");
-
             if (isLayerIdle)
                 animController.BlendLayerWeight(1, animController.GetLayerWeight(1), 0f, 0.3f);
-
+            cameraHandler.SetDefaultCamera();
             State.SetState(PlayerState.Idle);
         }
         else
         {
+            ContentType type = (ContentType)interactType;
+            cameraHandler.SetCamera(type.ToString()+"Camera");
             animController.SetTrigger("isInteract");
-            State.SetState(PlayerState.Interacting);
+            State.AddState(PlayerState.Interacting);
             animController.BlendLayerWeight(1, 0f, 1f, 0.3f);
         }
     }
 
     public void OnInteractEnd()
     {
-        State.SetState(PlayerState.Idle);
+        State.RemoveState(PlayerState.Idle);
         animController.BlendLayerWeight(1, animController.GetLayerWeight(1), 0f, 0.3f);
     }
+    #endregion
 
-
-
+    #region Die
     public void OnDie()
     {
         input.enabled = false;
-        lastInputDir = Vector2.zero;
+        moveHandler.SetInput(Vector2.zero);
         Move.SetMoveInput(Vector3.zero);
         animController.SetTrigger("Die");
         State.SetState(PlayerState.Die);
@@ -211,14 +180,44 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable
         input.enabled = true;
         State.SetState(PlayerState.Idle);
     }
+    #endregion
 
-    public void StopMove()
+    #region Riding
+    public void TryRiding() => rider.TryRide(this);
+
+    void OnRideChanged(bool mounted, IRiding mount)
     {
-        lastInputDir = Vector2.zero;
-        animController.SetBool("IsMove", false);
-        Move.SetMoveInput(Vector3.zero);
-        State.SetState(PlayerState.Idle);
+        Debug.Log($"OnRideChanged {mounted}");
+
+        if (Move is Move moveComp)
+            moveComp.SetMovementLock(mounted);
+
+        int ridingLayerIndex = 2; 
+        float targetWeight = mounted ? 1f : 0f;
+        animController.BlendLayerWeight(ridingLayerIndex, animController.GetLayerWeight(ridingLayerIndex), targetWeight, 0.3f);
+
+        if (mounted)
+        {
+            if (mount is IMoveInput mountInput)
+                inputBinder.Bind(mountInput);
+            cameraHandler.SetCamera("RidingCamera");
+            animController.SetBool("IsRiding", true);
+            State.AddState(PlayerState.Riding);
+
+            Debug.Log($"[PlayerController] Mounted on {mount}");
+        }
+        else
+        {
+            inputBinder.Bind(this);
+            animController.SetBool("IsRiding", false);
+            cameraHandler.SetDefaultCamera();
+            State.RemoveState(PlayerState.Riding);
+
+            Debug.Log("[PlayerController] Dismounted");
+        }
     }
+
+    #endregion
 
     void OnStateChanged(PlayerState newState)
     {
