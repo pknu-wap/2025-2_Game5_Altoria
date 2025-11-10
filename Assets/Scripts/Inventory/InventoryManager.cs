@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using NUnit.Framework.Interfaces;
 using UnityEngine;
 using GameItem;
 using GameInventory;
@@ -8,12 +7,7 @@ using GameData;
 
 public class InventoryManager 
 {
-
-
- 
-
-    [Header("플레이어 인벤토리 데이터 (보유 중 아이템 목록)")]
-   InventoryDatabase inventoryData; // 데이터 저장용
+    InventoryDatabase inventoryData; // 데이터 저장용
 
     List<InventoryEntry> inventory = new(); // 런타임용
 
