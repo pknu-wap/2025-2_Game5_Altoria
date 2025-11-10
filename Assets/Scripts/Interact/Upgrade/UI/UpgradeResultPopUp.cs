@@ -1,11 +1,14 @@
-using GameUI;
+using Common;
 using GameData;
+using GameItem;
+using GameUI;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using NUnit.Framework;
-using System.Collections.Generic;
-using Common;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 namespace GameInteract
 {
@@ -14,25 +17,35 @@ namespace GameInteract
         [SerializeField] TextMeshProUGUI resultText;
         [SerializeField] Transform resultItemRoot; 
 
-
-        string currentItemID;
         string result;
 
         public void SetResult(ItemData data)
         {
-            var currentSteop = (int)Manager.UserData.GetUserData<UserToolData>().GetToolStep(data.ID);
-            var gradeData = GameDB.GetUpgradeData(currentSteop);
+            var inventoryEntryData = Common.GameSystem.Inventory.GetItem(data.ID);
+            var currentStep = inventoryEntryData?.item is EquipItem currentItem ? currentItem.Level : 0;
+            var gradeData = GameDB.GetUpgradeData(currentStep);
 
             var gradeProb = new List<(string, float)> { ("Success", gradeData.Success), ("Fail", gradeData.Fail), ("Destroy", gradeData.Destroy) };
             result = GameSystem.Random.Pick(gradeProb);
             resultText.text = result;
 
-            Manager.UserData.GetUserData<UserToolData>().SetToolSteop(data.ID, currentSteop + 1);
+            if (inventoryEntryData?.item is EquipItem upgradeItem)
+            {
+                if (result == "Success")
+                    upgradeItem.Upgrade();
+            }
 
-            GameObject resultItemGO = Resources.Load<GameObject>(nameof(UpgradeSelectItem));
-            var newGO = Instantiate(resultItemGO, resultItemRoot);
-            if (newGO.TryGetComponent<UpgradeSelectItem>(out var item))
-                item.Init(data, currentSteop + 1);
+            GameObject selectdSlotPrefab = Resources.Load<GameObject>(nameof(UpgradeSelectItem));
+            if (selectdSlotPrefab.TryGetComponent<UpgradeSelectItem>(out var slot))
+            {
+                slot.Init(data);
+                if (result == "Destroy")
+                {
+                    // TODO: 인벤토리에서 삭제
+                    slot.SetBrokeImage();
+                }
+            }
+            Instantiate(selectdSlotPrefab, resultItemRoot);
         }
     }
 }

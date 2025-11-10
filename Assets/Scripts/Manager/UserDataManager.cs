@@ -10,7 +10,6 @@ public class UserDataManager
     {
         userDataList.Add(new UserPlayerData());
         userDataList.Add(new UserLifeData());
-        userDataList.Add(new UserToolData());
 
         for(int i = 0; i < userDataList.Count; i++)
         {
