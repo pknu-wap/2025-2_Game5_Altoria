@@ -585,6 +585,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 135a7036ca1a07b4e9e162d80e6b6e77
+    m_Address: NightMat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13ee0a705bd767d4f90af4cc9dcbf0b1
     m_Address: PP_Money_Bag_Corded_02
     m_ReadOnly: 0
@@ -2290,6 +2295,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 528363c5c1cf6a7458140c6851c77b68
+    m_Address: SunsetMat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5295d65e653c2894d8f8c478fb57fb78
     m_Address: PP_Blacksmith_Roof_End_04
     m_ReadOnly: 0
@@ -2330,6 +2340,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5464c15ff9c6ca04cb5790c1773e76fa
+    m_Address: MorningMat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54dcf10d33d554d46b6ab52fdc9c0b29
     m_Address: PP_Coin_01_Gold
     m_ReadOnly: 0
@@ -2347,6 +2362,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 560ee037a8f722d47ac6f2a80128216c
     m_Address: PP_Mine_Cart_09
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56113b3b655ab7349bab4d7d405c258a
+    m_Address: DayMat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
