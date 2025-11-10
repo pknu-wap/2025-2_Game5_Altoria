@@ -6,9 +6,13 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using static SettingData;
+using System.Text;
 
 public class SettingPopUp : UIPopUp
 {
+    SettingData sd = SettingData.Instance;
+
     [Header("Setting Tabs")]
     [SerializeField] List<GameObject> tabs;
 
@@ -22,6 +26,11 @@ public class SettingPopUp : UIPopUp
     [SerializeField] TMP_Dropdown screenmode;
     [SerializeField] TMP_Dropdown resolution;
     [SerializeField] SliderInput CameraSensitivity;
+
+    [Header("Key Settings")]
+    [SerializeField] TextMeshProUGUI actionText;
+    [SerializeField] TextMeshProUGUI keyText1;
+    [SerializeField] TextMeshProUGUI keyText2;
 
     void Awake()
     {
@@ -111,33 +120,37 @@ public class SettingPopUp : UIPopUp
     // 화면 모드
     public void ChangeScreenMode(int index)
     {
-        switch (index)
-        {
-            case 0:
-                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-                Screen.fullScreen = true;
-                Debug.Log("[SettingPopUp] : 전체 화면 모드");
-                break;
-            case 1:
-                Screen.fullScreenMode = FullScreenMode.Windowed;
-                Screen.fullScreen = false;
-                Debug.Log("[SettingPopUp] : 창 모드");
-                break;
-        }
+        sd.SetScreenMode((GameScreenMode)index);
     }
 
     // 품질 설정
     public void SetGraphicQuality(int index)
     {
-        //Debug.Log("현재 품질 레벨 인덱스: " + QualitySettings.GetQualityLevel());
-        //QualitySettings.SetQualityLevel(2 - index);
-        Debug.Log($"[SettingPopUp] : 게임 품질 : {2-index}");
+        sd.SetQuality(index);
     }
 
     // 그래픽 설정
-    public void SetCameraSensitivitySlider()
+    public void SetCameraSensitivitySlider(float sensitivity)
     {
-        //PlayerCameraController - mouseSensivity 필요
+        sd.SetMouseSensitivity(sensitivity);
+    }
+
+    // 키바인딩 리스트 띄우기
+    public void OnClickKeyBinding()
+    {
+        StringBuilder action = new StringBuilder();
+        StringBuilder key1 = new StringBuilder();
+        StringBuilder key2 = new StringBuilder();
+        List<KeyBindingData> list = sd.GetkeyBindingList();
+
+        for(int i = 0; i < list.Count; i++)
+        {
+            action.AppendLine(list[i].actionName);
+            key1.AppendLine(list[i].key.ToString());
+            if (list[i].secondaryKey != KeyCode.None)
+                key2.AppendLine(list[i].secondaryKey.ToString());
+        } 
+            
     }
 
     public void customerClick()

@@ -7,31 +7,6 @@ public enum BGM
     Forest // 숲 음악   
 }
 
-public enum SFX
-{
-    ButtonClick,     // 0  버튼 클릭 
-
-    UIConfirm,        // 1  인게임 UI 확인(OK) 소리 
-    UICancel,         // 2  인게임 UI 취소 소리 
-
-    PlayerJump,      // 3  플레이어 점프 
-    PlayerWalk,      // 4  플레이어 걷는 소리 
-    MonsterHit,      // 5  몬스터 타격
-
-    FishingCast,     // 6  낚싯대 던지는 소리
-    FishingCatch,    // 7  물고기 잡는 소리
-
-    PigOink,         // 8  돼지 우는 소리
-
-    ItemPickUp,      // 9  아이템 줍는 소리
-    Crafting,        // 10  제작 소리
-    WaterSplash,     // 11  물 튀기는 소리
-    TreeChop,        // 12  나무 찍는 소리
-    Mining           // 13  돌 캐는 소리
-
-
-}
-
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
@@ -89,7 +64,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // BGM
+    #region BGM
     public void PlayBGM(BGM type)
     {
         if (bgmDict.TryGetValue(type, out AudioClip clip))
@@ -117,7 +92,9 @@ public class SoundManager : MonoBehaviour
         return audioBgm.volume;
     }
 
-    // SFX
+    #endregion
+
+    #region SFX
     public void PlaySFX(string name)
     {
         if (!sfxDict.TryGetValue(name, out AudioClip clip))
@@ -164,4 +141,12 @@ public class SoundManager : MonoBehaviour
             return sfxSources[0].volume;
         return 1f;
     }
+
+    #endregion
+
+    #region Save & Load
+    public void saveToSettingData()
+    {
+    }
+    #endregion
 }
