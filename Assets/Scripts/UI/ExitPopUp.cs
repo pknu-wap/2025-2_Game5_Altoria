@@ -1,43 +1,57 @@
 using GameUI;
 using UnityEngine;
+using TMPro;
 
-public class ExitPopUp : MonoBehaviour
+public enum ExitPopUpType
 {
-    [SerializeField] private GameObject exitUI;
+    ExitGame,
+    GoToMainMenu
+}
 
-    private void Awake()
-    {
-    }
+public class ExitPopUp : UIPopUp
+{
+    [SerializeField] TextMeshProUGUI information;
+    ExitPopUpType currentType;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SetPopUpType(ExitPopUpType type)
     {
-        
-    }
+        currentType = type;
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*
-        if (Input.GetKeyDown(KeyCode.Escape))
+        switch (type)
         {
-            exitUI.SetActive(true);
+            case ExitPopUpType.ExitGame:
+                information.text = "진짜로 종료하시겠습니까?";
+                break;
+            case ExitPopUpType.GoToMainMenu:
+                information.text = "메인 메뉴로 돌아가시겠습니까?";
+                break;
         }
-        */
     }
-
     public void OnClickYes()
     {
-        Debug.Log("Game closed");
-#if UNITY_EDITOR                 
-        UnityEditor.EditorApplication.isPlaying = false;   
+        switch (currentType)
+        {
+            case ExitPopUpType.ExitGame:
+                // Manager.UserData.SaveAllUserData();
+                Debug.Log("[ExitPopUp] : 게임 종료");
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit();      
+                Application.Quit();
 #endif
+                break;
+
+            case ExitPopUpType.GoToMainMenu:
+                // Manager.UserData.SaveAllUserData();
+                Manager.UI.CloseAllPopup();
+                Manager.Scene.LoadScene(Define.SceneType.Lobby);
+                break;
+        }
     }
+
 
     public void OnClickNo()
     {
-        exitUI.SetActive(false);
+        Manager.UI.ClosePopup();
     }
 }

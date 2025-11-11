@@ -1,57 +1,155 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using System;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-     InputSystem_Actions inputActions;
+    InputSystem_Actions.PlayerActions playerActions;
+    InputSystem_Actions.UIActions uiActions;
 
     public event Action<Vector2> OnMove;
     public event Action OnMoveCanceled, OnJump, OnAttack, OnInteract;
+    public event Action<Vector2> OnLook;
+    public event Action<bool> OnCursorLockChanged;
 
-     void Awake()
+    bool isCursorLocked;
+    bool isAltMode;
+    bool isOpen;
+    void Awake()
     {
-        inputActions = new InputSystem_Actions();
+        var input = new InputSystem_Actions();
+        playerActions = input.Player;
+        uiActions = input.UI;
     }
 
-     void OnEnable()
+    void OnEnable()
     {
-        inputActions.Enable();
         BindInputs();
+        playerActions.Enable();
+        uiActions.Enable();
+        ForceLockCursor();
     }
 
-     void OnDisable()
+    void OnDisable()
     {
         UnbindInputs();
-        inputActions.Disable();
+        playerActions.Disable();
+        uiActions.Disable();
+        ForceUnlockCursor();
     }
 
-     void BindInputs()
+    void BindInputs()
     {
-        inputActions.Player.Move.performed += OnMovePerformed;
-        inputActions.Player.Move.canceled += OnMoveCanceledPerformed;
-        inputActions.Player.Jump.performed += OnJumpPerformed;
-        inputActions.Player.Attack.performed += OnAttackPerformed;
-        inputActions.Player.Interact.performed += OnInteractPerformed;
+        playerActions.Move.performed += OnMovePerformed;
+        playerActions.Move.canceled += OnMoveCanceledPerformed;
+        playerActions.Jump.performed += OnJumpPerformed;
+        playerActions.Attack.performed += OnAttackPerformed;
+        playerActions.Interact.performed += OnInteractPerformed;
+        playerActions.Look.performed += OnLookPerformed;
+        playerActions.Look.canceled += OnLookCanceled;
+
+        uiActions.Inventory.performed += _ => OpenInventory();
+        uiActions.MainMenu.performed += _ => OpenMainMenu();
+
+     
+        uiActions.AltCursor.performed += _ => ToggleAltMode();
     }
 
     void UnbindInputs()
     {
-        inputActions.Player.Move.performed -= OnMovePerformed;
-        inputActions.Player.Move.canceled -= OnMoveCanceledPerformed;
-        inputActions.Player.Jump.performed -= OnJumpPerformed;
-        inputActions.Player.Attack.performed -= OnAttackPerformed;
-        inputActions.Player.Interact.performed -= OnInteractPerformed;
+        playerActions.Move.performed -= OnMovePerformed;
+        playerActions.Move.canceled -= OnMoveCanceledPerformed;
+        playerActions.Jump.performed -= OnJumpPerformed;
+        playerActions.Attack.performed -= OnAttackPerformed;
+        playerActions.Interact.performed -= OnInteractPerformed;
+        playerActions.Look.performed -= OnLookPerformed;
+        playerActions.Look.canceled -= OnLookCanceled;
+
+        uiActions.Inventory.performed -= _ => OpenInventory();
+        uiActions.MainMenu.performed -= _ => OpenMainMenu();
+        uiActions.AltCursor.performed -= _ => ToggleAltMode();
+    }
+
+    void Update()
+    {
+        HandleAltClick();
     }
 
   
-     void OnMovePerformed(InputAction.CallbackContext ctx) => OnMove?.Invoke(ctx.ReadValue<Vector2>());
-     void OnMoveCanceledPerformed(InputAction.CallbackContext ctx) => OnMoveCanceled?.Invoke();
-     void OnJumpPerformed(InputAction.CallbackContext ctx) => OnJump?.Invoke();
-     void OnAttackPerformed(InputAction.CallbackContext ctx) => OnAttack?.Invoke();
-     void OnInteractPerformed(InputAction.CallbackContext ctx)
+    void ToggleAltMode()
     {
-        Debug.Log("Interact");
-          OnInteract?.Invoke();
-    }    
+        isAltMode = !isAltMode;
+
+        if (isAltMode)
+            ForceUnlockCursor();
+        else
+            ForceLockCursor();
+    }
+
+    void HandleAltClick()
+    {
+      
+        if (isAltMode && Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUI())
+        {
+            isAltMode = false;
+            ForceLockCursor();
+        }
+    }
+
+ 
+    void ForceLockCursor()
+    {
+        isCursorLocked = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        OnCursorLockChanged?.Invoke(true);
+    }
+
+    void ForceUnlockCursor()
+    {
+        isCursorLocked = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        OnCursorLockChanged?.Invoke(false);
+    }
+
+  
+    void OpenInventory()
+    {
+        ForceUnlockCursor();
+        
+        Manager.UI.ShowPopup<InventoryUI>();
+    }
+        
+       
+        
+  
+    void OpenMainMenu()
+    {
+        if (Manager.UI.IsAnyPopUp()) Manager.UI.ClosePopup();
+        else
+        {
+            Manager.UI.ShowPopup<MainMenuPopUp>();
+            ForceUnlockCursor();
+        }
+    }
+
+    bool IsPointerOverUI() =>
+        EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+
+    void OnMovePerformed(InputAction.CallbackContext ctx) => OnMove?.Invoke(ctx.ReadValue<Vector2>());
+    void OnMoveCanceledPerformed(InputAction.CallbackContext ctx) => OnMoveCanceled?.Invoke();
+    void OnJumpPerformed(InputAction.CallbackContext ctx) => OnJump?.Invoke();
+    void OnAttackPerformed(InputAction.CallbackContext ctx) => OnAttack?.Invoke();
+    void OnInteractPerformed(InputAction.CallbackContext ctx) => OnInteract?.Invoke();
+
+    void OnLookPerformed(InputAction.CallbackContext ctx)
+    {
+        if (!isCursorLocked) return;
+        OnLook?.Invoke(ctx.ReadValue<Vector2>());
+    }
+
+    void OnLookCanceled(InputAction.CallbackContext ctx) => OnLook?.Invoke(Vector2.zero);
 }

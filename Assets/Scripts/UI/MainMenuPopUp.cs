@@ -12,21 +12,17 @@ public class Stat
 
 public class MainMenuPopUp : UIPopUp
 {
-    [SerializeField] GameObject mainMenuPopUp;
-    [SerializeField] GameObject inventoryUI;
-    [SerializeField] GameObject settingPopUp;
-
     [SerializeField] Stat[] stats = new Stat[4];
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
-        updateStats();
+        UpdateStats();
     }
 
     private void OnEnable()
     {
-        updateStats();
+        UpdateStats();
     }
 
     // Update is called once per frame
@@ -45,7 +41,7 @@ public class MainMenuPopUp : UIPopUp
         return base.Init();
     }
 
-    public void updateStats()
+    public void UpdateStats()
     {
         for (int i = 0; i < stats.Length; i++)
         {
@@ -60,8 +56,7 @@ public class MainMenuPopUp : UIPopUp
     }
     public void OnClickInventory()
     {
-        //ui.ShowPopup<InventoryUI>();
-        inventoryUI.SetActive(true);
+        Manager.UI.ShowPopup<InventoryUI>();
     }
     public void OnClickCraft()
     {
@@ -73,14 +68,23 @@ public class MainMenuPopUp : UIPopUp
 
     public void OnClickSetting()
     {
-        //ui.ShowPopup<SettingPopUp>();
-        settingPopUp.SetActive(true);
+        Manager.UI.ShowPopup<SettingPopUp>();
         Debug.Log("[MainMenuPopUp] : 설정창");
     }
-
-    public void closePopUp()
+    public void OnClickMain()
     {
-        //ui.ClosePopup();
-        mainMenuPopUp.SetActive(false);
+        Manager.UI.ShowPopup<ExitPopUp>().SetPopUpType(ExitPopUpType.GoToMainMenu);
+        Debug.Log("[MainMenuPopUp] : 메인메뉴로");
+    }
+
+    public void OnClickExit()
+    {
+        Manager.UI.ShowPopup<ExitPopUp>().SetPopUpType(ExitPopUpType.ExitGame);
+        Debug.Log("[MainMenuPopUp] : 종료창");
+    }
+
+    public void ClosePopUp()
+    {
+        Manager.UI.ClosePopup();
     }
 }

@@ -6,10 +6,12 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using static SettingData;
+using System.Text;
 
-public class SettingPopUp : MonoBehaviour
+public class SettingPopUp : UIPopUp
 {
-    [SerializeField] GameObject settingUI;
+    SettingData sd = SettingData.Instance;
 
     [Header("Setting Tabs")]
     [SerializeField] List<GameObject> tabs;
@@ -21,7 +23,14 @@ public class SettingPopUp : MonoBehaviour
     [SerializeField] SliderInput SFXtext;   
 
     [Header("Control Settings")]
+    [SerializeField] TMP_Dropdown screenmode;
+    [SerializeField] TMP_Dropdown resolution;
     [SerializeField] SliderInput CameraSensitivity;
+
+    [Header("Key Settings")]
+    [SerializeField] TextMeshProUGUI actionText;
+    [SerializeField] TextMeshProUGUI keyText1;
+    [SerializeField] TextMeshProUGUI keyText2;
 
     void Awake()
     {
@@ -39,6 +48,10 @@ public class SettingPopUp : MonoBehaviour
         BGMtext.GetComponent<Slider>().onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
         SFXtext.GetComponent<Slider>().onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
 
+        // 화면모드, 품질
+        screenmode.onValueChanged.AddListener(ChangeScreenMode);
+        resolution.onValueChanged.AddListener(SetGraphicQuality); 
+
         // 카메라 감도 초기화
         CameraSensitivity.Value = 60f;
 
@@ -48,9 +61,9 @@ public class SettingPopUp : MonoBehaviour
     void Update()
     {
         /*
-        if(settingUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            settingUI.SetActive(false);
+            Manager.UI.ClosePopup();
         }
         */
     }
@@ -90,7 +103,7 @@ public class SettingPopUp : MonoBehaviour
 
     public void settingHide()
     {
-        settingUI.SetActive(false);
+        Manager.UI.ClosePopup();
     }
 
     // 오디오 설정
@@ -104,15 +117,45 @@ public class SettingPopUp : MonoBehaviour
         SoundManager.Instance.SetSFXVolume(value);
     }
 
-    // 그래픽 설정
-    public void SetCameraSensitivitySlider()
+    // 화면 모드
+    public void ChangeScreenMode(int index)
     {
-        //감도 조절 부분 
+        sd.SetScreenMode((GameScreenMode)index);
+    }
+
+    // 품질 설정
+    public void SetGraphicQuality(int index)
+    {
+        sd.SetQuality(index);
+    }
+
+    // 그래픽 설정
+    public void SetCameraSensitivitySlider(float sensitivity)
+    {
+        sd.SetMouseSensitivity(sensitivity);
+    }
+
+    // 키바인딩 리스트 띄우기
+    public void OnClickKeyBinding()
+    {
+        StringBuilder action = new StringBuilder();
+        StringBuilder key1 = new StringBuilder();
+        StringBuilder key2 = new StringBuilder();
+        List<KeyBindingData> list = sd.GetkeyBindingList();
+
+        for(int i = 0; i < list.Count; i++)
+        {
+            action.AppendLine(list[i].actionName);
+            key1.AppendLine(list[i].key.ToString());
+            if (list[i].secondaryKey != KeyCode.None)
+                key2.AppendLine(list[i].secondaryKey.ToString());
+        } 
+            
     }
 
     public void customerClick()
     {
-        // 문의 링크
+        // 임시 문의 링크
         Application.OpenURL("https://www.youtube.com/watch?v=BlAvNOmBLKY");
     }
 }

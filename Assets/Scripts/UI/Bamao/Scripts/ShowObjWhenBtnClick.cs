@@ -19,19 +19,18 @@ namespace BamaoUIPack.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
+            //SoundManager.Instance.PlaySFX("CartoonPop");
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             FocusObj.SetActive(false);
-            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             FocusObj.SetActive(true);
-            SoundManager.Instance.PlaySFX(SFX.ButtonClick);
+            SoundManager.Instance.PlaySFX("CartoonPop");
         }
     }
 }

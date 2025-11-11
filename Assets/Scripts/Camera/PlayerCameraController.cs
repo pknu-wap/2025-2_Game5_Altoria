@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerCameraController : MonoBehaviour
 {
@@ -9,94 +6,61 @@ public class PlayerCameraController : MonoBehaviour
     [SerializeField] float mouseSensivity = 0.1f;
     [SerializeField] float maxVerticalAngle = 60.0f;
     [SerializeField] float minVerticalAngle = -30.0f;
-    [SerializeField]Transform camera;
-    LayerMask cameraCollision;
+    [SerializeField] Transform camera;
+    [SerializeField] LayerMask cameraCollision;
+    [SerializeField] Vector3 _offset = new Vector3(0, 2, -3.5f);
+    [SerializeField] PlayerInputHandler inputHandler; 
 
     Transform playerPos;
 
-
-    Vector2 _lookInput;
-
-    float _yaw;
-    float _pitch;
+    Vector2 lookInput;
+    float yaw;
+    float pitch;
 
 
 
-    [SerializeField] Vector3 _offset = new Vector3(0, 2, -3.5f);
-
-    InputSystem_Actions cameraInput;
-
-    public Vector3 Offset
+    void Awake()
     {
-        get => _offset;
-        set => _offset = value;
-    }
-
-    public float MouseSensitivity
-    {
-        get => mouseSensivity;
-        set => mouseSensivity = value;
-    }
-
-    private void Awake()
-    {
-       
         playerPos = transform.parent;
-        cameraInput = new InputSystem_Actions();
-        cameraCollision = LayerMask.GetMask("CameraCollision");
+        inputHandler = GetComponentInParent<PlayerInputHandler>();
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
-        cameraInput.Player.Look.performed += OnLook;
-        cameraInput.Player.Look.canceled += OnLookCanceled;
-        cameraInput.Player.Enable();
+        if (inputHandler != null)
+            inputHandler.OnLook += OnLook;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
-        cameraInput.Player.Look.performed -= OnLook;
-        cameraInput.Player.Look.canceled -= OnLookCanceled;
-        cameraInput.Player.Disable();
+        if (inputHandler != null)
+            inputHandler.OnLook -= OnLook;
     }
 
-    private void Start()
+    void OnLook(Vector2 delta)
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        lookInput = delta;
     }
 
-    private void OnLook(InputAction.CallbackContext context)
-    {
-        _lookInput = context.ReadValue<Vector2>();
-    }
-
-    private void OnLookCanceled(InputAction.CallbackContext context)
-    {
-        _lookInput = Vector2.zero;
-    }
-
-    private void LateUpdate()
+    void LateUpdate()
     {
         HandleCamera();
     }
 
     void HandleCamera()
     {
-        float mouseX = _lookInput.x * mouseSensivity;
-        float mouseY = _lookInput.y * mouseSensivity;
+        float mouseX = lookInput.x * mouseSensivity;
+        float mouseY = lookInput.y * mouseSensivity;
 
-        _yaw += mouseX;
+        yaw += mouseX;
+        pitch = Mathf.Clamp(pitch - mouseY, minVerticalAngle, maxVerticalAngle);
 
-        _pitch = Mathf.Clamp(_pitch - mouseY, minVerticalAngle, maxVerticalAngle);
-
-        Quaternion rotation = Quaternion.Euler(_pitch, _yaw, 0);
-
-
+        Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
         Vector3 desiredPosition = playerPos.position + rotation * _offset;
+
         float desiredDistance = _offset.magnitude;
-
-
         Vector3 rayDir = (desiredPosition - playerPos.position).normalized;
+
         if (Physics.Raycast(playerPos.position, rayDir, out RaycastHit hit, desiredDistance, cameraCollision))
         {
             float buffer = 0.1f;
@@ -104,7 +68,6 @@ public class PlayerCameraController : MonoBehaviour
         }
 
         transform.position = desiredPosition;
-
         transform.LookAt(playerPos.position + Vector3.up * 1.2f);
     }
 }

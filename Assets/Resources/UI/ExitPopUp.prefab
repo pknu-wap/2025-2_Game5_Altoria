@@ -273,10 +273,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wanna quit? Wanna quit? Wanna quit?
+  m_text: "\uC9C4\uC9DC\uB85C \uC885\uB8CC\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7e3c63f00b766644d9aa34e1de75307c, type: 2}
-  m_sharedMaterial: {fileID: 5297644960594369381, guid: 7e3c63f00b766644d9aa34e1de75307c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2a025ce544c473645adc3f9e4421f684, type: 2}
+  m_sharedMaterial: {fileID: -1152067393657090986, guid: 2a025ce544c473645adc3f9e4421f684, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eef5e5b4891691448e1174af05d7a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitUI: {fileID: 7736169324034874420}
+  information: {fileID: 8286156423288768275}
 --- !u!1 &8868521315778945580
 GameObject:
   m_ObjectHideFlags: 0

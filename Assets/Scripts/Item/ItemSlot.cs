@@ -10,10 +10,25 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] Image itemBorder;
     [SerializeField] TextMeshProUGUI itemCount;
 
-    public void SetSlot(string spriteAddress, int count, ItemGrade grade = 0)
+    public void SetSlot(string spriteAddress, int count, ItemGrade grade = ItemGrade.None)
     {
-        //itemImage.sprite = spriteAddress;
-        itemBorder.sprite = itemBorders[(int)grade-1]; 
-        itemCount.text = count.ToString();  
+        
+        int gradeIndex = Mathf.Clamp((int)grade - 1, 0, itemBorders.Length - 1);
+
+        if (itemBorders == null || itemBorders.Length == 0)
+        {
+            Debug.LogError($"[ItemSlot] itemBorders is null or empty on {gameObject.name}");
+            return;
+        }
+
+        if (itemBorder != null)
+            itemBorder.sprite = itemBorders[gradeIndex];
+
+        itemCount.text = count.ToString();
+
+  
+       Sprite sprite = Manager.Resource.Load<Sprite>(spriteAddress);
+        if (sprite != null)
+            itemImage.sprite = sprite;
     }
 }
