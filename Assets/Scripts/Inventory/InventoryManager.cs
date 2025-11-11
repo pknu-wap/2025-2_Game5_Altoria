@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using NUnit.Framework.Interfaces;
 using UnityEngine;
 using GameItem;
 using GameInventory;
-using UnityEditor;
 using GameData;
 
 public class InventoryManager 
@@ -17,7 +15,9 @@ public class InventoryManager
 
     List<InventoryEntry> inventory = new(); // 런타임용
 
-   
+    Dictionary<Define.ContentType, EquipItem> equipItemList = new();
+
+
     public void Init()
     {
 
@@ -94,6 +94,14 @@ public class InventoryManager
     public List<InventoryEntry> GetAllItems()
     {
         return inventory;
+    }
+
+    public void SetEquipItem(EquipItem item) => equipItemList[item.ItemData.content] = item;
+    public void SetUnequipItem(EquipItem item) => equipItemList.Remove(item.ItemData.content);
+    public int GetEquipItemLevel(Define.ContentType contentType)
+    {
+        equipItemList.TryGetValue(contentType, out EquipItem item);
+        return item.Level;
     }
 
     // Load & Save

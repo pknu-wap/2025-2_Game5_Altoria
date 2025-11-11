@@ -103,6 +103,7 @@ namespace GameInteract
             GameSystem.Life.AddExp<UpgradeInteractComponent>(10);
             popUp.SetResult(selectItemData);
             popUp.OnClosed += SetItemSlot;
+            popUp.OnClosed += () => SetUpgradeData(selectItemData);
         }
     }
 }

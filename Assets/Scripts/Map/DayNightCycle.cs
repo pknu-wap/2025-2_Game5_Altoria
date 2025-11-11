@@ -32,7 +32,6 @@ public class DayNightCycle : MonoBehaviour
     void Start()
     {
         skyboxMat = RenderSettings.skybox;
-        timeSpeed = 24f / fullDayLength;
 
         morningMat = Manager.Resource.Load<Material>("MorningMat");
         dayMat = Manager.Resource.Load<Material>("DayMat");
@@ -42,6 +41,7 @@ public class DayNightCycle : MonoBehaviour
         // TODO: 세이브 파일에서 시간 데이터 가져와서 설정하기
         time = 7f;
         GameSystem.Instance.timeType = ETimeType.Day;
+        timeSpeed = 24f / fullDayLength;
     }
 
     void Update()
@@ -56,7 +56,7 @@ public class DayNightCycle : MonoBehaviour
         }
         else
         {
-            time += Time.deltaTime * timeSpeed;
+            time += Time.deltaTime * timeSpeed; // TODO: 추후 Start로 옮길 것
             if (time >= 24f) time -= 24f;
 
             UpdateSunPosition();

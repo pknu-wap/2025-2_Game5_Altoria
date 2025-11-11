@@ -23,7 +23,7 @@ public class Define
     public enum ItemGrade
     {
         None,
-        Nomal,
+        Normal,
         Uncommon,
         Rare,
         Epic,

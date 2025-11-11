@@ -41,9 +41,8 @@ namespace GameInteract
             for (int i = 0; i < data.CollectGroup.Count; i++)
                 probList.Add((data.CollectGroup[i], data.CollectGroup[i].Probability));
 
-            // TODO: 현재 진행 중인 상호작용 타입에 대한 장착된 아이템 가져오기
-            var item = GameSystem.Random.Pick(probList, GameDB.GetUpgradeData(0).Bous);
-            // TODO: item 인벤토리에 저장
+            var item = GameSystem.Random.Pick(probList, GameDB.GetUpgradeData(GameSystem.Inventory.GetEquipItemLevel(Type)).Bous);
+            GameSystem.Inventory.AddItem(objectID, item.Count);
 
             GameSystem.Life.AddExp<CollectInteractComponent>(10);
 

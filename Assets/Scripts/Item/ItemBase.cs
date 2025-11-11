@@ -1,5 +1,4 @@
-using GameData;
-using JetBrains.Annotations;
+using Common;
 using UnityEngine;
 
 
@@ -23,12 +22,12 @@ namespace GameItem
 
         public void Equip()
         {
-            Debug.Log($"장비 착용: {ItemData.Name}");
+            GameSystem.Inventory.SetEquipItem(this);
         }
 
         public void Unequip()
         {
-            Debug.Log($"장비 해제: {ItemData.Name}");
+            GameSystem.Inventory.SetUnequipItem(this);
         }
 
         public void Upgrade()
