@@ -52,13 +52,13 @@ public class LifeStatsManager
 
     public LifeStatsManager()
     {
-        lifeStats = new Dictionary<string, LifeStatData>()
-        {
-            { nameof(CollectInteractComponent), new ()},
-            { nameof(UpgradeInteractComponent), new ()},
-            { nameof(TotalLife), new ()},
-        };
-        //SetData();
+        //lifeStats = new Dictionary<string, LifeStatData>()
+        //{
+        //    { nameof(CollectInteractComponent), new ()},
+        //    { nameof(UpgradeInteractComponent), new ()},
+        //    { nameof(TotalLife), new ()},
+        //};
+        SetData();
     }
 
     void SetData()
@@ -69,9 +69,11 @@ public class LifeStatsManager
             Debug.LogError("[LifeStatsManager] UserData not initialized!");
             return;
         }
-
-        lifeStats = userData.GetUserLifeData();
-        Debug.Log($"[LifeStatsManager] Loaded {lifeStats.Count} life stats.");
+        else
+        {
+            lifeStats = userData.GetUserLifeData();
+            Debug.Log($"[LifeStatsManager] Loaded {lifeStats.Count} life stats.");
+        }
     }
 
     public void AddExp<T>(int amount)

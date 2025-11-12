@@ -26,8 +26,8 @@ public class DayNightCycle : MonoBehaviour
     Material sunsetMat;
     Material nightMat;
 
-    float latitude = 37f;   // 대한민국 위도(서울기준)
-    float declination = 0f; // 태양 적위(봄 기준)
+    float latitude = 37f;   // 위도
+    float declination = 0f; // 태양 고도
 
     void Start()
     {

@@ -1,4 +1,5 @@
 using Common;
+using GameUI;
 using UnityEngine;
 
 
@@ -40,6 +41,7 @@ namespace GameItem
 
             Debug.Log($"{GetType()} : 업그레이드.");
             Level += 1;
+            Manager.UI.MainHUD.GetWidget<Hotbar>().LevelChanged(ItemData.ID, Level);
         }
     }
     public class ConsumeItem : Item, IConsumable, IStackable //소비아이템
