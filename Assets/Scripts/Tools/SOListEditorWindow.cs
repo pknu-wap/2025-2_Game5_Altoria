@@ -1,3 +1,4 @@
+#if  UNITY_EDITOR
 using System.Reflection;
 using System;
 using UnityEditor;
@@ -130,3 +131,4 @@ public class SOListEditorWindow : EditorWindow
         return value;
     }
 }
+#endif

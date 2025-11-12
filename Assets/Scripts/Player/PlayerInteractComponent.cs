@@ -63,8 +63,8 @@ public class PlayerInteractComponent : MonoBehaviour
         return closest;
     }
 
-    public void TryInteract() => interactSystem.TryInteract();
-
+    public void TryInteract(IEntity entity) => interactSystem.TryInteract(entity);
+    public void HoldInteract() => interactSystem.HoldInteract();
 #if UNITY_EDITOR
     [SerializeField] bool drawGizmo = true;
     private void OnDrawGizmos()

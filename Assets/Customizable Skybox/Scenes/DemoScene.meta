@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Customizable Skybox/Scenes/DemoScene.meta
 guid: a384c285ac882524fa286f2a09259ed0
 folderAsset: yes
+========
+guid: 70aefe64293b44e4bbbaf6a6b1421d4c
+>>>>>>>> Develop:Assets/DemoBuild.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -1,5 +1,4 @@
 using UnityEngine;
 
 
-public class BaseEntityComponent: MonoBehaviour ,IEntity
-{ }
+public class BaseEntityComponent: MonoBehaviour ,IEntity { }

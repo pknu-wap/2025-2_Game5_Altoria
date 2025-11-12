@@ -1,11 +1,6 @@
 using GameData;
-using GameInteract;
 using GameUI;
-using System.Threading;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using Common;
-using SceneLoader;
 using Unity.VisualScripting;
 public class Manager : MonoBehaviour
 {
@@ -45,19 +40,19 @@ public class Manager : MonoBehaviour
     }
 
 
-    [UnityEditor.MenuItem("Tools/UserData/AllSave")]
+
     public static void AllSave()
     {
         UserData.SaveAllUserData();
     }
 
-    [UnityEditor.MenuItem("Tools/UserData/AllLoad")]
+
     public static void AllLoad()
     {
         UserData.LoadAllUserData();
     }
 
-    [UnityEditor.MenuItem("Tools/UserData/AllSetDefaultData")]
+
     public static void AllSetDefaultData()
     {
         UserData.SetAllDefaultUserData();

@@ -74,15 +74,15 @@ namespace GameInteract
             for (int index = 0; index < craftingSlots.Count; index++)
             {
                 int currentIndex = index;
-                var slot = craftingSlots[currentIndex];
-
+                CraftingSlot slot = craftingSlots[currentIndex];
+                
                 Action action = slot.State switch
                 {
-                    CraftingState.Crafting => () => progressSlots.SetItemIcon(currentIndex),
+                    CraftingState.Crafting => () => progressSlots.SetItem(currentIndex,slot),
 
                     CraftingState.Completed => () =>
                     {
-                        progressSlots.SetItemIcon(currentIndex);
+                        progressSlots.SetItem(currentIndex,slot);
                         progressSlots.OnCompleteProgress(currentIndex);
                     },
                     _ => () => progressSlots.ClearSlot(currentIndex)
@@ -96,7 +96,7 @@ namespace GameInteract
         {
             ItemEntry entry = slot.Recipe.ResultItem;
             CraftProgressPopUp popUp =  Manager.UI.ShowPopup<CraftProgressPopUp>();
-            popUp.InitEntry(state, entry.Item.SpriteAddress, entry.Value);
+            popUp.InitEntry(state, entry.Item.ID, entry.Value);
             if (popUp is IActionClickable button)
             {
                 button.OnClicked += () =>

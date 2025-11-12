@@ -16,8 +16,9 @@ namespace GameInteract
         float returnDuration = 20.0f;
         Vector3 orignScale;
 
-        public override void Interact()
+        public override void Interact(IEntity entity)
         {
+            base.Interact(entity);
             if (interactCollTime)
                 return;
 

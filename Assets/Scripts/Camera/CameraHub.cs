@@ -21,6 +21,7 @@ public class CameraHub : MonoBehaviour
             return;
         }
 
+        Debug.Log("[CameraHub]: Awake");
         Instance = this;
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -40,8 +41,11 @@ public class CameraHub : MonoBehaviour
     public void RegisterCamera(string id, CinemachineCamera cam)
     {
         if (string.IsNullOrEmpty(id) || cam == null)
+         {
+            Debug.Log($"{id}: {cam}");
             return;
-
+        }
+        Debug.Log($"[CameraHub]: 등록 {id}");
         if (cameras.ContainsKey(id))
             Debug.LogWarning($"[CameraHub] 이미 등록된 카메라 ID '{id}'가 있습니다. 기존 항목을 덮어씁니다.");
 
@@ -58,8 +62,8 @@ public class CameraHub : MonoBehaviour
 
     public void SetActiveCamera(string id)
     {
-        if (!cameras.TryGetValue(id, out var targetCam))
-            return;
+        if (!cameras.TryGetValue(id, out var targetCam)) return;
+       
 
         if (activeCamera == targetCam)
             return;

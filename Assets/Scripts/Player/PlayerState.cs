@@ -8,25 +8,50 @@ public class PlayerStateMachine
     public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
     public event Action<PlayerState> OnStateChanged;
 
+ 
     public void SetState(PlayerState newState)
     {
-        if (newState == CurrentState)
+        if (CurrentState == newState)
             return;
 
         CurrentState = newState;
-        OnStateChanged?.Invoke(newState);
+        OnStateChanged?.Invoke(CurrentState);
     }
-  
-    public bool Is(PlayerState state) => CurrentState == state;
+
+    public void AddState(PlayerState state)
+    {
+        if (HasState(state)) return;
+
+        CurrentState |= state;
+        OnStateChanged?.Invoke(CurrentState);
+    }
 
   
+    public void RemoveState(PlayerState state)
+    {
+        if (!HasState(state)) return;
+
+        CurrentState &= ~state;
+        OnStateChanged?.Invoke(CurrentState);
+    }
+
+  
+  
+    public bool HasState(PlayerState state)
+    {
+        return (CurrentState & state) != 0;
+    }
+
+
     public bool CanReceiveInput()
     {
-        return CurrentState switch
-        {
-            PlayerState.Die => false,
-            PlayerState.Interacting => false,
-            _ => true
-        };
+        return !HasState(PlayerState.Die) && !HasState(PlayerState.Interacting);
+    }
+
+
+    public void Reset()
+    {
+        CurrentState = PlayerState.Idle;
+        OnStateChanged?.Invoke(CurrentState);
     }
 }

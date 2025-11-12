@@ -6,7 +6,7 @@ namespace GameInteract
     public class PickUpItemComponent :InteractBaseComponent,IDestroyable
     {
         
-        public override void Interact()
+        public override void Interact(IEntity entity)
         {
             //TODO: ITEMDATA  
 

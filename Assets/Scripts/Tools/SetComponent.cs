@@ -1,3 +1,4 @@
+#if  UNITY_EDITOR
 using GameInteract;
 using System.IO;
 using Unity.VisualScripting;
@@ -27,3 +28,4 @@ public class SetComponent
         }
     }
 }
+#endif

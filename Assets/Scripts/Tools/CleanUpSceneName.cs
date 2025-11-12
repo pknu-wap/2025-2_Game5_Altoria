@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
-
+#if  UNITY_EDITOR
 public static class CleanUpSceneName
 {
     [MenuItem("Tools/Scene Export/Cleanup Object Names")]
@@ -46,3 +46,4 @@ public static class CleanUpSceneName
         return Regex.Replace(name, @"\s*\(\d+\)$", "").Trim();
     }
 }
+#endif

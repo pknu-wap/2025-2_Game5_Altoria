@@ -23,7 +23,7 @@ namespace GameInteract
             base.ExitInteract();
         }
 
-        public override void Interact()
+        public override void Interact(IEntity entity)
         {
             CollectTimer timer = new(2);
             timer.OnFinished += EndCollect;

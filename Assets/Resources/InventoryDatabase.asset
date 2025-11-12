@@ -32,7 +32,7 @@ MonoBehaviour:
       Type: 2
       Description: 
     Count: 1
-    IsEquipped: 0
+    IsEquipped: 1
   - Item:
       ID: 12251000
       Name: 
@@ -42,7 +42,7 @@ MonoBehaviour:
       Type: 2
       Description: 
     Count: 1
-    IsEquipped: 0
+    IsEquipped: 1
   - Item:
       ID: 12261000
       Name: 
@@ -62,5 +62,5 @@ MonoBehaviour:
       Type: 4
       Description: 
     Count: 1
-    IsEquipped: 0
+    IsEquipped: 1
   maxSlotCount: 30

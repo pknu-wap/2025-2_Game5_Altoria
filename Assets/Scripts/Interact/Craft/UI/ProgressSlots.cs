@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.AppUI.UI;
 
 namespace GameInteract
 {
@@ -34,7 +35,16 @@ namespace GameInteract
             OnSlotClicked?.Invoke(index);
         }
       
-        public void SetItemIcon(int index, Sprite icon=null)=> slots[index].SetIcon(testSprite);
+        public void SetItem(int index, CraftingSlot slot )
+        {
+            if (slot.Recipe != null)
+            {
+                Sprite icon = Manager.Resource.Load<Sprite>(slot.Recipe.ResultItem.Item.ID);
+                slots[index].SetIcon(icon);
+            }
+
+        }
+           
 
         public void UpdateProgress(int index, float progress)=> slots[index].FillProgress(progress);
 
