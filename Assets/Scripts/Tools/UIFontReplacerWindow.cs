@@ -1,8 +1,9 @@
+#if  UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.SceneManagement;
+
 
 public class UIFontReplacerWindow : EditorWindow
 {
@@ -77,3 +78,4 @@ public class UIFontReplacerWindow : EditorWindow
         Debug.Log($" Font 변경 완료: Text {unityCount}개, TMP_Text {tmpCount}개 교체됨");
     }
 }
+#endif

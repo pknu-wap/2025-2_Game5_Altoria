@@ -8,14 +8,18 @@ public class PlayerInputHandler : MonoBehaviour
     InputSystem_Actions.PlayerActions playerActions;
     InputSystem_Actions.UIActions uiActions;
 
+
     public event Action<Vector2> OnMove;
-    public event Action OnMoveCanceled, OnJump, OnAttack, OnInteract;
+    public event Action OnMoveCanceled, OnJump, OnAttack, OnRiding;
+    public event Action OnInteract, OnInteractHold, OnInteractCanceled;
     public event Action<Vector2> OnLook;
     public event Action<bool> OnCursorLockChanged;
+
 
     bool isCursorLocked;
     bool isAltMode;
     bool isOpen;
+
     void Awake()
     {
         var input = new InputSystem_Actions();
@@ -41,18 +45,23 @@ public class PlayerInputHandler : MonoBehaviour
 
     void BindInputs()
     {
+     
         playerActions.Move.performed += OnMovePerformed;
         playerActions.Move.canceled += OnMoveCanceledPerformed;
         playerActions.Jump.performed += OnJumpPerformed;
         playerActions.Attack.performed += OnAttackPerformed;
-        playerActions.Interact.performed += OnInteractPerformed;
         playerActions.Look.performed += OnLookPerformed;
         playerActions.Look.canceled += OnLookCanceled;
+        playerActions.Riding.started += OnRidingPreformed;
+
+     
+        playerActions.Interact.started += ctx => OnInteract?.Invoke();         
+        playerActions.Interact.performed += ctx => OnInteractHold?.Invoke();    
+        playerActions.Interact.canceled += ctx => OnInteractCanceled?.Invoke();
+
 
         uiActions.Inventory.performed += _ => OpenInventory();
         uiActions.MainMenu.performed += _ => OpenMainMenu();
-
-     
         uiActions.AltCursor.performed += _ => ToggleAltMode();
     }
 
@@ -62,9 +71,13 @@ public class PlayerInputHandler : MonoBehaviour
         playerActions.Move.canceled -= OnMoveCanceledPerformed;
         playerActions.Jump.performed -= OnJumpPerformed;
         playerActions.Attack.performed -= OnAttackPerformed;
-        playerActions.Interact.performed -= OnInteractPerformed;
         playerActions.Look.performed -= OnLookPerformed;
         playerActions.Look.canceled -= OnLookCanceled;
+        playerActions.Riding.started -= OnRidingPreformed;
+
+        playerActions.Interact.started -= ctx => OnInteract?.Invoke();
+        playerActions.Interact.performed -= ctx => OnInteractHold?.Invoke();
+        playerActions.Interact.canceled -= ctx => OnInteractCanceled?.Invoke();
 
         uiActions.Inventory.performed -= _ => OpenInventory();
         uiActions.MainMenu.performed -= _ => OpenMainMenu();
@@ -76,20 +89,16 @@ public class PlayerInputHandler : MonoBehaviour
         HandleAltClick();
     }
 
-  
+
     void ToggleAltMode()
     {
         isAltMode = !isAltMode;
-
-        if (isAltMode)
-            ForceUnlockCursor();
-        else
-            ForceLockCursor();
+        if (isAltMode) ForceUnlockCursor();
+        else ForceLockCursor();
     }
 
     void HandleAltClick()
     {
-      
         if (isAltMode && Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUI())
         {
             isAltMode = false;
@@ -97,11 +106,9 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
- 
     void ForceLockCursor()
     {
         isCursorLocked = true;
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         OnCursorLockChanged?.Invoke(true);
@@ -115,17 +122,12 @@ public class PlayerInputHandler : MonoBehaviour
         OnCursorLockChanged?.Invoke(false);
     }
 
-  
     void OpenInventory()
     {
         ForceUnlockCursor();
-        
         Manager.UI.ShowPopup<InventoryUI>();
     }
-        
-       
-        
-  
+
     void OpenMainMenu()
     {
         if (Manager.UI.IsAnyPopUp()) Manager.UI.ClosePopup();
@@ -143,8 +145,8 @@ public class PlayerInputHandler : MonoBehaviour
     void OnMoveCanceledPerformed(InputAction.CallbackContext ctx) => OnMoveCanceled?.Invoke();
     void OnJumpPerformed(InputAction.CallbackContext ctx) => OnJump?.Invoke();
     void OnAttackPerformed(InputAction.CallbackContext ctx) => OnAttack?.Invoke();
-    void OnInteractPerformed(InputAction.CallbackContext ctx) => OnInteract?.Invoke();
 
+    void OnRidingPreformed(InputAction.CallbackContext ctx) => OnRiding?.Invoke();
     void OnLookPerformed(InputAction.CallbackContext ctx)
     {
         if (!isCursorLocked) return;

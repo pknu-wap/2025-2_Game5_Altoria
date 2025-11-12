@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -15,14 +16,26 @@ public class CameraRegister : MonoBehaviour
             : $"Camera_{cam.GetInstanceID()}";
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
-        CameraHub.Instance?.RegisterCamera(id, cam);
+        StartCoroutine(RegisterWhenReady());
     }
 
-    void OnDisable()
+    IEnumerator RegisterWhenReady()
     {
-        CameraHub.Instance?.UnregisterCamera(id);
+        
+        yield return new WaitUntil(() => CameraHub.Instance != null);
+        CameraHub.Instance.RegisterCamera(id, cam);
+        Debug.Log($"[CameraRegister] 카메라 등록 완료 → {id}");
+    }
+
+     void OnDisable()
+    {
+        if (CameraHub.Instance != null)
+        {
+            CameraHub.Instance.UnregisterCamera(id);
+            Debug.Log($"[CameraRegister] 카메라 해제 → {id}");
+        }
     }
 
     public void SetActiveCamera()
