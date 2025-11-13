@@ -30,17 +30,13 @@ namespace GameUI
         {
             //TODO:  설정창 팝업
             GameSystem.Init();
-            Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
+            //Manager.Scene.LoadScene(Define.SceneType.TestFC_1);
+            Manager.UI.ShowPopup<SettingPopUp>();
         }
         public void OnClickExitButton()
         {
             Manager.UserData.SaveAllUserData();
-            Debug.Log($"[{GetType()}] 게임 종료");
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            Manager.UI.ShowPopup<ExitPopUp>();
         }
         #endregion
     }
