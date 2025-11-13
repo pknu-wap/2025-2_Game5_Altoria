@@ -3,6 +3,7 @@ using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
 
+#if  UNITY_EDITOR
 public class PrefabRootReplacerTool : EditorWindow
 {
     private enum Mode
@@ -229,3 +230,5 @@ public class PrefabRootReplacerTool : EditorWindow
         Debug.Log($"[루트 교체 완료] {prefab.name}");
     }
 }
+
+#endif

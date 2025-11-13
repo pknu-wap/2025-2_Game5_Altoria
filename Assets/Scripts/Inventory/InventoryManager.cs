@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameItem;
 using GameInventory;
-using UnityEditor;
 using GameData;
 
 public class InventoryManager 
@@ -11,7 +10,12 @@ public class InventoryManager
 
     List<InventoryEntry> inventory = new(); // 런타임용
 
-   
+    [Header("Equip Item")]
+    Dictionary<Define.ContentType, EquipItem> equipItemList = new();
+    public event System.Action<EquipItem> OnItemEquipped;
+    public event System.Action<EquipItem> OnItemUnequipped;
+
+
     public void Init()
     {
 
@@ -88,6 +92,24 @@ public class InventoryManager
     public List<InventoryEntry> GetAllItems()
     {
         return inventory;
+    }
+
+    public void SetEquipItem(EquipItem item)
+    {
+        equipItemList[item.ItemData.content] = item;
+        OnItemEquipped?.Invoke(item);
+    }
+
+    public void SetUnequipItem(EquipItem item)
+    {
+        if (equipItemList.Remove(item.ItemData.content))
+            OnItemUnequipped?.Invoke(item);
+    }
+
+    public int GetEquipItemLevel(Define.ContentType contentType)
+    {
+        equipItemList.TryGetValue(contentType, out EquipItem item);
+        return item.Level;
     }
 
     // Load & Save

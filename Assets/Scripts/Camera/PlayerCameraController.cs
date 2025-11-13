@@ -22,7 +22,7 @@ public class PlayerCameraController : MonoBehaviour
     void Awake()
     {
         playerPos = transform.parent;
-        inputHandler = GetComponentInParent<PlayerInputHandler>();
+       
     }
 
     void OnEnable()

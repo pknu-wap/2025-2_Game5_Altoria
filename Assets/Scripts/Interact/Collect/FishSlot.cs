@@ -11,7 +11,7 @@ namespace GameInteract
 
         public void Init(string spriteAddress, string probablilty)
         {
-            //image.sprite = 
+            //image.sprite = spriteAddress;
             text.text = probablilty;
         }
     }

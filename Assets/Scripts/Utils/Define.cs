@@ -23,7 +23,7 @@ public class Define
     public enum ItemGrade
     {
         None,
-        Nomal,
+        Normal,
         Uncommon,
         Rare,
         Epic,
@@ -54,12 +54,14 @@ public class Define
     }
     public enum PlayerState
     {
-        Idle,
-        Move,
-        Jump,
-        Interacting,
-        Attack,
-        Die,
+        Idle=0,
+        Move=1<<0,
+        Jump=1<<1,
+        Interacting=1<<2,
+        Riding=1<<3,
+        Attack=1<<4,
+        Die=1<<5,
+
     }
     
 }

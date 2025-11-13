@@ -17,9 +17,9 @@ MonoBehaviour:
       ID: 12221000
       Name: 
       SpriteAddress: 
-      content: 0
-      Grade: 3
-      Type: 3
+      content: 2
+      Grade: 1
+      Type: 2
       Description: 
     Count: 1
     IsEquipped: 1
@@ -27,30 +27,40 @@ MonoBehaviour:
       ID: 12241000
       Name: 
       SpriteAddress: 
-      content: 0
-      Grade: 3
+      content: 3
+      Grade: 1
+      Type: 2
+      Description: 
+    Count: 1
+    IsEquipped: 1
+  - Item:
+      ID: 12251000
+      Name: 
+      SpriteAddress: 
+      content: 5
+      Grade: 1
+      Type: 2
+      Description: 
+    Count: 1
+    IsEquipped: 1
+  - Item:
+      ID: 12261000
+      Name: 
+      SpriteAddress: 
+      content: 4
+      Grade: 1
       Type: 2
       Description: 
     Count: 1
     IsEquipped: 0
   - Item:
-      ID: 12251000
+      ID: 10071063
       Name: 
       SpriteAddress: 
-      content: 0
-      Grade: 2
-      Type: 1
+      content: 8
+      Grade: 1
+      Type: 4
       Description: 
     Count: 1
-    IsEquipped: 0
-  - Item:
-      ID: 12261000
-      Name: 
-      SpriteAddress: 
-      content: 0
-      Grade: 3
-      Type: 5
-      Description: 
-    Count: 1
-    IsEquipped: 0
+    IsEquipped: 1
   maxSlotCount: 30

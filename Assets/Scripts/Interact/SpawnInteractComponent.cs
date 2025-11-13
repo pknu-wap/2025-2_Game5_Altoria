@@ -10,7 +10,7 @@ namespace GameInteract
 
         RespawnTimer timer = new();
 
-        public override void Interact()
+        public override void Interact(IEntity entity)
         {
             if (spawnableObject != null)
                 spawnableObject.SetActive(false);

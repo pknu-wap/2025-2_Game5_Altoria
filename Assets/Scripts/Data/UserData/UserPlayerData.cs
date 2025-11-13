@@ -8,14 +8,14 @@ public class PlayerData
     public Vector3 PlayerTransform;
     public Quaternion Rotation;
     public float Stemina;
-    public Define.SceneType LastScene;
+    public float time;
 
     public PlayerData()
     {
         PlayerTransform = Vector3.zero;
         Rotation = Quaternion.identity;
         Stemina = 100f;
-        LastScene = Define.SceneType.None; // TODO: 최초 시작 마을로 변경
+        time = 7f;
     }
 }
 
@@ -25,10 +25,17 @@ public class UserPlayerData : Security, IUserData
     PlayerData userPlayerData;
 
     public PlayerData GetPlayerData() => userPlayerData;
+    public void SetDataTime(float time) => userPlayerData.time = time;
+    public void SetDataPlayerPosition(Vector3 position, Quaternion quaternion)
+    {
+        userPlayerData.PlayerTransform = position;
+        userPlayerData.Rotation = quaternion;
+    }
+    public void SetDataStemina(float stemina) => userPlayerData.Stemina = stemina;
 
     public void SetDefaultData()
     {
-        userPlayerData = new ();
+        userPlayerData = new();
     }
 
     public bool LoadData()

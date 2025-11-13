@@ -24,6 +24,7 @@ public class GameScene : BaseScene
         GameSystem.Init();
         sceneType = Define.SceneType.GameScene;
         SceneLoad();
+        CreatDayNight();
     }
 
     void SceneLoad()
@@ -60,6 +61,13 @@ public class GameScene : BaseScene
             {
                 Manager.UI.ShowHUD<UI_GameScene>();
             });
+    }
+
+    void CreatDayNight()
+    {
+        var go = new GameObject("DayNight");
+        go.AddComponent<DayNightCycle>();
+        go.transform.SetParent(this.transform); 
     }
 
     protected virtual void OnDestroy()

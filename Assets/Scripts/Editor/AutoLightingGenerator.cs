@@ -3,6 +3,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if  UNITY_EDITOR
 [InitializeOnLoad]
 public static class AutoLightingGenerator
 {
@@ -37,3 +38,4 @@ public static class AutoLightingGenerator
         }
     }
 }
+#endif

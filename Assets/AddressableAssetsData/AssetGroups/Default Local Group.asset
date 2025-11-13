@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01dab228d89352f4483773af40b42acd
+    m_Address: Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01e37dbc5ed6ebd44b7fba8991577062
     m_Address: PP_Blacksmith_Roof_08
     m_ReadOnly: 0
@@ -212,6 +217,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06f5e3c35e298c94dbaa5c1ee81cf44d
     m_Address: PP_Rock_Brown_Moss_05
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07663e82bc8bb0b46a90d630c217f7a2
+    m_Address: Rare
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -582,6 +592,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1343ee47590785644ba9d244ce0b6b09
     m_Address: Terrain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 135a7036ca1a07b4e9e162d80e6b6e77
+    m_Address: NightMat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -2290,6 +2305,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 528363c5c1cf6a7458140c6851c77b68
+    m_Address: SunsetMat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5295d65e653c2894d8f8c478fb57fb78
     m_Address: PP_Blacksmith_Roof_End_04
     m_ReadOnly: 0
@@ -2330,6 +2350,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5464c15ff9c6ca04cb5790c1773e76fa
+    m_Address: MorningMat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54dcf10d33d554d46b6ab52fdc9c0b29
     m_Address: PP_Coin_01_Gold
     m_ReadOnly: 0
@@ -2347,6 +2372,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 560ee037a8f722d47ac6f2a80128216c
     m_Address: PP_Mine_Cart_09
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56113b3b655ab7349bab4d7d405c258a
+    m_Address: DayMat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -5885,6 +5915,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9782dda39be29f4da7e239bb7ea18b4
+    m_Address: Uncommon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9995f358672f62469274cc912ebcd9e
     m_Address: PP_Stalactite_06
     m_ReadOnly: 0
@@ -6490,6 +6525,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef2bc54969e8d7f44a5780e489d51260
+    m_Address: Epic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef334aedc5cfa134eb54df4a2cc017ee
     m_Address: PP_Gemstone_21_Copper
     m_ReadOnly: 0
@@ -6952,6 +6992,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffc49a038c66bc843a41b0f4b563d054
     m_Address: PP_Stone_Crystal_03_Iron
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fff7e9f126e15b94bac1d0c8299b4f17
+    m_Address: Legendary
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

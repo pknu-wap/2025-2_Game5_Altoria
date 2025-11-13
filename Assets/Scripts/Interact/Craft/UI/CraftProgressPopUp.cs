@@ -26,8 +26,12 @@ namespace GameInteract
         public void InitEntry(CraftingState state,string spriteAddress, int count)
         {
             itemSlot.SetSlot(spriteAddress, count);
-            rewardButton.gameObject.SetActive(state==CraftingState.Completed);
-            progressText.text=textDict[state];  
+
+            
+            rewardButton.gameObject.SetActive(state == CraftingState.Completed);
+           
+
+            progressText.text = textDict.TryGetValue(state, out var text) ? text : "";
         }
 
         public void OnClickButton() => OnClicked?.Invoke();

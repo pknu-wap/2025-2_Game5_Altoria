@@ -7,7 +7,7 @@ namespace GameUI
     public class NPCInteractComponent : InteractBaseComponent
     {
       
-        public override void Interact() { StartDialogue(); }
+        public override void Interact(IEntity entity) { StartDialogue(); }
         void StartDialogue()
         { 
 
