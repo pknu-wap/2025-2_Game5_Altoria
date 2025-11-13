@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using GameInventory;
 using GameItem;
 using Common;
+using GameData;
 
 public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -21,12 +22,6 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
     [SerializeField] TextMeshProUGUI equippedText;
     [SerializeField] Button deleteButton; //아이템 버리기 버튼
     [SerializeField] GameObject deletePopUp;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
     public void Initialize(InventoryEntry data)
     {
         if (data == null || data.item == null)
@@ -42,7 +37,7 @@ public class InventoryItemSlot : ItemSlot, IPointerClickHandler, IPointerEnterHa
         itemCount1 = data.count;
         SetSlot(itemID, data.count, data.item.ItemData.Grade);
 
-        equippedText.gameObject.SetActive(data.item is IEquippable);
+        equippedText.gameObject.SetActive(data.isEquipped);
         //추가 커스터마이징
     }
 

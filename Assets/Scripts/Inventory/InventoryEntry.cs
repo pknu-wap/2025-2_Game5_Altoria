@@ -1,5 +1,6 @@
 using UnityEngine;
 using GameItem;
+using GameData;
 
 namespace GameInventory
 {
@@ -10,9 +11,9 @@ namespace GameInventory
         public int count;
         public bool isEquipped;
 
-        public InventoryEntry(Item Item, int Count = 1, bool IsEquipped = false)
+        public InventoryEntry(string ID, int Count = 1, bool IsEquipped = false)
         {
-            item = Item;
+            item = ItemFactory.CreateItem(GameDB.GetItemData(ID));
             count = Count;
             isEquipped = IsEquipped;
         }

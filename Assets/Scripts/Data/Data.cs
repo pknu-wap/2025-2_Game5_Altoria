@@ -47,7 +47,8 @@ public class CraftingSlotData
 [System.Serializable]
 public class InventoryData
 {
-    public ItemData Item;
+    //public ItemData Item;
+    public string ID;
     public int Count;
     public bool IsEquipped;
 }

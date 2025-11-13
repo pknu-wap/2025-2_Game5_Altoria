@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(fileName = "InventoryData", menuName = "GameData/InventoryDatabase")]
+[CreateAssetMenu(fileName = "InventoryDatabase", menuName = "GameData/InventoryDatabase")]
 public class InventoryDatabase : ScriptableObject
 {
     [Header("가지고 있는 아이템")]
@@ -14,6 +14,6 @@ public class InventoryDatabase : ScriptableObject
 
     public InventoryData GetItemById(string id)
     {
-        return rows.Find(x => x.Item.ID== id);
+        return rows.Find(x => x.ID== id);
     }
 }

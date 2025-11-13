@@ -13,54 +13,16 @@ MonoBehaviour:
   m_Name: InventoryDatabase
   m_EditorClassIdentifier: 
   rows:
-  - Item:
-      ID: 12221000
-      Name: 
-      SpriteAddress: 
-      content: 2
-      Grade: 1
-      Type: 2
-      Description: 
+  - ID: 12251000
     Count: 1
     IsEquipped: 1
-  - Item:
-      ID: 12241000
-      Name: 
-      SpriteAddress: 
-      content: 3
-      Grade: 1
-      Type: 2
-      Description: 
+  - ID: 12241000
     Count: 1
     IsEquipped: 1
-  - Item:
-      ID: 12251000
-      Name: 
-      SpriteAddress: 
-      content: 5
-      Grade: 1
-      Type: 2
-      Description: 
+  - ID: 12221000
     Count: 1
     IsEquipped: 1
-  - Item:
-      ID: 12261000
-      Name: 
-      SpriteAddress: 
-      content: 4
-      Grade: 1
-      Type: 2
-      Description: 
-    Count: 1
-    IsEquipped: 0
-  - Item:
-      ID: 10071063
-      Name: 
-      SpriteAddress: 
-      content: 8
-      Grade: 1
-      Type: 4
-      Description: 
+  - ID: 12261000
     Count: 1
     IsEquipped: 1
   maxSlotCount: 30

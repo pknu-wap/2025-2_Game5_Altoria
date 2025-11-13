@@ -68,14 +68,6 @@ public class InventoryUI : UIPopUp
         RefreshInventory();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
-
-
     // 상위 버튼 선택 관리
     void InitCategoryButtons()
     {
