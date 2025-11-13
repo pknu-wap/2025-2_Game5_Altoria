@@ -34,12 +34,8 @@ namespace GameItem
         public void Upgrade()
         {
             if (Level == 10)
-            {
-                Debug.Log($"{GetType()} : 최대 레벨입니다.");
                 return;
-            }
 
-            Debug.Log($"{GetType()} : 업그레이드.");
             Level += 1;
             Manager.UI.MainHUD.GetWidget<Hotbar>().LevelChanged(ItemData.ID, Level);
         }

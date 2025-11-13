@@ -10,12 +10,11 @@ namespace GameUI
     [System.Serializable]
     public class HotbarSlotUI
     {
-        public string itemID;
-        public bool IsEmpty => string.IsNullOrEmpty(itemID);
+        public string ItemID { private set; get;  }
 
         public void Bind(ItemData itemData)
         {
-            itemID = itemData.ID;
+            ItemID = itemData.ID;
             // TODO: 슬롯에 아이템 정보 바인딩
         }
 
@@ -27,7 +26,7 @@ namespace GameUI
 
     public class Hotbar : UIWidget
     {
-        [SerializeField] List<HotbarSlotUI> slots;            // 슬롯 UI들(고정 길이)
+        [SerializeField] List<HotbarSlotUI> slots;
 
         void Awake()
         {
@@ -76,7 +75,7 @@ namespace GameUI
         {
             for (int i = 0; i < slots.Count; i++)
             {
-                if (slots[i].itemID == itemID)
+                if (slots[i].ItemID == itemID)
                     return i;
             }
             return -1;
