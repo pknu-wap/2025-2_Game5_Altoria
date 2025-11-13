@@ -1,3 +1,4 @@
+using GameItem;
 using System;
 using TMPro;
 using UnityEngine;
@@ -10,17 +11,31 @@ namespace GameInteract
         [SerializeField] Image itemGradeImg;
         [SerializeField] Image itmeImg;
         [SerializeField] TextMeshProUGUI gradeStep;
-        const string path = "UI/ItemFrame/";
         int slotIndex;
 
         public Action<int> OnClickAction;
 
         public void Init(ItemData data, int slotIndex)
         {
-            itemGradeImg.sprite = Resources.Load<Sprite>(path + data.Grade.ToString());
-            // itmeImg.sprite = data.id 를 통해 이미지 가져오기
-            gradeStep.text = "+" + Manager.UserData.GetUserData<UserToolData>().GetToolStep(data.ID).ToString();
             this.slotIndex = slotIndex;
+
+            Sprite gradeSprite = Manager.Resource.Load<Sprite>(data.Grade.ToString());
+            if (gradeSprite != null)
+                itemGradeImg.sprite = gradeSprite;
+
+            Sprite itemnSprite = Manager.Resource.Load<Sprite>(data.ID);
+            if (itemnSprite != null)
+                itmeImg.sprite = itemnSprite;
+
+            var inventoryItem = Common.GameSystem.Inventory.GetItem(data.ID);
+            if (inventoryItem?.item is EquipItem equipItem)
+            {
+                gradeStep.text = "+" + equipItem.Level.ToString();
+            }
+            else
+            {
+                gradeStep.text = "";
+            }
         }
 
         public void OnClickSlot() => OnClickAction?.Invoke(slotIndex);

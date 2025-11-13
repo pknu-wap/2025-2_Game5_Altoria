@@ -17,7 +17,7 @@ MonoBehaviour:
       ID: 12221000
       Name: 
       SpriteAddress: 
-      content: 0
+      content: 2
       Grade: 1
       Type: 2
       Description: 
@@ -27,7 +27,7 @@ MonoBehaviour:
       ID: 12241000
       Name: 
       SpriteAddress: 
-      content: 0
+      content: 3
       Grade: 1
       Type: 2
       Description: 
@@ -37,7 +37,7 @@ MonoBehaviour:
       ID: 12251000
       Name: 
       SpriteAddress: 
-      content: 0
+      content: 5
       Grade: 1
       Type: 2
       Description: 
@@ -47,9 +47,19 @@ MonoBehaviour:
       ID: 12261000
       Name: 
       SpriteAddress: 
-      content: 0
+      content: 4
       Grade: 1
       Type: 2
+      Description: 
+    Count: 1
+    IsEquipped: 0
+  - Item:
+      ID: 10071063
+      Name: 
+      SpriteAddress: 
+      content: 8
+      Grade: 1
+      Type: 4
       Description: 
     Count: 1
     IsEquipped: 1

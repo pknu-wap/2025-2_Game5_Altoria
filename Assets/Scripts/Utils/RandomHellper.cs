@@ -1,23 +1,37 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class RandomHellper
 {
-    public T Pick<T>(IList<(T item, float weight)> items)
+    public T Pick<T>(IList<(T item, float weight)> items, float bousProb = 0)
     {
-        float total = items.Sum(i => i.weight);
-        float ran = Random.Range(0, total);
-        float cumulative = 0;
+        float minWeight = items.Min(i => i.weight);
 
-        float rand = Random.Range(0, total);
+        foreach (var i in items)
+            UnityEngine.Debug.Log($"ÃÊ±â È®·ü {i.weight}\n");
 
-        for(int i = 0; i < items.Count(); i++)
+        var adjustedItems = items.Select(i =>
         {
-            cumulative += items[i].weight;
-            if (cumulative > ran)
-                return items[i].item;
-            cumulative += items[i].weight;
+            float newWeight = i.weight;
+
+            if (i.weight == minWeight)
+                newWeight *= (1f + bousProb);
+
+            return (i.item, newWeight);
+        }).ToList();
+
+        foreach (var i in adjustedItems)
+            UnityEngine.Debug.Log($"Á¶Á¤µÈ È®·ü {i.newWeight}\n");
+
+        float total = adjustedItems.Sum(i => i.newWeight);
+        float rand = UnityEngine.Random.Range(0, total);
+
+        float cumulative = 0f;
+        foreach (var i in adjustedItems)
+        {
+            cumulative += i.newWeight;
+            if (rand <= cumulative)
+                return i.item;
         }
 
         return default;

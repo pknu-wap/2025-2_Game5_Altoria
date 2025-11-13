@@ -1585,7 +1585,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1975663448808487441}
-  - {fileID: 4466841175210294984}
   m_Father: {fileID: 7441304330105720748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -2676,7 +2675,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 351075487626939261}
-  - {fileID: 2114042167551523240}
   m_Father: {fileID: 7441304330105720748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -3247,7 +3245,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4280082569694928183}
-  - {fileID: 8655444325012440400}
   m_Father: {fileID: 6199716239781260747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -5047,7 +5044,6 @@ RectTransform:
   - {fileID: 4933955858562307204}
   - {fileID: 8985629208261329230}
   - {fileID: 8305198758990851782}
-  - {fileID: 5455499141754173048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5173,9 +5169,9 @@ MonoBehaviour:
   - {fileID: 7318070312494465654}
   - {fileID: 5950285496176153143}
   - {fileID: 3507545326022980924}
-  BGMtext: {fileID: 262942556218218882}
-  SFXtext: {fileID: 2525910931039182562}
-  CameraSensitivity: {fileID: 7417127574623167866}
+  BGMtext: {fileID: 0}
+  SFXtext: {fileID: 0}
+  CameraSensitivity: {fileID: 0}
 --- !u!1 &8531859696294230167
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,7 +5337,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3539567617330090198}
-  - {fileID: 8970155508152318422}
   m_Father: {fileID: 6199716239781260747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -5470,7 +5465,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4999131435129331368}
-  - {fileID: 8435546641962811302}
   m_Father: {fileID: 6199716239781260747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}

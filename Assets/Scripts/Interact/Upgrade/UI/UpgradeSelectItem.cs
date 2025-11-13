@@ -1,6 +1,8 @@
+using GameItem;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Splines;
 using UnityEngine.UI;
 
 namespace GameInteract
@@ -9,14 +11,32 @@ namespace GameInteract
     {
         [SerializeField] Image itemGradeImg;
         [SerializeField] Image itmeImg;
-        [SerializeField] TextMeshProUGUI upgtadeStepTxt;
-        const string path = "UI/ItemFrame/";
+        [SerializeField] GameObject brokeImg;
+        [SerializeField] TextMeshProUGUI gradeStep;
 
-        public void Init(ItemData data)
+        public virtual void Init(ItemData data)
         {
-            itemGradeImg.sprite = Resources.Load<Sprite>(path + data.Grade);
-            // itmeImg.sprite = 
-            //upgtadeStepTxt.text =   
+            brokeImg.SetActive(false);
+
+            Sprite gradeSprite = Manager.Resource.Load<Sprite>(data.Grade.ToString());
+            if (gradeSprite != null)
+                itemGradeImg.sprite = gradeSprite;
+
+            Sprite itemnSprite = Manager.Resource.Load<Sprite>(data.ID);
+            if (itemnSprite != null)
+                itmeImg.sprite = itemnSprite;
+
+            var inventoryItem = Common.GameSystem.Inventory.GetItem(data.ID);
+            if (inventoryItem?.item is EquipItem equipItem)
+            {
+                gradeStep.text = "+" + equipItem.Level.ToString();
+            }
+            else
+            {
+                gradeStep.text = "";
+            }
         }
+
+        public void SetBrokeImage() => brokeImg.SetActive(true);
     }
 }
