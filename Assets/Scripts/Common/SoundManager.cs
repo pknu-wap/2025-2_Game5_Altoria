@@ -82,7 +82,7 @@ public class SoundManager : MonoBehaviour
 
     public void StopBGM()
     {
-        audioBgm.Stop();
+        audioBgm?.Stop();
     }
     public void SetBGMVolume(float value)
     {

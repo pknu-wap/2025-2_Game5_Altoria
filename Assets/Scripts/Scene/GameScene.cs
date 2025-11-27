@@ -90,9 +90,4 @@ public class GameScene : BaseScene
         popUp.SetData("10080072", 10);
         popUp.SetEtcText("선물이 도착했습니다!");
     }
-
-    private void OnDisable()
-    {
-        SoundManager.Instance.StopBGM();
-    }
 }
