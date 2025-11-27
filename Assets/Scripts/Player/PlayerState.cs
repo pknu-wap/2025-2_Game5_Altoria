@@ -8,13 +8,13 @@ public class PlayerStateMachine
     public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
     public event Action<PlayerState> OnStateChanged;
 
- 
+
     public void SetState(PlayerState newState)
     {
-        if (CurrentState == newState)
-            return;
+        
+        PlayerState tags = CurrentState & (PlayerState.Run | PlayerState.Riding |  PlayerState.Attack);
 
-        CurrentState = newState;
+        CurrentState = newState | tags;
         OnStateChanged?.Invoke(CurrentState);
     }
 

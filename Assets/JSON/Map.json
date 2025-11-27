@@ -8912,6 +8912,28 @@
         },
         {
             "ID": 405,
+            "parentID": 404,
+            "PrefabAddress": "MiniMapMarker 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "Scale": {
+                "x": 3.0,
+                "y": 1.8724253177642823,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 406,
             "parentID": 403,
             "PrefabAddress": "Water_FishA",
             "Position": {
@@ -8933,7 +8955,29 @@
             "SiblingIndex": 1
         },
         {
-            "ID": 406,
+            "ID": 407,
+            "parentID": 406,
+            "PrefabAddress": "MiniMapMarker 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.5146045684814453,
+                "y": 0.4849557876586914,
+                "z": -0.4849557876586914,
+                "w": 0.5146045684814453
+            },
+            "Scale": {
+                "x": 3.0,
+                "y": 1.8724253177642823,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 408,
             "parentID": 403,
             "PrefabAddress": "Water_FishA",
             "Position": {
@@ -8955,7 +8999,29 @@
             "SiblingIndex": 2
         },
         {
-            "ID": 407,
+            "ID": 409,
+            "parentID": 408,
+            "PrefabAddress": "MiniMapMarker 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.5708737373352051,
+                "y": 0.41725674271583559,
+                "z": -0.41725674271583559,
+                "w": 0.5708737373352051
+            },
+            "Scale": {
+                "x": 3.0,
+                "y": 1.8724256753921509,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 410,
             "parentID": 403,
             "PrefabAddress": "Water_FishD",
             "Position": {
@@ -8977,7 +9043,29 @@
             "SiblingIndex": 3
         },
         {
-            "ID": 408,
+            "ID": 411,
+            "parentID": 410,
+            "PrefabAddress": "MiniMapMarker",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.6573923230171204,
+                "y": 0.26045215129852297,
+                "z": -0.26045215129852297,
+                "w": 0.6573923230171204
+            },
+            "Scale": {
+                "x": 1.5851874351501465,
+                "y": 1.4923301935195923,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 412,
             "parentID": 403,
             "PrefabAddress": "Water_FishD",
             "Position": {
@@ -8999,7 +9087,29 @@
             "SiblingIndex": 4
         },
         {
-            "ID": 409,
+            "ID": 413,
+            "parentID": 412,
+            "PrefabAddress": "MiniMapMarker 1",
+            "Position": {
+                "x": -123.7807388305664,
+                "y": -0.8110799789428711,
+                "z": 1.2545676231384278
+            },
+            "Rotation": {
+                "x": 0.3801671862602234,
+                "y": 0.596215546131134,
+                "z": -0.596215546131134,
+                "w": 0.3801671862602234
+            },
+            "Scale": {
+                "x": 3.0,
+                "y": 1.8724253177642823,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 414,
             "parentID": 403,
             "PrefabAddress": "Water_FishB",
             "Position": {
@@ -9021,7 +9131,29 @@
             "SiblingIndex": 5
         },
         {
-            "ID": 410,
+            "ID": 415,
+            "parentID": 414,
+            "PrefabAddress": "MiniMapMarker 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.6489501595497131,
+                "y": -0.2808269262313843,
+                "z": 0.2808269262313843,
+                "w": 0.6489501595497131
+            },
+            "Scale": {
+                "x": 3.0,
+                "y": 1.8724253177642823,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 416,
             "parentID": 403,
             "PrefabAddress": "Water_FishE",
             "Position": {
@@ -9043,7 +9175,29 @@
             "SiblingIndex": 6
         },
         {
-            "ID": 411,
+            "ID": 417,
+            "parentID": 416,
+            "PrefabAddress": "MiniMapMarker 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.6869360208511353,
+                "y": -0.16768696904182435,
+                "z": 0.16768696904182435,
+                "w": 0.6869360208511353
+            },
+            "Scale": {
+                "x": 3.0,
+                "y": 1.8724253177642823,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 418,
             "parentID": 403,
             "PrefabAddress": "Water_FishC",
             "Position": {
@@ -9065,7 +9219,29 @@
             "SiblingIndex": 7
         },
         {
-            "ID": 412,
+            "ID": 419,
+            "parentID": 418,
+            "PrefabAddress": "MiniMapMarker 1",
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.6643189787864685,
+                "y": 0.24224016070365907,
+                "z": -0.24224016070365907,
+                "w": 0.6643189787864685
+            },
+            "Scale": {
+                "x": 3.0,
+                "y": 1.8724253177642823,
+                "z": 3.0
+            },
+            "SiblingIndex": 0
+        },
+        {
+            "ID": 420,
             "parentID": 0,
             "PrefabAddress": "AnimalGroup",
             "Position": {
@@ -9087,7 +9263,7 @@
             "SiblingIndex": 4
         },
         {
-            "ID": 413,
+            "ID": 421,
             "parentID": 0,
             "PrefabAddress": "Treasure",
             "Position": {
@@ -9109,8 +9285,8 @@
             "SiblingIndex": 5
         },
         {
-            "ID": 414,
-            "parentID": 413,
+            "ID": 422,
+            "parentID": 421,
             "PrefabAddress": "PP_Treasure_Chest_02_Red",
             "Position": {
                 "x": -97.95565795898438,
@@ -9131,7 +9307,7 @@
             "SiblingIndex": 0
         },
         {
-            "ID": 415,
+            "ID": 423,
             "parentID": 0,
             "PrefabAddress": "Riding",
             "Position": {
@@ -9153,8 +9329,8 @@
             "SiblingIndex": 6
         },
         {
-            "ID": 416,
-            "parentID": 415,
+            "ID": 424,
+            "parentID": 423,
             "PrefabAddress": "RidingHorse",
             "Position": {
                 "x": -23.80116081237793,
@@ -9175,7 +9351,7 @@
             "SiblingIndex": 0
         },
         {
-            "ID": 417,
+            "ID": 425,
             "parentID": 0,
             "PrefabAddress": "Envil",
             "Position": {
@@ -9197,8 +9373,8 @@
             "SiblingIndex": 7
         },
         {
-            "ID": 418,
-            "parentID": 417,
+            "ID": 426,
+            "parentID": 425,
             "PrefabAddress": "UpgradeAnvil",
             "Position": {
                 "x": 99.06199645996094,

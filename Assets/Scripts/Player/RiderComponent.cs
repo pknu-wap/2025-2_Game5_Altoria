@@ -16,9 +16,9 @@ public class RiderComponent : MonoBehaviour
 
     public event Action<bool, IRiding> OnRideChanged;
 
-#if UNITY_EDITOR
+
     private readonly Collider[] hitBuffer = new Collider[10];
-#endif
+
 
     public IRiding CurrentMount => currentMount;
     public bool IsRiding => isRiding;

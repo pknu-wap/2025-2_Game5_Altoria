@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.AI;
 using static Define;
 
 namespace GameInteract
@@ -12,7 +11,7 @@ namespace GameInteract
         public Vector3 Rotation;
     }
 
-    public class RidingInteractComponent : BaseEntityComponent, IRiding, IMoveInput, IPlayerMovable,IJumper
+    public class RidingInteractComponent : BaseEntityComponent, IRiding, IMoveInput, IPlayerMovable, IJumper
     {
         [SerializeField] Transform mountPoint;
         [SerializeField] Animator animator;
@@ -22,12 +21,14 @@ namespace GameInteract
 
         IEntity rider;
         IMove move;
-        MoveHandler moveHandler;  
+        MoveHandler moveHandler;
         float lastRidingTime = -999f;
+
+        Vector3 savedScale;
+        Quaternion savedRotation;
 
         public Transform MountPoint => mountPoint;
         public bool IsOccupied => rider != null;
-
         public IMove Move => move;
         public IMoveData MoveData => data;
 
@@ -38,7 +39,7 @@ namespace GameInteract
         {
             move = new Move();
             move.SetEntity(this);
-            moveHandler = new MoveHandler(move); 
+            moveHandler = new MoveHandler(move);
         }
 
         void Update()
@@ -62,71 +63,70 @@ namespace GameInteract
             if (entity == null || rider != null) return;
 
             rider = entity;
-            Transform target = entity.transform;
+            Transform root = rider.transform;
 
- 
-            Vector3 mountForward = mountPoint.forward;
-            mountForward.y = 0f; 
-            if (mountForward.sqrMagnitude > 0.001f)
-                target.rotation = Quaternion.LookRotation(mountForward);
+            savedRotation = root.rotation;
+            savedScale = root.localScale;
 
-            Vector3 worldPos = mountPoint.TransformPoint(offset.Position);
-            target.position = worldPos;
+            Vector3 forward = mountPoint.forward;
+            forward.y = 0f;
+            if (forward.sqrMagnitude > 0.001f)
+                root.rotation = Quaternion.LookRotation(forward);
 
-           
-            target.SetParent(mountPoint, true);
-            target.localRotation = Quaternion.Euler(offset.Rotation);
+            root.SetParent(mountPoint, false);
+            root.localPosition = Vector3.zero;         
+            root.localRotation = Quaternion.identity;
+            root.localPosition = offset.Position;    
+            root.localRotation = Quaternion.Euler(offset.Rotation);
 
-         
-            Vector3 worldScale = target.lossyScale;
-            target.localScale = new Vector3(
-                worldScale.x / target.lossyScale.x * target.localScale.x,
-                worldScale.y / target.lossyScale.y * target.localScale.y,
-                worldScale.z / target.lossyScale.z * target.localScale.z
+            if (entity is IModel model)
+            {
+                model.Model.localPosition = new Vector3(0, model.Model.localPosition.y, 0);
+                model.Model.localRotation = Quaternion.Euler(0f, 0f, 0f); 
+            }
+            
+
+            var parentScale = mountPoint.lossyScale;
+            root.localScale = new Vector3(
+                savedScale.x / parentScale.x,
+                savedScale.y / parentScale.y,
+                savedScale.z / parentScale.z
             );
 
-            Debug.Log($"[Riding] Mounted (aligned): {entity}");
             OnMounted?.Invoke(entity);
         }
-
-
 
         void Dismount(IEntity entity)
         {
             if (rider == null) return;
+
             OnMoveCancel();
-            var target = rider.transform;
-            target.SetParent(null);
-            target.position = mountPoint.position + transform.forward * 1.5f;
+            Transform root = rider.transform;
 
-            Debug.Log($"[Riding] Dismounted: {entity}");
+            root.SetParent(null, true);
+
+            root.position = mountPoint.TransformPoint(new Vector3(0f, 0f, -1.5f)); 
+
+            root.rotation = savedRotation;
+            root.localScale = savedScale;
+
             OnDismounted?.Invoke(entity);
+
+            if (entity is IModel model)
+            {
+                model.Model.localPosition = new Vector3(0, model.Model.localPosition.y, 0);
             
-            ResetEvent();
+            }
+
             rider = null;
-        }
-        void StopMove()
-        { 
-            Move.SetMoveInput(Vector3.zero);
-
-        }
-        public void ForceDismount()
-        {
-            if (rider != null) StopAllCoroutines();
-        }
-
-        
-        void ResetEvent()
-        {
             OnMounted = null;
             OnDismounted = null;
         }
 
-        #region IMoveInput Implementation
-
         public void OnMoveInput(Vector2 dir)
         {
             if (rider == null) return;
+
             moveHandler?.SetInput(dir);
 
             if (animator)
@@ -146,9 +146,6 @@ namespace GameInteract
         {
             move.Jump();
             animator.SetTrigger("Jump");
-
         }
-
-        #endregion
     }
 }

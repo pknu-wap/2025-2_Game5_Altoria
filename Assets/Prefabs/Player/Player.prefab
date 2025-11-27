@@ -107,7 +107,7 @@ MonoBehaviour:
   camera: {fileID: 2890462667965848778}
   cameraCollision:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _offset: {x: 0, y: 3, z: -4.25}
   inputHandler: {fileID: 3852071802707214573}
 --- !u!1 &2607279241957790892
@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac140d49da99ce4e96d1329c34edfd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 937644298799092754}
   animator: {fileID: 6621138424599072360}
   socketHandler: {fileID: 2850349207364785792}
   groundChecker: {fileID: 1940220007958389029}

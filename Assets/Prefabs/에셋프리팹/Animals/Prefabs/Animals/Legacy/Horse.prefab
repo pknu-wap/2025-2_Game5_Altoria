@@ -1731,7 +1731,7 @@ MonoBehaviour:
   mountPoint: {fileID: 3179456336793020115}
   animator: {fileID: 95659398919577886}
   offset:
-    Position: {x: 0, y: 0.35, z: 0.15}
+    Position: {x: 0, y: 0.35, z: 0.3}
     Rotation: {x: 0, y: 60, z: 0}
   data: {fileID: 11400000, guid: d884ef3376cbfba4b8c5ed29b608b531, type: 2}
   delay: 1.2
@@ -1748,7 +1748,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1

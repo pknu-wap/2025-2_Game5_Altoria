@@ -67,6 +67,7 @@ namespace GameInteract
         void EndCollect(ITimer timer)
         {
             GetComponent<Collider>().enabled = false;
+            EndInteract();
             StartCoroutine("CoolTime");
 
             List<(CollectGroup, float)> probList = new List<(CollectGroup, float)>();
@@ -89,7 +90,7 @@ namespace GameInteract
             var popUp = Manager.UI.ShowPopup<GetItemPopUp>();
             popUp.SetData(itemID, item.Count);
 
-            EndInteract();
+
         }
 
         IEnumerator CoolTime()

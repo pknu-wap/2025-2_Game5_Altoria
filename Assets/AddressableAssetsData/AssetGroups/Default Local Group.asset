@@ -230,6 +230,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07a378506b22aa84f9fcbe754f6ee21a
+    m_Address: MiniMapMarker 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 082dc38b744790042a8debe65a0afda9
     m_Address: PP_Crystal_05_Silver
     m_ReadOnly: 0
@@ -7030,6 +7035,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6569d2f4682ba440b2b429b321f2679
+    m_Address: MiniMapMarker
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6c48b1adf5025248911c1ddece29f90
     m_Address: PP_Blacksmith_Roof_End_03
     m_ReadOnly: 0
@@ -7052,6 +7062,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74cf8f870386dd4b841730458e9ddff
     m_Address: PP_Meadow_Lake_04
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7588dd2a5315d141adc4655eb01e414
+    m_Address: WanderZone
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
