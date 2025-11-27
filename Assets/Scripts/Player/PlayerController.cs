@@ -118,8 +118,7 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable, IMoveInput,
         if (grounded)
         {
             isJump = false;
-            if (!State.HasState(PlayerState.Move))
-                State.SetState(PlayerState.Idle);
+            if (!State.HasState(PlayerState.Move)) State.SetState(PlayerState.Idle);
         }
         animController.SetBool("IsGround", grounded);
     }

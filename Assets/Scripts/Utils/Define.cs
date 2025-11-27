@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Define
@@ -52,18 +53,25 @@ public class Define
         E,
         COUNT
     }
+    [Flags]
     public enum PlayerState
     {
-        Idle=0,
-        Move=1<<0,
-        Jump=1<<1,
-        Interacting=1<<2,
-        Riding=1<<3,
-        Attack=1<<4,
-        Run=1<<5,
-        Die=1<<6,
+        None = 0,
 
+
+        Idle = 1 << 0,
+        Move = 1 << 1,
+        Jump = 1 << 2,
+        Fall = 1 << 3,
+        Interacting = 1<<4,
+        Die = 1 << 5,
+
+        
+        Run = 1 << 10,
+        Riding = 1 << 11,
+        Attack = 1 << 12,
     }
+
     public enum CustomizationType
     {
         eyebrows,
