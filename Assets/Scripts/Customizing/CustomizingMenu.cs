@@ -46,6 +46,7 @@ namespace GameUI
         {
             gender = 0;
             SetSlot();
+            InitMesh();
         }
 
         void SetSlot()
@@ -87,6 +88,7 @@ namespace GameUI
             if (gender == 1 && type == CustomizationType.facialHair_) return;
             
             var value = Manager.Resource.Load<Mesh>(id);
+
             Manager.UserData.GetUserData<UserPlayerData>().SetID(type, id);
             switch (type)
             {
@@ -118,7 +120,6 @@ namespace GameUI
                 var index = (i == 3 || i == 4) ? "1" : "0";
                 var id = $"{firstFormat}[{secondFormat}{type}{index}]";
 
-                Debug.Log(id);
                 ApplyMesh(type, id);
             }
         }

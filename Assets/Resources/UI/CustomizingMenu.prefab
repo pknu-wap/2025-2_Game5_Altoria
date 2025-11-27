@@ -7563,7 +7563,6 @@ GameObject:
   - component: {fileID: 7190229725243894718}
   - component: {fileID: 5718213744859315465}
   - component: {fileID: 5128296506950539607}
-  - component: {fileID: 7008097811759951828}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -7784,27 +7783,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7008097811759951828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495489281398172542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 900cfbbcd143eb1429e8715c580951eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 6880363467568472356}
-  topBody: {fileID: 647792523988435157}
-  bottomBody: {fileID: 4400825837499013164}
-  partsModels:
-  - {fileID: 9141769937789951854}
-  - {fileID: 5107349340356939436}
-  - {fileID: 9200268755506444588}
-  - {fileID: 2775600986409574652}
-  - {fileID: 5067846298865609621}
 --- !u!1 &4506283019712796990
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,7 +9455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fbc3419c9367b43aa1daac29b0cd7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 3830591869144805828}
   dragArea: {fileID: 6097472006471929220}
   rotationSpeed: 0.3
 --- !u!1 &5078438416277246735

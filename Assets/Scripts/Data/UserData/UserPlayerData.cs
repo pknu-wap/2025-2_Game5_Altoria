@@ -78,9 +78,9 @@ public class PlayerData
 
 public class UserPlayerData : Security, IUserData
 {
-    string path = Path.Combine(Application.dataPath, "Data/playerData.json");
-    string custom_path = Path.Combine(Application.dataPath, "Data/customData.json");
-    string color_path = Path.Combine(Application.dataPath, "Data/colorData.json");
+    string path = Path.Combine(Application.persistentDataPath, "playerData.json");
+    string custom_path = Path.Combine(Application.persistentDataPath, "customData.json");
+    string color_path = Path.Combine(Application.persistentDataPath, "colorData.json");
 
     PlayerData userPlayerData;
     List<CustomData> userCustomizingData;
