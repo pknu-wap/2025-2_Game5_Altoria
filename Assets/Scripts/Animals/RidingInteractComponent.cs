@@ -62,32 +62,32 @@ namespace GameInteract
             if (entity == null || rider != null) return;
 
             rider = entity;
-            Transform target = entity.transform;
-
- 
+            Transform root = entity.transform;
+      
             Vector3 mountForward = mountPoint.forward;
-            mountForward.y = 0f; 
+            mountForward.y = 0f;
             if (mountForward.sqrMagnitude > 0.001f)
-                target.rotation = Quaternion.LookRotation(mountForward);
+                root.rotation = Quaternion.LookRotation(mountForward);
 
             Vector3 worldPos = mountPoint.TransformPoint(offset.Position);
-            target.position = worldPos;
+            root.position = worldPos;
 
-           
-            target.SetParent(mountPoint, true);
-            target.localRotation = Quaternion.Euler(offset.Rotation);
+            root.SetParent(mountPoint, true);
 
+            root.localRotation = Quaternion.Euler(offset.Rotation);
          
-            Vector3 worldScale = target.lossyScale;
-            target.localScale = new Vector3(
-                worldScale.x / target.lossyScale.x * target.localScale.x,
-                worldScale.y / target.lossyScale.y * target.localScale.y,
-                worldScale.z / target.lossyScale.z * target.localScale.z
+            if (entity is IModel model) model.Model.localRotation = Quaternion.identity;
+            Vector3 worldScale = root.lossyScale;
+            root.localScale = new Vector3(
+                worldScale.x / root.lossyScale.x * root.localScale.x,
+                worldScale.y / root.lossyScale.y * root.localScale.y,
+                worldScale.z / root.lossyScale.z * root.localScale.z
             );
 
             Debug.Log($"[Riding] Mounted (aligned): {entity}");
             OnMounted?.Invoke(entity);
         }
+
 
 
 
