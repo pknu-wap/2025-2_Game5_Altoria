@@ -19,12 +19,13 @@ public class GameScene : BaseScene
         if (isInit) return;
         isInit = true;
         base.Init();
-
+        
         GameSystem.Init();
         sceneType = Define.SceneType.GameScene;
 
         SceneLoad();
         CreatDayNight();
+        SoundManager.Instance.PlayBGM(BGM.GamePlay);
     }
 
     void SceneLoad()
