@@ -75,6 +75,7 @@ public class InteractionSystem
     }
     void HandleInteractionEnded()
     {
+        if(CurrentTarget!=null)
         CurrentTarget.OnInteractionEnded -= HandleInteractionEnded;
         EndInteract();
     }

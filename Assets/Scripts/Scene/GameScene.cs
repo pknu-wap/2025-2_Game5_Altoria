@@ -4,6 +4,7 @@ using SceneLoad;
 using SceneLoade;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameScene : BaseScene
 {
@@ -58,16 +59,16 @@ public class GameScene : BaseScene
     void PlayerLoad()
     {
         Manager.Resource.Instantiate(
-            PlayerKey,
-            new InstantiateOptions
-            {
-                Position = Manager.UserData.GetUserData<UserPlayerData>().GetPlayerPosition(),
-                Rotation = Manager.UserData.GetUserData<UserPlayerData>().GetPlayerQuaternion()
-            },
-            obj =>
-            {
-                Manager.UI.ShowHUD<UI_GameScene>();
-            });
+    PlayerKey,
+    new InstantiateOptions
+    {
+        Position = Manager.UserData.GetUserData<UserPlayerData>().GetPlayerPosition(),
+        Rotation = Manager.UserData.GetUserData<UserPlayerData>().GetPlayerQuaternion()
+    },
+    obj =>
+    {
+        Manager.UI.ShowHUD<UI_GameScene>();
+    });
     }
 
     void CreatDayNight()

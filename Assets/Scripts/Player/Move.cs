@@ -126,7 +126,7 @@ public class Move : IMove
     {
         if (transform.TryGetComponent<PlayerController>(out var player))
         {
-            if (player.State.HasState(PlayerState.Run)) return data.RunSpeed;
+            if (player.State.HasState(PlayerState.Run)&&!player.State.HasState(PlayerState.Idle)) return data.RunSpeed;
         }
 
         return data.Speed;

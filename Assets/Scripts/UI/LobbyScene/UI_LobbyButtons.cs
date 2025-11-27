@@ -2,7 +2,7 @@ using Common;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Recorder.OutputPath;
+
 
 namespace GameUI
 {

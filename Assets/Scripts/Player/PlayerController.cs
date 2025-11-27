@@ -224,8 +224,8 @@ public class PlayerController : BaseEntityComponent, IPlayerMovable, IMoveInput,
             animController.SetBool("IsRiding", false);
           
             cameraHandler.SetDefaultCamera();
-            State.RemoveState(PlayerState.Riding);
-
+            State.RemoveState(PlayerState.Riding); 
+            State.SetState(PlayerState.Idle);
             Debug.Log("[PlayerController] Dismounted");
         }
     }

@@ -1,11 +1,8 @@
 using Common;
-using GameInteract;
 using GameItem;
 using static Define;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Build.Content;
-
 namespace GameUI
 {
     public class Hotbar : UIWidget
