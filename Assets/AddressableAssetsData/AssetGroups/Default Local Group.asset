@@ -1555,11 +1555,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 37085f85c0192e34aac0cda4918318fe
-    m_Address: Player
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 370fa77f28e68f14cb97f109ffddce45
     m_Address: PP_Crystal_08_Blue
     m_ReadOnly: 0
