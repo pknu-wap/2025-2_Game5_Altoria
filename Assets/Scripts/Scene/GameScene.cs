@@ -19,12 +19,13 @@ public class GameScene : BaseScene
         if (isInit) return;
         isInit = true;
         base.Init();
-
+        
         GameSystem.Init();
         sceneType = Define.SceneType.GameScene;
 
         SceneLoad();
         CreatDayNight();
+        SoundManager.Instance.PlayBGM(BGM.GamePlay);
     }
 
     void SceneLoad()
@@ -88,5 +89,10 @@ public class GameScene : BaseScene
         var popUp = Manager.UI.ShowPopup<GetItemPopUp>();
         popUp.SetData("10080072", 10);
         popUp.SetEtcText("선물이 도착했습니다!");
+    }
+
+    private void OnDisable()
+    {
+        SoundManager.Instance.StopBGM();
     }
 }

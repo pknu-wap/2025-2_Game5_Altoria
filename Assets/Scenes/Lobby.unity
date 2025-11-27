@@ -494,8 +494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmClips:
-  - {fileID: 8300000, guid: 7b1e6d51dd2d1a34b816debbb230ec6d, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: b7a006535018b4f4996c103f6d888a18, type: 3}
+  - {fileID: 8300000, guid: 853a3413111add5489760eb0a355b73b, type: 3}
   audioBgm: {fileID: 443270512}
   sfxPoolSize: 10
 --- !u!4 &905269195

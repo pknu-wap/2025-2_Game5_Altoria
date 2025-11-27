@@ -4,7 +4,7 @@ using UnityEngine;
 public enum BGM
 {
     Lobby, // ·Îºñ À½¾Ç
-    Forest // ½£ À½¾Ç   
+    GamePlay, // °ÔÀÓ ÇÃ·¹ÀÌ À½¾Ç  
 }
 
 public class SoundManager : MonoBehaviour
@@ -140,13 +140,6 @@ public class SoundManager : MonoBehaviour
         if (sfxSources.Count > 0)
             return sfxSources[0].volume;
         return 1f;
-    }
-
-    #endregion
-
-    #region Save & Load
-    public void saveToSettingData()
-    {
     }
     #endregion
 }
