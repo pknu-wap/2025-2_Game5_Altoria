@@ -25,6 +25,7 @@ namespace GameUI
 
         [Header("Set Change Color Target")]
         [SerializeField] SkinnedMeshRenderer[] changeThisColor;
+        [SerializeField] SkinnedMeshRenderer[] bodyColor;
 
         [Header("Dropdown")]
         [SerializeField] TMP_Dropdown colorComponentDropdown;
@@ -114,6 +115,12 @@ namespace GameUI
             hexInputField.text = ColorUtility.ToHtmlStringRGB(currentColor);
 
             changeThisColor[colorComponentDropdown.value].material.SetColor(colorComponent.ToString(), currentColor);
+            if(colorComponentDropdown.value == 0)
+            {
+                for(int i = 0; i < bodyColor.Length; i++)
+                    bodyColor[i].material.SetColor(colorComponent.ToString(), currentColor);
+            }
+
             Manager.UserData.GetUserData<UserPlayerData>().SetColor(currentColor, colorComponentDropdown.value); 
         }
 
@@ -162,7 +169,7 @@ namespace GameUI
         public void OnChagedDropDown()
         {
             if (colorComponentDropdown.value > 3)
-                colorComponent = (EColorComponent)(colorComponentDropdown.value - 4);
+                colorComponent = EColorComponent._Color2;
             else
                 colorComponent = (EColorComponent)colorComponentDropdown.value;
         }
