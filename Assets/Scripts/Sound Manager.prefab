@@ -307,20 +307,5 @@ MonoBehaviour:
   bgmClips:
   - {fileID: 8300000, guid: 7b1e6d51dd2d1a34b816debbb230ec6d, type: 3}
   - {fileID: 0}
-  sfxClips:
-  - {fileID: 8300000, guid: 3157bab3f7ec79f41a8c993659a7eff1, type: 3}
-  - {fileID: 8300000, guid: f348d88c6d9b3934e9a9370c56c6c863, type: 3}
-  - {fileID: 8300000, guid: f7ebcb1b65ca2d4419b5233c083745bc, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   audioBgm: {fileID: 5296853333855019410}
-  audioSfx: {fileID: 7649899155428006635}
+  sfxPoolSize: 10

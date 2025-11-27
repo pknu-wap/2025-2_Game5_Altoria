@@ -5,8 +5,8 @@ using TMPro;
 // UI) 슬라이더와 input field를 연동 (퍼센트 표시)
 public class SliderInput : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
-    [SerializeField] private TMP_InputField input;
+    public Slider slider;
+    public TMP_InputField input;
 
     public float Value
     {

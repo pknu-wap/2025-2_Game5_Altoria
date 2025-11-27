@@ -41,8 +41,8 @@ public class SettingPopUp : UIPopUp
         SFXtext.Value = soundManager.GetSFXVolume();
 
         // 슬라이더 값 변경 시 사운드 매니저에 반영
-        BGMtext.GetComponent<Slider>().onValueChanged.AddListener(soundManager.SetBGMVolume);
-        SFXtext.GetComponent<Slider>().onValueChanged.AddListener(soundManager.SetSFXVolume);
+        BGMtext.slider.onValueChanged.AddListener(soundManager.SetBGMVolume);
+        SFXtext.slider.onValueChanged.AddListener(soundManager.SetSFXVolume);
 
         // 화면모드, 품질
         screenmode.onValueChanged.AddListener(ChangeScreenMode);
