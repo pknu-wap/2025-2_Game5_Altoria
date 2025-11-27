@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public enum BGM
 {
     Lobby, // ∑Œ∫Ò ¿Ωæ«
-    GamePlay, // ∞‘¿” «√∑π¿Ã ¿Ωæ«  
+    GamePlay // ∞‘¿” «√∑π¿Ã ¿Ωæ«  
 }
 
 public class SoundManager : MonoBehaviour
@@ -85,6 +86,7 @@ public class SoundManager : MonoBehaviour
     }
     public void SetBGMVolume(float value)
     {
+        Debug.Log($"[SoundManager] SetBGMVolume »£√‚µ  / value = {value}");
         audioBgm.volume = value;   
     }
     public float GetBGMVolume()
@@ -127,11 +129,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetSFXVolume(float v)
+    public void SetSFXVolume(float value)
     {
         for (int i = 0; i < sfxSources.Count; i++)
         {
-            sfxSources[i].volume = v;
+            sfxSources[i].volume = value;
         }
     }
 
