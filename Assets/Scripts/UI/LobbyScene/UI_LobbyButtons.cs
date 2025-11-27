@@ -22,6 +22,7 @@ namespace GameUI
         #region OnClick Event
         public void OnClickStartButton()
         {
+            SoundManager.Instance.StopBGM();
             GameSystem.Init();
             if (!Manager.UserData.GetUserData<UserPlayerData>().GetCustomed())
             {
@@ -30,7 +31,6 @@ namespace GameUI
             }
             else
                 Manager.Scene.LoadScene(Define.SceneType.GameScene);
-
         }
 
         public void OnClickSettingButton()

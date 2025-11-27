@@ -12,7 +12,6 @@ using System.Text;
 public class SettingPopUp : UIPopUp
 {
     SettingData setting = SettingData.Instance;
-    [SerializeField] SoundManager soundManager;
 
     [Header("Setting Tabs")]
     [SerializeField] List<GameObject> tabs;
@@ -20,37 +19,29 @@ public class SettingPopUp : UIPopUp
     UIController ui;
 
     [Header("Audio Settings")]
-    [SerializeField] SliderInput BGMtext;  
-    [SerializeField] SliderInput SFXtext;   
+    [SerializeField] SliderInput BGMSlider;  
+    [SerializeField] SliderInput SFXSlider;   
 
     [Header("Control Settings")]
     [SerializeField] TMP_Dropdown screenmode;
     [SerializeField] TMP_Dropdown resolution;
-    [SerializeField] SliderInput CameraSensitivity;
 
-    void Awake()
-    {
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ShowTab(0);
-
+        
         // 오디오 초기화
-        BGMtext.Value = soundManager.GetBGMVolume();
-        SFXtext.Value = soundManager.GetSFXVolume();
+        BGMSlider.Value = SoundManager.Instance.GetBGMVolume();
+        SFXSlider.Value = SoundManager.Instance.GetSFXVolume();
 
         // 슬라이더 값 변경 시 사운드 매니저에 반영
-        BGMtext.GetComponent<Slider>().onValueChanged.AddListener(soundManager.SetBGMVolume);
-        SFXtext.GetComponent<Slider>().onValueChanged.AddListener(soundManager.SetSFXVolume);
+        BGMSlider.slider.onValueChanged.AddListener(SoundManager.Instance.SetBGMVolume);
+        SFXSlider.slider.onValueChanged.AddListener(SoundManager.Instance.SetSFXVolume);
 
         // 화면모드, 품질
         screenmode.onValueChanged.AddListener(ChangeScreenMode);
         resolution.onValueChanged.AddListener(SetGraphicQuality); 
-
-        // 카메라 감도 초기화
-        CameraSensitivity.Value = 60f;
-
     }
 
     public void OnClickAudioTab()
@@ -90,18 +81,6 @@ public class SettingPopUp : UIPopUp
     {
         Manager.UI.ClosePopup();
     }
-
-    // 오디오 설정
-    public void SetBGMSlider(float value)
-    {
-        soundManager.SetBGMVolume(value);
-    }
-
-    public void SetSFXSlider(float value)
-    {
-        soundManager.SetSFXVolume(value);
-    }
-
     // 화면 모드
     public void ChangeScreenMode(int index)
     {
@@ -112,11 +91,5 @@ public class SettingPopUp : UIPopUp
     public void SetGraphicQuality(int index)
     {
         setting.SetQuality(index);
-    }
-
-    // 그래픽 설정
-    public void SetCameraSensitivitySlider(float sensitivity)
-    {
-        setting.SetMouseSensitivity(sensitivity);
     }
 }
