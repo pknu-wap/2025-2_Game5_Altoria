@@ -1,4 +1,4 @@
-using Common;
+ï»¿using Common;
 using GameInteract;
 using GameItem;
 using System.Collections.Generic;
@@ -44,24 +44,24 @@ namespace GameUI
         string GenerateMessage(MonoBehaviour target)
         {
             if(target is CollectInteractComponent)
-                return "Ã¤ÁıÇÏ±â";
+                return "ì±„ì§‘í•˜ê¸°";
 
             if (target is UpgradeInteractComponent)
-                return "°­È­ÇÏ±â";
+                return "ê°•í™”í•˜ê¸°";
 
             if (target is CraftInteractComponent)
-                return "Á¦ÀÛÇÏ±â";
+                return "ì œì‘í•˜ê¸°";
 
             if (target is FishInteractComponent)
-                return "³¬½ÃÇÏ±â";
+                return "ë‚šì‹œí•˜ê¸°";
 
             if (target is InteractableAnimalComponent)
-                return "Å¸±â";
+                return "ëŒë´ì£¼ê¸°";
 
-            return "»óÈ£ÀÛ¿ëÇÏ±â";
+            return "ìƒí˜¸ì‘ìš©í•˜ê¸°";
         }
 
-        // »óÈ£ÀÛ¿ë ¹®±¸ º¸ÀÌ±â 
+        // ìƒí˜¸ì‘ìš© ë¬¸êµ¬ ë³´ì´ê¸° 
         void SetPromptActive(bool active)
         {
             if (interaction != null)

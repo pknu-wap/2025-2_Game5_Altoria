@@ -22,7 +22,9 @@ namespace GameUI
 
         [Header("Set Gender")]
         [SerializeField] TMP_Dropdown genderDropDown;
-        [SerializeField] SkinnedMeshRenderer model;
+        [SerializeField] SkinnedMeshRenderer modelHead;
+        [SerializeField] SkinnedMeshRenderer modelTop;
+        [SerializeField] SkinnedMeshRenderer modelBottom;
 
         [Header("Set Root")]
         [SerializeField] SkinnedMeshRenderer eyebrowRoot;
@@ -85,7 +87,7 @@ namespace GameUI
             if (gender == 1 && type == CustomizationType.facialHair_) return;
             
             var value = Manager.Resource.Load<Mesh>(id);
-
+            Manager.UserData.GetUserData<UserPlayerData>().SetID(type, id);
             switch (type)
             {
                 case CustomizationType.eyebrows:
@@ -113,7 +115,7 @@ namespace GameUI
                 var type = (CustomizationType)i;
                 var firstFormat = ((EGender)gender).ToString();
                 var secondFormat = i == 3 ? $"" : $"{firstFormat[0]}_";
-                var index = (i == 3 || i == 4) ? 1 : 0;
+                var index = (i == 3 || i == 4) ? "1" : "0";
                 var id = $"{firstFormat}[{secondFormat}{type}{index}]";
 
                 Debug.Log(id);
@@ -148,7 +150,9 @@ namespace GameUI
             facehairRoot.enabled = gender == 1 ? false : true;
 
             var curGender = ((EGender)gender).ToString();
-            model.sharedMesh = Manager.Resource.Load<Mesh>($"{curGender}[{curGender[0]}_Head]");
+            modelHead.sharedMesh = Manager.Resource.Load<Mesh>($"{curGender}[{curGender[0]}_Head]");
+            modelTop.sharedMesh = Manager.Resource.Load<Mesh>($"{curGender}[{curGender[0]}_TopBody]");
+            modelBottom.sharedMesh = Manager.Resource.Load<Mesh>($"{curGender}[{curGender[0]}_BottomBody]");
 
             Manager.UserData.GetUserData<UserPlayerData>().SetGender(gender);
 

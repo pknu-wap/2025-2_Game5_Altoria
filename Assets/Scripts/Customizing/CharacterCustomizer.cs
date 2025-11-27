@@ -29,7 +29,7 @@ public class CharacterCustomizer : MonoBehaviour
             if (gender == "Female" && i == 3)
             {
                 partsModels[i].enabled = false;
-                return;
+                continue;
             }
 
             var id = Manager.UserData.GetUserData<UserPlayerData>().GetID((Define.CustomizationType)i);
